@@ -1,52 +1,156 @@
+'use client';
 
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleFaq = (index) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
+
+  const faqData = {
+    "About the Platform": [
+      {
+        question: "How is Anchora different from employee surveys?",
+        answer: "Surveys are periodic snapshots. Anchora is continuous listening. Employees post when issues arise—not when HR schedules a survey. Plus, we track problems to resolution. Surveys just collect data."
+      },
+      {
+        question: "Is Anchora really anonymous?",
+        answer: "Yes. We use AES-256 encryption for anonymous posts. Even database admins can't see who posted. Only designated HR admins with explicit permission can decrypt in serious cases (harassment, threats)."
+      },
+      {
+        question: "What if employees abuse anonymity?",
+        answer: "Rare, but possible. Admins can flag inappropriate content. Repeated abuse patterns can be detected. Plus, most posts are constructive—employees want real problems solved."
+      },
+      {
+        question: "How long does setup take?",
+        answer: "5 minutes. Create account → Add company info → Invite employees → Start posting. No consulting required. No training needed."
+      },
+      {
+        question: "Do you integrate with Slack/Teams/JIRA?",
+        answer: "Not yet, but coming soon! Currently focused on perfecting the core experience. Integrations launching Q2 2025."
+      }
+    ],
+    "About Security & Privacy": [
+      {
+        question: "Where is my data stored?",
+        answer: "Google Cloud (US) or EU servers (you choose). Bank-level encryption. SOC 2 Type II certified. GDPR and CCPA compliant."
+      },
+      {
+        question: "Who can see posts?",
+        answer: "By default, all company employees see all posts (transparency). Admins can make posts department-only or HR-only for sensitive issues."
+      },
+      {
+        question: "Can employees delete their posts?",
+        answer: "Yes, within 24 hours. After that, posts become part of company record (prevents deleting evidence of serious issues)."
+      },
+      {
+        question: "What happens to data if we cancel?",
+        answer: "You get a full export (JSON/CSV). We delete all data within 30 days per GDPR requirements."
+      }
+    ],
+    "About Pricing & Billing": [
+      {
+        question: "What if we grow mid-year?",
+        answer: "You're only charged for new employees added. Prorated to your billing cycle. No penalties for growth!"
+      },
+      {
+        question: "Do inactive employees count?",
+        answer: "No. Only active users who can post/comment. Deactivated accounts don't count toward your bill."
+      },
+      {
+        question: "Can we pause our account?",
+        answer: "Yes, but you lose access to features. Data is preserved. Unpause anytime. Better to use free tier (10 employees)."
+      },
+      {
+        question: "Do you offer annual prepay discounts?",
+        answer: "Yes! Pay annually, get 2 months free (16% savings). Plus, lock in your rate for the year."
+      }
+    ]
+  };
   return (
     <main className="flex min-h-screen flex-col items-center justify-between bg-cloud text-navy">
       {/* Header */}
-      <header className="w-full bg-white shadow-md">
-        <div className="container mx-auto flex max-w-6xl items-center justify-between p-4">
+      <header className="sticky top-0 z-50 w-full bg-white shadow-md">
+        <div className="container mx-auto flex max-w-7xl items-center justify-between p-4">
           <div className="flex items-center">
-            <Image src="/logo-anchora.svg" alt="Anchora Logo" width={160} height={48} />
+            <Image src="/logo-anchora.svg" alt="Anchora Logo" width={160} height={48} priority />
           </div>
-          <nav className="hidden space-x-8 text-sm font-semibold md:flex">
-            <a href="#features" className="hover:text-teal">Features</a>
-            <a href="#pricing" className="hover:text-teal">Pricing</a>
-            <a href="#contact" className="hover:text-teal">Contact</a>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden space-x-6 text-sm font-semibold lg:flex">
+            <a href="#features" className="transition hover:text-teal">Features</a>
+            <a href="#benefits" className="transition hover:text-teal">Benefits</a>
+            <a href="#use-cases" className="transition hover:text-teal">Use Cases</a>
+            <a href="#pricing" className="transition hover:text-teal">Pricing</a>
+            <a href="#faq" className="transition hover:text-teal">FAQ</a>
+            <a href="#contact-form" className="transition hover:text-teal">Contact</a>
           </nav>
-          <div>
-            <a href="/signup" className="rounded-lg bg-coral px-4 py-2 text-sm font-bold text-white transition hover:bg-opacity-80">
+
+          <div className="flex items-center gap-4">
+            <a href="/signup" className="rounded-lg bg-coral px-4 py-2 text-sm font-bold text-white transition hover:bg-opacity-80 hover:shadow-lg">
               Start Free Trial
             </a>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden text-navy focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden border-t border-gray-200 bg-white">
+            <nav className="container mx-auto flex flex-col space-y-4 p-4 text-sm font-semibold">
+              <a href="#features" onClick={() => setMobileMenuOpen(false)} className="transition hover:text-teal">Features</a>
+              <a href="#benefits" onClick={() => setMobileMenuOpen(false)} className="transition hover:text-teal">Benefits</a>
+              <a href="#use-cases" onClick={() => setMobileMenuOpen(false)} className="transition hover:text-teal">Use Cases</a>
+              <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="transition hover:text-teal">Pricing</a>
+              <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="transition hover:text-teal">FAQ</a>
+              <a href="#contact-form" onClick={() => setMobileMenuOpen(false)} className="transition hover:text-teal">Contact</a>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
-      <section className="hero w-full bg-gradient-to-b from-cloud to-white py-20 px-4">
+      <section className="hero w-full bg-gradient-to-b from-cloud to-white py-12 px-4 sm:py-16 md:py-20">
         <div className="container mx-auto max-w-6xl text-center">
-          <h1 className="font-montserrat text-5xl font-bold leading-tight text-navy md:text-6xl">
+          <h1 className="font-montserrat text-4xl font-bold leading-tight text-navy sm:text-5xl md:text-6xl">
             Your Anchor in Every Storm
           </h1>
-          <p className="mx-auto mt-6 max-w-4xl text-2xl font-semibold text-navy md:text-3xl">
+          <p className="mx-auto mt-4 max-w-4xl text-xl font-semibold text-navy sm:mt-6 sm:text-2xl md:text-3xl px-4">
             Give Every Employee a Voice That Creates Real Change
           </p>
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-600">
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-gray-600 sm:mt-6 sm:text-lg px-4">
             When work stress and personal challenges collide, Anchora keeps your team
             grounded, heard, and thriving. Anonymous feedback. Problem tracking.
             Real solutions. Starting at just <span className="font-semibold text-teal">$1 per employee per month</span>.
           </p>
-          <div className="mt-10 mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-8 mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row sm:mt-10 sm:mb-8 px-4">
             <a
               href="/signup"
-              className="inline-block rounded-lg bg-coral px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:bg-opacity-90 hover:shadow-xl"
+              className="w-full sm:w-auto inline-block rounded-lg bg-coral px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:bg-opacity-90 hover:shadow-xl sm:px-8 sm:py-4 sm:text-lg text-center"
             >
               Start Free Trial - No Credit Card Required
             </a>
             <a
               href="/demo"
-              className="inline-block rounded-lg border-2 border-navy bg-white px-8 py-4 text-lg font-semibold text-navy transition hover:bg-gray-50"
+              className="w-full sm:w-auto inline-block rounded-lg border-2 border-navy bg-white px-6 py-3 text-base font-semibold text-navy transition hover:bg-gray-50 sm:px-8 sm:py-4 sm:text-lg text-center"
             >
               Watch 2-Min Demo
             </a>
@@ -74,18 +178,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="w-full bg-gradient-to-r from-transparent via-teal/30 to-transparent">
+        <div className="container mx-auto max-w-6xl">
+          <div className="h-px bg-gradient-to-r from-transparent via-teal to-transparent"></div>
+        </div>
+      </div>
+
       {/* The Problem Section */}
-      <section className="w-full bg-white py-20">
+      <section className="w-full bg-white py-12 sm:py-16 md:py-20">
         <div className="container mx-auto max-w-6xl px-4 text-center">
-          <h2 className="font-montserrat text-4xl font-bold text-navy md:text-5xl">
+          <h2 className="font-montserrat text-3xl font-bold text-navy sm:text-4xl md:text-5xl">
             The Silent Crisis in Your Workplace
           </h2>
-          <p className="font-inter mx-auto mt-6 max-w-3xl text-xl leading-relaxed text-gray-600">
+          <p className="font-inter mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-gray-600 sm:mt-6 sm:text-xl">
             67% of employees experience workplace stress but suffer in silence.
             <br />
             Problems go unreported. Ideas never surface. Your best people quietly quit.
           </p>
-          <div className="mt-16 grid gap-8 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:gap-8 md:grid-cols-3 md:mt-16">
             <div className="rounded-xl bg-gradient-to-br from-white to-gray-50 p-8 shadow-xl transition hover:shadow-2xl">
               <h3 className="font-montserrat text-2xl font-bold text-navy">The Cost</h3>
               <p className="font-inter mt-6 text-4xl font-bold text-coral">$359 Billion</p>
@@ -158,16 +269,23 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
+      {/* Section Divider */}
+      <div className="w-full bg-gradient-to-r from-transparent via-coral/30 to-transparent">
+        <div className="container mx-auto max-w-6xl">
+          <div className="h-px bg-gradient-to-r from-transparent via-coral to-transparent"></div>
+        </div>
+      </div>
+
       {/* The Solution Section */}
-      <section id="features" className="w-full bg-gradient-to-b from-cloud to-white py-20">
+      <section id="features" className="w-full bg-gradient-to-b from-cloud to-white py-12 sm:py-16 md:py-20">
         <div className="container mx-auto max-w-6xl px-4 text-center">
-          <h2 className="font-montserrat text-4xl font-bold leading-tight text-navy md:text-5xl">
+          <h2 className="font-montserrat text-3xl font-bold leading-tight text-navy sm:text-4xl md:text-5xl">
             Anchora Gives Every Employee a Safe Voice—
-            <br />
+            <br className="hidden sm:block" />
             And Every Problem a Path to Resolution
           </h2>
-          <div className="mt-16 grid gap-16 md:grid-cols-3">
+          <div className="mt-12 grid gap-12 sm:gap-14 md:grid-cols-3 md:mt-16 md:gap-16">
             {/* Step 1: Share Safely */}
             <div className="text-center">
               <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-teal to-teal-600 shadow-lg">
@@ -310,13 +428,20 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="w-full bg-gradient-to-r from-transparent via-navy/20 to-transparent">
+        <div className="container mx-auto max-w-6xl">
+          <div className="h-px bg-gradient-to-r from-transparent via-navy to-transparent"></div>
+        </div>
+      </div>
+
       {/* Key Features Section */}
-      <section id="key-features" className="w-full bg-white py-20">
+      <section id="key-features" className="w-full bg-white py-12 sm:py-16 md:py-20">
         <div className="container mx-auto max-w-6xl px-4">
-          <h2 className="font-montserrat text-center text-4xl font-bold text-navy md:text-5xl">
+          <h2 className="font-montserrat text-center text-3xl font-bold text-navy sm:text-4xl md:text-5xl">
             Everything You Need to Build a Culture That Listens
           </h2>
-          <div className="mt-16 grid gap-12 md:grid-cols-2">
+          <div className="mt-12 grid gap-8 sm:gap-10 md:grid-cols-2 md:mt-16 md:gap-12">
             {/* Feature 1: Anonymous & Named Posting */}
             <div className="rounded-xl bg-gradient-to-br from-cloud to-white p-8 shadow-lg transition hover:shadow-xl">
               <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-teal">
@@ -416,13 +541,20 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="w-full bg-gradient-to-r from-transparent via-teal/30 to-transparent">
+        <div className="container mx-auto max-w-6xl">
+          <div className="h-px bg-gradient-to-r from-transparent via-teal to-transparent"></div>
+        </div>
+      </div>
+
       {/* Benefits Section */}
-      <section id="benefits" className="w-full bg-gradient-to-b from-cloud to-white py-20">
+      <section id="benefits" className="w-full bg-gradient-to-b from-cloud to-white py-12 sm:py-16 md:py-20">
         <div className="container mx-auto max-w-6xl px-4">
-          <h2 className="font-montserrat text-center text-4xl font-bold text-navy md:text-5xl">
+          <h2 className="font-montserrat text-center text-3xl font-bold text-navy sm:text-4xl md:text-5xl">
             Why Companies Choose Anchora
           </h2>
-          <div className="mt-16 grid gap-12 md:grid-cols-2">
+          <div className="mt-12 grid gap-8 sm:gap-10 md:grid-cols-2 md:mt-16 md:gap-12">
             {/* For HR & Leadership */}
             <div className="rounded-xl bg-white p-8 shadow-lg">
               <h3 className="font-montserrat mb-6 text-3xl font-bold text-teal">
@@ -1240,6 +1372,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="w-full bg-gradient-to-r from-transparent via-teal/30 to-transparent">
+        <div className="container mx-auto max-w-6xl">
+          <div className="h-px bg-gradient-to-r from-transparent via-teal to-transparent"></div>
+        </div>
+      </div>
+
       {/* FAQ Section */}
       <section id="faq" className="w-full bg-white py-20">
         <div className="container mx-auto max-w-4xl px-4">
@@ -1250,161 +1389,179 @@ export default function Home() {
             Everything you need to know about Anchora
           </p>
 
-          {/* About the Platform */}
-          <div className="mb-12">
-            <h3 className="font-montserrat mb-6 text-2xl font-bold text-navy">
-              About the Platform
-            </h3>
-            <div className="space-y-6">
-              {/* Question 1 */}
-              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
-                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
-                  How is Anchora different from employee surveys?
-                </h4>
-                <p className="font-inter text-gray-700">
-                  Surveys are periodic snapshots. Anchora is continuous listening. Employees post when issues arise—not when HR schedules a survey. Plus, we track problems to resolution. Surveys just collect data.
-                </p>
-              </div>
+          {Object.entries(faqData).map((category, categoryIndex) => {
+            const [categoryName, questions] = category;
+            return (
+              <div key={categoryIndex} className="mb-12 last:mb-0">
+                <h3 className="font-montserrat mb-6 text-2xl font-bold text-navy">
+                  {categoryName}
+                </h3>
+                <div className="space-y-4">
+                  {questions.map((faq, faqIndex) => {
+                    const globalIndex = `${categoryIndex}-${faqIndex}`;
+                    const isOpen = openFaqIndex === globalIndex;
 
-              {/* Question 2 */}
-              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
-                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
-                  Is Anchora really anonymous?
-                </h4>
-                <p className="font-inter text-gray-700">
-                  Yes. We use AES-256 encryption for anonymous posts. Even database admins can't see who posted. Only designated HR admins with explicit permission can decrypt in serious cases (harassment, threats).
-                </p>
+                    return (
+                      <div
+                        key={faqIndex}
+                        className="rounded-lg border border-gray-200 bg-cloud transition-all hover:shadow-md"
+                      >
+                        <button
+                          onClick={() => toggleFaq(globalIndex)}
+                          className="w-full p-6 text-left flex items-start justify-between gap-4"
+                          aria-expanded={isOpen}
+                        >
+                          <h4 className="font-montserrat text-lg font-semibold text-navy pr-4">
+                            {faq.question}
+                          </h4>
+                          <svg
+                            className={`h-6 w-6 flex-shrink-0 text-teal transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                        {isOpen && (
+                          <div className="px-6 pb-6">
+                            <p className="font-inter text-gray-700 leading-relaxed">
+                              {faq.answer}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
+            );
+          })}
+        </div>
+      </section>
 
-              {/* Question 3 */}
-              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
-                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
-                  What if employees abuse anonymity?
-                </h4>
-                <p className="font-inter text-gray-700">
-                  Rare, but possible. Admins can flag inappropriate content. Repeated abuse patterns can be detected. Plus, most posts are constructive—employees want real problems solved.
-                </p>
-              </div>
+      {/* Section Divider */}
+      <div className="w-full bg-gradient-to-r from-transparent via-coral/30 to-transparent">
+        <div className="container mx-auto max-w-6xl">
+          <div className="h-px bg-gradient-to-r from-transparent via-coral to-transparent"></div>
+        </div>
+      </div>
 
-              {/* Question 4 */}
-              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
-                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
-                  How long does setup take?
-                </h4>
-                <p className="font-inter text-gray-700">
-                  5 minutes. Create account → Add company info → Invite employees → Start posting. No consulting required. No training needed.
-                </p>
-              </div>
-
-              {/* Question 5 */}
-              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
-                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
-                  Do you integrate with Slack/Teams/JIRA?
-                </h4>
-                <p className="font-inter text-gray-700">
-                  Not yet, but coming soon! Currently focused on perfecting the core experience. Integrations launching Q2 2025.
-                </p>
-              </div>
-            </div>
+      {/* Contact Us Section */}
+      <section id="contact-form" className="w-full bg-gradient-to-b from-cloud to-white py-20">
+        <div className="container mx-auto max-w-3xl px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-montserrat text-4xl font-bold text-navy md:text-5xl">
+              Get in Touch
+            </h2>
+            <p className="font-inter mt-4 text-lg text-gray-600">
+              Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+            </p>
           </div>
 
-          {/* About Security & Privacy */}
-          <div className="mb-12">
-            <h3 className="font-montserrat mb-6 text-2xl font-bold text-navy">
-              About Security & Privacy
-            </h3>
-            <div className="space-y-6">
-              {/* Question 1 */}
-              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
-                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
-                  Where is my data stored?
-                </h4>
-                <p className="font-inter text-gray-700">
-                  Google Cloud (US) or EU servers (you choose). Bank-level encryption. SOC 2 Type II certified. GDPR and CCPA compliant.
-                </p>
+          <div className="rounded-2xl bg-white p-8 shadow-xl md:p-12">
+            <form className="space-y-6">
+              {/* Company Name */}
+              <div>
+                <label htmlFor="company-name" className="font-montserrat block text-sm font-semibold text-navy mb-2">
+                  Company Name <span className="text-coral">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="company-name"
+                  name="company-name"
+                  required
+                  className="w-full rounded-lg border border-gray-300 px-4 py-3 text-navy focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20 transition"
+                  placeholder="Acme Corporation"
+                />
               </div>
 
-              {/* Question 2 */}
-              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
-                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
-                  Who can see posts?
-                </h4>
-                <p className="font-inter text-gray-700">
-                  By default, all company employees see all posts (transparency). Admins can make posts department-only or HR-only for sensitive issues.
-                </p>
+              {/* Name */}
+              <div>
+                <label htmlFor="name" className="font-montserrat block text-sm font-semibold text-navy mb-2">
+                  Your Name <span className="text-coral">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="w-full rounded-lg border border-gray-300 px-4 py-3 text-navy focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20 transition"
+                  placeholder="John Smith"
+                />
               </div>
 
-              {/* Question 3 */}
-              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
-                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
-                  Can employees delete their posts?
-                </h4>
-                <p className="font-inter text-gray-700">
-                  Yes, within 24 hours. After that, posts become part of company record (prevents deleting evidence of serious issues).
-                </p>
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className="font-montserrat block text-sm font-semibold text-navy mb-2">
+                  Email Address <span className="text-coral">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="w-full rounded-lg border border-gray-300 px-4 py-3 text-navy focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20 transition"
+                  placeholder="john@acme.com"
+                />
               </div>
 
-              {/* Question 4 */}
-              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
-                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
-                  What happens to data if we cancel?
-                </h4>
-                <p className="font-inter text-gray-700">
-                  You get a full export (JSON/CSV). We delete all data within 30 days per GDPR requirements.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* About Pricing & Billing */}
-          <div>
-            <h3 className="font-montserrat mb-6 text-2xl font-bold text-navy">
-              About Pricing & Billing
-            </h3>
-            <div className="space-y-6">
-              {/* Question 1 */}
-              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
-                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
-                  What if we grow mid-year?
-                </h4>
-                <p className="font-inter text-gray-700">
-                  You're only charged for new employees added. Prorated to your billing cycle. No penalties for growth!
-                </p>
+              {/* Message Body */}
+              <div>
+                <label htmlFor="message" className="font-montserrat block text-sm font-semibold text-navy mb-2">
+                  Message <span className="text-coral">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  className="w-full rounded-lg border border-gray-300 px-4 py-3 text-navy focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20 transition resize-none"
+                  placeholder="Tell us how we can help..."
+                ></textarea>
               </div>
 
-              {/* Question 2 */}
-              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
-                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
-                  Do inactive employees count?
-                </h4>
-                <p className="font-inter text-gray-700">
-                  No. Only active users who can post/comment. Deactivated accounts don't count toward your bill.
-                </p>
+              {/* Submit Button */}
+              <div className="pt-4">
+                <button
+                  type="submit"
+                  className="w-full rounded-lg bg-coral px-8 py-4 font-montserrat text-lg font-bold text-white shadow-lg transition hover:bg-opacity-90 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-coral/30"
+                >
+                  Send Message
+                </button>
               </div>
 
-              {/* Question 3 */}
-              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
-                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
-                  Can we pause our account?
-                </h4>
-                <p className="font-inter text-gray-700">
-                  Yes, but you lose access to features. Data is preserved. Unpause anytime. Better to use free tier (10 employees).
+              {/* Additional Contact Info */}
+              <div className="mt-8 border-t border-gray-200 pt-6 text-center">
+                <p className="font-inter text-sm text-gray-600 mb-4">
+                  Or reach us directly at:
                 </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm">
+                  <a href="mailto:hello@anchora.com" className="font-inter font-semibold text-teal hover:text-teal-600 transition flex items-center gap-2">
+                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    hello@anchora.com
+                  </a>
+                  <a href="mailto:sales@anchora.com" className="font-inter font-semibold text-teal hover:text-teal-600 transition flex items-center gap-2">
+                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    sales@anchora.com
+                  </a>
+                </div>
               </div>
-
-              {/* Question 4 */}
-              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
-                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
-                  Do you offer annual prepay discounts?
-                </h4>
-                <p className="font-inter text-gray-700">
-                  Yes! Pay annually, get 2 months free (16% savings). Plus, lock in your rate for the year.
-                </p>
-              </div>
-            </div>
+            </form>
           </div>
         </div>
       </section>
+
+      {/* Section Divider */}
+      <div className="w-full bg-gradient-to-r from-transparent via-navy/20 to-transparent">
+        <div className="container mx-auto max-w-6xl">
+          <div className="h-px bg-gradient-to-r from-transparent via-navy to-transparent"></div>
+        </div>
+      </div>
 
       {/* Final CTA Section */}
       <section id="demo" className="w-full bg-navy py-20 text-white">
