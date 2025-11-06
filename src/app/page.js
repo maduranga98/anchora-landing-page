@@ -311,7 +311,7 @@ export default function Home() {
       </section>
 
       {/* Key Features Section */}
-      <section className="w-full bg-white py-20">
+      <section id="key-features" className="w-full bg-white py-20">
         <div className="container mx-auto max-w-6xl px-4">
           <h2 className="font-montserrat text-center text-4xl font-bold text-navy md:text-5xl">
             Everything You Need to Build a Culture That Listens
@@ -416,168 +416,829 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Benefits Section */}
+      <section id="benefits" className="w-full bg-gradient-to-b from-cloud to-white py-20">
+        <div className="container mx-auto max-w-6xl px-4">
+          <h2 className="font-montserrat text-center text-4xl font-bold text-navy md:text-5xl">
+            Why Companies Choose Anchora
+          </h2>
+          <div className="mt-16 grid gap-12 md:grid-cols-2">
+            {/* For HR & Leadership */}
+            <div className="rounded-xl bg-white p-8 shadow-lg">
+              <h3 className="font-montserrat mb-6 text-3xl font-bold text-teal">
+                For HR & Leadership
+              </h3>
+
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-montserrat mb-2 text-xl font-bold text-navy">
+                    Reduce Turnover by 40%
+                  </h4>
+                  <p className="font-inter text-gray-600">
+                    Catch dissatisfaction before it becomes resignation. Exit interviews become unnecessary when you listen continuously.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-montserrat mb-2 text-xl font-bold text-navy">
+                    Prevent Legal Issues
+                  </h4>
+                  <p className="font-inter text-gray-600">
+                    Documented trail of reported issues protects your company. Harassment, safety violations, and discrimination surface early.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-montserrat mb-2 text-xl font-bold text-navy">
+                    Data-Driven Decisions
+                  </h4>
+                  <p className="font-inter text-gray-600">
+                    Stop guessing what employees need. Real insights from real people guide your people strategy.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-montserrat mb-2 text-xl font-bold text-navy">
+                    Faster Problem Resolution
+                  </h4>
+                  <p className="font-inter text-gray-600">
+                    Average time from problem to solution drops 60%. Issues get assigned, tracked, and solved systematically.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-montserrat mb-2 text-xl font-bold text-navy">
+                    Culture That Attracts Talent
+                  </h4>
+                  <p className="font-inter text-gray-600">
+                    Modern candidates research company culture. Show them you listen. Show them voices matter.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* For Employees */}
+            <div className="rounded-xl bg-white p-8 shadow-lg">
+              <h3 className="font-montserrat mb-6 text-3xl font-bold text-coral">
+                For Employees
+              </h3>
+
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-montserrat mb-2 text-xl font-bold text-navy">
+                    Safe Space to Speak
+                  </h4>
+                  <p className="font-inter text-gray-600">
+                    No fear of retaliation. Anonymous when needed. Your voice protected. Your concerns heard.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-montserrat mb-2 text-xl font-bold text-navy">
+                    See Your Impact
+                  </h4>
+                  <p className="font-inter text-gray-600">
+                    Watch your feedback turn into real change. Problems you report get solved. Ideas you share get implemented.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-montserrat mb-2 text-xl font-bold text-navy">
+                    Stay Connected
+                  </h4>
+                  <p className="font-inter text-gray-600">
+                    Know what's happening across the company. See how leadership responds. Feel part of something bigger.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-montserrat mb-2 text-xl font-bold text-navy">
+                    Recognition for Ideas
+                  </h4>
+                  <p className="font-inter text-gray-600">
+                    When your suggestion saves money or improves processes, you get credit. Visibility when you want it.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-montserrat mb-2 text-xl font-bold text-navy">
+                    Track Your Contributions
+                  </h4>
+                  <p className="font-inter text-gray-600">
+                    Personal dashboard shows your posts, their status, and their impact. Quantify your value to the organization.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases Section */}
+      <section id="use-cases" className="w-full bg-white py-20">
+        <div className="container mx-auto max-w-6xl px-4">
+          <h2 className="font-montserrat text-center text-4xl font-bold text-navy md:text-5xl">
+            How Teams Use Anchora
+          </h2>
+          <div className="mt-16 space-y-6">
+            {/* Manufacturing & Warehouses */}
+            <details className="group rounded-xl border-2 border-gray-200 p-6 transition hover:border-teal">
+              <summary className="flex cursor-pointer items-center justify-between font-montserrat text-2xl font-bold text-navy">
+                <span>Manufacturing & Warehouses</span>
+                <svg className="h-6 w-6 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="mt-4 space-y-4">
+                <h4 className="font-montserrat text-xl font-semibold text-teal">
+                  Safety First, Voices Always
+                </h4>
+                <p className="font-inter leading-relaxed text-gray-600">
+                  Frontline workers report hazards immediately. Mobile app means quick photos and posts from the factory floor. Safety issues get resolved before accidents happen.
+                </p>
+                <p className="font-inter text-sm font-semibold text-navy">
+                  Key Feature: <span className="font-normal text-gray-600">Photo attachments, urgent priority flagging</span>
+                </p>
+              </div>
+            </details>
+
+            {/* Tech Startups */}
+            <details className="group rounded-xl border-2 border-gray-200 p-6 transition hover:border-teal">
+              <summary className="flex cursor-pointer items-center justify-between font-montserrat text-2xl font-bold text-navy">
+                <span>Tech Startups</span>
+                <svg className="h-6 w-6 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="mt-4 space-y-4">
+                <h4 className="font-montserrat text-xl font-semibold text-teal">
+                  Move Fast Without Breaking Culture
+                </h4>
+                <p className="font-inter leading-relaxed text-gray-600">
+                  Rapid growth shouldn't mean lost voices. Anchora scales with you. From 10 to 1,000 employees, every person matters.
+                </p>
+                <p className="font-inter text-sm font-semibold text-navy">
+                  Key Feature: <span className="font-normal text-gray-600">Department scaling, trend analytics</span>
+                </p>
+              </div>
+            </details>
+
+            {/* Healthcare */}
+            <details className="group rounded-xl border-2 border-gray-200 p-6 transition hover:border-teal">
+              <summary className="flex cursor-pointer items-center justify-between font-montserrat text-2xl font-bold text-navy">
+                <span>Healthcare</span>
+                <svg className="h-6 w-6 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="mt-4 space-y-4">
+                <h4 className="font-montserrat text-xl font-semibold text-teal">
+                  Staff Wellbeing = Patient Care
+                </h4>
+                <p className="font-inter leading-relaxed text-gray-600">
+                  Burned-out nurses can't give their best. Anonymous feedback about scheduling, workload, and support needs helps hospitals adjust before staff breaks.
+                </p>
+                <p className="font-inter text-sm font-semibold text-navy">
+                  Key Feature: <span className="font-normal text-gray-600">Anonymous posting, mental health support</span>
+                </p>
+              </div>
+            </details>
+
+            {/* Retail & Hospitality */}
+            <details className="group rounded-xl border-2 border-gray-200 p-6 transition hover:border-teal">
+              <summary className="flex cursor-pointer items-center justify-between font-montserrat text-2xl font-bold text-navy">
+                <span>Retail & Hospitality</span>
+                <svg className="h-6 w-6 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="mt-4 space-y-4">
+                <h4 className="font-montserrat text-xl font-semibold text-teal">
+                  Frontline Feedback, Instant Action
+                </h4>
+                <p className="font-inter leading-relaxed text-gray-600">
+                  Cashiers see customer complaints first. Servers notice operational issues. Floor staff knows what works and what doesn't. Capture that knowledge.
+                </p>
+                <p className="font-inter text-sm font-semibold text-navy">
+                  Key Feature: <span className="font-normal text-gray-600">Mobile-first, quick posting</span>
+                </p>
+              </div>
+            </details>
+
+            {/* Remote Teams */}
+            <details className="group rounded-xl border-2 border-gray-200 p-6 transition hover:border-teal">
+              <summary className="flex cursor-pointer items-center justify-between font-montserrat text-2xl font-bold text-navy">
+                <span>Remote Teams</span>
+                <svg className="h-6 w-6 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="mt-4 space-y-4">
+                <h4 className="font-montserrat text-xl font-semibold text-teal">
+                  Stay Connected Across Time Zones
+                </h4>
+                <p className="font-inter leading-relaxed text-gray-600">
+                  Async communication. Global voices. Cultural differences respected. Anchora keeps distributed teams aligned and heard.
+                </p>
+                <p className="font-inter text-sm font-semibold text-navy">
+                  Key Feature: <span className="font-normal text-gray-600">Async updates, time-zone friendly</span>
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
-      <section id="pricing" className="pricing w-full bg-white py-20 px-4">
+      <section id="pricing" className="pricing w-full bg-gradient-to-b from-cloud to-white py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-            <h2 className="mb-4 text-center text-4xl font-bold text-navy">
+            <h2 className="font-montserrat mb-4 text-center text-4xl font-bold text-navy md:text-5xl">
             Simple, Transparent Pricing
             </h2>
-            <p className="mb-12 text-center text-lg text-gray-600">
+            <p className="font-inter mb-12 text-center text-lg text-gray-600">
             No hidden fees. No surprises. Just honest pricing.
             </p>
-            
+
             <div className="grid gap-8 md:grid-cols-3">
             {/* Starter Plan */}
-            <div className="transform rounded-xl border-2 border-gray-200 p-8 transition hover:border-teal">
-                <h3 className="mb-2 text-2xl font-bold text-navy">Starter</h3>
-                <p className="mb-6 text-gray-600">Perfect for Small Teams</p>
-                
+            <div className="transform rounded-xl border-2 border-gray-200 bg-white p-8 transition hover:border-teal">
+                <h3 className="font-montserrat mb-2 text-2xl font-bold text-navy">Starter</h3>
+                <p className="font-inter mb-6 text-gray-600">Perfect for Small Teams</p>
+
                 <div className="mb-6">
                 <span className="text-5xl font-bold text-navy">$0</span>
                 <span className="text-gray-600">/month</span>
                 </div>
-                
-                <p className="mb-6 text-sm text-gray-600">Up to 10 employees</p>
-                
+
+                <p className="font-inter mb-6 text-sm text-gray-600">Up to 10 employees</p>
+
+                <p className="font-inter mb-4 text-sm font-semibold text-navy">Features:</p>
                 <ul className="mb-8 space-y-3">
                 <li className="flex items-start gap-2">
-                    <svg className="mt-1 h-5 w-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>All core features</span>
+                    <span className="font-inter text-sm">All core features</span>
                 </li>
                 <li className="flex items-start gap-2">
-                    <svg className="mt-1 h-5 w-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Anonymous posting</span>
+                    <span className="font-inter text-sm">3 dedicated feeds</span>
                 </li>
                 <li className="flex items-start gap-2">
-                    <svg className="mt-1 h-5 w-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Mobile app access</span>
+                    <span className="font-inter text-sm">Anonymous posting</span>
                 </li>
                 <li className="flex items-start gap-2">
-                    <svg className="mt-1 h-5 w-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Email support</span>
+                    <span className="font-inter text-sm">Basic analytics</span>
+                </li>
+                <li className="flex items-start gap-2">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-inter text-sm">Mobile app access</span>
+                </li>
+                <li className="flex items-start gap-2">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-inter text-sm">Email support</span>
                 </li>
                 </ul>
-                
-                <a href="/signup?plan=starter" className="block rounded-lg bg-gray-100 py-3 text-center font-semibold text-navy transition hover:bg-gray-200">
+
+                <a href="/signup?plan=starter" className="font-montserrat block rounded-lg bg-gray-100 py-3 text-center font-semibold text-navy transition hover:bg-gray-200">
                 Start Free Forever
                 </a>
             </div>
-            
+
             {/* Professional Plan - MOST POPULAR */}
-            <div className="relative transform rounded-xl border-2 border-teal p-8 shadow-lg scale-105">
+            <div className="relative transform rounded-xl border-2 border-teal bg-white p-8 shadow-xl md:scale-105">
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 transform">
-                <span className="rounded-full bg-coral px-4 py-1 text-sm font-semibold text-white">
+                <span className="font-montserrat rounded-full bg-coral px-4 py-1 text-sm font-semibold text-white">
                     Most Popular
                 </span>
                 </div>
-                
-                <h3 className="mb-2 text-2xl font-bold text-navy">Professional</h3>
-                <p className="mb-6 text-gray-600">Best for Growing Companies</p>
-                
+
+                <h3 className="font-montserrat mb-2 text-2xl font-bold text-navy">Professional</h3>
+                <p className="font-inter mb-6 text-gray-600">Best for Growing Companies</p>
+
                 <div className="mb-6">
                 <span className="text-5xl font-bold text-teal">$1</span>
                 <span className="text-gray-600">/employee/month</span>
                 </div>
-                
-                <p className="mb-6 text-sm text-gray-600">Billed annually • Minimum 11 employees</p>
-                
+
+                <p className="font-inter mb-6 text-sm text-gray-600">Billed annually ($12/employee/year)<br/>Minimum 11 employees</p>
+
+                <p className="font-inter mb-4 text-sm font-semibold text-navy">Everything in Starter, plus:</p>
                 <ul className="mb-8 space-y-3">
                 <li className="flex items-start gap-2">
-                    <svg className="mt-1 h-5 w-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span className="font-semibold">Everything in Starter, plus:</span>
+                    <span className="font-inter text-sm">Advanced problem tracking</span>
                 </li>
                 <li className="flex items-start gap-2">
-                    <svg className="mt-1 h-5 w-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Advanced problem tracking</span>
+                    <span className="font-inter text-sm">Department assignment</span>
                 </li>
                 <li className="flex items-start gap-2">
-                    <svg className="mt-1 h-5 w-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Department assignment</span>
+                    <span className="font-inter text-sm">Priority management</span>
                 </li>
                 <li className="flex items-start gap-2">
-                    <svg className="mt-1 h-5 w-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Advanced analytics</span>
+                    <span className="font-inter text-sm">Due date tracking</span>
                 </li>
                 <li className="flex items-start gap-2">
-                    <svg className="mt-1 h-5 w-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Priority support</span>
+                    <span className="font-inter text-sm">Admin comments</span>
+                </li>
+                <li className="flex items-start gap-2">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-inter text-sm">Activity timeline</span>
+                </li>
+                <li className="flex items-start gap-2">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-inter text-sm">Advanced analytics</span>
+                </li>
+                <li className="flex items-start gap-2">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-inter text-sm">Custom branding</span>
+                </li>
+                <li className="flex items-start gap-2">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-inter text-sm">Priority support</span>
                 </li>
                 </ul>
-                
-                <a href="/signup?plan=professional" className="block rounded-lg bg-teal py-3 text-center font-semibold text-white shadow-lg transition hover:bg-teal-dark">
+
+                <a href="/signup?plan=professional" className="font-montserrat block rounded-lg bg-teal py-3 text-center font-semibold text-white shadow-lg transition hover:opacity-90">
                 Start 14-Day Free Trial
                 </a>
             </div>
-            
+
             {/* Enterprise Plan */}
-            <div className="transform rounded-xl border-2 border-gray-200 p-8 transition hover:border-navy">
-                <h3 className="mb-2 text-2xl font-bold text-navy">Enterprise</h3>
-                <p className="mb-6 text-gray-600">Custom Solutions</p>
-                
+            <div className="transform rounded-xl border-2 border-gray-200 bg-white p-8 transition hover:border-navy">
+                <h3 className="font-montserrat mb-2 text-2xl font-bold text-navy">Enterprise</h3>
+                <p className="font-inter mb-6 text-gray-600">Custom Solutions for Large Teams</p>
+
                 <div className="mb-6">
                 <span className="text-5xl font-bold text-navy">Custom</span>
+                <span className="text-gray-600"> Pricing</span>
                 </div>
-                
-                <p className="mb-6 text-sm text-gray-600">500+ employees</p>
-                
+
+                <p className="font-inter mb-6 text-sm text-gray-600">500+ employees</p>
+
+                <p className="font-inter mb-4 text-sm font-semibold text-navy">Everything in Professional, plus:</p>
                 <ul className="mb-8 space-y-3">
                 <li className="flex items-start gap-2">
-                    <svg className="mt-1 h-5 w-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span className="font-semibold">Everything in Professional, plus:</span>
+                    <span className="font-inter text-sm">SSO integration</span>
                 </li>
                 <li className="flex items-start gap-2">
-                    <svg className="mt-1 h-5 w-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>SSO integration</span>
+                    <span className="font-inter text-sm">Custom workflows</span>
                 </li>
                 <li className="flex items-start gap-2">
-                    <svg className="mt-1 h-5 w-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>API access</span>
+                    <span className="font-inter text-sm">API access</span>
                 </li>
                 <li className="flex items-start gap-2">
-                    <svg className="mt-1 h-5 w-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Dedicated account manager</span>
+                    <span className="font-inter text-sm">White-labeling</span>
                 </li>
                 <li className="flex items-start gap-2">
-                    <svg className="mt-1 h-5 w-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>SLA guarantees</span>
+                    <span className="font-inter text-sm">Dedicated account manager</span>
+                </li>
+                <li className="flex items-start gap-2">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-inter text-sm">Custom integrations</span>
+                </li>
+                <li className="flex items-start gap-2">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-inter text-sm">SLA guarantees</span>
+                </li>
+                <li className="flex items-start gap-2">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-inter text-sm">On-premise options</span>
+                </li>
+                <li className="flex items-start gap-2">
+                    <svg className="mt-1 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-inter text-sm">Advanced security</span>
                 </li>
                 </ul>
-                
-                <a href="/contact-sales" className="block rounded-lg bg-navy py-3 text-center font-semibold text-white transition hover:bg-navy-dark">
+
+                <a href="/contact-sales" className="font-montserrat block rounded-lg bg-navy py-3 text-center font-semibold text-white transition hover:opacity-90">
                 Contact Sales
                 </a>
             </div>
             </div>
+
+            {/* Pricing FAQs */}
+            <div className="mt-20">
+              <h3 className="font-montserrat mb-8 text-center text-3xl font-bold text-navy">
+                Frequently Asked Questions
+              </h3>
+              <div className="mx-auto max-w-3xl space-y-6">
+                <details className="group rounded-lg border border-gray-200 bg-white p-6">
+                  <summary className="flex cursor-pointer items-center justify-between font-montserrat text-lg font-semibold text-navy">
+                    <span>What happens after the free trial?</span>
+                    <svg className="h-5 w-5 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <p className="font-inter mt-4 text-gray-600">
+                    No credit card required for trial. After 14 days, choose a plan or stay on our free Starter plan (up to 10 employees).
+                  </p>
+                </details>
+
+                <details className="group rounded-lg border border-gray-200 bg-white p-6">
+                  <summary className="flex cursor-pointer items-center justify-between font-montserrat text-lg font-semibold text-navy">
+                    <span>Can I cancel anytime?</span>
+                    <svg className="h-5 w-5 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <p className="font-inter mt-4 text-gray-600">
+                    Yes. Cancel with one click. No questions asked. Get a prorated refund if annual.
+                  </p>
+                </details>
+
+                <details className="group rounded-lg border border-gray-200 bg-white p-6">
+                  <summary className="flex cursor-pointer items-center justify-between font-montserrat text-lg font-semibold text-navy">
+                    <span>What counts as an "employee"?</span>
+                    <svg className="h-5 w-5 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <p className="font-inter mt-4 text-gray-600">
+                    Any active user who can post or comment. Admins count. View-only accounts don't.
+                  </p>
+                </details>
+
+                <details className="group rounded-lg border border-gray-200 bg-white p-6">
+                  <summary className="flex cursor-pointer items-center justify-between font-montserrat text-lg font-semibold text-navy">
+                    <span>Do you offer discounts for nonprofits?</span>
+                    <svg className="h-5 w-5 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <p className="font-inter mt-4 text-gray-600">
+                    Yes! 50% off for registered nonprofits and educational institutions. Contact us.
+                  </p>
+                </details>
+
+                <details className="group rounded-lg border border-gray-200 bg-white p-6">
+                  <summary className="flex cursor-pointer items-center justify-between font-montserrat text-lg font-semibold text-navy">
+                    <span>Is my data secure?</span>
+                    <svg className="h-5 w-5 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <p className="font-inter mt-4 text-gray-600">
+                    Bank-level encryption. Anonymous posts use AES-256. SOC 2 Type II certified. GDPR compliant.
+                  </p>
+                </details>
+              </div>
+            </div>
         </div>
     </section>
+
+      {/* How It Works Section */}
+      <section id="how-it-works" className="w-full bg-white py-20">
+        <div className="container mx-auto max-w-6xl px-4">
+          <h2 className="font-montserrat text-center text-4xl font-bold text-navy md:text-5xl">
+            See Anchora in Action
+          </h2>
+          <p className="font-inter mx-auto mt-6 max-w-3xl text-center text-lg text-gray-600">
+            From posting feedback to tracking resolutions—see how easy it is to give every employee a voice
+          </p>
+
+          <div className="mt-16 space-y-12">
+            {/* Screenshot 1: Employee View - Create Post */}
+            <div className="rounded-2xl bg-gradient-to-br from-cloud to-white p-8 shadow-lg">
+              <div className="grid gap-8 md:grid-cols-2 md:items-center">
+                <div>
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-teal">
+                    <span className="font-montserrat text-2xl font-bold text-white">1</span>
+                  </div>
+                  <h3 className="font-montserrat mb-4 text-2xl font-bold text-navy">
+                    Employee View - Create Post
+                  </h3>
+                  <p className="font-inter mb-4 text-lg leading-relaxed text-gray-600">
+                    Post in 30 seconds. Choose anonymous or named. Select category. Add details. Done.
+                  </p>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Choose from 3 dedicated feeds</span>
+                    </li>
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Toggle anonymous mode with one click</span>
+                    </li>
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Attach photos and documents</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="rounded-lg bg-gray-100 p-6">
+                  <div className="aspect-video flex items-center justify-center rounded-lg bg-white shadow-inner">
+                    <svg className="h-16 w-16 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <p className="font-inter mt-4 text-center text-sm text-gray-500">Screenshot: Create Post Interface</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Screenshot 2: Admin Dashboard */}
+            <div className="rounded-2xl bg-gradient-to-br from-cloud to-white p-8 shadow-lg">
+              <div className="grid gap-8 md:grid-cols-2 md:items-center">
+                <div className="order-2 md:order-1">
+                  <div className="rounded-lg bg-gray-100 p-6">
+                    <div className="aspect-video flex items-center justify-center rounded-lg bg-white shadow-inner">
+                      <svg className="h-16 w-16 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    </div>
+                    <p className="font-inter mt-4 text-center text-sm text-gray-500">Screenshot: Admin Dashboard</p>
+                  </div>
+                </div>
+                <div className="order-1 md:order-2">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-teal">
+                    <span className="font-montserrat text-2xl font-bold text-white">2</span>
+                  </div>
+                  <h3 className="font-montserrat mb-4 text-2xl font-bold text-navy">
+                    Admin Dashboard
+                  </h3>
+                  <p className="font-inter mb-4 text-lg leading-relaxed text-gray-600">
+                    See all posts. Filter by status, priority, or department. Never miss an issue.
+                  </p>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Real-time feed of all submissions</span>
+                    </li>
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Filter and search capabilities</span>
+                    </li>
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Quick action buttons for assignments</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Screenshot 3: Problem Tracking */}
+            <div className="rounded-2xl bg-gradient-to-br from-cloud to-white p-8 shadow-lg">
+              <div className="grid gap-8 md:grid-cols-2 md:items-center">
+                <div>
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-teal">
+                    <span className="font-montserrat text-2xl font-bold text-white">3</span>
+                  </div>
+                  <h3 className="font-montserrat mb-4 text-2xl font-bold text-navy">
+                    Problem Tracking
+                  </h3>
+                  <p className="font-inter mb-4 text-lg leading-relaxed text-gray-600">
+                    Update status. Assign owner. Set due date. Add comments. Track to resolution.
+                  </p>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>7-state workflow management</span>
+                    </li>
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Assign to departments and individuals</span>
+                    </li>
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Priority and due date tracking</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="rounded-lg bg-gray-100 p-6">
+                  <div className="aspect-video flex items-center justify-center rounded-lg bg-white shadow-inner">
+                    <svg className="h-16 w-16 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                    </svg>
+                  </div>
+                  <p className="font-inter mt-4 text-center text-sm text-gray-500">Screenshot: Problem Tracking Interface</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Screenshot 4: Analytics Dashboard */}
+            <div className="rounded-2xl bg-gradient-to-br from-cloud to-white p-8 shadow-lg">
+              <div className="grid gap-8 md:grid-cols-2 md:items-center">
+                <div className="order-2 md:order-1">
+                  <div className="rounded-lg bg-gray-100 p-6">
+                    <div className="aspect-video flex items-center justify-center rounded-lg bg-white shadow-inner">
+                      <svg className="h-16 w-16 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <p className="font-inter mt-4 text-center text-sm text-gray-500">Screenshot: Analytics Dashboard</p>
+                  </div>
+                </div>
+                <div className="order-1 md:order-2">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-teal">
+                    <span className="font-montserrat text-2xl font-bold text-white">4</span>
+                  </div>
+                  <h3 className="font-montserrat mb-4 text-2xl font-bold text-navy">
+                    Analytics Dashboard
+                  </h3>
+                  <p className="font-inter mb-4 text-lg leading-relaxed text-gray-600">
+                    Data-driven insights. Resolution times. Employee satisfaction. Department trends.
+                  </p>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Visual charts and graphs</span>
+                    </li>
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Track trends over time</span>
+                    </li>
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Department and team breakdowns</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Screenshot 5: Mobile View */}
+            <div className="rounded-2xl bg-gradient-to-br from-cloud to-white p-8 shadow-lg">
+              <div className="grid gap-8 md:grid-cols-2 md:items-center">
+                <div>
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-teal">
+                    <span className="font-montserrat text-2xl font-bold text-white">5</span>
+                  </div>
+                  <h3 className="font-montserrat mb-4 text-2xl font-bold text-navy">
+                    Mobile View
+                  </h3>
+                  <p className="font-inter mb-4 text-lg leading-relaxed text-gray-600">
+                    Works beautifully on any device. Post from anywhere. Stay connected.
+                  </p>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Optimized for iOS and Android</span>
+                    </li>
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Quick photo attachments from camera</span>
+                    </li>
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Push notifications for updates</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="rounded-lg bg-gray-100 p-6">
+                  <div className="aspect-video flex items-center justify-center rounded-lg bg-white shadow-inner">
+                    <svg className="h-16 w-16 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <p className="font-inter mt-4 text-center text-sm text-gray-500">Screenshot: Mobile App Interface</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Screenshot 6: Activity Timeline */}
+            <div className="rounded-2xl bg-gradient-to-br from-cloud to-white p-8 shadow-lg">
+              <div className="grid gap-8 md:grid-cols-2 md:items-center">
+                <div className="order-2 md:order-1">
+                  <div className="rounded-lg bg-gray-100 p-6">
+                    <div className="aspect-video flex items-center justify-center rounded-lg bg-white shadow-inner">
+                      <svg className="h-16 w-16 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <p className="font-inter mt-4 text-center text-sm text-gray-500">Screenshot: Activity Timeline</p>
+                  </div>
+                </div>
+                <div className="order-1 md:order-2">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-teal">
+                    <span className="font-montserrat text-2xl font-bold text-white">6</span>
+                  </div>
+                  <h3 className="font-montserrat mb-4 text-2xl font-bold text-navy">
+                    Activity Timeline
+                  </h3>
+                  <p className="font-inter mb-4 text-lg leading-relaxed text-gray-600">
+                    Complete audit trail. Every action logged. Full transparency.
+                  </p>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Chronological history of all actions</span>
+                    </li>
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>See who did what and when</span>
+                    </li>
+                    <li className="flex items-start gap-2 font-inter text-sm text-gray-600">
+                      <svg className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>Documentation for compliance</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <a href="/signup" className="font-montserrat inline-block rounded-lg bg-teal px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:opacity-90">
+              See It For Yourself - Start Free Trial
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Final CTA Section */}
       <section id="demo" className="w-full bg-navy py-20 text-white">
