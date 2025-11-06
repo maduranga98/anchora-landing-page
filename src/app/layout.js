@@ -100,7 +100,14 @@ export default function RootLayout({ children }) {
                 "name": "Is Anchora really anonymous?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes. We use AES-256 encryption for anonymous posts. Even database admins can't see who posted. Only designated HR admins with explicit permission can decrypt in serious cases."
+                  "text": "Yes. We use AES-256 encryption for anonymous posts. Even database admins can't see who posted. Only designated HR admins with explicit permission can decrypt in serious cases (harassment, threats)."
+                }
+              },{
+                "@type": "Question",
+                "name": "What if employees abuse anonymity?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Rare, but possible. Admins can flag inappropriate content. Repeated abuse patterns can be detected. Plus, most posts are constructive—employees want real problems solved."
                 }
               },{
                 "@type": "Question",
@@ -108,6 +115,69 @@ export default function RootLayout({ children }) {
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "5 minutes. Create account → Add company info → Invite employees → Start posting. No consulting required. No training needed."
+                }
+              },{
+                "@type": "Question",
+                "name": "Do you integrate with Slack/Teams/JIRA?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Not yet, but coming soon! Currently focused on perfecting the core experience. Integrations launching Q2 2025."
+                }
+              },{
+                "@type": "Question",
+                "name": "Where is my data stored?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Google Cloud (US) or EU servers (you choose). Bank-level encryption. SOC 2 Type II certified. GDPR and CCPA compliant."
+                }
+              },{
+                "@type": "Question",
+                "name": "Who can see posts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "By default, all company employees see all posts (transparency). Admins can make posts department-only or HR-only for sensitive issues."
+                }
+              },{
+                "@type": "Question",
+                "name": "Can employees delete their posts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, within 24 hours. After that, posts become part of company record (prevents deleting evidence of serious issues)."
+                }
+              },{
+                "@type": "Question",
+                "name": "What happens to data if we cancel?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "You get a full export (JSON/CSV). We delete all data within 30 days per GDPR requirements."
+                }
+              },{
+                "@type": "Question",
+                "name": "What if we grow mid-year?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "You're only charged for new employees added. Prorated to your billing cycle. No penalties for growth!"
+                }
+              },{
+                "@type": "Question",
+                "name": "Do inactive employees count?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Only active users who can post/comment. Deactivated accounts don't count toward your bill."
+                }
+              },{
+                "@type": "Question",
+                "name": "Can we pause our account?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, but you lose access to features. Data is preserved. Unpause anytime. Better to use free tier (10 employees)."
+                }
+              },{
+                "@type": "Question",
+                "name": "Do you offer annual prepay discounts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes! Pay annually, get 2 months free (16% savings). Plus, lock in your rate for the year."
                 }
               }]
             }

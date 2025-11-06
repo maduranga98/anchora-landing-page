@@ -1240,64 +1240,359 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section id="faq" className="w-full bg-white py-20">
+        <div className="container mx-auto max-w-4xl px-4">
+          <h2 className="font-montserrat mb-4 text-center text-4xl font-bold text-navy">
+            Frequently Asked Questions
+          </h2>
+          <p className="font-inter mb-12 text-center text-lg text-gray-600">
+            Everything you need to know about Anchora
+          </p>
+
+          {/* About the Platform */}
+          <div className="mb-12">
+            <h3 className="font-montserrat mb-6 text-2xl font-bold text-navy">
+              About the Platform
+            </h3>
+            <div className="space-y-6">
+              {/* Question 1 */}
+              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
+                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
+                  How is Anchora different from employee surveys?
+                </h4>
+                <p className="font-inter text-gray-700">
+                  Surveys are periodic snapshots. Anchora is continuous listening. Employees post when issues arise—not when HR schedules a survey. Plus, we track problems to resolution. Surveys just collect data.
+                </p>
+              </div>
+
+              {/* Question 2 */}
+              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
+                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
+                  Is Anchora really anonymous?
+                </h4>
+                <p className="font-inter text-gray-700">
+                  Yes. We use AES-256 encryption for anonymous posts. Even database admins can't see who posted. Only designated HR admins with explicit permission can decrypt in serious cases (harassment, threats).
+                </p>
+              </div>
+
+              {/* Question 3 */}
+              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
+                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
+                  What if employees abuse anonymity?
+                </h4>
+                <p className="font-inter text-gray-700">
+                  Rare, but possible. Admins can flag inappropriate content. Repeated abuse patterns can be detected. Plus, most posts are constructive—employees want real problems solved.
+                </p>
+              </div>
+
+              {/* Question 4 */}
+              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
+                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
+                  How long does setup take?
+                </h4>
+                <p className="font-inter text-gray-700">
+                  5 minutes. Create account → Add company info → Invite employees → Start posting. No consulting required. No training needed.
+                </p>
+              </div>
+
+              {/* Question 5 */}
+              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
+                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
+                  Do you integrate with Slack/Teams/JIRA?
+                </h4>
+                <p className="font-inter text-gray-700">
+                  Not yet, but coming soon! Currently focused on perfecting the core experience. Integrations launching Q2 2025.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* About Security & Privacy */}
+          <div className="mb-12">
+            <h3 className="font-montserrat mb-6 text-2xl font-bold text-navy">
+              About Security & Privacy
+            </h3>
+            <div className="space-y-6">
+              {/* Question 1 */}
+              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
+                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
+                  Where is my data stored?
+                </h4>
+                <p className="font-inter text-gray-700">
+                  Google Cloud (US) or EU servers (you choose). Bank-level encryption. SOC 2 Type II certified. GDPR and CCPA compliant.
+                </p>
+              </div>
+
+              {/* Question 2 */}
+              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
+                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
+                  Who can see posts?
+                </h4>
+                <p className="font-inter text-gray-700">
+                  By default, all company employees see all posts (transparency). Admins can make posts department-only or HR-only for sensitive issues.
+                </p>
+              </div>
+
+              {/* Question 3 */}
+              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
+                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
+                  Can employees delete their posts?
+                </h4>
+                <p className="font-inter text-gray-700">
+                  Yes, within 24 hours. After that, posts become part of company record (prevents deleting evidence of serious issues).
+                </p>
+              </div>
+
+              {/* Question 4 */}
+              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
+                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
+                  What happens to data if we cancel?
+                </h4>
+                <p className="font-inter text-gray-700">
+                  You get a full export (JSON/CSV). We delete all data within 30 days per GDPR requirements.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* About Pricing & Billing */}
+          <div>
+            <h3 className="font-montserrat mb-6 text-2xl font-bold text-navy">
+              About Pricing & Billing
+            </h3>
+            <div className="space-y-6">
+              {/* Question 1 */}
+              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
+                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
+                  What if we grow mid-year?
+                </h4>
+                <p className="font-inter text-gray-700">
+                  You're only charged for new employees added. Prorated to your billing cycle. No penalties for growth!
+                </p>
+              </div>
+
+              {/* Question 2 */}
+              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
+                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
+                  Do inactive employees count?
+                </h4>
+                <p className="font-inter text-gray-700">
+                  No. Only active users who can post/comment. Deactivated accounts don't count toward your bill.
+                </p>
+              </div>
+
+              {/* Question 3 */}
+              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
+                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
+                  Can we pause our account?
+                </h4>
+                <p className="font-inter text-gray-700">
+                  Yes, but you lose access to features. Data is preserved. Unpause anytime. Better to use free tier (10 employees).
+                </p>
+              </div>
+
+              {/* Question 4 */}
+              <div className="rounded-lg border border-gray-200 bg-cloud p-6">
+                <h4 className="font-montserrat mb-3 text-lg font-semibold text-navy">
+                  Do you offer annual prepay discounts?
+                </h4>
+                <p className="font-inter text-gray-700">
+                  Yes! Pay annually, get 2 months free (16% savings). Plus, lock in your rate for the year.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA Section */}
       <section id="demo" className="w-full bg-navy py-20 text-white">
-        <div className="container mx-auto max-w-4xl px-4 text-center">
-          <h2 className="font-montserrat text-4xl font-bold">Ready to Give Your Team a Voice?</h2>
-          <p className="font-inter mt-4 text-lg text-gray-300">
-            Join the companies building cultures where every voice matters. Start your free trial today—no credit card required.
-          </p>
-          <div className="mt-8 flex flex-col justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-            <a href="#pricing" className="rounded-md bg-coral px-8 py-4 text-lg font-bold text-white hover:bg-opacity-80">
-              Start 14-Day Free Trial
-            </a>
-            <a href="#contact" className="rounded-md border-2 border-teal px-8 py-4 text-lg font-bold text-teal hover:bg-teal hover:text-white">
-              Schedule a Demo
-            </a>
+        <div className="container mx-auto max-w-4xl px-4">
+          <div className="text-center">
+            <h2 className="font-montserrat text-4xl font-bold md:text-5xl">
+              Ready to Give Your Team a Voice?
+            </h2>
+            <p className="font-inter mt-6 text-lg text-gray-300 md:text-xl">
+              Join the companies building cultures where every voice matters.<br />
+              Start your free trial today—no credit card required.
+            </p>
+          </div>
+
+          {/* Two-CTA Layout */}
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+            {/* Primary CTA */}
+            <div className="text-center">
+              <a
+                href="/signup"
+                className="font-montserrat inline-block rounded-lg bg-coral px-10 py-5 text-lg font-bold text-white shadow-lg transition hover:scale-105 hover:bg-opacity-90"
+              >
+                Start 14-Day Free Trial
+              </a>
+              <p className="font-inter mt-3 text-sm text-gray-400">
+                No credit card required • Set up in 5 minutes
+              </p>
+            </div>
+
+            {/* Secondary CTA */}
+            <div className="text-center">
+              <a
+                href="/demo"
+                className="font-montserrat inline-block rounded-lg border-2 border-teal bg-transparent px-10 py-5 text-lg font-bold text-teal shadow-lg transition hover:scale-105 hover:bg-teal hover:text-white"
+              >
+                Schedule a Demo
+              </a>
+              <p className="font-inter mt-3 text-sm text-gray-400">
+                See Anchora in action with our team
+              </p>
+            </div>
+          </div>
+
+          {/* Trust Signals */}
+          <div className="mt-12 grid grid-cols-2 gap-4 border-t border-gray-700 pt-10 md:grid-cols-5">
+            <div className="flex items-start gap-3">
+              <svg className="mt-1 h-6 w-6 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <div>
+                <p className="font-inter text-sm font-semibold">14-day free trial</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <svg className="mt-1 h-6 w-6 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <div>
+                <p className="font-inter text-sm font-semibold">No credit card required</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <svg className="mt-1 h-6 w-6 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <div>
+                <p className="font-inter text-sm font-semibold">Cancel anytime</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <svg className="mt-1 h-6 w-6 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <div>
+                <p className="font-inter text-sm font-semibold">GDPR & SOC 2 compliant</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <svg className="mt-1 h-6 w-6 flex-shrink-0 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <div>
+                <p className="font-inter text-sm font-semibold">Bank-level encryption</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="w-full bg-gray-800 py-12 text-white">
-        <div className="container mx-auto max-w-6xl px-4">
-          <div className="grid gap-8 md:grid-cols-4">
+      <footer id="contact" className="w-full bg-gray-900 py-16 text-white">
+        <div className="container mx-auto max-w-7xl px-4">
+          {/* Footer Navigation */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
+            {/* Product */}
             <div>
-              <h4 className="font-montserrat text-lg font-bold">Product</h4>
-              <ul className="font-inter mt-4 space-y-2 text-sm">
-                <li><a href="#" className="hover:text-teal">Features</a></li>
-                <li><a href="#" className="hover:text-teal">Pricing</a></li>
-                <li><a href="#" className="hover:text-teal">Security</a></li>
+              <h4 className="font-montserrat mb-4 text-lg font-bold">Product</h4>
+              <ul className="font-inter space-y-2 text-sm">
+                <li><a href="#features" className="text-gray-400 transition hover:text-teal">Features</a></li>
+                <li><a href="#pricing" className="text-gray-400 transition hover:text-teal">Pricing</a></li>
+                <li><a href="#integrations" className="text-gray-400 transition hover:text-teal">Integrations (Coming Soon)</a></li>
+                <li><a href="#mobile" className="text-gray-400 transition hover:text-teal">Mobile App</a></li>
+                <li><a href="#security" className="text-gray-400 transition hover:text-teal">Security</a></li>
+                <li><a href="#roadmap" className="text-gray-400 transition hover:text-teal">Roadmap</a></li>
               </ul>
             </div>
+
+            {/* Use Cases */}
             <div>
-              <h4 className="font-montserrat text-lg font-bold">Use Cases</h4>
-              <ul className="font-inter mt-4 space-y-2 text-sm">
-                <li><a href="#" className="hover:text-teal">Manufacturing</a></li>
-                <li><a href="#" className="hover:text-teal">Tech Startups</a></li>
-                <li><a href="#" className-="hover:text-teal">Healthcare</a></li>
+              <h4 className="font-montserrat mb-4 text-lg font-bold">Use Cases</h4>
+              <ul className="font-inter space-y-2 text-sm">
+                <li><a href="#manufacturing" className="text-gray-400 transition hover:text-teal">Manufacturing</a></li>
+                <li><a href="#tech-startups" className="text-gray-400 transition hover:text-teal">Tech Startups</a></li>
+                <li><a href="#healthcare" className="text-gray-400 transition hover:text-teal">Healthcare</a></li>
+                <li><a href="#retail" className="text-gray-400 transition hover:text-teal">Retail & Hospitality</a></li>
+                <li><a href="#remote-teams" className="text-gray-400 transition hover:text-teal">Remote Teams</a></li>
+                <li><a href="#enterprise" className="text-gray-400 transition hover:text-teal">Enterprise</a></li>
               </ul>
             </div>
+
+            {/* Resources */}
             <div>
-              <h4 className="font-montserrat text-lg font-bold">Company</h4>
-              <ul className="font-inter mt-4 space-y-2 text-sm">
-                <li><a href="#" className="hover:text-teal">About Us</a></li>
-                <li><a href="#" className="hover:text-teal">Careers</a></li>
-                <li><a href="#" className="hover:text-teal">Contact</a></li>
+              <h4 className="font-montserrat mb-4 text-lg font-bold">Resources</h4>
+              <ul className="font-inter space-y-2 text-sm">
+                <li><a href="#blog" className="text-gray-400 transition hover:text-teal">Blog</a></li>
+                <li><a href="#help" className="text-gray-400 transition hover:text-teal">Help Center</a></li>
+                <li><a href="#api" className="text-gray-400 transition hover:text-teal">API Documentation</a></li>
+                <li><a href="#brand" className="text-gray-400 transition hover:text-teal">Brand Assets</a></li>
+                <li><a href="#status" className="text-gray-400 transition hover:text-teal">Status Page</a></li>
+                <li><a href="#changelog" className="text-gray-400 transition hover:text-teal">Changelog</a></li>
               </ul>
             </div>
+
+            {/* Company */}
             <div>
-              <h4 className="font-montserrat text-lg font-bold">Contact</h4>
-              <ul className="font-inter mt-4 space-y-2 text-sm">
-                <li>hello@anchora.com</li>
-                <li>sales@anchora.com</li>
-                <li>support@anchora.com</li>
+              <h4 className="font-montserrat mb-4 text-lg font-bold">Company</h4>
+              <ul className="font-inter space-y-2 text-sm">
+                <li><a href="#about" className="text-gray-400 transition hover:text-teal">About Us</a></li>
+                <li><a href="#careers" className="text-gray-400 transition hover:text-teal">Careers (We're Hiring!)</a></li>
+                <li><a href="#contact" className="text-gray-400 transition hover:text-teal">Contact</a></li>
+                <li><a href="#press" className="text-gray-400 transition hover:text-teal">Press Kit</a></li>
+                <li><a href="#privacy" className="text-gray-400 transition hover:text-teal">Privacy Policy</a></li>
+                <li><a href="#terms" className="text-gray-400 transition hover:text-teal">Terms of Service</a></li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h4 className="font-montserrat mb-4 text-lg font-bold">Contact</h4>
+              <ul className="font-inter space-y-2 text-sm">
+                <li className="text-gray-400">
+                  <span className="font-semibold text-white">Email:</span><br />
+                  <a href="mailto:hello@anchora.com" className="hover:text-teal">hello@anchora.com</a>
+                </li>
+                <li className="text-gray-400">
+                  <span className="font-semibold text-white">Sales:</span><br />
+                  <a href="mailto:sales@anchora.com" className="hover:text-teal">sales@anchora.com</a>
+                </li>
+                <li className="text-gray-400">
+                  <span className="font-semibold text-white">Support:</span><br />
+                  <a href="mailto:support@anchora.com" className="hover:text-teal">support@anchora.com</a>
+                </li>
+                <li className="mt-4">
+                  <div className="flex gap-4">
+                    <a href="https://twitter.com/anchora" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal" aria-label="Twitter">
+                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                      </svg>
+                    </a>
+                    <a href="https://linkedin.com/company/anchora" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal" aria-label="LinkedIn">
+                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                      </svg>
+                    </a>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
-          <div className="font-inter mt-12 border-t border-gray-700 pt-8 text-center text-sm">
-            <p>© 2024 Anchora. All rights reserved.</p>
-            <p className="mt-2">Your Anchor in Every Storm ⚓</p>
+
+          {/* Copyright */}
+          <div className="font-inter mt-12 border-t border-gray-800 pt-8 text-center">
+            <p className="text-sm text-gray-400">
+              © 2024 Anchora. All rights reserved.
+            </p>
+            <p className="mt-2 text-lg font-semibold text-gray-300">
+              Your Anchor in Every Storm ⚓
+            </p>
           </div>
         </div>
       </footer>
