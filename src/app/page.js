@@ -221,40 +221,61 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="hero w-full bg-[url('/hero.avif')] bg-cover bg-center bg-no-repeat to-white py-12 px-4 sm:py-16 md:py-20">
-        {/* <div className="absolute inset-0 bg-white/20"></div> */}
-        <div className="relative container mx-auto max-w-6xl text-center">
-          <h1 className="font-montserrat text-4xl font-bold leading-tight text-navy sm:text-5xl md:text-6xl">
-            Your Anchor in Every Storm
+      <section className="hero relative w-full overflow-hidden bg-gradient-to-br from-teal/10 via-white to-coral/10 py-16 px-4 sm:py-20 md:py-28">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-teal/10 blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-coral/10 blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-gradient-to-br from-teal/5 to-coral/5 blur-3xl"></div>
+        </div>
+
+        <div className="relative container mx-auto max-w-6xl text-center z-10">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-sm px-4 py-2 shadow-md border border-teal/20 mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-teal"></span>
+            </span>
+            <span className="text-sm font-semibold text-navy">Trusted by 500+ Companies Worldwide</span>
+          </div>
+
+          <h1 className="font-montserrat text-4xl font-extrabold leading-tight text-navy sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in">
+            Your Anchor in <span className="bg-gradient-to-r from-teal to-teal-600 bg-clip-text text-transparent">Every Storm</span>
           </h1>
-          <p className="mx-auto mt-4 max-w-4xl text-xl font-semibold text-navy sm:mt-6 sm:text-2xl md:text-3xl px-4">
+          <p className="mx-auto mt-6 max-w-4xl text-xl font-semibold text-navy sm:mt-8 sm:text-2xl md:text-3xl px-4">
             Give Every Employee a Voice That Creates Real Change
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-gray-600 sm:mt-6 sm:text-lg px-4">
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-gray-700 sm:mt-8 sm:text-lg md:text-xl px-4">
             When work stress and personal challenges collide, Anchora keeps your
-            team grounded, heard, and thriving. Anonymous feedback. Problem
-            tracking. Real solutions. Starting at just{" "}
-            <span className="font-semibold text-teal">
+            team grounded, heard, and thriving. <span className="font-semibold text-navy">Anonymous feedback. Problem
+            tracking. Real solutions.</span> Starting at just{" "}
+            <span className="inline-flex items-center gap-1 font-bold text-teal bg-teal/10 px-2 py-1 rounded-md">
               $1 per employee per month
             </span>
             .
           </p>
-          <div className="mt-8 mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row sm:mt-10 sm:mb-8 px-4">
+          <div className="mt-10 mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:mt-12 sm:mb-10 px-4">
             <a
               href="/signup"
-              className="w-full sm:w-auto inline-block rounded-lg bg-coral px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:bg-opacity-90 hover:shadow-xl sm:px-8 sm:py-4 sm:text-lg text-center"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-coral to-coral/90 px-8 py-4 text-base font-bold text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 sm:px-10 sm:py-5 sm:text-lg text-center"
             >
-              Start Free Trial - No Credit Card Required
+              Start Free Trial
+              <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
             </a>
             <a
               href="/demo"
-              className="w-full sm:w-auto inline-block rounded-lg border-2 border-navy bg-white px-6 py-3 text-base font-semibold text-navy transition hover:bg-gray-50 sm:px-8 sm:py-4 sm:text-lg text-center"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border-2 border-navy bg-white/80 backdrop-blur-sm px-8 py-4 text-base font-bold text-navy transition-all duration-300 hover:bg-navy hover:text-white hover:shadow-xl hover:scale-105 sm:px-10 sm:py-5 sm:text-lg text-center"
             >
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+              </svg>
               Watch 2-Min Demo
             </a>
           </div>
-          <div className="flex flex-wrap justify-center gap-6 text-sm font-medium text-navy">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-wrap justify-center gap-8 text-sm font-medium text-navy/80">
+            <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full">
               <svg
                 className="h-5 w-5 text-teal"
                 fill="currentColor"
@@ -268,7 +289,7 @@ export default function Home() {
               </svg>
               <span>14-day free trial</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full">
               <svg
                 className="h-5 w-5 text-teal"
                 fill="currentColor"
@@ -282,7 +303,7 @@ export default function Home() {
               </svg>
               <span>No credit card required</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full">
               <svg
                 className="h-5 w-5 text-teal"
                 fill="currentColor"
@@ -308,104 +329,174 @@ export default function Home() {
       </div>
 
       {/* The Problem Section */}
-      <section className="w-full bg-white py-12 sm:py-16 md:py-20">
+      <section className="w-full bg-gradient-to-b from-white to-gray-50/50 py-16 sm:py-20 md:py-24">
         <div className="container mx-auto max-w-6xl px-4 text-center">
-          <h2 className="font-montserrat text-3xl font-bold text-navy sm:text-4xl md:text-5xl">
+          <h2 className="font-montserrat text-3xl font-extrabold text-navy sm:text-4xl md:text-5xl">
             The Silent Crisis in Your Workplace
           </h2>
-          <p className="font-inter mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-gray-600 sm:mt-6 sm:text-xl">
-            67% of employees experience workplace stress but suffer in silence.
+          <p className="font-inter mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-700 sm:mt-8 sm:text-xl">
+            <span className="font-bold text-coral">67% of employees</span> experience workplace stress but suffer in silence.
             <br />
-            Problems go unreported. Ideas never surface. Your best people
-            quietly quit.
+            <span className="font-semibold text-navy">Problems go unreported. Ideas never surface. Your best people quietly quit.</span>
           </p>
-          <div className="mt-12 grid gap-6 sm:gap-8 md:grid-cols-3 md:mt-16">
-            <div className="rounded-xl bg-gradient-to-br from-white to-gray-50 p-8 shadow-xl transition hover:shadow-2xl">
+          <div className="mt-12 grid gap-8 sm:gap-10 md:grid-cols-3 md:mt-16">
+            {/* Card 1: The Cost */}
+            <div className="group relative rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-100">
+              {/* Icon */}
+              <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-coral/20 to-coral/10">
+                <svg className="h-10 w-10 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
               <h3 className="font-montserrat text-2xl font-bold text-navy">
                 The Cost
               </h3>
-              <p className="font-inter mt-6 text-4xl font-bold text-coral">
-                $359 Billion
+              <p className="font-inter mt-4 text-5xl font-extrabold text-coral">
+                $359B
               </p>
-              <p className="font-inter mb-6 text-lg font-semibold text-navy">
-                Lost Annually
+              <p className="font-inter mb-6 text-base font-semibold text-gray-600">
+                Lost Annually to Workplace Issues
               </p>
-              <ul className="font-inter space-y-3 text-left text-gray-600">
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 text-coral">•</span>
-                  <span>Unreported safety issues lead to accidents</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 text-coral">•</span>
-                  <span>Harassment goes unnoticed until lawsuits</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 text-coral">•</span>
-                  <span>Innovation dies in silence</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 text-coral">•</span>
-                  <span>Top talent leaves without warning</span>
-                </li>
-              </ul>
+              <div className="space-y-4 text-left">
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50/50 transition-colors group-hover:bg-coral/5">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg className="h-5 w-5 text-coral" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-gray-700 font-medium">Unreported safety issues lead to accidents</span>
+                </div>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50/50 transition-colors group-hover:bg-coral/5">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg className="h-5 w-5 text-coral" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-gray-700 font-medium">Harassment goes unnoticed until lawsuits</span>
+                </div>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50/50 transition-colors group-hover:bg-coral/5">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg className="h-5 w-5 text-coral" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-gray-700 font-medium">Innovation dies in silence</span>
+                </div>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50/50 transition-colors group-hover:bg-coral/5">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg className="h-5 w-5 text-coral" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-gray-700 font-medium">Top talent leaves without warning</span>
+                </div>
+              </div>
             </div>
-            <div className="rounded-xl bg-gradient-to-br from-white to-gray-50 p-8 shadow-xl transition hover:shadow-2xl">
+
+            {/* Card 2: The Barrier */}
+            <div className="group relative rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-100">
+              {/* Icon */}
+              <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-coral/20 to-coral/10">
+                <svg className="h-10 w-10 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </div>
               <h3 className="font-montserrat text-2xl font-bold text-navy">
                 The Barrier
               </h3>
-              <p className="font-inter mt-6 text-4xl font-bold text-coral">
+              <p className="font-inter mt-4 text-3xl font-extrabold text-coral leading-tight">
                 Employees Fear
               </p>
-              <p className="font-inter mb-6 text-lg font-semibold text-navy">
-                Speaking Up
+              <p className="font-inter mb-6 text-base font-semibold text-gray-600">
+                Speaking Up About Issues
               </p>
-              <ul className="font-inter space-y-3 text-left text-gray-600">
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 text-coral">•</span>
-                  <span>71% worry about retaliation</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 text-coral">•</span>
-                  <span>No clear feedback channels</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 text-coral">•</span>
-                  <span>Belief that nothing will change</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 text-coral">•</span>
-                  <span>Anonymous options not trusted</span>
-                </li>
-              </ul>
+              <div className="space-y-4 text-left">
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50/50 transition-colors group-hover:bg-coral/5">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg className="h-5 w-5 text-coral" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-gray-700 font-medium"><span className="font-bold text-navy">71%</span> worry about retaliation</span>
+                </div>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50/50 transition-colors group-hover:bg-coral/5">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg className="h-5 w-5 text-coral" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-gray-700 font-medium">No clear feedback channels</span>
+                </div>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50/50 transition-colors group-hover:bg-coral/5">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg className="h-5 w-5 text-coral" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-gray-700 font-medium">Belief that nothing will change</span>
+                </div>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50/50 transition-colors group-hover:bg-coral/5">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg className="h-5 w-5 text-coral" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-gray-700 font-medium">Anonymous options not trusted</span>
+                </div>
+              </div>
             </div>
-            <div className="rounded-xl bg-gradient-to-br from-white to-gray-50 p-8 shadow-xl transition hover:shadow-2xl">
+
+            {/* Card 3: The Impact */}
+            <div className="group relative rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-100">
+              {/* Icon */}
+              <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-coral/20 to-coral/10">
+                <svg className="h-10 w-10 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
               <h3 className="font-montserrat text-2xl font-bold text-navy">
                 The Impact
               </h3>
-              <p className="font-inter mt-6 text-4xl font-bold text-coral">
+              <p className="font-inter mt-4 text-3xl font-extrabold text-coral leading-tight">
                 Your Team
               </p>
-              <p className="font-inter mb-6 text-lg font-semibold text-navy">
-                Drifts Apart
+              <p className="font-inter mb-6 text-base font-semibold text-gray-600">
+                Drifts Apart & Disengages
               </p>
-              <ul className="font-inter space-y-3 text-left text-gray-600">
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 text-coral">•</span>
-                  <span>Engagement scores drop</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 text-coral">•</span>
-                  <span>Turnover rates spike</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 text-coral">•</span>
-                  <span>Productivity suffers</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1 text-coral">•</span>
-                  <span>Culture deteriorates</span>
-                </li>
-              </ul>
+              <div className="space-y-4 text-left">
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50/50 transition-colors group-hover:bg-coral/5">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg className="h-5 w-5 text-coral" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-gray-700 font-medium">Engagement scores drop dramatically</span>
+                </div>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50/50 transition-colors group-hover:bg-coral/5">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg className="h-5 w-5 text-coral" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-gray-700 font-medium">Turnover rates spike</span>
+                </div>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50/50 transition-colors group-hover:bg-coral/5">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg className="h-5 w-5 text-coral" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-gray-700 font-medium">Productivity suffers</span>
+                </div>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50/50 transition-colors group-hover:bg-coral/5">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg className="h-5 w-5 text-coral" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-gray-700 font-medium">Company culture deteriorates</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1071,18 +1162,28 @@ export default function Home() {
       </section>
 
       {/* Use Cases Section */}
-      <section id="use-cases" className="w-full bg-white py-20">
+      <section id="use-cases" className="w-full bg-gradient-to-b from-gray-50/50 to-white py-20">
         <div className="container mx-auto max-w-6xl px-4">
-          <h2 className="font-montserrat text-center text-4xl font-bold text-navy md:text-5xl">
+          <h2 className="font-montserrat text-center text-4xl font-extrabold text-navy md:text-5xl">
             How Teams Use Anchora
           </h2>
+          <p className="font-inter mx-auto mt-4 max-w-2xl text-center text-lg text-gray-600">
+            Trusted across industries to give every employee a voice
+          </p>
           <div className="mt-16 space-y-6">
             {/* Manufacturing & Warehouses */}
-            <details className="group rounded-xl border-2 border-gray-200 p-6 transition hover:border-teal">
+            <details className="group rounded-2xl border-2 border-gray-200 bg-white p-6 transition-all duration-300 hover:border-teal hover:shadow-lg">
               <summary className="flex cursor-pointer items-center justify-between font-montserrat text-2xl font-bold text-navy">
-                <span>Manufacturing & Warehouses</span>
+                <div className="flex items-center gap-4">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-teal/20 to-teal/10">
+                    <svg className="h-7 w-7 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 008 10.172V5L7 4z" />
+                    </svg>
+                  </div>
+                  <span>Manufacturing & Warehouses</span>
+                </div>
                 <svg
-                  className="h-6 w-6 transition group-open:rotate-180"
+                  className="h-6 w-6 text-gray-400 transition-all duration-300 group-open:rotate-180 group-open:text-teal"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -1095,7 +1196,7 @@ export default function Home() {
                   />
                 </svg>
               </summary>
-              <div className="mt-4 space-y-4">
+              <div className="mt-6 space-y-4 pl-[72px]">
                 <h4 className="font-montserrat text-xl font-semibold text-teal">
                   Safety First, Voices Always
                 </h4>
@@ -1104,21 +1205,30 @@ export default function Home() {
                   quick photos and posts from the factory floor. Safety issues
                   get resolved before accidents happen.
                 </p>
-                <p className="font-inter text-sm font-semibold text-navy">
-                  Key Feature:{" "}
-                  <span className="font-normal text-gray-600">
-                    Photo attachments, urgent priority flagging
-                  </span>
-                </p>
+                <div className="rounded-lg bg-teal/5 p-4 border-l-4 border-teal">
+                  <p className="font-inter text-sm font-semibold text-navy">
+                    Key Features:{" "}
+                    <span className="font-normal text-gray-600">
+                      Photo attachments, urgent priority flagging
+                    </span>
+                  </p>
+                </div>
               </div>
             </details>
 
             {/* Tech Startups */}
-            <details className="group rounded-xl border-2 border-gray-200 p-6 transition hover:border-teal">
+            <details className="group rounded-2xl border-2 border-gray-200 bg-white p-6 transition-all duration-300 hover:border-teal hover:shadow-lg">
               <summary className="flex cursor-pointer items-center justify-between font-montserrat text-2xl font-bold text-navy">
-                <span>Tech Startups</span>
+                <div className="flex items-center gap-4">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-coral/20 to-coral/10">
+                    <svg className="h-7 w-7 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <span>Tech Startups</span>
+                </div>
                 <svg
-                  className="h-6 w-6 transition group-open:rotate-180"
+                  className="h-6 w-6 text-gray-400 transition-all duration-300 group-open:rotate-180 group-open:text-teal"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -1131,7 +1241,7 @@ export default function Home() {
                   />
                 </svg>
               </summary>
-              <div className="mt-4 space-y-4">
+              <div className="mt-6 space-y-4 pl-[72px]">
                 <h4 className="font-montserrat text-xl font-semibold text-teal">
                   Move Fast Without Breaking Culture
                 </h4>
@@ -1139,21 +1249,30 @@ export default function Home() {
                   Rapid growth shouldn&apos;t mean lost voices. Anchora scales
                   with you. From 10 to 1,000 employees, every person matters.
                 </p>
-                <p className="font-inter text-sm font-semibold text-navy">
-                  Key Feature:{" "}
-                  <span className="font-normal text-gray-600">
-                    Department scaling, trend analytics
-                  </span>
-                </p>
+                <div className="rounded-lg bg-teal/5 p-4 border-l-4 border-teal">
+                  <p className="font-inter text-sm font-semibold text-navy">
+                    Key Features:{" "}
+                    <span className="font-normal text-gray-600">
+                      Department scaling, trend analytics
+                    </span>
+                  </p>
+                </div>
               </div>
             </details>
 
             {/* Healthcare */}
-            <details className="group rounded-xl border-2 border-gray-200 p-6 transition hover:border-teal">
+            <details className="group rounded-2xl border-2 border-gray-200 bg-white p-6 transition-all duration-300 hover:border-teal hover:shadow-lg">
               <summary className="flex cursor-pointer items-center justify-between font-montserrat text-2xl font-bold text-navy">
-                <span>Healthcare</span>
+                <div className="flex items-center gap-4">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-teal/20 to-teal/10">
+                    <svg className="h-7 w-7 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </div>
+                  <span>Healthcare</span>
+                </div>
                 <svg
-                  className="h-6 w-6 transition group-open:rotate-180"
+                  className="h-6 w-6 text-gray-400 transition-all duration-300 group-open:rotate-180 group-open:text-teal"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -1166,7 +1285,7 @@ export default function Home() {
                   />
                 </svg>
               </summary>
-              <div className="mt-4 space-y-4">
+              <div className="mt-6 space-y-4 pl-[72px]">
                 <h4 className="font-montserrat text-xl font-semibold text-teal">
                   Staff Wellbeing = Patient Care
                 </h4>
@@ -1175,21 +1294,30 @@ export default function Home() {
                   feedback about scheduling, workload, and support needs helps
                   hospitals adjust before staff breaks.
                 </p>
-                <p className="font-inter text-sm font-semibold text-navy">
-                  Key Feature:{" "}
-                  <span className="font-normal text-gray-600">
-                    Anonymous posting, mental health support
-                  </span>
-                </p>
+                <div className="rounded-lg bg-teal/5 p-4 border-l-4 border-teal">
+                  <p className="font-inter text-sm font-semibold text-navy">
+                    Key Features:{" "}
+                    <span className="font-normal text-gray-600">
+                      Anonymous posting, mental health support
+                    </span>
+                  </p>
+                </div>
               </div>
             </details>
 
             {/* Retail & Hospitality */}
-            <details className="group rounded-xl border-2 border-gray-200 p-6 transition hover:border-teal">
+            <details className="group rounded-2xl border-2 border-gray-200 bg-white p-6 transition-all duration-300 hover:border-teal hover:shadow-lg">
               <summary className="flex cursor-pointer items-center justify-between font-montserrat text-2xl font-bold text-navy">
-                <span>Retail & Hospitality</span>
+                <div className="flex items-center gap-4">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-coral/20 to-coral/10">
+                    <svg className="h-7 w-7 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <span>Retail & Hospitality</span>
+                </div>
                 <svg
-                  className="h-6 w-6 transition group-open:rotate-180"
+                  className="h-6 w-6 text-gray-400 transition-all duration-300 group-open:rotate-180 group-open:text-teal"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -1202,7 +1330,7 @@ export default function Home() {
                   />
                 </svg>
               </summary>
-              <div className="mt-4 space-y-4">
+              <div className="mt-6 space-y-4 pl-[72px]">
                 <h4 className="font-montserrat text-xl font-semibold text-teal">
                   Frontline Feedback, Instant Action
                 </h4>
@@ -1211,21 +1339,30 @@ export default function Home() {
                   operational issues. Floor staff knows what works and what
                   doesn&apos;t. Capture that knowledge.
                 </p>
-                <p className="font-inter text-sm font-semibold text-navy">
-                  Key Feature:{" "}
-                  <span className="font-normal text-gray-600">
-                    Mobile-first, quick posting
-                  </span>
-                </p>
+                <div className="rounded-lg bg-teal/5 p-4 border-l-4 border-teal">
+                  <p className="font-inter text-sm font-semibold text-navy">
+                    Key Features:{" "}
+                    <span className="font-normal text-gray-600">
+                      Mobile-first, quick posting
+                    </span>
+                  </p>
+                </div>
               </div>
             </details>
 
             {/* Remote Teams */}
-            <details className="group rounded-xl border-2 border-gray-200 p-6 transition hover:border-teal">
+            <details className="group rounded-2xl border-2 border-gray-200 bg-white p-6 transition-all duration-300 hover:border-teal hover:shadow-lg">
               <summary className="flex cursor-pointer items-center justify-between font-montserrat text-2xl font-bold text-navy">
-                <span>Remote Teams</span>
+                <div className="flex items-center gap-4">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-teal/20 to-teal/10">
+                    <svg className="h-7 w-7 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <span>Remote Teams</span>
+                </div>
                 <svg
-                  className="h-6 w-6 transition group-open:rotate-180"
+                  className="h-6 w-6 text-gray-400 transition-all duration-300 group-open:rotate-180 group-open:text-teal"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -1238,7 +1375,7 @@ export default function Home() {
                   />
                 </svg>
               </summary>
-              <div className="mt-4 space-y-4">
+              <div className="mt-6 space-y-4 pl-[72px]">
                 <h4 className="font-montserrat text-xl font-semibold text-teal">
                   Stay Connected Across Time Zones
                 </h4>
@@ -1246,12 +1383,14 @@ export default function Home() {
                   Async communication. Global voices. Cultural differences
                   respected. Anchora keeps distributed teams aligned and heard.
                 </p>
-                <p className="font-inter text-sm font-semibold text-navy">
-                  Key Feature:{" "}
-                  <span className="font-normal text-gray-600">
-                    Async updates, time-zone friendly
-                  </span>
-                </p>
+                <div className="rounded-lg bg-teal/5 p-4 border-l-4 border-teal">
+                  <p className="font-inter text-sm font-semibold text-navy">
+                    Key Features:{" "}
+                    <span className="font-normal text-gray-600">
+                      Async updates, time-zone friendly
+                    </span>
+                  </p>
+                </div>
               </div>
             </details>
           </div>
@@ -2390,22 +2529,47 @@ export default function Home() {
       </div>
 
       {/* FAQ Section */}
-      <section id="faq" className="w-full bg-white py-20">
-        <div className="container mx-auto max-w-4xl px-4">
-          <h2 className="font-montserrat mb-4 text-center text-4xl font-bold text-navy">
+      <section id="faq" className="w-full bg-gradient-to-b from-white to-gray-50/50 py-20">
+        <div className="container mx-auto max-w-5xl px-4">
+          <h2 className="font-montserrat mb-4 text-center text-4xl font-extrabold text-navy">
             Frequently Asked Questions
           </h2>
-          <p className="font-inter mb-12 text-center text-lg text-gray-600">
+          <p className="font-inter mb-16 text-center text-lg text-gray-600">
             Everything you need to know about Anchora
           </p>
 
           {Object.entries(faqData).map((category, categoryIndex) => {
             const [categoryName, questions] = category;
+
+            // Define icons for each category
+            const categoryIcons = {
+              "About the Platform": (
+                <svg className="h-7 w-7 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              ),
+              "About Security & Privacy": (
+                <svg className="h-7 w-7 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              ),
+              "About Pricing & Billing": (
+                <svg className="h-7 w-7 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              )
+            };
+
             return (
               <div key={categoryIndex} className="mb-12 last:mb-0">
-                <h3 className="font-montserrat mb-6 text-2xl font-bold text-navy">
-                  {categoryName}
-                </h3>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-teal/20 to-teal/10">
+                    {categoryIcons[categoryName]}
+                  </div>
+                  <h3 className="font-montserrat text-2xl font-bold text-navy">
+                    {categoryName}
+                  </h3>
+                </div>
                 <div className="space-y-4">
                   {questions.map((faq, faqIndex) => {
                     const globalIndex = `${categoryIndex}-${faqIndex}`;
@@ -2414,18 +2578,25 @@ export default function Home() {
                     return (
                       <div
                         key={faqIndex}
-                        className="rounded-lg border border-gray-200 bg-cloud transition-all hover:shadow-md"
+                        className="rounded-xl border-2 border-gray-200 bg-white transition-all duration-200 hover:border-teal/50 hover:shadow-lg"
                       >
                         <button
                           onClick={() => toggleFaq(globalIndex)}
-                          className="w-full p-6 text-left flex items-start justify-between gap-4"
+                          className="w-full p-6 text-left flex items-start justify-between gap-4 group"
                           aria-expanded={isOpen}
                         >
-                          <h4 className="font-montserrat text-lg font-semibold text-navy pr-4">
-                            {faq.question}
-                          </h4>
+                          <div className="flex items-start gap-3 flex-1">
+                            <div className={`flex-shrink-0 mt-0.5 transition-colors ${isOpen ? 'text-teal' : 'text-gray-400'}`}>
+                              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+                              </svg>
+                            </div>
+                            <h4 className="font-montserrat text-lg font-semibold text-navy pr-4 group-hover:text-teal transition-colors">
+                              {faq.question}
+                            </h4>
+                          </div>
                           <svg
-                            className={`h-6 w-6 flex-shrink-0 text-teal transition-transform duration-200 ${
+                            className={`h-6 w-6 flex-shrink-0 text-teal transition-all duration-300 ${
                               isOpen ? "rotate-180" : ""
                             }`}
                             fill="none"
@@ -2441,10 +2612,12 @@ export default function Home() {
                           </svg>
                         </button>
                         {isOpen && (
-                          <div className="px-6 pb-6">
-                            <p className="font-inter text-gray-700 leading-relaxed">
-                              {faq.answer}
-                            </p>
+                          <div className="px-6 pb-6 pl-[60px]">
+                            <div className="border-l-4 border-teal/30 pl-4 py-2">
+                              <p className="font-inter text-gray-700 leading-relaxed">
+                                {faq.answer}
+                              </p>
+                            </div>
                           </div>
                         )}
                       </div>
