@@ -231,12 +231,12 @@ export default function Home() {
 
         <div className="relative container mx-auto max-w-6xl text-center z-10">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-sm px-4 py-2 shadow-md border border-teal/20 mb-6">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-sm px-4 py-2 shadow-md border border-coral/20 mb-6">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-teal"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-coral opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-coral"></span>
             </span>
-            <span className="text-sm font-semibold text-navy">Trusted by 500+ Companies Worldwide</span>
+            <span className="text-sm font-semibold text-navy">Now in Early Access - Limited Spots Available</span>
           </div>
 
           <h1 className="font-montserrat text-4xl font-extrabold leading-tight text-navy sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in">
@@ -509,315 +509,269 @@ export default function Home() {
         </div>
       </div>
 
-      {/* The Solution Section */}
+      {/* The Solution Section - How It Works */}
       <section
         id="features"
-        className="w-full bg-gradient-to-b from-cloud to-white py-12 sm:py-16 md:py-20"
+        className="w-full bg-gradient-to-b from-cloud to-white py-12 sm:py-16 md:py-20 lg:py-24"
       >
-        <div className="container mx-auto max-w-6xl px-4 text-center">
-          <h2 className="font-montserrat text-3xl font-bold leading-tight text-navy sm:text-4xl md:text-5xl">
-            Anchora Gives Every Employee a Safe Voice—
-            <br className="hidden sm:block" />
-            And Every Problem a Path to Resolution
-          </h2>
-          <div className="mt-12 grid gap-12 sm:gap-14 md:grid-cols-3 md:mt-16 md:gap-16">
-            {/* Step 1: Share Safely */}
-            <div className="text-center">
-              <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-teal to-teal-600 shadow-lg">
-                <svg
-                  className="h-10 w-10 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-montserrat text-2xl font-bold text-navy">
-                Step 1: Share Safely
-              </h3>
-              <p className="font-inter mt-2 text-lg font-semibold text-teal">
-                Anonymous or Named-Employee&apos;s Choice
-              </p>
-              <p className="font-inter mt-4 leading-relaxed text-gray-600">
-                Employees post ideas, report problems, or start discussions.
-                They control their privacy. No fear. No barriers. Just honest
-                communication.
-              </p>
-              <div className="mt-6 rounded-lg bg-white p-6 shadow-md">
-                <p className="font-inter mb-4 text-sm font-semibold text-navy">
-                  Features:
-                </p>
-                <ul className="space-y-2 text-left text-sm text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>True anonymity with encryption</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>Mobile-first design</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>Post in 30 seconds</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>Attach photos/documents</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6">
+          {/* Section Header */}
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
+            <h2 className="font-montserrat text-3xl font-bold leading-tight text-navy sm:text-4xl md:text-5xl lg:text-6xl">
+              How Anchora Works
+            </h2>
+            <p className="font-inter mx-auto mt-4 sm:mt-6 max-w-3xl text-base sm:text-lg md:text-xl text-gray-600 px-4">
+              A simple, powerful platform that gives every employee a voice and turns feedback into action
+            </p>
+          </div>
 
-            {/* Step 2: Track Everything */}
-            <div className="text-center">
-              <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-teal to-teal-600 shadow-lg">
-                <svg
-                  className="h-10 w-10 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+          {/* Features Grid - Fully Responsive */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mb-12 sm:mb-16">
+            {/* Feature 1 */}
+            <div className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+              <div className="flex flex-col items-center text-center">
+                {/* Image Container - Will show numbered image when available */}
+                <div className="w-full aspect-square max-w-[200px] mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-teal/10 to-teal/5 flex items-center justify-center">
+                  <Image
+                    src="/1.png"
+                    alt="Share Safely"
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
                   />
-                </svg>
-              </div>
-              <h3 className="font-montserrat text-2xl font-bold text-navy">
-                Step 2: Track Everything
-              </h3>
-              <p className="font-inter mt-2 text-lg font-semibold text-teal">
-                From Open to Resolved—Nothing Falls Through Cracks
-              </p>
-              <p className="font-inter mt-4 leading-relaxed text-gray-600">
-                Every post gets tracked through a clear workflow. Admins assign
-                owners, set priorities, and update status. Total transparency.
-                Zero lost voices.
-              </p>
-              <div className="mt-6 rounded-lg bg-white p-6 shadow-md">
-                <p className="font-inter mb-4 text-sm font-semibold text-navy">
-                  Workflow:
-                </p>
-                <div className="mb-4 flex items-center justify-center gap-2 text-xs font-semibold text-gray-600">
-                  <span className="rounded bg-coral px-2 py-1 text-white">
-                    Open
-                  </span>
-                  <span>→</span>
-                  <span className="rounded bg-gray-400 px-2 py-1 text-white">
-                    Acknowledged
-                  </span>
-                  <span>→</span>
-                  <span className="rounded bg-teal px-2 py-1 text-white">
-                    In Progress
-                  </span>
-                  <span>→</span>
-                  <span className="rounded bg-navy px-2 py-1 text-white">
-                    Resolved
-                  </span>
+                  <div className="hidden w-full h-full items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-teal to-teal-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                        1
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <p className="font-inter mb-3 text-sm font-semibold text-navy">
-                  Admin Powers:
+
+                <h3 className="font-montserrat text-xl sm:text-2xl font-bold text-navy mb-2">
+                  Share Safely
+                </h3>
+                <p className="font-inter text-sm sm:text-base font-semibold text-teal mb-3">
+                  Anonymous or Named Posts
                 </p>
-                <ul className="space-y-2 text-left text-sm text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>Set priority (Critical to Low)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>Assign to teams/individuals</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>Add due dates</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>Comment publicly or privately</span>
-                  </li>
-                </ul>
+                <p className="font-inter text-sm sm:text-base leading-relaxed text-gray-600">
+                  Employees control their privacy. Post ideas, report problems, or start discussions without fear.
+                </p>
               </div>
             </div>
 
-            {/* Step 3: See Real Action */}
-            <div className="text-center">
-              <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-teal to-teal-600 shadow-lg">
-                <svg
-                  className="h-10 w-10 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+            {/* Feature 2 */}
+            <div className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-full aspect-square max-w-[200px] mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-coral/10 to-coral/5 flex items-center justify-center">
+                  <Image
+                    src="/2.png"
+                    alt="Track Everything"
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
                   />
-                </svg>
-              </div>
-              <h3 className="font-montserrat text-2xl font-bold text-navy">
-                Step 3: See Real Action
-              </h3>
-              <p className="font-inter mt-2 text-lg font-semibold text-teal">
-                Voices Create Change—Employees See Results
-              </p>
-              <p className="font-inter mt-4 leading-relaxed text-gray-600">
-                When problems get solved, everyone sees it. When ideas get
-                implemented, creators get recognized. Culture transforms. Trust
-                builds. Teams thrive.
-              </p>
-              <div className="mt-6 rounded-lg bg-white p-6 shadow-md">
-                <p className="font-inter mb-4 text-sm font-semibold text-navy">
-                  Impact Tracking:
+                  <div className="hidden w-full h-full items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-coral to-coral/90 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                        2
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="font-montserrat text-xl sm:text-2xl font-bold text-navy mb-2">
+                  Track Everything
+                </h3>
+                <p className="font-inter text-sm sm:text-base font-semibold text-teal mb-3">
+                  Nothing Falls Through Cracks
                 </p>
-                <ul className="space-y-2 text-left text-sm text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>Resolution time metrics</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>Employee satisfaction scores</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>Department analytics</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg
-                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>Trend identification</span>
-                  </li>
-                </ul>
+                <p className="font-inter text-sm sm:text-base leading-relaxed text-gray-600">
+                  Every issue tracked from open to resolved. Transparent workflow keeps everyone informed.
+                </p>
               </div>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-full aspect-square max-w-[200px] mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-teal/10 to-teal/5 flex items-center justify-center">
+                  <Image
+                    src="/3.png"
+                    alt="See Real Action"
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className="hidden w-full h-full items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-teal to-teal-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                        3
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="font-montserrat text-xl sm:text-2xl font-bold text-navy mb-2">
+                  See Real Action
+                </h3>
+                <p className="font-inter text-sm sm:text-base font-semibold text-teal mb-3">
+                  Voices Create Change
+                </p>
+                <p className="font-inter text-sm sm:text-base leading-relaxed text-gray-600">
+                  Watch feedback turn into real solutions. Track impact and see culture transform.
+                </p>
+              </div>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-full aspect-square max-w-[200px] mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-coral/10 to-coral/5 flex items-center justify-center">
+                  <Image
+                    src="/4.png"
+                    alt="Secure & Private"
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className="hidden w-full h-full items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-coral to-coral/90 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                        4
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="font-montserrat text-xl sm:text-2xl font-bold text-navy mb-2">
+                  Secure & Private
+                </h3>
+                <p className="font-inter text-sm sm:text-base font-semibold text-teal mb-3">
+                  Bank-Level Encryption
+                </p>
+                <p className="font-inter text-sm sm:text-base leading-relaxed text-gray-600">
+                  AES-256 encryption protects anonymous posts. Your data is secure and compliant.
+                </p>
+              </div>
+            </div>
+
+            {/* Feature 5 */}
+            <div className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-full aspect-square max-w-[200px] mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-teal/10 to-teal/5 flex items-center justify-center">
+                  <Image
+                    src="/5.png"
+                    alt="Analytics & Insights"
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className="hidden w-full h-full items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-teal to-teal-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                        5
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="font-montserrat text-xl sm:text-2xl font-bold text-navy mb-2">
+                  Analytics & Insights
+                </h3>
+                <p className="font-inter text-sm sm:text-base font-semibold text-teal mb-3">
+                  Data-Driven Decisions
+                </p>
+                <p className="font-inter text-sm sm:text-base leading-relaxed text-gray-600">
+                  Real insights from real people guide your strategy. Identify trends and measure impact.
+                </p>
+              </div>
+            </div>
+
+            {/* Feature 6 */}
+            <div className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-full aspect-square max-w-[200px] mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-coral/10 to-coral/5 flex items-center justify-center">
+                  <Image
+                    src="/6.png"
+                    alt="Mobile Ready"
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className="hidden w-full h-full items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-coral to-coral/90 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                        6
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="font-montserrat text-xl sm:text-2xl font-bold text-navy mb-2">
+                  Mobile Ready
+                </h3>
+                <p className="font-inter text-sm sm:text-base font-semibold text-teal mb-3">
+                  Post from Anywhere
+                </p>
+                <p className="font-inter text-sm sm:text-base leading-relaxed text-gray-600">
+                  Mobile-first design means employees can share feedback anytime, anywhere.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action - Contact Us */}
+          <div className="bg-gradient-to-r from-teal to-teal-600 rounded-3xl p-8 sm:p-10 md:p-12 text-center shadow-2xl">
+            <h3 className="font-montserrat text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
+              Ready to Transform Your Workplace?
+            </h3>
+            <p className="font-inter text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-3xl mx-auto">
+              Anchora is currently in early access. Contact us to be among the first organizations to give your employees a voice that creates real change.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a
+                href="#contact-form"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base sm:text-lg font-bold text-teal shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
+              >
+                Contact Us for Early Access
+                <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+              <a
+                href="/demo"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 text-base sm:text-lg font-bold text-white transition-all duration-300 hover:bg-white hover:text-teal hover:shadow-xl"
+              >
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                </svg>
+                Watch Demo
+              </a>
             </div>
           </div>
         </div>
