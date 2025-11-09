@@ -11,6 +11,15 @@ export default function Home() {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
+  const handleMobileMenuClick = (e, targetId) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    const element = document.querySelector(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const faqData = {
     "About the Platform": [
       {
@@ -131,7 +140,7 @@ export default function Home() {
 
           <div className="flex items-center gap-4">
             <a
-              href="/signup"
+              href="#contact-form"
               className="rounded-lg bg-coral px-4 py-2 text-sm font-bold text-white transition hover:bg-opacity-80 hover:shadow-lg"
             >
               Start Free Trial
@@ -175,42 +184,42 @@ export default function Home() {
             <nav className="container mx-auto flex flex-col space-y-4 p-4 text-sm font-semibold">
               <a
                 href="#features"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileMenuClick(e, '#features')}
                 className="transition hover:text-teal"
               >
                 Features
               </a>
               <a
                 href="#benefits"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileMenuClick(e, '#benefits')}
                 className="transition hover:text-teal"
               >
                 Benefits
               </a>
               <a
                 href="#use-cases"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileMenuClick(e, '#use-cases')}
                 className="transition hover:text-teal"
               >
                 Use Cases
               </a>
               <a
                 href="#pricing"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileMenuClick(e, '#pricing')}
                 className="transition hover:text-teal"
               >
                 Pricing
               </a>
               <a
                 href="#faq"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileMenuClick(e, '#faq')}
                 className="transition hover:text-teal"
               >
                 FAQ
               </a>
               <a
                 href="#contact-form"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileMenuClick(e, '#contact-form')}
                 className="transition hover:text-teal"
               >
                 Contact
@@ -236,14 +245,14 @@ export default function Home() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-coral opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-coral"></span>
             </span>
-            <span className="text-sm font-semibold text-navy">Now in Early Access - Limited Spots Available</span>
+            <span className="text-sm font-semibold text-navy">⚡ Early Access Open - Only 50 Spots Left This Month</span>
           </div>
 
           <h1 className="font-montserrat text-4xl font-extrabold leading-tight text-navy sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in">
-            Your Anchor in <span className="bg-gradient-to-r from-teal to-teal-600 bg-clip-text text-transparent">Every Storm</span>
+            Stop Losing Employees to <span className="bg-gradient-to-r from-coral to-coral/90 bg-clip-text text-transparent">Unheard Problems</span>
           </h1>
           <p className="mx-auto mt-6 max-w-4xl text-xl font-semibold text-navy sm:mt-8 sm:text-2xl md:text-3xl px-4">
-            Give Every Employee a Voice That Creates Real Change
+            Give Every Employee a Voice. Track Every Problem. Build Culture That Listens.
           </p>
           <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-gray-700 sm:mt-8 sm:text-lg md:text-xl px-4">
             When work stress and personal challenges collide, Anchora keeps your
@@ -256,7 +265,7 @@ export default function Home() {
           </p>
           <div className="mt-10 mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:mt-12 sm:mb-10 px-4">
             <a
-              href="/signup"
+              href="#contact-form"
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-coral to-coral/90 px-8 py-4 text-base font-bold text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 sm:px-10 sm:py-5 sm:text-lg text-center"
             >
               Start Free Trial
@@ -265,7 +274,7 @@ export default function Home() {
               </svg>
             </a>
             <a
-              href="/demo"
+              href="#contact-form"
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border-2 border-navy bg-white/80 backdrop-blur-sm px-8 py-4 text-base font-bold text-navy transition-all duration-300 hover:bg-navy hover:text-white hover:shadow-xl hover:scale-105 sm:px-10 sm:py-5 sm:text-lg text-center"
             >
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
@@ -764,7 +773,7 @@ export default function Home() {
                 </svg>
               </a>
               <a
-                href="/demo"
+                href="#contact-form"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 text-base sm:text-lg font-bold text-white transition-all duration-300 hover:bg-white hover:text-teal hover:shadow-xl"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
@@ -1364,7 +1373,7 @@ export default function Home() {
             No hidden fees. No surprises. Just honest pricing.
           </p>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {/* Starter Plan */}
             <div className="transform rounded-xl border-2 border-gray-200 bg-white p-8 transition hover:border-teal">
               <h3 className="font-montserrat mb-2 text-2xl font-bold text-navy">
@@ -1474,37 +1483,32 @@ export default function Home() {
               </ul>
 
               <a
-                href="/signup?plan=starter"
+                href="#contact-form"
                 className="font-montserrat block rounded-lg bg-gray-100 py-3 text-center font-semibold text-navy transition hover:bg-gray-200"
               >
                 Start Free Forever
               </a>
             </div>
 
-            {/* Professional Plan - MOST POPULAR */}
-            <div className="relative transform rounded-xl border-2 border-teal bg-white p-8 shadow-xl md:scale-105">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 transform">
-                <span className="font-montserrat rounded-full bg-coral px-4 py-1 text-sm font-semibold text-white">
-                  Most Popular
-                </span>
-              </div>
-
+            {/* Growth Plan */}
+            <div className="transform rounded-xl border-2 border-gray-200 bg-white p-8 transition hover:border-navy">
               <h3 className="font-montserrat mb-2 text-2xl font-bold text-navy">
-                Professional
+                Growth
               </h3>
               <p className="font-inter mb-6 text-gray-600">
-                Best for Growing Companies
+                For Growing Teams
               </p>
 
               <div className="mb-6">
-                <span className="text-5xl font-bold text-teal">$1</span>
-                <span className="text-gray-600">/employee/month</span>
+                <span className="text-5xl font-bold text-navy">$39</span>
+                <span className="text-gray-600">/month</span>
               </div>
 
+              <p className="font-inter mb-2 text-xs text-gray-500">
+                ~$0.78/user at 50 employees
+              </p>
               <p className="font-inter mb-6 text-sm text-gray-600">
-                Billed annually ($12/employee/year)
-                <br />
-                Minimum 11 employees
+                11-50 employees
               </p>
 
               <p className="font-inter mb-4 text-sm font-semibold text-navy">
@@ -1585,11 +1589,52 @@ export default function Home() {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span className="font-inter text-sm">Admin comments</span>
+                  <span className="font-inter text-sm">Priority support</span>
                 </li>
+              </ul>
+
+              <a
+                href="#contact-form"
+                className="font-montserrat block rounded-lg bg-gray-100 py-3 text-center font-semibold text-navy transition hover:bg-gray-200"
+              >
+                Get Started
+              </a>
+            </div>
+
+            {/* Professional Plan - MOST POPULAR */}
+            <div className="relative transform rounded-xl border-2 border-coral bg-white p-8 shadow-xl lg:scale-105">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 transform">
+                <span className="font-montserrat rounded-full bg-coral px-4 py-1 text-sm font-semibold text-white">
+                  MOST POPULAR
+                </span>
+              </div>
+
+              <h3 className="font-montserrat mb-2 text-2xl font-bold text-navy">
+                Professional
+              </h3>
+              <p className="font-inter mb-6 text-gray-600">
+                Best for Growing Companies
+              </p>
+
+              <div className="mb-6">
+                <span className="text-5xl font-bold text-coral">$89</span>
+                <span className="text-gray-600">/month</span>
+              </div>
+
+              <p className="font-inter mb-2 text-xs text-gray-500">
+                ~$0.89/user at 100 employees
+              </p>
+              <p className="font-inter mb-6 text-sm text-gray-600">
+                51-100 employees
+              </p>
+
+              <p className="font-inter mb-4 text-sm font-semibold text-navy">
+                Everything in Growth, plus:
+              </p>
+              <ul className="mb-8 space-y-3">
                 <li className="flex items-start gap-2">
                   <svg
-                    className="mt-1 h-5 w-5 flex-shrink-0 text-teal"
+                    className="mt-1 h-5 w-5 flex-shrink-0 text-coral"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -1603,7 +1648,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-2">
                   <svg
-                    className="mt-1 h-5 w-5 flex-shrink-0 text-teal"
+                    className="mt-1 h-5 w-5 flex-shrink-0 text-coral"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -1617,7 +1662,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-2">
                   <svg
-                    className="mt-1 h-5 w-5 flex-shrink-0 text-teal"
+                    className="mt-1 h-5 w-5 flex-shrink-0 text-coral"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -1631,7 +1676,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-2">
                   <svg
-                    className="mt-1 h-5 w-5 flex-shrink-0 text-teal"
+                    className="mt-1 h-5 w-5 flex-shrink-0 text-coral"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -1641,13 +1686,27 @@ export default function Home() {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span className="font-inter text-sm">Priority support</span>
+                  <span className="font-inter text-sm">Admin comments</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg
+                    className="mt-1 h-5 w-5 flex-shrink-0 text-coral"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="font-inter text-sm">Dedicated support</span>
                 </li>
               </ul>
 
               <a
-                href="/signup?plan=professional"
-                className="font-montserrat block rounded-lg bg-teal py-3 text-center font-semibold text-white shadow-lg transition hover:opacity-90"
+                href="#contact-form"
+                className="font-montserrat block rounded-lg bg-coral py-3 text-center font-semibold text-white shadow-lg transition hover:opacity-90"
               >
                 Start 14-Day Free Trial
               </a>
@@ -1659,16 +1718,19 @@ export default function Home() {
                 Enterprise
               </h3>
               <p className="font-inter mb-6 text-gray-600">
-                Custom Solutions for Large Teams
+                For Large Organizations
               </p>
 
               <div className="mb-6">
-                <span className="text-5xl font-bold text-navy">Custom</span>
-                <span className="text-gray-600"> Pricing</span>
+                <span className="text-5xl font-bold text-navy">$99</span>
+                <span className="text-gray-600">/month</span>
               </div>
 
+              <p className="font-inter mb-2 text-xs text-gray-500">
+                + $0.99 per user over 100
+              </p>
               <p className="font-inter mb-6 text-sm text-gray-600">
-                500+ employees
+                100+ employees
               </p>
 
               <p className="font-inter mb-4 text-sm font-semibold text-navy">
@@ -1808,7 +1870,7 @@ export default function Home() {
               </ul>
 
               <a
-                href="/contact-sales"
+                href="#contact-form"
                 className="font-montserrat block rounded-lg bg-navy py-3 text-center font-semibold text-white transition hover:opacity-90"
               >
                 Contact Sales
@@ -2466,7 +2528,7 @@ export default function Home() {
 
           <div className="mt-12 text-center">
             <a
-              href="/signup"
+              href="#contact-form"
               className="font-montserrat inline-block rounded-lg bg-teal px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:opacity-90"
             >
               See It For Yourself - Start Free Trial
@@ -2768,7 +2830,7 @@ export default function Home() {
             {/* Primary CTA */}
             <div className="text-center">
               <a
-                href="/signup"
+                href="#contact-form"
                 className="font-montserrat inline-block rounded-lg bg-coral px-10 py-5 text-lg font-bold text-white shadow-lg transition hover:scale-105 hover:bg-opacity-90"
               >
                 Start 14-Day Free Trial
@@ -2781,7 +2843,7 @@ export default function Home() {
             {/* Secondary CTA */}
             <div className="text-center">
               <a
-                href="/demo"
+                href="#contact-form"
                 className="font-montserrat inline-block rounded-lg border-2 border-teal bg-transparent px-10 py-5 text-lg font-bold text-teal shadow-lg transition hover:scale-105 hover:bg-teal hover:text-white"
               >
                 Schedule a Demo
