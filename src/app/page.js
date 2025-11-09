@@ -7,6 +7,16 @@ export default function Home() {
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Contact form state
+  const [formData, setFormData] = useState({
+    companyName: "",
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [formStatus, setFormStatus] = useState({ type: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
@@ -17,6 +27,51 @@ export default function Home() {
     const element = document.querySelector(targetId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setFormStatus({ type: "", message: "" });
+
+    try {
+      // Simulate API call (replace with actual API endpoint when ready)
+      console.log("Form submitted:", formData);
+
+      // Simulate network delay
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Show success message
+      setFormStatus({
+        type: "success",
+        message: "Thank you for your message! We'll get back to you soon.",
+      });
+
+      // Reset form
+      setFormData({
+        companyName: "",
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      setFormStatus({
+        type: "error",
+        message: "Something went wrong. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -268,7 +323,7 @@ export default function Home() {
           </div>
 
           {/* Headline - White text on dark background */}
-          <h1 className="font-montserrat text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in drop-shadow-2xl">
+          <h1 className="font-montserrat text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl lg:text-6xl animate-fade-in drop-shadow-2xl">
             Stop Losing Your Best People to
             <span className="block mt-2 bg-gradient-to-r from-coral via-teal to-coral bg-clip-text text-transparent">
               Problems You Never Heard About
@@ -391,10 +446,10 @@ export default function Home() {
       {/* The Problem Section */}
       <section className="w-full bg-gradient-to-b from-white to-gray-50/50 py-16 sm:py-20 md:py-24">
         <div className="container mx-auto max-w-6xl px-4 text-center">
-          <h2 className="font-montserrat text-3xl font-extrabold text-navy sm:text-4xl md:text-5xl">
+          <h2 className="font-montserrat text-3xl font-extrabold text-navy sm:text-4xl md:text-4xl lg:text-4xl animate-fade-in">
             The Silent Crisis in Your Workplace
           </h2>
-          <p className="font-inter mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-700 sm:mt-8 sm:text-xl">
+          <p className="font-inter mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-700 sm:mt-8 sm:text-xl animate-fade-in-up">
             <span className="font-bold text-coral">67% of employees</span>{" "}
             experience workplace stress but suffer in silence.
             <br />
@@ -732,10 +787,10 @@ export default function Home() {
         <div className="container mx-auto max-w-7xl px-4 sm:px-6">
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <h2 className="font-montserrat text-3xl font-bold leading-tight text-navy sm:text-4xl md:text-5xl lg:text-6xl">
+            <h2 className="font-montserrat text-3xl font-bold leading-tight text-navy sm:text-4xl md:text-5xl lg:text-5xl animate-fade-in">
               How Anchora Works
             </h2>
-            <p className="font-inter mx-auto mt-4 sm:mt-6 max-w-3xl text-base sm:text-lg md:text-xl text-gray-600 px-4">
+            <p className="font-inter mx-auto mt-4 sm:mt-6 max-w-3xl text-base sm:text-lg md:text-xl text-gray-600 px-4 animate-fade-in-up">
               A simple, powerful platform that gives every employee a voice and
               turns feedback into action
             </p>
@@ -1028,7 +1083,7 @@ export default function Home() {
         className="w-full bg-white py-12 sm:py-16 md:py-20"
       >
         <div className="container mx-auto max-w-6xl px-4">
-          <h2 className="font-montserrat text-center text-3xl font-bold text-navy sm:text-4xl md:text-5xl">
+          <h2 className="font-montserrat text-center text-3xl font-bold text-navy sm:text-4xl md:text-4xl lg:text-4xl animate-fade-in">
             Everything You Need to Build a Culture That Listens
           </h2>
           <div className="mt-12 grid gap-8 sm:gap-10 md:grid-cols-2 md:mt-16 md:gap-12">
@@ -1227,7 +1282,7 @@ export default function Home() {
         className="w-full bg-gradient-to-b from-cloud to-white py-12 sm:py-16 md:py-20"
       >
         <div className="container mx-auto max-w-6xl px-4">
-          <h2 className="font-montserrat text-center text-3xl font-bold text-navy sm:text-4xl md:text-5xl">
+          <h2 className="font-montserrat text-center text-3xl font-bold text-navy sm:text-4xl md:text-4xl lg:text-4xl animate-fade-in">
             Why Companies Choose Anchora
           </h2>
           <div className="mt-12 grid gap-8 sm:gap-10 md:grid-cols-2 md:mt-16 md:gap-12">
@@ -1359,10 +1414,10 @@ export default function Home() {
         className="w-full bg-gradient-to-b from-gray-50/50 to-white py-20"
       >
         <div className="container mx-auto max-w-6xl px-4">
-          <h2 className="font-montserrat text-center text-4xl font-extrabold text-navy md:text-5xl">
+          <h2 className="font-montserrat text-center text-4xl font-extrabold text-navy md:text-4xl lg:text-4xl animate-fade-in">
             How Teams Use Anchora
           </h2>
-          <p className="font-inter mx-auto mt-4 max-w-2xl text-center text-lg text-gray-600">
+          <p className="font-inter mx-auto mt-4 max-w-2xl text-center text-lg text-gray-600 animate-fade-in-up">
             Trusted across industries to give every employee a voice
           </p>
           <div className="mt-16 space-y-6">
@@ -1648,10 +1703,10 @@ export default function Home() {
         className="pricing w-full bg-gradient-to-b from-cloud to-white py-20 px-4"
       >
         <div className="container mx-auto max-w-6xl">
-          <h2 className="font-montserrat mb-4 text-center text-3xl font-bold text-navy md:text-4xl">
+          <h2 className="font-montserrat mb-4 text-center text-3xl font-bold text-navy md:text-3xl lg:text-3xl animate-fade-in">
             Simple, Transparent Pricing
           </h2>
-          <p className="font-inter mb-12 text-center text-base text-gray-600">
+          <p className="font-inter mb-12 text-center text-base text-gray-600 animate-fade-in-up">
             No hidden fees. No surprises. Just honest pricing.
           </p>
 
@@ -1884,7 +1939,7 @@ export default function Home() {
             {/* Professional Plan - MOST POPULAR */}
             <div className="relative transform rounded-xl border-2 border-coral bg-white p-8 shadow-xl lg:scale-105">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 transform">
-                <span className="font-montserrat rounded-full bg-coral px-4 py-1 text-xs font-semibold text-white">
+                <span className="font-montserrat rounded-full bg-coral px-6 py-1.5 text-xs font-semibold text-white whitespace-nowrap shadow-lg">
                   MOST POPULAR
                 </span>
               </div>
@@ -2180,10 +2235,10 @@ export default function Home() {
       {/* How It Works Section */}
       <section id="how-it-works" className="w-full bg-white py-20">
         <div className="container mx-auto max-w-6xl px-4">
-          <h2 className="font-montserrat text-center text-4xl font-bold text-navy md:text-5xl">
+          <h2 className="font-montserrat text-center text-4xl font-bold text-navy md:text-4xl lg:text-4xl animate-fade-in">
             See Anchora in Action
           </h2>
-          <p className="font-inter mx-auto mt-6 max-w-3xl text-center text-lg text-gray-600">
+          <p className="font-inter mx-auto mt-6 max-w-3xl text-center text-lg text-gray-600 animate-fade-in-up">
             From posting feedback to tracking resolutions—see how easy it is to
             give every employee a voice
           </p>
@@ -2879,29 +2934,31 @@ export default function Home() {
       >
         <div className="container mx-auto max-w-3xl px-4">
           <div className="text-center mb-12">
-            <h2 className="font-montserrat text-4xl font-bold text-navy md:text-5xl">
+            <h2 className="font-montserrat text-4xl font-bold text-navy md:text-4xl lg:text-4xl animate-fade-in">
               Get in Touch
             </h2>
-            <p className="font-inter mt-4 text-lg text-gray-600">
+            <p className="font-inter mt-4 text-lg text-gray-600 animate-fade-in-up">
               Have questions? We&apos;d love to hear from you. Send us a message
               and we&apos;ll respond as soon as possible.
             </p>
           </div>
 
           <div className="rounded-2xl bg-white p-8 shadow-xl md:p-12">
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               {/* Company Name */}
               <div>
                 <label
-                  htmlFor="company-name"
+                  htmlFor="companyName"
                   className="font-montserrat block text-sm font-semibold text-navy mb-2"
                 >
                   Company Name <span className="text-coral">*</span>
                 </label>
                 <input
                   type="text"
-                  id="company-name"
-                  name="company-name"
+                  id="companyName"
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleInputChange}
                   required
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 text-navy focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20 transition"
                   placeholder="Acme Corporation"
@@ -2920,6 +2977,8 @@ export default function Home() {
                   type="text"
                   id="name"
                   name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   required
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 text-navy focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20 transition"
                   placeholder="John Smith"
@@ -2938,6 +2997,8 @@ export default function Home() {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   required
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 text-navy focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20 transition"
                   placeholder="john@acme.com"
@@ -2956,19 +3017,39 @@ export default function Home() {
                   id="message"
                   name="message"
                   rows="5"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   required
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 text-navy focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20 transition resize-none"
                   placeholder="Tell us how we can help..."
                 ></textarea>
               </div>
 
+              {/* Status Messages */}
+              {formStatus.message && (
+                <div
+                  className={`rounded-lg p-4 ${
+                    formStatus.type === "success"
+                      ? "bg-teal/10 text-teal border border-teal/20"
+                      : "bg-coral/10 text-coral border border-coral/20"
+                  }`}
+                >
+                  <p className="font-inter text-sm font-semibold">
+                    {formStatus.message}
+                  </p>
+                </div>
+              )}
+
               {/* Submit Button */}
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full rounded-lg bg-coral px-8 py-4 font-montserrat text-lg font-bold text-white shadow-lg transition hover:bg-opacity-90 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-coral/30"
+                  disabled={isSubmitting}
+                  className={`w-full rounded-lg bg-coral px-8 py-4 font-montserrat text-lg font-bold text-white shadow-lg transition hover:bg-opacity-90 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-coral/30 ${
+                    isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
               </div>
 
@@ -3034,7 +3115,7 @@ export default function Home() {
       <section id="demo" className="w-full bg-navy py-20 text-white">
         <div className="container mx-auto max-w-4xl px-4">
           <div className="text-center">
-            <h2 className="font-montserrat text-4xl font-bold md:text-5xl">
+            <h2 className="font-montserrat text-4xl font-bold md:text-4xl lg:text-4xl">
               Ready to Give Your Team a Voice?
             </h2>
             <p className="font-inter mt-6 text-lg text-gray-300 md:text-xl">
