@@ -1648,26 +1648,26 @@ export default function Home() {
         className="pricing w-full bg-gradient-to-b from-cloud to-white py-20 px-4"
       >
         <div className="container mx-auto max-w-6xl">
-          <h2 className="font-montserrat mb-4 text-center text-4xl font-bold text-navy md:text-5xl">
+          <h2 className="font-montserrat mb-4 text-center text-3xl font-bold text-navy md:text-4xl">
             Simple, Transparent Pricing
           </h2>
-          <p className="font-inter mb-12 text-center text-lg text-gray-600">
+          <p className="font-inter mb-12 text-center text-base text-gray-600">
             No hidden fees. No surprises. Just honest pricing.
           </p>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {/* Starter Plan */}
             <div className="transform rounded-xl border-2 border-gray-200 bg-white p-8 transition hover:border-teal">
-              <h3 className="font-montserrat mb-2 text-2xl font-bold text-navy">
+              <h3 className="font-montserrat mb-2 text-xl font-bold text-navy">
                 Starter
               </h3>
-              <p className="font-inter mb-6 text-gray-600">
+              <p className="font-inter mb-6 text-sm text-gray-600">
                 Perfect for Small Teams
               </p>
 
               <div className="mb-6">
-                <span className="text-5xl font-bold text-navy">$0</span>
-                <span className="text-gray-600">/month</span>
+                <span className="text-4xl font-bold text-navy">$0</span>
+                <span className="text-sm text-gray-600">/month</span>
               </div>
 
               <p className="font-inter mb-6 text-sm text-gray-600">
@@ -1774,14 +1774,14 @@ export default function Home() {
 
             {/* Growth Plan */}
             <div className="transform rounded-xl border-2 border-gray-200 bg-white p-8 transition hover:border-navy">
-              <h3 className="font-montserrat mb-2 text-2xl font-bold text-navy">
+              <h3 className="font-montserrat mb-2 text-xl font-bold text-navy">
                 Growth
               </h3>
-              <p className="font-inter mb-6 text-gray-600">For Growing Teams</p>
+              <p className="font-inter mb-6 text-sm text-gray-600">For Growing Teams</p>
 
               <div className="mb-6">
-                <span className="text-5xl font-bold text-navy">$39</span>
-                <span className="text-gray-600">/month</span>
+                <span className="text-4xl font-bold text-navy">$39</span>
+                <span className="text-sm text-gray-600">/month</span>
               </div>
 
               <p className="font-inter mb-2 text-xs text-gray-500">
@@ -1884,21 +1884,21 @@ export default function Home() {
             {/* Professional Plan - MOST POPULAR */}
             <div className="relative transform rounded-xl border-2 border-coral bg-white p-8 shadow-xl lg:scale-105">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 transform">
-                <span className="font-montserrat rounded-full bg-coral px-4 py-1 text-sm font-semibold text-white">
+                <span className="font-montserrat rounded-full bg-coral px-4 py-1 text-xs font-semibold text-white">
                   MOST POPULAR
                 </span>
               </div>
 
-              <h3 className="font-montserrat mb-2 text-2xl font-bold text-navy">
+              <h3 className="font-montserrat mb-2 text-xl font-bold text-navy">
                 Professional
               </h3>
-              <p className="font-inter mb-6 text-gray-600">
+              <p className="font-inter mb-6 text-sm text-gray-600">
                 Best for Growing Companies
               </p>
 
               <div className="mb-6">
-                <span className="text-5xl font-bold text-coral">$89</span>
-                <span className="text-gray-600">/month</span>
+                <span className="text-4xl font-bold text-coral">$89</span>
+                <span className="text-sm text-gray-600">/month</span>
               </div>
 
               <p className="font-inter mb-2 text-xs text-gray-500">
@@ -1994,16 +1994,16 @@ export default function Home() {
 
             {/* Enterprise Plan */}
             <div className="transform rounded-xl border-2 border-gray-200 bg-white p-8 transition hover:border-navy">
-              <h3 className="font-montserrat mb-2 text-2xl font-bold text-navy">
+              <h3 className="font-montserrat mb-2 text-xl font-bold text-navy">
                 Enterprise
               </h3>
-              <p className="font-inter mb-6 text-gray-600">
+              <p className="font-inter mb-6 text-sm text-gray-600">
                 For Large Organizations
               </p>
 
               <div className="mb-6">
-                <span className="text-5xl font-bold text-navy">$99</span>
-                <span className="text-gray-600">/month</span>
+                <span className="text-4xl font-bold text-navy">$99</span>
+                <span className="text-sm text-gray-600">/month</span>
               </div>
 
               <p className="font-inter mb-2 text-xs text-gray-500">
@@ -2016,138 +2016,32 @@ export default function Home() {
               <p className="font-inter mb-4 text-sm font-semibold text-navy">
                 Everything in Professional, plus:
               </p>
-              <ul className="mb-8 space-y-3">
-                <li className="flex items-start gap-2">
-                  <svg
-                    className="mt-1 h-5 w-5 flex-shrink-0 text-teal"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="font-inter text-sm">SSO integration</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <svg
-                    className="mt-1 h-5 w-5 flex-shrink-0 text-teal"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="font-inter text-sm">Custom workflows</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <svg
-                    className="mt-1 h-5 w-5 flex-shrink-0 text-teal"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="font-inter text-sm">API access</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <svg
-                    className="mt-1 h-5 w-5 flex-shrink-0 text-teal"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="font-inter text-sm">White-labeling</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <svg
-                    className="mt-1 h-5 w-5 flex-shrink-0 text-teal"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="font-inter text-sm">
-                    Dedicated account manager
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <svg
-                    className="mt-1 h-5 w-5 flex-shrink-0 text-teal"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="font-inter text-sm">
-                    Custom integrations
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <svg
-                    className="mt-1 h-5 w-5 flex-shrink-0 text-teal"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="font-inter text-sm">SLA guarantees</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <svg
-                    className="mt-1 h-5 w-5 flex-shrink-0 text-teal"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="font-inter text-sm">On-premise options</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <svg
-                    className="mt-1 h-5 w-5 flex-shrink-0 text-teal"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="font-inter text-sm">Advanced security</span>
-                </li>
-              </ul>
+              <div className="mb-8 space-y-4">
+                <div>
+                  <h5 className="font-semibold mb-1 text-sm text-navy">
+                    Enterprise Security
+                  </h5>
+                  <p className="text-xs text-gray-600">
+                    SSO, on-premise options, advanced security
+                  </p>
+                </div>
+                <div>
+                  <h5 className="font-semibold mb-1 text-sm text-navy">
+                    Integration & Customization
+                  </h5>
+                  <p className="text-xs text-gray-600">
+                    API access, custom workflows, white-labeling
+                  </p>
+                </div>
+                <div>
+                  <h5 className="font-semibold mb-1 text-sm text-navy">
+                    Premium Support
+                  </h5>
+                  <p className="text-xs text-gray-600">
+                    Dedicated account manager, SLA guarantees
+                  </p>
+                </div>
+              </div>
 
               <a
                 href="#contact-form"
