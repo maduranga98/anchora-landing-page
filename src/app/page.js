@@ -1832,7 +1832,9 @@ export default function Home() {
               <h3 className="font-montserrat mb-2 text-xl font-bold text-navy">
                 Growth
               </h3>
-              <p className="font-inter mb-6 text-sm text-gray-600">For Growing Teams</p>
+              <p className="font-inter mb-6 text-sm text-gray-600">
+                For Growing Teams
+              </p>
 
               <div className="mb-6">
                 <span className="text-4xl font-bold text-navy">$39</span>
@@ -2235,7 +2237,7 @@ export default function Home() {
       {/* How It Works Section */}
       <section id="how-it-works" className="w-full bg-white py-20">
         <div className="container mx-auto max-w-6xl px-4">
-          <h2 className="font-montserrat text-center text-4xl font-bold text-navy md:text-4xl lg:text-4xl animate-fade-in">
+          <h2 className="font-montserrat text-center text-4xl font-bold text-navy md:text-5xl animate-fade-in">
             See Anchora in Action
           </h2>
           <p className="font-inter mx-auto mt-6 max-w-3xl text-center text-lg text-gray-600 animate-fade-in-up">
@@ -2305,25 +2307,20 @@ export default function Home() {
                     </li>
                   </ul>
                 </div>
-                <div className="rounded-lg bg-gray-100 p-6">
-                  <div className="aspect-video flex items-center justify-center rounded-lg bg-white shadow-inner">
-                    <svg
-                      className="h-16 w-16 text-gray-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
+                <div className="rounded-xl overflow-hidden shadow-xl bg-white">
+                  <div
+                    className="relative w-full"
+                    style={{ maxHeight: "400px" }}
+                  >
+                    <Image
+                      src="/f1.png"
+                      alt="Create Post Interface"
+                      width={800}
+                      height={600}
+                      className="w-full h-full object-cover object-top"
+                      priority
+                    />
                   </div>
-                  <p className="font-inter mt-4 text-center text-sm text-gray-500">
-                    Screenshot: Create Post Interface
-                  </p>
                 </div>
               </div>
             </div>
@@ -2332,25 +2329,20 @@ export default function Home() {
             <div className="rounded-2xl bg-gradient-to-br from-cloud to-white p-8 shadow-lg">
               <div className="grid gap-8 md:grid-cols-2 md:items-center">
                 <div className="order-2 md:order-1">
-                  <div className="rounded-lg bg-gray-100 p-6">
-                    <div className="aspect-video flex items-center justify-center rounded-lg bg-white shadow-inner">
-                      <svg
-                        className="h-16 w-16 text-gray-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                        />
-                      </svg>
+                  <div className="rounded-xl overflow-hidden shadow-xl bg-white">
+                    <div
+                      className="relative w-full"
+                      style={{ maxHeight: "400px" }}
+                    >
+                      <Image
+                        src="/f2.png"
+                        alt="Admin Dashboard"
+                        width={800}
+                        height={600}
+                        className="w-full h-full object-cover object-top"
+                        priority
+                      />
                     </div>
-                    <p className="font-inter mt-4 text-center text-sm text-gray-500">
-                      Screenshot: Admin Dashboard
-                    </p>
                   </div>
                 </div>
                 <div className="order-1 md:order-2">
@@ -2467,7 +2459,7 @@ export default function Home() {
                       >
                         <path
                           fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                           clipRule="evenodd"
                         />
                       </svg>
@@ -2475,25 +2467,20 @@ export default function Home() {
                     </li>
                   </ul>
                 </div>
-                <div className="rounded-lg bg-gray-100 p-6">
-                  <div className="aspect-video flex items-center justify-center rounded-lg bg-white shadow-inner">
-                    <svg
-                      className="h-16 w-16 text-gray-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-                      />
-                    </svg>
+                <div className="rounded-xl overflow-hidden shadow-xl bg-white">
+                  <div
+                    className="relative w-full"
+                    style={{ maxHeight: "400px" }}
+                  >
+                    <Image
+                      src="/f3.png"
+                      alt="Problem Tracking Interface"
+                      width={800}
+                      height={600}
+                      className="w-full h-full object-cover object-top"
+                      priority
+                    />
                   </div>
-                  <p className="font-inter mt-4 text-center text-sm text-gray-500">
-                    Screenshot: Problem Tracking Interface
-                  </p>
                 </div>
               </div>
             </div>
@@ -2502,25 +2489,20 @@ export default function Home() {
             <div className="rounded-2xl bg-gradient-to-br from-cloud to-white p-8 shadow-lg">
               <div className="grid gap-8 md:grid-cols-2 md:items-center">
                 <div className="order-2 md:order-1">
-                  <div className="rounded-lg bg-gray-100 p-6">
-                    <div className="aspect-video flex items-center justify-center rounded-lg bg-white shadow-inner">
-                      <svg
-                        className="h-16 w-16 text-gray-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                      </svg>
+                  <div className="rounded-xl overflow-hidden shadow-xl bg-white">
+                    <div
+                      className="relative w-full"
+                      style={{ maxHeight: "400px" }}
+                    >
+                      <Image
+                        src="/f4.png"
+                        alt="Analytics Dashboard"
+                        width={800}
+                        height={600}
+                        className="w-full h-full object-cover object-top"
+                        priority
+                      />
                     </div>
-                    <p className="font-inter mt-4 text-center text-sm text-gray-500">
-                      Screenshot: Analytics Dashboard
-                    </p>
                   </div>
                 </div>
                 <div className="order-1 md:order-2">
@@ -2645,25 +2627,20 @@ export default function Home() {
                     </li>
                   </ul>
                 </div>
-                <div className="rounded-lg bg-gray-100 p-6">
-                  <div className="aspect-video flex items-center justify-center rounded-lg bg-white shadow-inner">
-                    <svg
-                      className="h-16 w-16 text-gray-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-                      />
-                    </svg>
+                <div className="rounded-xl overflow-hidden shadow-xl bg-white">
+                  <div
+                    className="relative w-full"
+                    style={{ maxHeight: "400px" }}
+                  >
+                    <Image
+                      src="/f5.png"
+                      alt="Mobile App Interface"
+                      width={800}
+                      height={600}
+                      className="w-full h-full object-cover object-top"
+                      priority
+                    />
                   </div>
-                  <p className="font-inter mt-4 text-center text-sm text-gray-500">
-                    Screenshot: Mobile App Interface
-                  </p>
                 </div>
               </div>
             </div>
@@ -2672,10 +2649,13 @@ export default function Home() {
             <div className="rounded-2xl bg-gradient-to-br from-cloud to-white p-8 shadow-lg">
               <div className="grid gap-8 md:grid-cols-2 md:items-center">
                 <div className="order-2 md:order-1">
-                  <div className="rounded-lg bg-gray-100 p-6">
-                    <div className="aspect-video flex items-center justify-center rounded-lg bg-white shadow-inner">
+                  <div className="rounded-xl overflow-hidden shadow-xl bg-white p-8">
+                    <div
+                      className="flex items-center justify-center"
+                      style={{ height: "300px" }}
+                    >
                       <svg
-                        className="h-16 w-16 text-gray-300"
+                        className="h-24 w-24 text-gray-300"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -2689,7 +2669,7 @@ export default function Home() {
                       </svg>
                     </div>
                     <p className="font-inter mt-4 text-center text-sm text-gray-500">
-                      Screenshot: Activity Timeline
+                      Coming Soon
                     </p>
                   </div>
                 </div>
