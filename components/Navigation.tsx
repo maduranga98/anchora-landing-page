@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import AnchoraLogo from "@/components/AnchoraLogo";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -27,12 +28,8 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary-teal rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">A</span>
-            </div>
-            <span className="text-xl md:text-2xl font-bold text-primary-navy">
-              Anchora
-            </span>
+            <AnchoraLogo size="default" />
+            <span className="text-xl font-bold text-primary-navy">Anchora</span>
           </div>
 
           {/* Desktop Navigation */}
