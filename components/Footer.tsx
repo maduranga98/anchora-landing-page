@@ -2,6 +2,7 @@
 
 import { FiTwitter, FiLinkedin, FiFacebook, FiInstagram } from "react-icons/fi";
 import Link from "next/link";
+import AnchoraLogo from "./AnchoraLogo";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,7 +15,8 @@ export default function Footer() {
       { name: "Roadmap", href: "#" },
     ],
     company: [
-      { name: "About Us", href: "#" },
+      { name: "About Us", href: "/about" },
+      { name: "About Lumora Ventures", href: "/lumora" },
       { name: "Careers", href: "#" },
       { name: "Blog", href: "#" },
       { name: "Press Kit", href: "#" },
@@ -26,10 +28,10 @@ export default function Footer() {
       { name: "System Status", href: "#" },
     ],
     legal: [
-      { name: "Privacy Policy", href: "#" },
-      { name: "Terms of Service", href: "#" },
-      { name: "Cookie Policy", href: "#" },
-      { name: "GDPR", href: "#" },
+      { name: "Privacy Policy", href: "/privacy-policy" },
+      { name: "Terms of Service", href: "/terms-of-service" },
+      { name: "Cookie Policy", href: "/cookie-policy" },
+      { name: "GDPR Compliance", href: "/gdpr" },
     ],
   };
 
@@ -41,14 +43,23 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary-teal rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">A</span>
-              </div>
+              <AnchoraLogo size="default" />
               <span className="text-xl font-bold">Anchora</span>
             </div>
-            <p className="text-white/70 text-sm mb-6">
+            <p className="text-white/70 text-sm mb-4">
               Your Anchor in Every Storm. Transforming workplace communication
               one company at a time.
+            </p>
+            <p className="text-white/50 text-xs mb-6">
+              A product of{" "}
+              <Link
+                href="/lumora"
+                className="text-primary-teal font-semibold hover:underline"
+              >
+                Lumora Ventures
+              </Link>
+              <br />
+              Building innovative workplace solutions
             </p>
             {/* Social Links */}
             <div className="flex gap-4">
@@ -106,12 +117,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-white/70 hover:text-primary-teal transition-colors text-sm"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -140,12 +151,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-white/70 hover:text-primary-teal transition-colors text-sm"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -156,18 +167,33 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/70 text-sm">
-              © {currentYear} Anchora. All rights reserved.
+              © {currentYear} Anchora by Lumora Ventures. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-sm text-white/70">
-              <a href="#" className="hover:text-primary-teal transition-colors">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-primary-teal transition-colors"
+              >
                 Privacy
-              </a>
-              <a href="#" className="hover:text-primary-teal transition-colors">
+              </Link>
+              <Link
+                href="/terms-of-service"
+                className="hover:text-primary-teal transition-colors"
+              >
                 Terms
-              </a>
-              <a href="#" className="hover:text-primary-teal transition-colors">
+              </Link>
+              <Link
+                href="/cookie-policy"
+                className="hover:text-primary-teal transition-colors"
+              >
                 Cookies
-              </a>
+              </Link>
+              <Link
+                href="/gdpr"
+                className="hover:text-primary-teal transition-colors"
+              >
+                GDPR
+              </Link>
             </div>
           </div>
         </div>

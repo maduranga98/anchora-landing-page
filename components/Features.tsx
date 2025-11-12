@@ -19,7 +19,7 @@ export default function Features() {
       icon: <FiShield className="w-8 h-8" />,
       title: "Anonymous Problem Reporting",
       description:
-        "Employees report harassment, fraud, safety issues without fear. 100% anonymity—even admins can&apos;t identify posters.",
+        "Employees report harassment, fraud, safety issues without fear. 100% anonymity—even admins can't identify posters.",
       benefit: "Stop retaliation. Get the truth.",
       color: "from-green-500 to-green-700",
     },

@@ -15,7 +15,7 @@ export default function Benefits() {
       icon: <FiShield className="w-12 h-12" />,
       title: "Prevent Lawsuits Before They Start",
       description:
-        "Catch harassment, discrimination, and hostile work environment issues when they&apos;re still manageable. Handle internally instead of in court.",
+        "Catch harassment, discrimination, and hostile work environment issues when they'sre still manageable. Handle internally instead of in court.",
       stats: [
         { value: "$75K-$300K", label: "Average harassment lawsuit cost" },
         { value: "18-36 months", label: "Average litigation timeline" },
