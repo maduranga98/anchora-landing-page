@@ -22,7 +22,7 @@ export default function Hero() {
         ></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-16 md:py-20 lg:py-24 text-center">
+      <div className="relative section-container py-20 md:py-24 lg:py-32 text-center">
         {/* Urgent Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-coral/20 border border-accent-coral/50 rounded-full text-accent-coral text-sm font-bold mb-8 animate-fadeIn">
           <FiAlertTriangle className="animate-pulse" />
@@ -93,32 +93,32 @@ export default function Hero() {
 
         {/* Stats with Impact */}
         <div
-          className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto animate-fadeIn"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto animate-fadeIn"
           style={{ animationDelay: "0.4s" }}
         >
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 lg:p-8 border border-white/20 hover:border-primary-teal/50 transition-all">
-            <div className="text-5xl font-bold text-accent-coral mb-2">$1</div>
-            <div className="text-gray-300 font-medium">per employee/month</div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/20 hover:border-primary-teal/50 transition-all">
+            <div className="text-4xl md:text-5xl font-bold text-accent-coral mb-2">$1</div>
+            <div className="text-gray-300 font-medium text-base md:text-lg">per employee/month</div>
             <div className="text-sm text-white/70 mt-2">
               vs. $75K-$300K per lawsuit
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-primary-teal/50 transition-all">
-            <div className="text-5xl font-bold text-primary-teal mb-2">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/20 hover:border-primary-teal/50 transition-all">
+            <div className="text-4xl md:text-5xl font-bold text-primary-teal mb-2">
               100%
             </div>
-            <div className="text-gray-300 font-medium">
+            <div className="text-gray-300 font-medium text-base md:text-lg">
               Anonymous Protection
             </div>
             <div className="text-sm text-white/70 mt-2">
               Even admins can't identify users
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-primary-teal/50 transition-all">
-            <div className="text-5xl font-bold text-primary-teal mb-2">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/20 hover:border-primary-teal/50 transition-all">
+            <div className="text-4xl md:text-5xl font-bold text-primary-teal mb-2">
               24hrs
             </div>
-            <div className="text-gray-300 font-medium">Setup Time</div>
+            <div className="text-gray-300 font-medium text-base md:text-lg">Setup Time</div>
             <div className="text-sm text-white/70 mt-2">
               Start protecting immediately
             </div>

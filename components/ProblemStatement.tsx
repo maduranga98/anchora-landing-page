@@ -71,9 +71,9 @@ export default function ProblemStatement() {
   return (
     <section
       id="problem"
-      className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white"
+      className="section-padding bg-gradient-to-b from-gray-50 to-white"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div className="section-container">
         {/* Shocking Header */}
         <div className="text-center mb-12 md:mb-16 lg:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-100 border border-red-300 rounded-full text-red-700 text-sm font-bold mb-6">
@@ -109,7 +109,7 @@ export default function ProblemStatement() {
         </div>
 
         {/* Real Scenarios Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
           {hiddenProblems.map((problem, index) => (
             <div
               key={index}
@@ -152,7 +152,7 @@ export default function ProblemStatement() {
             Right Now in Your Company)
           </h3>
 
-          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
             <div className="text-center">
               <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
                 1️⃣
@@ -202,8 +202,8 @@ export default function ProblemStatement() {
             One Silent Problem
           </h3>
 
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div className="border-r border-gray-200 last:border-0">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="md:border-r border-gray-200 last:border-0">
               <div className="text-5xl font-bold text-red-600 mb-2">
                 $75K-$300K
               </div>
@@ -214,7 +214,7 @@ export default function ProblemStatement() {
                 + Legal fees, settlements, reputation damage
               </div>
             </div>
-            <div className="border-r border-gray-200 last:border-0">
+            <div className="md:border-r border-gray-200 last:border-0">
               <div className="text-5xl font-bold text-red-600 mb-2">$250K+</div>
               <div className="text-gray-600 font-medium">
                 Average Fraud/Embezzlement

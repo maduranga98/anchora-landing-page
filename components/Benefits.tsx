@@ -103,9 +103,9 @@ export default function Benefits() {
   return (
     <section
       id="benefits"
-      className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50"
+      className="section-padding bg-gradient-to-b from-white to-gray-50"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-sm font-bold text-primary-teal uppercase tracking-wide mb-4">
@@ -144,7 +144,7 @@ export default function Benefits() {
                 index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
               } flex flex-col lg:flex`}
             >
-              <div className="lg:w-1/3 bg-gradient-to-br from-primary-navy to-primary-teal p-8 flex items-center justify-center">
+              <div className="lg:w-1/3 bg-gradient-to-br from-primary-navy to-primary-teal p-6 md:p-8 flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 text-white">
                     {benefit.icon}
@@ -170,7 +170,7 @@ export default function Benefits() {
                 </div>
               </div>
 
-              <div className="lg:w-2/3 p-8">
+              <div className="lg:w-2/3 p-6 md:p-8">
                 <p className="text-lg text-text-secondary mb-6 leading-relaxed">
                   {benefit.description}
                 </p>

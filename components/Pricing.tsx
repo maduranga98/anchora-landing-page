@@ -23,8 +23,8 @@ export default function Pricing() {
   ]
 
   return (
-    <section id="pricing" className="py-16 md:py-24 lg:py-32 bg-background-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+    <section id="pricing" className="section-padding bg-background-white">
+      <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16 lg:mb-20">
           <h2 className="text-sm font-semibold text-primary-teal uppercase tracking-wide mb-4">
@@ -59,7 +59,7 @@ export default function Pricing() {
             </div>
 
             {/* Features List */}
-            <div className="grid sm:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-6 h-6 bg-status-success-light rounded-full flex items-center justify-center mt-0.5">
