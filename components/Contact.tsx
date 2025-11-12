@@ -51,8 +51,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 lg:py-32 bg-background-softGray">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="section-padding bg-background-softGray">
+      <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-sm font-semibold text-primary-teal uppercase tracking-wide mb-4">
@@ -68,7 +68,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Contact Form */}
           <div className="bg-white rounded-2xl shadow-large p-8 md:p-10">
             <h4 className="text-2xl font-bold text-text-primary mb-6">

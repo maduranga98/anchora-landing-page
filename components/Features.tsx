@@ -126,9 +126,9 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50"
+      className="section-padding bg-gradient-to-b from-white to-gray-50"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-sm font-bold text-[#1ABC9C] uppercase tracking-wide mb-4">
@@ -145,7 +145,7 @@ export default function Features() {
         </div>
 
         {/* Core Protection Features */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-20">
           {protectionFeatures.map((feature, index) => (
             <div
               key={index}
@@ -184,7 +184,7 @@ export default function Features() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {complianceFeatures.map((feature, index) => (
               <div
                 key={index}
@@ -211,7 +211,7 @@ export default function Features() {
             Why Anchora is <span className="text-[#1ABC9C]">Different</span>
           </h4>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {uniqueAdvantages.map((advantage, index) => (
               <div
                 key={index}
@@ -248,7 +248,7 @@ export default function Features() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
             <div className="text-center">
               <div className="text-3xl mb-2">🎨</div>
               <div className="font-semibold">Creative Wall</div>
