@@ -22,7 +22,7 @@ export default function Hero() {
         ></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-16 md:py-20 lg:py-24 text-center">
         {/* Urgent Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-coral/20 border border-accent-coral/50 rounded-full text-accent-coral text-sm font-bold mb-8 animate-fadeIn">
           <FiAlertTriangle className="animate-pulse" />
@@ -31,7 +31,7 @@ export default function Hero() {
 
         {/* Main Headline */}
         <h1
-          className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fadeIn leading-tight"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 md:mb-8 animate-fadeIn leading-tight"
           style={{ animationDelay: "0.1s" }}
         >
           Your Anchor in <br />
@@ -42,18 +42,18 @@ export default function Hero() {
 
         {/* Powerful Subheadline */}
         <div
-          className="max-w-4xl mx-auto mb-12 animate-fadeIn"
+          className="max-w-4xl mx-auto mb-10 md:mb-12 lg:mb-14 animate-fadeIn"
           style={{ animationDelay: "0.2s" }}
         >
-          <p className="text-xl md:text-3xl text-gray-200 font-semibold mb-4">
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-200 font-semibold mb-4">
             The problems your employees see every day—
           </p>
-          <p className="text-2xl md:text-4xl text-accent-coral font-bold mb-6">
+          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-accent-coral font-bold mb-6">
             but never tell you—are destroying your company from within.
           </p>
 
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 max-w-3xl mx-auto">
-            <p className="text-lg md:text-xl text-white/90 mb-3">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 lg:p-8 border border-white/20 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-white/90 mb-3">
               <span className="font-bold">
                 Harassment. Fraud. Safety violations. Corruption.
               </span>
@@ -72,12 +72,12 @@ export default function Hero() {
 
         {/* CTA Buttons */}
         <div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fadeIn mb-16"
+          className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center animate-fadeIn mb-12 md:mb-16 lg:mb-20"
           style={{ animationDelay: "0.3s" }}
         >
           <button
             onClick={scrollToContact}
-            className="group px-10 py-5 bg-accent-coral text-white rounded-lg font-bold text-lg hover:bg-accent-coral/90 transition-all duration-300 shadow-large flex items-center gap-2 hover:scale-105"
+            className="group px-8 md:px-10 py-4 md:py-5 bg-accent-coral text-white rounded-lg font-bold text-base md:text-lg hover:bg-accent-coral/90 transition-all duration-300 shadow-large flex items-center gap-2 hover:scale-105"
           >
             <FiShield />
             Protect Your Company Now
@@ -85,7 +85,7 @@ export default function Hero() {
           </button>
           <button
             onClick={scrollToProblem}
-            className="px-10 py-5 bg-white text-primary-navy rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-large hover:scale-105"
+            className="px-8 md:px-10 py-4 md:py-5 bg-white text-primary-navy rounded-lg font-bold text-base md:text-lg hover:bg-gray-100 transition-all duration-300 shadow-large hover:scale-105"
           >
             See What You're Missing
           </button>
@@ -93,10 +93,10 @@ export default function Hero() {
 
         {/* Stats with Impact */}
         <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto animate-fadeIn"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto animate-fadeIn"
           style={{ animationDelay: "0.4s" }}
         >
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-primary-teal/50 transition-all">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 lg:p-8 border border-white/20 hover:border-primary-teal/50 transition-all">
             <div className="text-5xl font-bold text-accent-coral mb-2">$1</div>
             <div className="text-gray-300 font-medium">per employee/month</div>
             <div className="text-sm text-white/70 mt-2">

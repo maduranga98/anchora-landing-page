@@ -71,11 +71,11 @@ export default function ProblemStatement() {
   return (
     <section
       id="problem"
-      className="py-20 bg-gradient-to-b from-gray-50 to-white"
+      className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Shocking Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16 lg:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-100 border border-red-300 rounded-full text-red-700 text-sm font-bold mb-6">
             <FiAlertCircle className="animate-pulse" />
             What Your Employees Know (But Won't Tell You)

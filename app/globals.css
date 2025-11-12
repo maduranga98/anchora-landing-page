@@ -32,6 +32,12 @@
   --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.1);
   --shadow-medium: 0 10px 15px -3px rgb(0 0 0 / 0.1);
   --shadow-large: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
+  /* Container */
+  --container-max-width: 1280px;
+  --container-padding-x: 1rem;
+  --container-padding-x-sm: 1.5rem;
+  --container-padding-x-lg: 2rem;
 }
 
 /* Global Reset */
@@ -54,6 +60,36 @@ body {
   color: var(--color-text-primary);
   background-color: var(--color-background-white);
   line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Container utilities for better responsive layout */
+.container-custom {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding-x);
+  padding-right: var(--container-padding-x);
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: var(--container-padding-x-sm);
+    padding-right: var(--container-padding-x-sm);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: var(--container-padding-x-lg);
+    padding-right: var(--container-padding-x-lg);
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-custom {
+    max-width: var(--container-max-width);
+  }
 }
 
 /* Animations */
