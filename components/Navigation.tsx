@@ -1,23 +1,47 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import AnchoraLogo from "@/components/AnchoraLogo";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   const navLinks = [
     { name: "Features", href: "#features" },
     { name: "Benefits", href: "#benefits" },
+    { name: "About", href: "#about" },
+    { name: "Blogs", href: "#blogs" },
     { name: "Pricing", href: "#pricing" },
     { name: "Contact", href: "#contact" },
   ];
+
+  // Scroll detection to update active section
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks.map((link) => link.href.substring(1));
+      const scrollPosition = window.scrollY + 100; // Offset for navbar height
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(`#${sections[i]}`);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (href: string) => {
     if (href.startsWith("#")) {
       const element = document.querySelector(href);
       element?.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(href);
     }
     setMobileMenuOpen(false);
   };
@@ -38,9 +62,16 @@ export default function Navigation() {
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
-                className="text-text-primary hover:text-primary-teal font-medium transition-colors"
+                className={`font-medium transition-all duration-300 relative ${
+                  activeSection === link.href
+                    ? "text-primary-teal"
+                    : "text-text-primary hover:text-primary-teal"
+                }`}
               >
                 {link.name}
+                {activeSection === link.href && (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary-teal rounded-full"></span>
+                )}
               </button>
             ))}
           </div>
@@ -84,7 +115,11 @@ export default function Navigation() {
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
-                className="block w-full text-left text-text-primary hover:text-primary-teal font-medium py-2 transition-colors"
+                className={`block w-full text-left font-medium py-2 transition-all duration-300 ${
+                  activeSection === link.href
+                    ? "text-primary-teal font-bold pl-4 border-l-4 border-primary-teal"
+                    : "text-text-primary hover:text-primary-teal"
+                }`}
               >
                 {link.name}
               </button>

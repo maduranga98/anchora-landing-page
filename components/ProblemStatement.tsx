@@ -81,13 +81,13 @@ export default function ProblemStatement() {
             What Your Employees Know (But Won't Tell You)
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             By the Time <span className="text-red-600">YOU</span> Find Out,
             <br />
             <span className="text-red-600">It's Already Too Late</span>
           </h2>
 
-          <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-8">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-4xl mx-auto mb-8">
             Your employees see these problems{" "}
             <span className="font-bold underline">every single day</span>.
             <br />
@@ -96,7 +96,7 @@ export default function ProblemStatement() {
           </p>
 
           <div className="bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-500 p-6 rounded-lg max-w-3xl mx-auto">
-            <p className="text-lg text-gray-800">
+            <p className="text-sm md:text-base lg:text-lg text-gray-800">
               <span className="font-bold text-red-600">
                 Critical Reality Check:
               </span>{" "}
@@ -117,7 +117,7 @@ export default function ProblemStatement() {
             >
               <div className={`bg-gradient-to-r ${problem.color} p-6`}>
                 <div className="text-white mb-3">{problem.icon}</div>
-                <h4 className="text-2xl font-bold text-white mb-2">
+                <h4 className="text-lg md:text-xl font-bold text-white mb-2">
                   {problem.title}
                 </h4>
               </div>
@@ -147,7 +147,7 @@ export default function ProblemStatement() {
 
         {/* The Pattern Section */}
         <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-white mb-16">
-          <h3 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">
             <span className="text-red-400">The Deadly Pattern</span> (Happening
             Right Now in Your Company)
           </h3>
@@ -197,14 +197,14 @@ export default function ProblemStatement() {
 
         {/* Impact Stats - The Real Cost */}
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border-4 border-red-200">
-          <h3 className="text-3xl font-bold text-center text-gray-900 mb-8">
+          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-center text-gray-900 mb-8">
             The <span className="text-red-600">Actual Financial Impact</span> of
             One Silent Problem
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="md:border-r border-gray-200 last:border-0">
-              <div className="text-5xl font-bold text-red-600 mb-2">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-red-600 mb-2">
                 $75K-$300K
               </div>
               <div className="text-gray-600 font-medium">
@@ -235,9 +235,9 @@ export default function ProblemStatement() {
           </div>
 
           <div className="mt-10 p-6 bg-green-50 rounded-xl border-2 border-green-300">
-            <p className="text-xl text-center font-bold text-green-800">
+            <p className="text-base md:text-lg lg:text-xl text-center font-bold text-green-800">
               Anchora Costs:{" "}
-              <span className="text-4xl text-green-600">$1/employee/month</span>
+              <span className="text-2xl md:text-3xl lg:text-4xl text-green-600">$1/employee/month</span>
             </p>
             <p className="text-center text-gray-700 mt-2">
               For 100 employees: $1,200/year vs. $75,000+ in ONE incident

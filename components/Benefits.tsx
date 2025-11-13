@@ -111,10 +111,10 @@ export default function Benefits() {
           <h2 className="text-sm font-bold text-primary-teal uppercase tracking-wide mb-4">
             💼 Built for Company Protection
           </h2>
-          <h3 className="text-4xl md:text-6xl font-bold text-text-primary mb-6 leading-tight">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 leading-tight">
             The ROI is <span className="text-primary-teal">Obvious</span>
           </h3>
-          <p className="text-xl md:text-2xl text-text-secondary max-w-4xl mx-auto mb-8">
+          <p className="text-base md:text-lg lg:text-xl text-text-secondary max-w-4xl mx-auto mb-8">
             One prevented lawsuit pays for{" "}
             <span className="font-bold underline">decades</span> of Anchora.
             <br />
@@ -123,10 +123,10 @@ export default function Benefits() {
           </p>
 
           <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-300 rounded-xl p-6 max-w-3xl mx-auto">
-            <p className="text-2xl font-bold text-green-800">
-              Cost: <span className="text-4xl">$1/employee/month</span>
+            <p className="text-lg md:text-xl lg:text-2xl font-bold text-green-800">
+              Cost: <span className="text-2xl md:text-3xl lg:text-4xl">$1/employee/month</span>
             </p>
-            <p className="text-lg text-text-secondary mt-2">
+            <p className="text-sm md:text-base lg:text-lg text-text-secondary mt-2">
               Value: Preventing{" "}
               <span className="font-bold">
                 lawsuits, scandals, fraud, accidents, and regulatory fines
@@ -149,7 +149,7 @@ export default function Benefits() {
                   <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 text-white">
                     {benefit.icon}
                   </div>
-                  <h4 className="text-2xl font-bold text-white mb-2">
+                  <h4 className="text-xl md:text-2xl font-bold text-white mb-2">
                     {benefit.title}
                   </h4>
                   <div className="grid grid-cols-2 gap-4 mt-6">
@@ -158,7 +158,7 @@ export default function Benefits() {
                         key={idx}
                         className="bg-white/10 backdrop-blur-sm rounded-lg p-3"
                       >
-                        <div className="text-2xl font-bold text-white">
+                        <div className="text-xl md:text-2xl font-bold text-white">
                           {stat.value}
                         </div>
                         <div className="text-xs text-white/80">
@@ -196,11 +196,11 @@ export default function Benefits() {
         {/* ROI Calculator */}
         <div className="bg-gradient-to-br from-primary-navy to-primary-teal rounded-3xl p-8 md:p-12 text-white mb-20">
           <div className="text-center mb-10">
-            <h3 className="text-3xl md:text-5xl font-bold mb-4">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
               What's <span className="text-accent-coral">ONE</span> Prevented
               Incident Worth?
             </h3>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto">
               Calculate the value of Anchora for your company size
             </p>
           </div>
@@ -253,10 +253,10 @@ export default function Benefits() {
 
         {/* Final CTA */}
         <div className="text-center bg-white rounded-2xl shadow-xl p-12 border-4 border-primary-teal">
-          <h3 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
+          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-text-primary mb-6">
             The Question Isn't "Can We Afford Anchora?"
           </h3>
-          <p className="text-2xl text-text-secondary mb-8">
+          <p className="text-lg md:text-xl text-text-secondary mb-8">
             The question is:{" "}
             <span className="text-accent-coral font-bold">
               "Can we afford NOT to have it?"

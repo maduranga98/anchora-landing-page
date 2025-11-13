@@ -134,10 +134,10 @@ export default function Features() {
           <h2 className="text-sm font-bold text-[#1ABC9C] uppercase tracking-wide mb-4">
             🛡️ Your Company's Defense System
           </h2>
-          <h3 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             Catch the <span className="text-red-600">Storm</span> Before It Hits
           </h3>
-          <p className="text-xl text-gray-700 max-w-4xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto">
             Every feature is designed to{" "}
             <span className="font-bold underline">surface hidden problems</span>{" "}
             before they become lawsuits, scandals, or criminal investigations.
@@ -174,11 +174,11 @@ export default function Features() {
         {/* Compliance & Legal Section */}
         <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-white mb-20">
           <div className="text-center mb-12">
-            <h4 className="text-3xl md:text-4xl font-bold mb-4">
+            <h4 className="text-2xl md:text-3xl font-bold mb-4">
               Built for <span className="text-[#1ABC9C]">Legal Protection</span>{" "}
               & Compliance
             </h4>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
               When regulatory investigations or lawsuits arrive, Anchora
               provides the documentation trail you need to defend your company.
             </p>
@@ -207,7 +207,7 @@ export default function Features() {
 
         {/* Unique Advantages */}
         <div className="mb-20">
-          <h4 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+          <h4 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-12">
             Why Anchora is <span className="text-[#1ABC9C]">Different</span>
           </h4>
 
@@ -218,14 +218,14 @@ export default function Features() {
                 className="bg-white rounded-2xl shadow-lg p-8 border-t-4 border-[#1ABC9C]"
               >
                 <div className="mb-6">
-                  <div className="text-5xl font-bold text-[#1ABC9C] mb-2">
+                  <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1ABC9C] mb-2">
                     {advantage.stat}
                   </div>
                   <div className="text-sm text-gray-600">
                     {advantage.statLabel}
                   </div>
                 </div>
-                <h5 className="text-2xl font-bold text-gray-900 mb-3">
+                <h5 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
                   {advantage.title}
                 </h5>
                 <p className="text-gray-700 leading-relaxed">
@@ -239,10 +239,10 @@ export default function Features() {
         {/* Additional Features Section */}
         <div className="bg-gradient-to-r from-[#1ABC9C] to-[#2D3E50] rounded-3xl p-8 md:p-12 text-white">
           <div className="text-center mb-10">
-            <h4 className="text-3xl md:text-4xl font-bold mb-4">
+            <h4 className="text-2xl md:text-3xl font-bold mb-4">
               Plus Everything Else You Need
             </h4>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto">
               Beyond risk management, Anchora includes all the tools for a
               complete employee voice platform.
             </p>
