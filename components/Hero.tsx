@@ -31,7 +31,7 @@ export default function Hero() {
 
         {/* Main Headline */}
         <h1
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 md:mb-8 animate-fadeIn leading-tight"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 animate-fadeIn leading-tight"
           style={{ animationDelay: "0.1s" }}
         >
           Your Anchor in <br />
@@ -45,15 +45,15 @@ export default function Hero() {
           className="max-w-4xl mx-auto mb-10 md:mb-12 lg:mb-14 animate-fadeIn"
           style={{ animationDelay: "0.2s" }}
         >
-          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-200 font-semibold mb-4">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-semibold mb-4">
             The problems your employees see every day—
           </p>
-          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-accent-coral font-bold mb-6">
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-accent-coral font-bold mb-6">
             but never tell you—are destroying your company from within.
           </p>
 
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 lg:p-8 border border-white/20 max-w-3xl mx-auto">
-            <p className="text-base md:text-lg lg:text-xl text-white/90 mb-3">
+            <p className="text-sm md:text-base lg:text-lg text-white/90 mb-3">
               <span className="font-bold">
                 Harassment. Fraud. Safety violations. Corruption.
               </span>
@@ -63,7 +63,7 @@ export default function Hero() {
                 But they're not telling you.
               </span>
             </p>
-            <p className="text-base text-white/80">
+            <p className="text-sm md:text-base text-white/80">
               By the time YOU find out, it's already a lawsuit, media scandal,
               or criminal investigation.
             </p>
@@ -77,7 +77,7 @@ export default function Hero() {
         >
           <button
             onClick={scrollToContact}
-            className="group px-8 md:px-10 py-4 md:py-5 bg-accent-coral text-white rounded-lg font-bold text-base md:text-lg hover:bg-accent-coral/90 transition-all duration-300 shadow-large flex items-center gap-2 hover:scale-105"
+            className="group px-6 md:px-8 py-3 md:py-4 bg-accent-coral text-white rounded-lg font-bold text-sm md:text-base hover:bg-accent-coral/90 transition-all duration-300 shadow-large flex items-center gap-2 hover:scale-105"
           >
             <FiShield />
             Protect Your Company Now
@@ -85,7 +85,7 @@ export default function Hero() {
           </button>
           <button
             onClick={scrollToProblem}
-            className="px-8 md:px-10 py-4 md:py-5 bg-white text-primary-navy rounded-lg font-bold text-base md:text-lg hover:bg-gray-100 transition-all duration-300 shadow-large hover:scale-105"
+            className="px-6 md:px-8 py-3 md:py-4 bg-white text-primary-navy rounded-lg font-bold text-sm md:text-base hover:bg-gray-100 transition-all duration-300 shadow-large hover:scale-105"
           >
             See What You're Missing
           </button>
@@ -96,30 +96,30 @@ export default function Hero() {
           className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto animate-fadeIn"
           style={{ animationDelay: "0.4s" }}
         >
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/20 hover:border-primary-teal/50 transition-all">
-            <div className="text-4xl md:text-5xl font-bold text-accent-coral mb-2">$1</div>
-            <div className="text-gray-300 font-medium text-base md:text-lg">per employee/month</div>
-            <div className="text-sm text-white/70 mt-2">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:border-primary-teal/50 transition-all">
+            <div className="text-3xl md:text-4xl font-bold text-accent-coral mb-2">$1</div>
+            <div className="text-gray-300 font-medium text-sm md:text-base">per employee/month</div>
+            <div className="text-xs md:text-sm text-white/70 mt-2">
               vs. $75K-$300K per lawsuit
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/20 hover:border-primary-teal/50 transition-all">
-            <div className="text-4xl md:text-5xl font-bold text-primary-teal mb-2">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:border-primary-teal/50 transition-all">
+            <div className="text-3xl md:text-4xl font-bold text-primary-teal mb-2">
               100%
             </div>
-            <div className="text-gray-300 font-medium text-base md:text-lg">
+            <div className="text-gray-300 font-medium text-sm md:text-base">
               Anonymous Protection
             </div>
-            <div className="text-sm text-white/70 mt-2">
+            <div className="text-xs md:text-sm text-white/70 mt-2">
               Even admins can't identify users
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/20 hover:border-primary-teal/50 transition-all">
-            <div className="text-4xl md:text-5xl font-bold text-primary-teal mb-2">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:border-primary-teal/50 transition-all">
+            <div className="text-3xl md:text-4xl font-bold text-primary-teal mb-2">
               24hrs
             </div>
-            <div className="text-gray-300 font-medium text-base md:text-lg">Setup Time</div>
-            <div className="text-sm text-white/70 mt-2">
+            <div className="text-gray-300 font-medium text-sm md:text-base">Setup Time</div>
+            <div className="text-xs md:text-sm text-white/70 mt-2">
               Start protecting immediately
             </div>
           </div>
