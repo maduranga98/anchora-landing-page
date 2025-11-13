@@ -18,7 +18,7 @@ export default function Footer() {
       { name: "About Us", href: "/about" },
       { name: "About Lumora Ventures", href: "/lumora" },
       { name: "Careers", href: "#" },
-      { name: "Blog", href: "#" },
+      { name: "Blog", href: "/blogs" },
       { name: "Press Kit", href: "#" },
     ],
     resources: [
