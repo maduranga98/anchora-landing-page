@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "anchora-application",
-    "public": "public",
+    "public": "out",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }
 }
