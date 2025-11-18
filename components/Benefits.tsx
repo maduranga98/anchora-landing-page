@@ -206,17 +206,18 @@ export default function Benefits() {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden">
+            {/* Desktop Table View */}
+            <div className="hidden sm:block bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden">
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-white/20">
-                    <th className="p-4 text-left text-lg font-bold">
+                    <th className="p-3 sm:p-4 text-left text-sm sm:text-base md:text-lg font-bold">
                       Company Size
                     </th>
-                    <th className="p-4 text-left text-lg font-bold">
+                    <th className="p-3 sm:p-4 text-left text-sm sm:text-base md:text-lg font-bold">
                       Anchora Cost/Month
                     </th>
-                    <th className="p-4 text-left text-lg font-bold">
+                    <th className="p-3 sm:p-4 text-left text-sm sm:text-base md:text-lg font-bold">
                       ONE Prevented Incident Saves
                     </th>
                   </tr>
@@ -224,19 +225,42 @@ export default function Benefits() {
                 <tbody>
                   {roiCalculator.yourCompany.map((row, index) => (
                     <tr key={index} className="border-b border-white/10">
-                      <td className="p-4 text-lg font-semibold">
+                      <td className="p-3 sm:p-4 text-sm sm:text-base md:text-lg font-semibold">
                         {row.employees} employees
                       </td>
-                      <td className="p-4 text-lg text-accent-coral font-bold">
+                      <td className="p-3 sm:p-4 text-sm sm:text-base md:text-lg text-accent-coral font-bold">
                         {row.cost}
                       </td>
-                      <td className="p-4 text-lg text-green-300 font-bold">
+                      <td className="p-3 sm:p-4 text-sm sm:text-base md:text-lg text-green-300 font-bold">
                         {row.savings}
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+            </div>
+
+            {/* Mobile Card View */}
+            <div className="sm:hidden space-y-4">
+              {roiCalculator.yourCompany.map((row, index) => (
+                <div
+                  key={index}
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4"
+                >
+                  <div className="mb-3 pb-3 border-b border-white/20">
+                    <div className="text-xs text-white/70 mb-1">Company Size</div>
+                    <div className="text-base font-semibold">{row.employees} employees</div>
+                  </div>
+                  <div className="mb-3 pb-3 border-b border-white/20">
+                    <div className="text-xs text-white/70 mb-1">Anchora Cost/Month</div>
+                    <div className="text-base text-accent-coral font-bold">{row.cost}</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-white/70 mb-1">ONE Prevented Incident Saves</div>
+                    <div className="text-base text-green-300 font-bold">{row.savings}</div>
+                  </div>
+                </div>
+              ))}
             </div>
 
             <div className="mt-8 text-center">
