@@ -486,6 +486,13 @@ renderer.codespan = function({ text }) {
 
 // Enhanced list items
 renderer.listitem = function({ text }) {
+  // Handle list items with bold prefix (e.g., **Label:** content)
+  const boldPrefixMatch = text.match(/^<strong>([^<:]+):<\/strong>\s*(.+)$/);
+  if (boldPrefixMatch) {
+    const [, label, content] = boldPrefixMatch;
+    return `<li><span class="font-bold text-primary-navy">${label}:</span> ${content}</li>`;
+  }
+
   return `<li>${text}</li>`;
 };
 
@@ -496,33 +503,43 @@ renderer.hr = function() {
 
 // Enhanced paragraph to add special callouts and highlights
 renderer.paragraph = function({ text }) {
-  // Handle special callout boxes
-  if (text.startsWith('**') && text.includes(':**')) {
-    // Example: **Note:** or **Important:** or **Warning:**
-    const match = text.match(/^\*\*([^*:]+):\*\*(.+)$/);
-    if (match) {
-      const [, label, content] = match;
-      const labelLower = label.toLowerCase();
+  // Handle paragraphs that are just bold text (standalone headings)
+  const standaloneBoldMatch = text.match(/^<strong>([^<]+)<\/strong>$/);
+  if (standaloneBoldMatch) {
+    const content = standaloneBoldMatch[1];
+    return `<h4 class="text-xl font-bold text-primary-navy mt-8 mb-4">${content}</h4>`;
+  }
 
-      let colorClass = 'border-blue-500 bg-blue-50';
-      let iconClass = 'text-blue-600';
+  // Handle special callout boxes with colon (e.g., **Example:** content)
+  const calloutMatch = text.match(/^<strong>([^<:]+):<\/strong>\s*(.+)$/);
+  if (calloutMatch) {
+    const [, label, content] = calloutMatch;
+    const labelLower = label.toLowerCase();
 
-      if (labelLower.includes('warning') || labelLower.includes('caution')) {
-        colorClass = 'border-yellow-500 bg-yellow-50';
-        iconClass = 'text-yellow-600';
-      } else if (labelLower.includes('error') || labelLower.includes('danger')) {
-        colorClass = 'border-red-500 bg-red-50';
-        iconClass = 'text-red-600';
-      } else if (labelLower.includes('success') || labelLower.includes('tip')) {
-        colorClass = 'border-green-500 bg-green-50';
-        iconClass = 'text-green-600';
-      } else if (labelLower.includes('info') || labelLower.includes('note')) {
-        colorClass = 'border-blue-500 bg-blue-50';
-        iconClass = 'text-blue-600';
-      }
+    let colorClass = 'border-primary-teal bg-primary-teal/5';
+    let iconClass = 'text-primary-teal';
 
-      return `<div class="border-l-4 ${colorClass} pl-6 pr-6 py-4 my-6 rounded-r-lg"><p class="font-bold ${iconClass} mb-2">${label}:</p><p>${content}</p></div>`;
+    if (labelLower.includes('warning') || labelLower.includes('caution') || labelLower.includes('wrong')) {
+      colorClass = 'border-yellow-500 bg-yellow-50';
+      iconClass = 'text-yellow-700';
+    } else if (labelLower.includes('error') || labelLower.includes('danger') || labelLower.includes('problem') || labelLower.includes('red flag')) {
+      colorClass = 'border-red-500 bg-red-50';
+      iconClass = 'text-red-700';
+    } else if (labelLower.includes('success') || labelLower.includes('tip') || labelLower.includes('right') || labelLower.includes('solution')) {
+      colorClass = 'border-green-500 bg-green-50';
+      iconClass = 'text-green-700';
+    } else if (labelLower.includes('example') || labelLower.includes('case study') || labelLower.includes('scenario')) {
+      colorClass = 'border-purple-500 bg-purple-50';
+      iconClass = 'text-purple-700';
+    } else if (labelLower.includes('note') || labelLower.includes('important') || labelLower.includes('remember')) {
+      colorClass = 'border-blue-500 bg-blue-50';
+      iconClass = 'text-blue-700';
     }
+
+    return `<div class="border-l-4 ${colorClass} pl-6 pr-6 py-4 my-6 rounded-r-lg shadow-sm">
+      <p class="font-bold ${iconClass} mb-2 text-base uppercase tracking-wide">${label}</p>
+      <p class="text-text-secondary">${content}</p>
+    </div>`;
   }
 
   return `<p>${text}</p>`;
@@ -562,8 +579,8 @@ function formatMarkdown(markdown: string): string {
     // Enhance percentages
     enhanced = enhanced.replace(/(\d+\.?\d*)%/g, '<span class="font-semibold text-primary-navy">$1%</span>');
 
-    // Enhance section headers that look like labels (text in all caps followed by colon)
-    enhanced = enhanced.replace(/<p>([A-Z][A-Z\s]{2,}):/g, '<p class="font-bold text-primary-teal mt-6 mb-2">$1:');
+    // Enhance years and date ranges
+    enhanced = enhanced.replace(/\b(20\d{2})\b/g, '<span class="font-semibold text-text-primary">$1</span>');
 
     return enhanced;
   } catch (error) {
