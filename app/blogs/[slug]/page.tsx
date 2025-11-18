@@ -13,6 +13,8 @@ import {
   FiShield,
   FiTrendingUp,
   FiFileText,
+  FiBookmark,
+  FiShare2,
 } from "react-icons/fi";
 import {
   getBlogPostBySlug,
@@ -170,43 +172,47 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </Link>
 
             {/* Article Header */}
-            <header className="mb-12">
+            <header className="mb-16">
               {/* Category Badge */}
               <div
-                className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${post.color} text-white rounded-lg mb-6`}
+                className={`inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r ${post.color} text-white rounded-xl mb-8 shadow-lg`}
               >
-                <IconComponent className="w-5 h-5" />
-                <span className="text-sm font-bold uppercase tracking-wide">
+                <IconComponent className="w-6 h-6" />
+                <span className="text-base font-bold uppercase tracking-wider">
                   {post.category}
                 </span>
               </div>
 
               {/* Title */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-6 leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-text-primary mb-8 leading-[1.15] tracking-tight">
                 {post.title}
               </h1>
 
-              {/* Excerpt */}
-              <p className="text-lg md:text-xl text-text-secondary mb-8 leading-relaxed">
-                {post.excerpt}
-              </p>
+              {/* Excerpt with enhanced styling */}
+              <div className="bg-gradient-to-r from-primary-teal/5 to-transparent border-l-4 border-primary-teal pl-6 pr-6 py-6 mb-10 rounded-r-lg">
+                <p className="text-xl md:text-2xl text-text-primary font-medium leading-relaxed">
+                  {post.excerpt}
+                </p>
+              </div>
 
               {/* Meta Information */}
-              <div className="flex flex-wrap items-center gap-6 text-sm text-text-tertiary pb-8 border-b border-border-light">
-                <div className="flex items-center gap-2">
-                  <FiUser className="w-4 h-4" />
+              <div className="flex flex-wrap items-center gap-8 text-base text-text-tertiary pb-8 border-b-2 border-border-light">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-teal to-primary-navy rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md">
+                    {post.author.name.charAt(0)}
+                  </div>
                   <div>
-                    <span className="font-semibold text-text-primary">
+                    <div className="font-bold text-text-primary text-lg">
                       {post.author.name}
-                    </span>
-                    <span className="text-text-tertiary ml-1">
-                      • {post.author.role}
-                    </span>
+                    </div>
+                    <div className="text-text-tertiary text-sm">
+                      {post.author.role}
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <FiCalendar className="w-4 h-4" />
-                  <time dateTime={post.date}>
+                <div className="flex items-center gap-2 bg-background-light px-4 py-2 rounded-lg">
+                  <FiCalendar className="w-5 h-5 text-primary-teal" />
+                  <time dateTime={post.date} className="font-medium text-text-primary">
                     {new Date(post.date).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
@@ -214,62 +220,121 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     })}
                   </time>
                 </div>
-                <div className="flex items-center gap-2">
-                  <FiClock className="w-4 h-4" />
-                  <span>{post.readTime}</span>
+                <div className="flex items-center gap-2 bg-background-light px-4 py-2 rounded-lg">
+                  <FiClock className="w-5 h-5 text-primary-teal" />
+                  <span className="font-medium text-text-primary">{post.readTime}</span>
                 </div>
               </div>
 
               {/* Tags */}
-              <div className="flex flex-wrap items-center gap-3 mt-6">
-                <FiTag className="w-4 h-4 text-text-tertiary" />
+              <div className="flex flex-wrap items-center gap-3 mt-8">
+                <div className="flex items-center gap-2 text-text-tertiary font-semibold text-sm uppercase tracking-wide">
+                  <FiTag className="w-4 h-4" />
+                  <span>Topics:</span>
+                </div>
                 {post.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-background-light text-text-secondary rounded-full text-sm hover:bg-primary-teal/10 hover:text-primary-teal transition-colors"
+                    className="px-4 py-2 bg-gradient-to-r from-background-light to-white border border-border-light text-text-primary rounded-lg text-sm font-semibold hover:bg-primary-teal/10 hover:text-primary-teal hover:border-primary-teal transition-all cursor-pointer shadow-sm hover:shadow-md"
                   >
-                    {tag}
+                    #{tag}
                   </span>
                 ))}
               </div>
             </header>
 
             {/* Article Content */}
-            <div
-              className="prose prose-lg max-w-none
-                prose-headings:text-text-primary prose-headings:font-bold
-                prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-                prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                prose-h4:text-xl prose-h4:mt-6 prose-h4:mb-3
-                prose-p:text-text-secondary prose-p:leading-relaxed prose-p:mb-6
-                prose-a:text-primary-teal prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-text-primary prose-strong:font-bold
-                prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6
-                prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-6
-                prose-li:text-text-secondary prose-li:mb-2
-                prose-blockquote:border-l-4 prose-blockquote:border-primary-teal prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-text-secondary
-                prose-code:text-primary-teal prose-code:bg-background-light prose-code:px-2 prose-code:py-1 prose-code:rounded
-                prose-pre:bg-background-light prose-pre:p-4 prose-pre:rounded-lg
-                prose-hr:border-border-light prose-hr:my-12"
-              dangerouslySetInnerHTML={{ __html: formatMarkdown(post.content) }}
-            />
+            <div className="relative">
+              {/* Floating Actions */}
+              <div className="hidden lg:block absolute -left-20 top-0">
+                <div className="sticky top-32 flex flex-col gap-4">
+                  <button
+                    className="w-12 h-12 bg-white border-2 border-border-light rounded-full flex items-center justify-center hover:border-primary-teal hover:text-primary-teal transition-all shadow-sm hover:shadow-md"
+                    title="Share article"
+                  >
+                    <FiShare2 className="w-5 h-5" />
+                  </button>
+                  <button
+                    className="w-12 h-12 bg-white border-2 border-border-light rounded-full flex items-center justify-center hover:border-primary-teal hover:text-primary-teal transition-all shadow-sm hover:shadow-md"
+                    title="Bookmark"
+                  >
+                    <FiBookmark className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+
+              <div
+                className="prose prose-xl max-w-none
+                  prose-headings:text-text-primary prose-headings:font-bold prose-headings:tracking-tight
+                  prose-h1:text-4xl prose-h1:mt-16 prose-h1:mb-8 prose-h1:leading-tight
+                  prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-border-light
+                  prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-5 prose-h3:text-primary-navy
+                  prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-4 prose-h4:text-text-primary
+                  prose-p:text-text-secondary prose-p:leading-loose prose-p:mb-8 prose-p:text-lg
+                  prose-a:text-primary-teal prose-a:no-underline prose-a:font-semibold prose-a:border-b prose-a:border-primary-teal/30 hover:prose-a:border-primary-teal hover:prose-a:bg-primary-teal/5 prose-a:transition-all
+                  prose-strong:text-text-primary prose-strong:font-bold prose-strong:bg-accent-coral/10 prose-strong:px-1 prose-strong:rounded
+                  prose-em:text-text-primary prose-em:italic prose-em:font-medium
+                  prose-ul:my-8 prose-ul:space-y-3
+                  prose-ol:my-8 prose-ol:space-y-3
+                  prose-li:text-text-secondary prose-li:leading-relaxed prose-li:text-lg prose-li:pl-2
+                  prose-li::marker:text-primary-teal prose-li::marker:font-bold
+                  prose-blockquote:border-l-4 prose-blockquote:border-primary-teal prose-blockquote:bg-primary-teal/5 prose-blockquote:pl-8 prose-blockquote:pr-6 prose-blockquote:py-6 prose-blockquote:my-10 prose-blockquote:italic prose-blockquote:text-text-primary prose-blockquote:rounded-r-lg prose-blockquote:shadow-sm
+                  prose-code:text-primary-teal prose-code:bg-background-light prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:font-mono prose-code:text-base prose-code:font-semibold
+                  prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-6 prose-pre:rounded-xl prose-pre:shadow-lg prose-pre:my-8 prose-pre:overflow-x-auto
+                  prose-hr:border-border-light prose-hr:my-16 prose-hr:border-2"
+                dangerouslySetInnerHTML={{ __html: formatMarkdown(post.content) }}
+              />
+            </div>
+
+            {/* Author Bio Section */}
+            <div className="mt-20 pt-12 border-t-2 border-border-light">
+              <h3 className="text-sm font-bold text-primary-teal uppercase tracking-wide mb-6">
+                About the Author
+              </h3>
+              <div className="flex items-start gap-6 p-8 bg-gradient-to-br from-background-light to-white rounded-2xl border border-border-light shadow-sm">
+                <div className="flex-shrink-0">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary-teal to-primary-navy rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                    {post.author.name.charAt(0)}
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-2xl font-bold text-text-primary mb-2">
+                    {post.author.name}
+                  </h4>
+                  <p className="text-primary-teal font-semibold mb-4">
+                    {post.author.role}
+                  </p>
+                  <p className="text-text-secondary leading-relaxed">
+                    {post.author.name} is a leading expert in workplace safety and compliance,
+                    with over a decade of experience helping organizations build safer,
+                    more transparent cultures. They specialize in anonymous reporting systems,
+                    whistleblower protection, and fraud prevention strategies.
+                  </p>
+                </div>
+              </div>
+            </div>
 
             {/* Call to Action */}
-            <div className="mt-16 p-8 bg-gradient-to-br from-primary-navy to-primary-teal rounded-2xl text-white">
-              <h3 className="text-2xl font-bold mb-4">
-                Ready to Protect Your Company?
-              </h3>
-              <p className="text-white/90 mb-6 text-lg">
-                Deploy military-grade anonymous reporting in under 15 minutes.
-                Prevent lawsuits, fraud, and workplace disasters before they happen.
-              </p>
-              <a
-                href="/#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-accent-coral text-white rounded-lg font-bold hover:bg-accent-coral/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-              >
-                <FiShield />
-                Get Started with Anchora
-              </a>
+            <div className="mt-16 p-10 bg-gradient-to-br from-primary-navy via-primary-teal to-primary-navy rounded-3xl text-white shadow-2xl">
+              <div className="max-w-3xl mx-auto text-center">
+                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <FiShield className="w-8 h-8" />
+                </div>
+                <h3 className="text-3xl font-bold mb-4">
+                  Ready to Protect Your Company?
+                </h3>
+                <p className="text-white/90 mb-8 text-lg leading-relaxed">
+                  Deploy military-grade anonymous reporting in under 15 minutes.
+                  Prevent lawsuits, fraud, and workplace disasters before they happen.
+                </p>
+                <a
+                  href="/#contact"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-accent-coral text-white rounded-xl font-bold text-lg hover:bg-accent-coral/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
+                  <FiShield className="w-5 h-5" />
+                  Get Started with Anchora
+                </a>
+              </div>
             </div>
           </div>
 
@@ -342,47 +407,74 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   );
 }
 
-// Simple markdown to HTML converter
+// Enhanced markdown to HTML converter with better visual formatting
 function formatMarkdown(markdown: string): string {
   let html = markdown;
 
-  // Headers
-  html = html.replace(/^### (.*$)/gim, "<h3>$1</h3>");
-  html = html.replace(/^## (.*$)/gim, "<h2>$1</h2>");
-  html = html.replace(/^# (.*$)/gim, "<h1>$1</h1>");
+  // Headers with anchor links for navigation
+  html = html.replace(/^### (.*$)/gim, (match, title) => {
+    const id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    return `<h3 id="${id}">${title}</h3>`;
+  });
+  html = html.replace(/^## (.*$)/gim, (match, title) => {
+    const id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    return `<h2 id="${id}">${title}</h2>`;
+  });
+  html = html.replace(/^# (.*$)/gim, (match, title) => {
+    const id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    return `<h1 id="${id}">${title}</h1>`;
+  });
 
-  // Bold
+  // Bold text with highlight
   html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
 
-  // Italic
+  // Italic text
   html = html.replace(/\*(.*?)\*/g, "<em>$1</em>");
 
-  // Links
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  // Links with security attributes
+  html = html.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+  );
 
-  // Blockquotes
-  html = html.replace(/^> (.*$)/gim, "<blockquote>$1</blockquote>");
+  // Enhanced blockquotes with better styling
+  html = html.replace(/^> (.*$)/gim, (match, quote) => {
+    return `<blockquote><p>${quote}</p></blockquote>`;
+  });
 
-  // Unordered lists
+  // Unordered lists with proper spacing
   html = html.replace(/^\- (.*$)/gim, "<li>$1</li>");
   html = html.replace(/(<li>[\s\S]*?<\/li>)/g, "<ul>$1</ul>");
 
-  // Horizontal rules
-  html = html.replace(/^---$/gim, "<hr>");
+  // Numbered lists
+  html = html.replace(/^\d+\.\s+(.*$)/gim, "<oli>$1</oli>");
+  html = html.replace(/(<oli>[\s\S]*?<\/oli>)/g, (match) => {
+    return "<ol>" + match.replace(/<\/?oli>/g, (tag) => tag.replace("oli", "li")) + "</ol>";
+  });
 
-  // Paragraphs
+  // Horizontal rules as visual breaks
+  html = html.replace(/^---$/gim, '<hr class="my-16" />');
+
+  // Convert double line breaks to paragraph breaks
   html = html.replace(/\n\n/g, "</p><p>");
   html = `<p>${html}</p>`;
 
-  // Clean up empty paragraphs
+  // Clean up empty paragraphs and fix nesting
   html = html.replace(/<p><\/p>/g, "");
-  html = html.replace(/<p>(<h[1-6]>)/g, "$1");
+  html = html.replace(/<p>(<h[1-6])/g, "$1");
   html = html.replace(/(<\/h[1-6]>)<\/p>/g, "$1");
   html = html.replace(/<p>(<ul>)/g, "$1");
   html = html.replace(/(<\/ul>)<\/p>/g, "$1");
+  html = html.replace(/<p>(<ol>)/g, "$1");
+  html = html.replace(/(<\/ol>)<\/p>/g, "$1");
   html = html.replace(/<p>(<blockquote>)/g, "$1");
   html = html.replace(/(<\/blockquote>)<\/p>/g, "$1");
-  html = html.replace(/<p>(<hr>)<\/p>/g, "$1");
+  html = html.replace(/<p>(<hr)/g, "$1");
+  html = html.replace(/\/><\/p>/g, "/>");
+
+  // Fix blockquote paragraphs
+  html = html.replace(/<blockquote>([^<])/g, "<blockquote><p>$1");
+  html = html.replace(/([^>])<\/blockquote>/g, "$1</p></blockquote>");
 
   return html;
 }
