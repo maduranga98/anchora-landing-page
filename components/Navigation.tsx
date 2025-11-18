@@ -76,12 +76,6 @@ export default function Navigation() {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <a
-              href="https://app.anchora.com/login"
-              className="text-primary-teal font-semibold hover:text-primary-teal/80 transition-colors"
-            >
-              Login
-            </a>
             <button
               onClick={() => scrollToSection("#contact")}
               className="px-6 py-2.5 bg-primary-teal text-white rounded-lg font-semibold hover:bg-primary-teal/90 transition-all duration-300"
@@ -122,13 +116,7 @@ export default function Navigation() {
                 {link.name}
               </button>
             ))}
-            <div className="pt-4 space-y-3 border-t border-border-light">
-              <a
-                href="https://app.anchora.com/login"
-                className="block w-full text-center py-2.5 text-primary-teal font-semibold"
-              >
-                Login
-              </a>
+            <div className="pt-4 border-t border-border-light">
               <button
                 onClick={() => scrollToSection("#contact")}
                 className="block w-full py-2.5 bg-primary-teal text-white rounded-lg font-semibold"
