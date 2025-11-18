@@ -1,5 +1,4 @@
-"use client";
-
+import { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -13,74 +12,94 @@ import {
   FiTrendingUp,
   FiFileText,
 } from "react-icons/fi";
+import { blogPosts } from "@/data/blogPosts";
+
+// Icon mapping
+const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = {
+  FiAlertTriangle: FiAlertTriangle,
+  FiShield: FiShield,
+  FiTrendingUp: FiTrendingUp,
+  FiFileText: FiFileText,
+};
+
+// SEO Metadata for the blogs listing page
+export const metadata: Metadata = {
+  title: "Blog - Workplace Safety & Compliance Insights | Anchora",
+  description:
+    "Expert insights on workplace harassment prevention, fraud detection, whistleblower protection, and anonymous reporting. Learn how to protect your company with proven strategies.",
+  keywords: [
+    "workplace safety blog",
+    "harassment prevention",
+    "fraud detection",
+    "whistleblower protection",
+    "compliance guide",
+    "anonymous reporting",
+    "HR best practices",
+    "workplace culture",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://anchora.com/blogs",
+    title: "Blog - Workplace Safety & Compliance Insights | Anchora",
+    description:
+      "Expert insights on workplace harassment prevention, fraud detection, and anonymous reporting.",
+    siteName: "Anchora",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog - Workplace Safety & Compliance Insights | Anchora",
+    description:
+      "Expert insights on workplace harassment prevention, fraud detection, and anonymous reporting.",
+  },
+  alternates: {
+    canonical: "https://anchora.com/blogs",
+  },
+};
 
 export default function BlogsPage() {
-  const blogPosts = [
-    {
-      icon: <FiAlertTriangle className="w-6 h-6" />,
-      category: "Case Study",
-      title: "How One Anonymous Tip Saved a Company $250K",
-      excerpt:
-        "Discover how a manufacturing company caught an expense fraud scheme early through Anchora's anonymous reporting—before it escalated to a police investigation.",
-      date: "Nov 10, 2024",
-      readTime: "5 min read",
-      color: "from-red-500 to-red-700",
+  // Create JSON-LD structured data for the blog listing page
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Anchora Blog",
+    description:
+      "Expert insights on workplace safety, harassment prevention, fraud detection, and compliance.",
+    url: "https://anchora.com/blogs",
+    publisher: {
+      "@type": "Organization",
+      name: "Anchora",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://anchora.com/icon.png",
+      },
     },
-    {
-      icon: <FiShield className="w-6 h-6" />,
-      category: "Best Practices",
-      title: "The Real Cost of Workplace Harassment (And How to Prevent It)",
-      excerpt:
-        "Breaking down the financial and reputational impact of harassment lawsuits, plus proven strategies to create a safer workplace culture.",
-      date: "Nov 8, 2024",
-      readTime: "7 min read",
-      color: "from-blue-500 to-blue-700",
-    },
-    {
-      icon: <FiTrendingUp className="w-6 h-6" />,
-      category: "Industry Insights",
-      title: "Why Traditional HR Hotlines Fail (And What Works Instead)",
-      excerpt:
-        "A deep dive into why employees don't trust traditional reporting channels—and how modern anonymous platforms solve the problem.",
-      date: "Nov 5, 2024",
-      readTime: "6 min read",
-      color: "from-purple-500 to-purple-700",
-    },
-    {
-      icon: <FiFileText className="w-6 h-6" />,
-      category: "Compliance",
-      title: "Whistleblower Protection Laws: What Every Company Must Know",
-      excerpt:
-        "Navigate federal and state whistleblower protection requirements with this comprehensive guide for HR and legal teams.",
-      date: "Nov 1, 2024",
-      readTime: "8 min read",
-      color: "from-green-500 to-green-700",
-    },
-    {
-      icon: <FiShield className="w-6 h-6" />,
-      category: "Security",
-      title: "Military-Grade Anonymity: How Anchora Protects User Identity",
-      excerpt:
-        "An inside look at the encryption, security protocols, and technical architecture that makes true anonymity possible.",
-      date: "Oct 28, 2024",
-      readTime: "6 min read",
-      color: "from-indigo-500 to-indigo-700",
-    },
-    {
-      icon: <FiTrendingUp className="w-6 h-6" />,
-      category: "Culture",
-      title: "Building a Speak-Up Culture: Lessons from Top Companies",
-      excerpt:
-        "How industry leaders create environments where employees feel safe reporting issues—before they become crises.",
-      date: "Oct 25, 2024",
-      readTime: "5 min read",
-      color: "from-orange-500 to-orange-700",
-    },
-  ];
+    blogPost: blogPosts.map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.excerpt,
+      datePublished: new Date(post.date).toISOString(),
+      author: {
+        "@type": "Person",
+        name: post.author.name,
+        jobTitle: post.author.role,
+      },
+      url: `https://anchora.com/blogs/${post.slug}`,
+      keywords: post.tags.join(", "),
+      articleSection: post.category,
+    })),
+  };
 
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-background-white">
-      <Navigation />
+    <>
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      <main className="min-h-screen w-full overflow-x-hidden bg-background-white">
+        <Navigation />
 
       <div className="pt-24 pb-16">
         <div className="section-container">
@@ -110,52 +129,60 @@ export default function BlogsPage() {
 
           {/* Blog Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {blogPosts.map((post, index) => (
-              <article
-                key={index}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-border-light group cursor-pointer"
-              >
-                {/* Header with gradient */}
-                <div className={`bg-gradient-to-r ${post.color} p-6`}>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center text-white">
-                      {post.icon}
+            {blogPosts.map((post, index) => {
+              const IconComponent = iconMap[post.icon] || FiFileText;
+              return (
+                <Link key={index} href={`/blogs/${post.slug}`}>
+                  <article className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-border-light group cursor-pointer h-full">
+                    {/* Header with gradient */}
+                    <div className={`bg-gradient-to-r ${post.color} p-6`}>
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center text-white">
+                          <IconComponent className="w-6 h-6" />
+                        </div>
+                        <span className="text-xs font-bold text-white uppercase tracking-wide">
+                          {post.category}
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-xs font-bold text-white uppercase tracking-wide">
-                      {post.category}
-                    </span>
-                  </div>
-                </div>
 
-                {/* Content */}
-                <div className="p-6">
-                  <h4 className="text-lg md:text-xl font-bold text-text-primary mb-3 group-hover:text-primary-teal transition-colors leading-tight">
-                    {post.title}
-                  </h4>
-                  <p className="text-sm md:text-base text-text-secondary mb-4 leading-relaxed">
-                    {post.excerpt}
-                  </p>
+                    {/* Content */}
+                    <div className="p-6">
+                      <h4 className="text-lg md:text-xl font-bold text-text-primary mb-3 group-hover:text-primary-teal transition-colors leading-tight">
+                        {post.title}
+                      </h4>
+                      <p className="text-sm md:text-base text-text-secondary mb-4 leading-relaxed">
+                        {post.excerpt}
+                      </p>
 
-                  {/* Meta */}
-                  <div className="flex items-center gap-4 text-xs text-text-tertiary mb-4">
-                    <div className="flex items-center gap-1">
-                      <FiCalendar className="w-3 h-3" />
-                      <span>{post.date}</span>
+                      {/* Meta */}
+                      <div className="flex items-center gap-4 text-xs text-text-tertiary mb-4">
+                        <div className="flex items-center gap-1">
+                          <FiCalendar className="w-3 h-3" />
+                          <time dateTime={post.date}>
+                            {new Date(post.date).toLocaleDateString("en-US", {
+                              year: "numeric",
+                              month: "short",
+                              day: "numeric",
+                            })}
+                          </time>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <FiClock className="w-3 h-3" />
+                          <span>{post.readTime}</span>
+                        </div>
+                      </div>
+
+                      {/* Read More Link */}
+                      <div className="flex items-center gap-2 text-primary-teal font-semibold text-sm group-hover:gap-3 transition-all">
+                        <span>Read Article</span>
+                        <FiArrowRight className="w-4 h-4" />
+                      </div>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <FiClock className="w-3 h-3" />
-                      <span>{post.readTime}</span>
-                    </div>
-                  </div>
-
-                  {/* Read More Link */}
-                  <div className="flex items-center gap-2 text-primary-teal font-semibold text-sm group-hover:gap-3 transition-all">
-                    <span>Read Article</span>
-                    <FiArrowRight className="w-4 h-4" />
-                  </div>
-                </div>
-              </article>
-            ))}
+                  </article>
+                </Link>
+              );
+            })}
           </div>
 
           {/* Newsletter Signup */}
@@ -209,7 +236,8 @@ export default function BlogsPage() {
         </div>
       </div>
 
-      <Footer />
-    </main>
+        <Footer />
+      </main>
+    </>
   );
 }
