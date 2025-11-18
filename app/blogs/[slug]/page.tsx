@@ -22,6 +22,7 @@ import {
   getRelatedPosts,
 } from "@/data/blogPosts";
 import { notFound } from "next/navigation";
+import { marked } from "marked";
 
 // Icon mapping for blog posts
 const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = {
@@ -244,46 +245,81 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </header>
 
             {/* Article Content */}
-            <div className="relative">
-              {/* Floating Actions */}
-              <div className="hidden lg:block absolute -left-20 top-0">
-                <div className="sticky top-32 flex flex-col gap-4">
-                  <button
-                    className="w-12 h-12 bg-white border-2 border-border-light rounded-full flex items-center justify-center hover:border-primary-teal hover:text-primary-teal transition-all shadow-sm hover:shadow-md"
-                    title="Share article"
-                  >
-                    <FiShare2 className="w-5 h-5" />
-                  </button>
-                  <button
-                    className="w-12 h-12 bg-white border-2 border-border-light rounded-full flex items-center justify-center hover:border-primary-teal hover:text-primary-teal transition-all shadow-sm hover:shadow-md"
-                    title="Bookmark"
-                  >
-                    <FiBookmark className="w-5 h-5" />
-                  </button>
-                </div>
+            <div className="relative lg:grid lg:grid-cols-[1fr_250px] lg:gap-12">
+              {/* Main Content */}
+              <div className="min-w-0">
+
+                <div
+                  className="prose prose-xl max-w-none
+                    prose-headings:text-text-primary prose-headings:font-bold prose-headings:tracking-tight prose-headings:scroll-mt-24
+                    prose-h1:text-4xl prose-h1:mt-16 prose-h1:mb-8 prose-h1:leading-[1.2] prose-h1:font-extrabold
+                    prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6 prose-h2:pb-4 prose-h2:border-b-2 prose-h2:border-primary-teal/20 prose-h2:font-extrabold prose-h2:leading-snug
+                    prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-5 prose-h3:text-primary-navy prose-h3:font-bold prose-h3:leading-snug
+                    prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-4 prose-h4:text-text-primary prose-h4:font-bold
+                    prose-p:text-text-secondary prose-p:leading-[1.9] prose-p:mb-6 prose-p:text-lg prose-p:font-normal
+                    prose-a:text-primary-teal prose-a:no-underline prose-a:font-semibold prose-a:border-b-2 prose-a:border-primary-teal/30 hover:prose-a:border-primary-teal hover:prose-a:bg-primary-teal/5 prose-a:transition-all prose-a:duration-200 prose-a:px-1
+                    prose-strong:text-text-primary prose-strong:font-extrabold prose-strong:bg-gradient-to-r prose-strong:from-accent-coral/10 prose-strong:to-transparent prose-strong:px-1.5 prose-strong:py-0.5 prose-strong:rounded
+                    prose-em:text-text-primary prose-em:italic prose-em:font-medium prose-em:not-italic
+                    prose-ul:my-8 prose-ul:space-y-4 prose-ul:pl-6
+                    prose-ol:my-8 prose-ol:space-y-4 prose-ol:pl-6
+                    prose-li:text-text-secondary prose-li:leading-[1.8] prose-li:text-lg prose-li:pl-3 prose-li:mb-3
+                    prose-li::marker:text-primary-teal prose-li::marker:font-bold prose-li::marker:text-xl
+                    prose-blockquote:border-l-4 prose-blockquote:border-primary-teal prose-blockquote:bg-gradient-to-r prose-blockquote:from-primary-teal/10 prose-blockquote:to-primary-teal/5 prose-blockquote:pl-8 prose-blockquote:pr-6 prose-blockquote:py-8 prose-blockquote:my-10 prose-blockquote:italic prose-blockquote:text-text-primary prose-blockquote:rounded-r-xl prose-blockquote:shadow-lg prose-blockquote:text-xl prose-blockquote:font-medium
+                    prose-code:text-primary-teal prose-code:bg-primary-teal/5 prose-code:border prose-code:border-primary-teal/20 prose-code:px-2 prose-code:py-1 prose-code:rounded-md prose-code:font-mono prose-code:text-base prose-code:font-semibold prose-code:before:content-[''] prose-code:after:content-['']
+                    prose-pre:bg-gradient-to-br prose-pre:from-gray-900 prose-pre:to-gray-800 prose-pre:text-gray-100 prose-pre:p-8 prose-pre:rounded-2xl prose-pre:shadow-2xl prose-pre:my-10 prose-pre:overflow-x-auto prose-pre:border prose-pre:border-gray-700
+                    prose-hr:border-border-light prose-hr:my-16 prose-hr:border-2
+                    prose-table:w-full prose-table:border-collapse prose-table:my-8
+                    prose-th:bg-primary-teal/10 prose-th:border prose-th:border-border-light prose-th:p-4 prose-th:text-left prose-th:font-bold prose-th:text-text-primary
+                    prose-td:border prose-td:border-border-light prose-td:p-4 prose-td:text-text-secondary
+                    prose-img:rounded-xl prose-img:shadow-xl prose-img:my-10"
+                  dangerouslySetInnerHTML={{ __html: formatMarkdown(post.content) }}
+                />
               </div>
 
-              <div
-                className="prose prose-xl max-w-none
-                  prose-headings:text-text-primary prose-headings:font-bold prose-headings:tracking-tight
-                  prose-h1:text-4xl prose-h1:mt-16 prose-h1:mb-8 prose-h1:leading-tight
-                  prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-border-light
-                  prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-5 prose-h3:text-primary-navy
-                  prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-4 prose-h4:text-text-primary
-                  prose-p:text-text-secondary prose-p:leading-loose prose-p:mb-8 prose-p:text-lg
-                  prose-a:text-primary-teal prose-a:no-underline prose-a:font-semibold prose-a:border-b prose-a:border-primary-teal/30 hover:prose-a:border-primary-teal hover:prose-a:bg-primary-teal/5 prose-a:transition-all
-                  prose-strong:text-text-primary prose-strong:font-bold prose-strong:bg-accent-coral/10 prose-strong:px-1 prose-strong:rounded
-                  prose-em:text-text-primary prose-em:italic prose-em:font-medium
-                  prose-ul:my-8 prose-ul:space-y-3
-                  prose-ol:my-8 prose-ol:space-y-3
-                  prose-li:text-text-secondary prose-li:leading-relaxed prose-li:text-lg prose-li:pl-2
-                  prose-li::marker:text-primary-teal prose-li::marker:font-bold
-                  prose-blockquote:border-l-4 prose-blockquote:border-primary-teal prose-blockquote:bg-primary-teal/5 prose-blockquote:pl-8 prose-blockquote:pr-6 prose-blockquote:py-6 prose-blockquote:my-10 prose-blockquote:italic prose-blockquote:text-text-primary prose-blockquote:rounded-r-lg prose-blockquote:shadow-sm
-                  prose-code:text-primary-teal prose-code:bg-background-light prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:font-mono prose-code:text-base prose-code:font-semibold
-                  prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-6 prose-pre:rounded-xl prose-pre:shadow-lg prose-pre:my-8 prose-pre:overflow-x-auto
-                  prose-hr:border-border-light prose-hr:my-16 prose-hr:border-2"
-                dangerouslySetInnerHTML={{ __html: formatMarkdown(post.content) }}
-              />
+              {/* Table of Contents - Sticky Sidebar */}
+              <aside className="hidden lg:block">
+                <div className="sticky top-32">
+                  <div className="bg-gradient-to-br from-background-light to-white border-2 border-border-light rounded-2xl p-6 shadow-lg">
+                    <h3 className="text-sm font-bold text-primary-teal uppercase tracking-wide mb-4 flex items-center gap-2">
+                      <FiFileText className="w-4 h-4" />
+                      Table of Contents
+                    </h3>
+                    <nav className="space-y-2">
+                      {extractHeadings(post.content).map((heading, index) => (
+                        <a
+                          key={index}
+                          href={`#${heading.id}`}
+                          className={`block text-sm hover:text-primary-teal hover:bg-primary-teal/5 transition-all px-3 py-2 rounded-lg ${
+                            heading.level === 2
+                              ? 'font-bold text-text-primary'
+                              : heading.level === 3
+                              ? 'font-semibold text-text-secondary ml-4'
+                              : 'text-text-tertiary ml-8'
+                          }`}
+                        >
+                          {heading.text}
+                        </a>
+                      ))}
+                    </nav>
+                  </div>
+
+                  {/* Quick Actions */}
+                  <div className="mt-6 flex gap-3">
+                    <button
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white border-2 border-border-light rounded-xl hover:border-primary-teal hover:text-primary-teal transition-all shadow-sm hover:shadow-md"
+                      title="Share article"
+                    >
+                      <FiShare2 className="w-4 h-4" />
+                    </button>
+                    <button
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white border-2 border-border-light rounded-xl hover:border-primary-teal hover:text-primary-teal transition-all shadow-sm hover:shadow-md"
+                      title="Bookmark"
+                    >
+                      <FiBookmark className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              </aside>
             </div>
 
             {/* Author Bio Section */}
@@ -407,74 +443,131 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   );
 }
 
-// Enhanced markdown to HTML converter with better visual formatting
+// Configure marked for enhanced rendering
+marked.setOptions({
+  gfm: true, // GitHub Flavored Markdown
+  breaks: true, // Convert \n to <br>
+});
+
+// Custom renderer for enhanced styling
+const renderer = new marked.Renderer();
+
+// Add IDs to headings for anchor links
+renderer.heading = function({ text, depth }) {
+  const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  return `<h${depth} id="${id}">${text}</h${depth}>`;
+};
+
+// Enhanced blockquotes
+renderer.blockquote = function({ text }) {
+  return `<blockquote class="border-l-4 border-primary-teal bg-primary-teal/5 pl-8 pr-6 py-6 my-10 rounded-r-lg shadow-sm">${text}</blockquote>`;
+};
+
+// Enhanced links
+renderer.link = function({ href, title, text }) {
+  const titleAttr = title ? ` title="${title}"` : '';
+  return `<a href="${href}"${titleAttr} target="_blank" rel="noopener noreferrer">${text}</a>`;
+};
+
+// Enhanced strong (bold) text with highlight
+renderer.strong = function({ text }) {
+  return `<strong>${text}</strong>`;
+};
+
+// Enhanced code blocks
+renderer.code = function({ text, lang }) {
+  return `<pre><code class="language-${lang || 'text'}">${text}</code></pre>`;
+};
+
+// Enhanced inline code
+renderer.codespan = function({ text }) {
+  return `<code>${text}</code>`;
+};
+
+// Enhanced list items
+renderer.listitem = function({ text }) {
+  return `<li>${text}</li>`;
+};
+
+// Enhanced horizontal rules
+renderer.hr = function() {
+  return '<hr class="my-16 border-2 border-border-light" />';
+};
+
+// Enhanced paragraph to add special callouts and highlights
+renderer.paragraph = function({ text }) {
+  // Handle special callout boxes
+  if (text.startsWith('**') && text.includes(':**')) {
+    // Example: **Note:** or **Important:** or **Warning:**
+    const match = text.match(/^\*\*([^*:]+):\*\*(.+)$/);
+    if (match) {
+      const [, label, content] = match;
+      const labelLower = label.toLowerCase();
+
+      let colorClass = 'border-blue-500 bg-blue-50';
+      let iconClass = 'text-blue-600';
+
+      if (labelLower.includes('warning') || labelLower.includes('caution')) {
+        colorClass = 'border-yellow-500 bg-yellow-50';
+        iconClass = 'text-yellow-600';
+      } else if (labelLower.includes('error') || labelLower.includes('danger')) {
+        colorClass = 'border-red-500 bg-red-50';
+        iconClass = 'text-red-600';
+      } else if (labelLower.includes('success') || labelLower.includes('tip')) {
+        colorClass = 'border-green-500 bg-green-50';
+        iconClass = 'text-green-600';
+      } else if (labelLower.includes('info') || labelLower.includes('note')) {
+        colorClass = 'border-blue-500 bg-blue-50';
+        iconClass = 'text-blue-600';
+      }
+
+      return `<div class="border-l-4 ${colorClass} pl-6 pr-6 py-4 my-6 rounded-r-lg"><p class="font-bold ${iconClass} mb-2">${label}:</p><p>${content}</p></div>`;
+    }
+  }
+
+  return `<p>${text}</p>`;
+};
+
+// Extract headings from markdown for table of contents
+function extractHeadings(markdown: string): Array<{ text: string; id: string; level: number }> {
+  const headings: Array<{ text: string; id: string; level: number }> = [];
+  const lines = markdown.split('\n');
+
+  for (const line of lines) {
+    // Match markdown headings (## Heading or ### Heading, but skip # which is the main title)
+    const match = line.match(/^(#{2,4})\s+(.+)$/);
+    if (match) {
+      const level = match[1].length;
+      const text = match[2].trim();
+      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      headings.push({ text, id, level });
+    }
+  }
+
+  return headings;
+}
+
+// Enhanced markdown to HTML converter
 function formatMarkdown(markdown: string): string {
-  let html = markdown;
+  try {
+    // Use marked with custom renderer
+    const html = marked(markdown, { renderer }) as string;
 
-  // Headers with anchor links for navigation
-  html = html.replace(/^### (.*$)/gim, (match, title) => {
-    const id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-    return `<h3 id="${id}">${title}</h3>`;
-  });
-  html = html.replace(/^## (.*$)/gim, (match, title) => {
-    const id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-    return `<h2 id="${id}">${title}</h2>`;
-  });
-  html = html.replace(/^# (.*$)/gim, (match, title) => {
-    const id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-    return `<h1 id="${id}">${title}</h1>`;
-  });
+    // Post-process to enhance certain patterns
+    let enhanced = html;
 
-  // Bold text with highlight
-  html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+    // Enhance mathematical or financial figures (e.g., $250K, $1.2M)
+    enhanced = enhanced.replace(/\$([0-9,.]+[KMB]?)/g, '<span class="font-bold text-primary-teal">$$$1</span>');
 
-  // Italic text
-  html = html.replace(/\*(.*?)\*/g, "<em>$1</em>");
+    // Enhance percentages
+    enhanced = enhanced.replace(/(\d+\.?\d*)%/g, '<span class="font-semibold text-primary-navy">$1%</span>');
 
-  // Links with security attributes
-  html = html.replace(
-    /\[([^\]]+)\]\(([^)]+)\)/g,
-    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
-  );
+    // Enhance section headers that look like labels (text in all caps followed by colon)
+    enhanced = enhanced.replace(/<p>([A-Z][A-Z\s]{2,}):/g, '<p class="font-bold text-primary-teal mt-6 mb-2">$1:');
 
-  // Enhanced blockquotes with better styling
-  html = html.replace(/^> (.*$)/gim, (match, quote) => {
-    return `<blockquote><p>${quote}</p></blockquote>`;
-  });
-
-  // Unordered lists with proper spacing
-  html = html.replace(/^\- (.*$)/gim, "<li>$1</li>");
-  html = html.replace(/(<li>[\s\S]*?<\/li>)/g, "<ul>$1</ul>");
-
-  // Numbered lists
-  html = html.replace(/^\d+\.\s+(.*$)/gim, "<oli>$1</oli>");
-  html = html.replace(/(<oli>[\s\S]*?<\/oli>)/g, (match) => {
-    return "<ol>" + match.replace(/<\/?oli>/g, (tag) => tag.replace("oli", "li")) + "</ol>";
-  });
-
-  // Horizontal rules as visual breaks
-  html = html.replace(/^---$/gim, '<hr class="my-16" />');
-
-  // Convert double line breaks to paragraph breaks
-  html = html.replace(/\n\n/g, "</p><p>");
-  html = `<p>${html}</p>`;
-
-  // Clean up empty paragraphs and fix nesting
-  html = html.replace(/<p><\/p>/g, "");
-  html = html.replace(/<p>(<h[1-6])/g, "$1");
-  html = html.replace(/(<\/h[1-6]>)<\/p>/g, "$1");
-  html = html.replace(/<p>(<ul>)/g, "$1");
-  html = html.replace(/(<\/ul>)<\/p>/g, "$1");
-  html = html.replace(/<p>(<ol>)/g, "$1");
-  html = html.replace(/(<\/ol>)<\/p>/g, "$1");
-  html = html.replace(/<p>(<blockquote>)/g, "$1");
-  html = html.replace(/(<\/blockquote>)<\/p>/g, "$1");
-  html = html.replace(/<p>(<hr)/g, "$1");
-  html = html.replace(/\/><\/p>/g, "/>");
-
-  // Fix blockquote paragraphs
-  html = html.replace(/<blockquote>([^<])/g, "<blockquote><p>$1");
-  html = html.replace(/([^>])<\/blockquote>/g, "$1</p></blockquote>");
-
-  return html;
+    return enhanced;
+  } catch (error) {
+    console.error('Error parsing markdown:', error);
+    return markdown; // Fallback to raw markdown if parsing fails
+  }
 }
