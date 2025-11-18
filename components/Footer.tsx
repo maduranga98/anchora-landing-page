@@ -1,6 +1,5 @@
 "use client";
 
-import { FiTwitter, FiLinkedin, FiFacebook, FiInstagram } from "react-icons/fi";
 import Link from "next/link";
 import AnchoraLogo from "./AnchoraLogo";
 
@@ -12,20 +11,11 @@ export default function Footer() {
       { name: "Features", href: "#features" },
       { name: "Pricing", href: "#pricing" },
       { name: "Demo", href: "#contact" },
-      { name: "Roadmap", href: "#" },
     ],
     company: [
       { name: "About Us", href: "/about" },
       { name: "About Lumora Ventures", href: "/lumora" },
-      { name: "Careers", href: "#" },
       { name: "Blog", href: "/blogs" },
-      { name: "Press Kit", href: "#" },
-    ],
-    resources: [
-      { name: "Documentation", href: "#" },
-      { name: "Help Center", href: "#" },
-      { name: "API Reference", href: "#" },
-      { name: "System Status", href: "#" },
     ],
     legal: [
       { name: "Privacy Policy", href: "/privacy-policy" },
@@ -39,7 +29,7 @@ export default function Footer() {
     <footer className="bg-primary-navy text-white">
       <div className="section-container py-12 md:py-16">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           {/* Brand Column */}
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
@@ -50,7 +40,7 @@ export default function Footer() {
               Your Anchor in Every Storm. Transforming workplace communication
               one company at a time.
             </p>
-            <p className="text-white/50 text-xs mb-6">
+            <p className="text-white/50 text-xs">
               A product of{" "}
               <Link
                 href="/lumora"
@@ -61,37 +51,6 @@ export default function Footer() {
               <br />
               Building innovative workplace solutions
             </p>
-            {/* Social Links */}
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary-teal transition-all duration-300"
-                aria-label="Twitter"
-              >
-                <FiTwitter className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary-teal transition-all duration-300"
-                aria-label="LinkedIn"
-              >
-                <FiLinkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary-teal transition-all duration-300"
-                aria-label="Facebook"
-              >
-                <FiFacebook className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary-teal transition-all duration-300"
-                aria-label="Instagram"
-              >
-                <FiInstagram className="w-5 h-5" />
-              </a>
-            </div>
           </div>
 
           {/* Product Links */}
