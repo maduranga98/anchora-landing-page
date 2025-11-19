@@ -4,11 +4,14 @@ import Script from "next/script";
 
 const siteUrl = "https://anchora.com";
 
+// Using system fonts for better performance and reliability
+// This avoids external font fetching and provides instant loading
+
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL("https://anchora.com"),
   title: {
     default: "Anchora - Your Anchor in Every Storm | Anonymous Workplace Reporting",
-    template: "%s | Anchora",
+    template: "%s | Anchora"
   },
   description:
     "Stop lawsuits, fraud, and workplace disasters before they happen. Anonymous employee reporting platform with military-grade encryption. Protect your company for just $1/employee/month.",
@@ -63,9 +66,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Anchora - Your Anchor in Every Storm",
     description:
-      "Stop lawsuits, fraud, and workplace disasters before they happen. Anonymous employee reporting platform with military-grade encryption.",
-    images: [`${siteUrl}/logo.png`],
-    creator: "@anchora",
+      "Stop lawsuits, fraud, and workplace disasters before they happen. Anonymous employee reporting platform.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -79,13 +81,8 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: siteUrl,
+    canonical: "https://anchora.com",
   },
-  verification: {
-    google: "verification_token",
-    yandex: "verification_token",
-  },
-  category: "technology",
 };
 
 export const viewport: Viewport = {
@@ -151,6 +148,15 @@ export default function RootLayout({
     sameAs: [
       "https://twitter.com/anchora",
       "https://linkedin.com/company/anchora",
+    "@type": "Organization",
+    name: "Anchora",
+    description:
+      "Anonymous employee reporting platform with military-grade encryption",
+    url: "https://anchora.com",
+    logo: "https://anchora.com/logo.png",
+    sameAs: [
+      "https://www.linkedin.com/company/anchora",
+      "https://twitter.com/anchora",
     ],
     contactPoint: {
       "@type": "ContactPoint",
