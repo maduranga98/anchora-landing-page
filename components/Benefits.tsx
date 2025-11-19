@@ -15,7 +15,7 @@ export default function Benefits() {
       icon: <FiShield className="w-12 h-12" />,
       title: "Prevent Lawsuits Before They Start",
       description:
-        "Catch harassment, discrimination, and hostile work environment issues when they'sre still manageable. Handle internally instead of in court.",
+        "Catch harassment, discrimination, and hostile work environment issues when they're still manageable. Handle internally instead of in court.",
       stats: [
         { value: "$75K-$300K", label: "Average harassment lawsuit cost" },
         { value: "18-36 months", label: "Average litigation timeline" },
@@ -47,7 +47,7 @@ export default function Benefits() {
         { value: "$2M+", label: "Average serious accident cost" },
       ],
       testimonial:
-        '"Employees reported safety concerns anonymously. We fixed issues immediately. 2 months later, OSHA inspection-perfect score."',
+        '"Employees reported safety concerns anonymously. We fixed issues immediately. 2 months later, OSHA inspection—perfect score."',
       author: "Operations Manager, Construction",
     },
     {
@@ -103,7 +103,7 @@ export default function Benefits() {
   return (
     <section
       id="benefits"
-      className="section-padding bg-linear-to-b from-white to-gray-50"
+      className="section-padding bg-gradient-to-b from-white to-gray-50"
     >
       <div className="section-container">
         {/* Section Header */}
@@ -122,7 +122,7 @@ export default function Benefits() {
             <span className="font-bold underline">centuries</span>.
           </p>
 
-          <div className="bg-linear-to-r from-green-50 to-emerald-50 border-2 border-green-300 rounded-xl p-6 max-w-3xl mx-auto">
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-300 rounded-xl p-6 max-w-3xl mx-auto">
             <p className="text-lg md:text-xl lg:text-2xl font-bold text-green-800">
               Cost:{" "}
               <span className="text-2xl md:text-3xl lg:text-4xl">
@@ -147,7 +147,7 @@ export default function Benefits() {
                 index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
               } flex flex-col lg:flex`}
             >
-              <div className="lg:w-1/3 bg-linear-to-br from-primary-navy to-primary-teal p-6 md:p-8 flex items-center justify-center">
+              <div className="lg:w-1/3 bg-gradient-to-br from-primary-navy to-primary-teal p-6 md:p-8 flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 text-white">
                     {benefit.icon}
@@ -197,7 +197,7 @@ export default function Benefits() {
         </div>
 
         {/* ROI Calculator */}
-        <div className="bg-linear-to-brrom-primary-navy to-primary-teal rounded-3xl p-8 md:p-12 text-white mb-20">
+        <div className="bg-gradient-to-br from-primary-navy to-primary-teal rounded-3xl p-8 md:p-12 text-white mb-20">
           <div className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
               What's <span className="text-accent-coral">ONE</span> Prevented
