@@ -144,19 +144,10 @@ export default function RootLayout({
     url: siteUrl,
     logo: `${siteUrl}/logo.png`,
     description:
-      "Anonymous workplace reporting platform helping companies prevent lawsuits, fraud, and workplace disasters.",
+      "Anonymous employee reporting platform with military-grade encryption",
     sameAs: [
       "https://twitter.com/anchora",
       "https://linkedin.com/company/anchora",
-    "@type": "Organization",
-    name: "Anchora",
-    description:
-      "Anonymous employee reporting platform with military-grade encryption",
-    url: "https://anchora.com",
-    logo: "https://anchora.com/logo.png",
-    sameAs: [
-      "https://www.linkedin.com/company/anchora",
-      "https://twitter.com/anchora",
     ],
     contactPoint: {
       "@type": "ContactPoint",

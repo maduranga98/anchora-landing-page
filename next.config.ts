@@ -21,10 +21,6 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
-  // Production optimizations
-  compress: true,
-  poweredByHeader: false,
-
   // Note: Security headers should be configured in Firebase hosting (firebase.json)
   // Static export doesn't support Next.js headers() function
   // See PRODUCTION-CHECKLIST.md for Firebase hosting header configuration
