@@ -373,7 +373,7 @@ export default function Contact() {
                     <div className="space-y-6">
                       {/* UK Office */}
                       <div className="flex items-start gap-4 pb-6 border-b border-border-light">
-                        <div className="w-12 h-12 bg-primary-navy/10 rounded-lg flex items-center justify-center text-primary-navy flex-shrink-0">
+                        <div className="w-12 h-12 bg-primary-navy/10 rounded-lg flex items-center justify-center text-primary-navy shrink-0">
                           <FiMapPin className="w-6 h-6" />
                         </div>
                         <div>
@@ -393,7 +393,7 @@ export default function Contact() {
 
                       {/* Sri Lanka Office */}
                       <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-primary-navy/10 rounded-lg flex items-center justify-center text-primary-navy flex-shrink-0">
+                        <div className="w-12 h-12 bg-primary-navy/10 rounded-lg flex items-center justify-center text-primary-navy shrink-0">
                           <FiMapPin className="w-6 h-6" />
                         </div>
                         <div>

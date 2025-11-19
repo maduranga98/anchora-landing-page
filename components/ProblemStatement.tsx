@@ -71,7 +71,7 @@ export default function ProblemStatement() {
   return (
     <section
       id="problem"
-      className="section-padding bg-gradient-to-b from-gray-50 to-white"
+      className="section-padding bg-linear-to-b from-gray-50 to-white"
     >
       <div className="section-container">
         {/* Shocking Header */}
@@ -95,14 +95,14 @@ export default function ProblemStatement() {
             silent.
           </p>
 
-          <div className="bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-500 p-6 rounded-lg max-w-3xl mx-auto">
+          <div className="bg-linear-to-r from-red-50 to-orange-50 border-l-4 border-red-500 p-6 rounded-lg max-w-3xl mx-auto">
             <p className="text-sm md:text-base lg:text-lg text-gray-800">
               <span className="font-bold text-red-600">
                 Critical Reality Check:
               </span>{" "}
               The average employee witnesses 2-3 serious workplace issues per
               year. Less than 10% ever report them. Those silent issues are
-              destroying your company—
+              destroying your company-
               <span className="font-bold">you just don't know it yet.</span>
             </p>
           </div>
@@ -115,7 +115,7 @@ export default function ProblemStatement() {
               key={index}
               className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden group"
             >
-              <div className={`bg-gradient-to-r ${problem.color} p-6`}>
+              <div className={`bg-linear-to-r ${problem.color} p-6`}>
                 <div className="text-white mb-3">{problem.icon}</div>
                 <h4 className="text-lg md:text-xl font-bold text-white mb-2">
                   {problem.title}
@@ -146,7 +146,7 @@ export default function ProblemStatement() {
         </div>
 
         {/* The Pattern Section */}
-        <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-white mb-16">
+        <div className="bg-linear-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-white mb-16">
           <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">
             <span className="text-red-400">The Deadly Pattern</span> (Happening
             Right Now in Your Company)
@@ -237,7 +237,9 @@ export default function ProblemStatement() {
           <div className="mt-10 p-6 bg-green-50 rounded-xl border-2 border-green-300">
             <p className="text-base md:text-lg lg:text-xl text-center font-bold text-green-800">
               Anchora Costs:{" "}
-              <span className="text-2xl md:text-3xl lg:text-4xl text-green-600">$1/employee/month</span>
+              <span className="text-2xl md:text-3xl lg:text-4xl text-green-600">
+                $1/employee/month
+              </span>
             </p>
             <p className="text-center text-gray-700 mt-2">
               For 100 employees: $1,200/year vs. $75,000+ in ONE incident
