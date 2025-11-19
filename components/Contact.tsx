@@ -1,7 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { FiMail, FiPhone, FiMapPin, FiSend } from "react-icons/fi";
+import {
+  FiMail,
+  FiPhone,
+  FiMapPin,
+  FiSend,
+  FiCheckCircle,
+  FiAlertCircle,
+  FiGlobe,
+} from "react-icons/fi";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -15,6 +24,7 @@ export default function Contact() {
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -30,12 +40,29 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
+    setErrorMessage("");
 
-    // TODO: Integrate with Firebase Functions or your backend
-    // For now, simulate submission
-    setTimeout(() => {
-      console.log("Form submitted:", formData);
+    try {
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          company: formData.company,
+          employees: formData.employees,
+          phone: formData.phone || "Not provided",
+          message: formData.message || "No message provided",
+          reply_to: formData.email,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      console.log("Email sent successfully:", result);
       setStatus("success");
+
+      // Clear form
       setFormData({
         name: "",
         email: "",
@@ -47,7 +74,20 @@ export default function Contact() {
 
       // Reset success message after 5 seconds
       setTimeout(() => setStatus("idle"), 5000);
-    }, 1500);
+    } catch (error: any) {
+      console.error("Error sending email:", error);
+      setStatus("error");
+      setErrorMessage(
+        error.text ||
+          "Failed to send message. Please try again or email us directly."
+      );
+
+      // Reset error message after 5 seconds
+      setTimeout(() => {
+        setStatus("idle");
+        setErrorMessage("");
+      }, 5000);
+    }
   };
 
   return (
@@ -75,11 +115,32 @@ export default function Contact() {
               Request a Demo
             </h4>
 
+            {/* Success Message */}
             {status === "success" && (
-              <div className="mb-6 p-4 bg-status-success-light border border-status-success rounded-lg">
-                <p className="text-status-success font-medium">
-                  ✓ Thank you! We'll be in touch within 24 hours.
-                </p>
+              <div className="mb-6 p-4 bg-green-50 border-2 border-green-500 rounded-lg flex items-start gap-3 animate-fade-in">
+                <FiCheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-green-800 font-semibold">
+                    Thank you for contacting us!
+                  </p>
+                  <p className="text-green-700 text-sm mt-1">
+                    We've received your message and will get back to you within
+                    24 hours.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Error Message */}
+            {status === "error" && (
+              <div className="mb-6 p-4 bg-red-50 border-2 border-red-500 rounded-lg flex items-start gap-3 animate-fade-in">
+                <FiAlertCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-red-800 font-semibold">
+                    Oops! Something went wrong
+                  </p>
+                  <p className="text-red-700 text-sm mt-1">{errorMessage}</p>
+                </div>
               </div>
             )}
 
@@ -101,6 +162,7 @@ export default function Contact() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-border-medium rounded-lg focus:ring-2 focus:ring-primary-teal focus:border-transparent transition-all"
                     placeholder="John Doe"
+                    disabled={status === "submitting"}
                   />
                 </div>
 
@@ -120,6 +182,7 @@ export default function Contact() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-border-medium rounded-lg focus:ring-2 focus:ring-primary-teal focus:border-transparent transition-all"
                     placeholder="john@company.com"
+                    disabled={status === "submitting"}
                   />
                 </div>
               </div>
@@ -140,6 +203,7 @@ export default function Contact() {
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-border-medium rounded-lg focus:ring-2 focus:ring-primary-teal focus:border-transparent transition-all"
                   placeholder="Your Company Inc."
+                  disabled={status === "submitting"}
                 />
               </div>
 
@@ -158,6 +222,7 @@ export default function Contact() {
                     value={formData.employees}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-border-medium rounded-lg focus:ring-2 focus:ring-primary-teal focus:border-transparent transition-all"
+                    disabled={status === "submitting"}
                   >
                     <option value="">Select range</option>
                     <option value="1-50">1-50</option>
@@ -184,6 +249,7 @@ export default function Contact() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-border-medium rounded-lg focus:ring-2 focus:ring-primary-teal focus:border-transparent transition-all"
                     placeholder="+1 (555) 123-4567"
+                    disabled={status === "submitting"}
                   />
                 </div>
               </div>
@@ -203,6 +269,7 @@ export default function Contact() {
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-border-medium rounded-lg focus:ring-2 focus:ring-primary-teal focus:border-transparent transition-all resize-none"
                   placeholder="Tell us about your needs..."
+                  disabled={status === "submitting"}
                 />
               </div>
 
@@ -212,7 +279,25 @@ export default function Contact() {
                 className="w-full py-4 bg-primary-teal text-white rounded-lg font-semibold text-lg hover:bg-primary-teal/90 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group"
               >
                 {status === "submitting" ? (
-                  "Sending..."
+                  <>
+                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                        fill="none"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                    Sending...
+                  </>
                 ) : (
                   <>
                     Send Message
@@ -222,7 +307,14 @@ export default function Contact() {
               </button>
 
               <p className="text-sm text-text-tertiary text-center">
-                By submitting this form, you agree to our Privacy Policy.
+                By submitting this form, you agree to our{" "}
+                <a
+                  href="/privacy-policy"
+                  className="text-primary-teal hover:underline"
+                >
+                  Privacy Policy
+                </a>
+                .
               </p>
             </form>
           </div>
@@ -236,7 +328,7 @@ export default function Contact() {
               </h4>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary-teal/10 rounded-lg flex items-center justify-center text-primary-teal flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary-teal/10 rounded-lg flex items-center justify-center text-primary-teal shrink-0">
                     <FiMail className="w-6 h-6" />
                   </div>
                   <div>
@@ -244,16 +336,16 @@ export default function Contact() {
                       Email Us
                     </div>
                     <a
-                      href="mailto:hello@anchora.app"
+                      href="mailto:info@lumoraventures.com"
                       className="text-primary-teal hover:underline"
                     >
-                      hello@anchora.app
+                      info@lumoraventures.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary-teal/10 rounded-lg flex items-center justify-center text-primary-teal flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary-teal/10 rounded-lg flex items-center justify-center text-primary-teal shrink-0">
                     <FiPhone className="w-6 h-6" />
                   </div>
                   <div>
@@ -261,61 +353,108 @@ export default function Contact() {
                       Call Us
                     </div>
                     <a
-                      href="tel:+1234567890"
+                      href="tel:+9476620655"
                       className="text-primary-teal hover:underline"
                     >
-                      +1 (234) 567-890
+                      +94 (76) 620-6555
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary-teal/10 rounded-lg flex items-center justify-center text-primary-teal flex-shrink-0">
+                  {/* <div className="w-12 h-12 bg-primary-teal/10 rounded-lg flex items-center justify-center text-primary-teal shrink-0">
                     <FiMapPin className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-text-primary mb-1">
-                      Visit Us
+                  </div> */}
+                  <div className="bg-white rounded-2xl shadow-soft p-8">
+                    <h4 className="text-xl font-bold text-text-primary mb-6 flex items-center gap-2">
+                      <FiGlobe className="w-5 h-5 text-primary-teal" />
+                      Our Offices
+                    </h4>
+                    <div className="space-y-6">
+                      {/* UK Office */}
+                      <div className="flex items-start gap-4 pb-6 border-b border-border-light">
+                        <div className="w-12 h-12 bg-primary-navy/10 rounded-lg flex items-center justify-center text-primary-navy flex-shrink-0">
+                          <FiMapPin className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <div className="font-bold text-text-primary mb-2 flex items-center gap-2">
+                            <span className="text-lg">🇬🇧</span>
+                            United Kingdom
+                          </div>
+                          <p className="text-text-secondary text-sm leading-relaxed">
+                            Office 4157, 58 Peregrine Road
+                            <br />
+                            Hainault, Ilford, Essex
+                            <br />
+                            United Kingdom, IG6 3SZ
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Sri Lanka Office */}
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 bg-primary-navy/10 rounded-lg flex items-center justify-center text-primary-navy flex-shrink-0">
+                          <FiMapPin className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <div className="font-bold text-text-primary mb-2 flex items-center gap-2">
+                            <span className="text-lg">🇱🇰</span>
+                            Sri Lanka
+                          </div>
+                          <p className="text-text-secondary text-sm leading-relaxed">
+                            Kurunegala Road
+                            <br />
+                            Kuliyapitiya
+                            <br />
+                            Kurunegala, Sri Lanka
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-text-secondary">
-                      123 Innovation Street
-                      <br />
-                      San Francisco, CA 94102
-                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Quick Benefits */}
-            <div className="bg-gradient-primary rounded-2xl p-8 text-white">
-              <h4 className="text-xl font-bold mb-4">What Happens Next?</h4>
+            {/* Why Choose Us */}
+            <div className="bg-linear-to-br from-primary-teal/5 to-primary-navy/5 rounded-2xl p-8 border-2 border-primary-teal/20">
+              <h4 className="text-xl font-bold text-text-primary mb-6">
+                Why Choose Anchora?
+              </h4>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-sm font-bold">
-                    1
-                  </span>
-                  <span>
-                    We'll schedule a personalized demo within 24 hours
+                  <FiCheckCircle className="w-5 h-5 text-primary-teal shrink-0 mt-0.5" />
+                  <span className="text-text-secondary">
+                    <strong className="text-text-primary">
+                      15-minute setup
+                    </strong>{" "}
+                    - Deploy in minutes, not months
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-sm font-bold">
-                    2
+                  <FiCheckCircle className="w-5 h-5 text-primary-teal shrink-0 mt-0.5" />
+                  <span className="text-text-secondary">
+                    <strong className="text-text-primary">
+                      Military-grade security
+                    </strong>{" "}
+                    - True anonymity guaranteed
                   </span>
-                  <span>Start your 14-day free trial with full access</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-sm font-bold">
-                    3
+                  <FiCheckCircle className="w-5 h-5 text-primary-teal shrink-0 mt-0.5" />
+                  <span className="text-text-secondary">
+                    <strong className="text-text-primary">
+                      $1 per employee
+                    </strong>{" "}
+                    - Affordable protection for any size
                   </span>
-                  <span>Get onboarded with dedicated support</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-sm font-bold">
-                    4
+                  <FiCheckCircle className="w-5 h-5 text-primary-teal shrink-0 mt-0.5" />
+                  <span className="text-text-secondary">
+                    <strong className="text-text-primary">24/7 support</strong>{" "}
+                    - We're here when you need us
                   </span>
-                  <span>Transform your workplace culture</span>
                 </li>
               </ul>
             </div>
