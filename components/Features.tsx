@@ -19,7 +19,7 @@ export default function Features() {
       icon: <FiShield className="w-8 h-8" />,
       title: "Anonymous Problem Reporting",
       description:
-        "Employees report harassment, fraud, safety issues without fear. 100% anonymity—even admins can't identify posters.",
+        "Employees report harassment, fraud, safety issues without fear. 100% anonymity-even admins can't identify posters.",
       benefit: "Stop retaliation. Get the truth.",
       color: "from-green-500 to-green-700",
     },
@@ -126,7 +126,7 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="section-padding bg-gradient-to-b from-white to-gray-50"
+      className="section-padding bg-linear-to-b from-white to-gray-50"
     >
       <div className="section-container">
         {/* Section Header */}
@@ -151,7 +151,7 @@ export default function Features() {
               key={index}
               className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-200"
             >
-              <div className={`bg-gradient-to-r ${feature.color} p-6`}>
+              <div className={`bg-linear-to-r ${feature.color} p-6`}>
                 <div className="text-white mb-3">{feature.icon}</div>
                 <h4 className="text-xl font-bold text-white mb-2">
                   {feature.title}
@@ -163,7 +163,7 @@ export default function Features() {
                   {feature.description}
                 </p>
                 <div className="flex items-center gap-2 text-green-700 font-semibold bg-green-50 px-4 py-2 rounded-lg">
-                  <FiCheckCircle className="flex-shrink-0" />
+                  <FiCheckCircle className="shrink-0" />
                   <span className="text-sm">{feature.benefit}</span>
                 </div>
               </div>
@@ -172,7 +172,7 @@ export default function Features() {
         </div>
 
         {/* Compliance & Legal Section */}
-        <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-white mb-20">
+        <div className="bg-linear-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-white mb-20">
           <div className="text-center mb-12">
             <h4 className="text-2xl md:text-3xl font-bold mb-4">
               Built for <span className="text-[#1ABC9C]">Legal Protection</span>{" "}
@@ -237,7 +237,7 @@ export default function Features() {
         </div>
 
         {/* Additional Features Section */}
-        <div className="bg-gradient-to-r from-[#1ABC9C] to-[#2D3E50] rounded-3xl p-8 md:p-12 text-white">
+        <div className="bg-linear-to-r from-[#1ABC9C] to-[#2D3E50] rounded-3xl p-8 md:p-12 text-white">
           <div className="text-center mb-10">
             <h4 className="text-2xl md:text-3xl font-bold mb-4">
               Plus Everything Else You Need

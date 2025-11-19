@@ -12,7 +12,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-navy via-primary-navy to-primary-teal overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-linear-to-br from-primary-navy via-primary-navy to-primary-teal overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-96 h-96 bg-primary-teal/20 rounded-full blur-3xl -top-20 -left-20 animate-pulse"></div>
@@ -35,7 +35,7 @@ export default function Hero() {
           style={{ animationDelay: "0.1s" }}
         >
           Your Anchor in <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-teal to-accent-coral">
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-primary-teal to-accent-coral">
             Every Storm
           </span>
         </h1>
@@ -46,10 +46,10 @@ export default function Hero() {
           style={{ animationDelay: "0.2s" }}
         >
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-semibold mb-4">
-            The problems your employees see every day—
+            The problems your employees see every day-
           </p>
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-accent-coral font-bold mb-6">
-            but never tell you—are destroying your company from within.
+            but never tell you-are destroying your company from within.
           </p>
 
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 lg:p-8 border border-white/20 max-w-3xl mx-auto">
@@ -97,8 +97,12 @@ export default function Hero() {
           style={{ animationDelay: "0.4s" }}
         >
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:border-primary-teal/50 transition-all">
-            <div className="text-3xl md:text-4xl font-bold text-accent-coral mb-2">$1</div>
-            <div className="text-gray-300 font-medium text-sm md:text-base">per employee/month</div>
+            <div className="text-3xl md:text-4xl font-bold text-accent-coral mb-2">
+              $1
+            </div>
+            <div className="text-gray-300 font-medium text-sm md:text-base">
+              per employee/month
+            </div>
             <div className="text-xs md:text-sm text-white/70 mt-2">
               vs. $75K-$300K per lawsuit
             </div>
@@ -118,7 +122,9 @@ export default function Hero() {
             <div className="text-3xl md:text-4xl font-bold text-primary-teal mb-2">
               24hrs
             </div>
-            <div className="text-gray-300 font-medium text-sm md:text-base">Setup Time</div>
+            <div className="text-gray-300 font-medium text-sm md:text-base">
+              Setup Time
+            </div>
             <div className="text-xs md:text-sm text-white/70 mt-2">
               Start protecting immediately
             </div>
