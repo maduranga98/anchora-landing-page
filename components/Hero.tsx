@@ -13,12 +13,12 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-linear-to-br from-primary-navy via-primary-navy to-primary-teal overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute w-96 h-96 bg-primary-teal/20 rounded-full blur-3xl -top-20 -left-20 animate-pulse"></div>
+      {/* Animated background elements - will-change for better performance */}
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="absolute w-96 h-96 bg-primary-teal/20 rounded-full blur-3xl -top-20 -left-20 animate-pulse" style={{ willChange: "opacity" }}></div>
         <div
           className="absolute w-96 h-96 bg-accent-coral/20 rounded-full blur-3xl -bottom-20 -right-20 animate-pulse"
-          style={{ animationDelay: "1s" }}
+          style={{ animationDelay: "1s", willChange: "opacity" }}
         ></div>
       </div>
 
