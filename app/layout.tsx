@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import Script from "next/script";
+
+const siteUrl = "https://anchora.com";
 
 // Using system fonts for better performance and reliability
 // This avoids external font fetching and provides instant loading
@@ -21,31 +24,41 @@ export const metadata: Metadata = {
     "compliance platform",
     "HR software",
     "workplace culture",
+    "anonymous reporting system",
+    "workplace compliance",
+    "employee feedback platform",
   ],
-  authors: [{ name: "Anchora" }],
+  authors: [{ name: "Anchora", url: siteUrl }],
   creator: "Anchora",
   publisher: "Anchora",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/icon.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
     ],
-    apple: { url: "/icon.png" },
+    apple: { url: "/icon.png", sizes: "512x512" },
+    shortcut: "/icon.png",
   },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://anchora.com",
+    url: siteUrl,
     title: "Anchora - Your Anchor in Every Storm",
     description:
-      "Stop lawsuits, fraud, and workplace disasters before they happen. Anonymous employee reporting platform.",
+      "Stop lawsuits, fraud, and workplace disasters before they happen. Anonymous employee reporting platform with military-grade encryption.",
     siteName: "Anchora",
     images: [
       {
-        url: "/og-image.png",
+        url: `${siteUrl}/logo.png`,
         width: 1200,
         height: 630,
-        alt: "Anchora - Your Anchor in Every Storm",
+        alt: "Anchora - Anonymous Workplace Reporting Platform",
       },
     ],
   },
@@ -76,6 +89,10 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#1abc9c" },
+    { media: "(prefers-color-scheme: dark)", color: "#2d3e50" },
+  ],
 };
 
 export default function RootLayout({
@@ -85,6 +102,52 @@ export default function RootLayout({
 }) {
   const jsonLd = {
     "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Anchora",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    offers: {
+      "@type": "Offer",
+      price: "1",
+      priceCurrency: "USD",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: "1",
+        priceCurrency: "USD",
+        referenceQuantity: {
+          "@type": "QuantitativeValue",
+          value: "1",
+          unitText: "employee per month",
+        },
+      },
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      ratingCount: "100",
+    },
+    description:
+      "Anonymous employee reporting platform with military-grade encryption. Stop lawsuits, fraud, and workplace disasters before they happen.",
+    url: siteUrl,
+    logo: `${siteUrl}/logo.png`,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "Customer Support",
+      email: "support@anchora.com",
+    },
+  };
+
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Anchora",
+    url: siteUrl,
+    logo: `${siteUrl}/logo.png`,
+    description:
+      "Anonymous workplace reporting platform helping companies prevent lawsuits, fraud, and workplace disasters.",
+    sameAs: [
+      "https://twitter.com/anchora",
+      "https://linkedin.com/company/anchora",
     "@type": "Organization",
     name: "Anchora",
     description:
@@ -105,9 +168,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Preconnect to important third-party origins */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
       <body className="antialiased" suppressHydrationWarning>

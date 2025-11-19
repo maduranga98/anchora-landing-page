@@ -84,6 +84,14 @@ body {
   background-color: var(--color-background-white);
   line-height: 1.5;
   overflow-x: hidden;
+  /* Improve font rendering performance */
+  font-display: swap;
+}
+
+/* Reduce layout shift by reserving space for content */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Container utilities for better responsive layout */
@@ -159,7 +167,7 @@ body {
   }
 }
 
-/* Animations */
+/* Animations - Using will-change for better performance */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -200,14 +208,28 @@ body {
 
 .animate-fadeIn {
   animation: fadeIn 0.6s ease-out forwards;
+  will-change: opacity, transform;
 }
 
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: opacity;
 }
 
 .animate-bounce {
   animation: bounce 1s infinite;
+  will-change: transform;
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Custom Gradients */

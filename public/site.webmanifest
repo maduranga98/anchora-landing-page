@@ -1,0 +1,18 @@
+{
+  "name": "Anchora - Anonymous Workplace Reporting",
+  "short_name": "Anchora",
+  "description": "Stop lawsuits, fraud, and workplace disasters before they happen. Anonymous employee reporting platform with military-grade encryption.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2d3e50",
+  "theme_color": "#1abc9c",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

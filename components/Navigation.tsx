@@ -19,37 +19,51 @@ export default function Navigation() {
     { name: "Contact", href: "#contact" },
   ];
 
-  // Scroll detection to update active section
+  // Scroll detection to update active section with throttling for better performance
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout | null = null;
+    let ticking = false;
+
     const handleScroll = () => {
-      const sections = navLinks.map((link) => link.href.substring(1));
-      const scrollPosition = window.scrollY + 100; // Offset for navbar height
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const sections = navLinks.map((link) => link.href.substring(1));
+          const scrollPosition = window.scrollY + 100; // Offset for navbar height
 
-      // If we're at the top of the page (near hero section), clear active section
-      if (window.scrollY < 50) {
-        setActiveSection("");
-        return;
-      }
+          // If we're at the top of the page (near hero section), clear active section
+          if (window.scrollY < 50) {
+            setActiveSection("");
+            ticking = false;
+            return;
+          }
 
-      let foundSection = false;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(`#${sections[i]}`);
-          foundSection = true;
-          break;
-        }
-      }
+          let foundSection = false;
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const section = document.getElementById(sections[i]);
+            if (section && section.offsetTop <= scrollPosition) {
+              setActiveSection(`#${sections[i]}`);
+              foundSection = true;
+              break;
+            }
+          }
 
-      // If no section found and we're not at the top, clear active section
-      if (!foundSection && window.scrollY >= 50) {
-        setActiveSection("");
+          // If no section found and we're not at the top, clear active section
+          if (!foundSection && window.scrollY >= 50) {
+            setActiveSection("");
+          }
+
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Initial check
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   // Clear active section when navigating away from home page

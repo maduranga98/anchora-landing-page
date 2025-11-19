@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -11,6 +10,21 @@ import {
   FiAward,
   FiTrendingUp,
 } from "react-icons/fi";
+
+export const metadata: Metadata = {
+  title: "About Anchora - Anonymous Workplace Reporting Platform",
+  description:
+    "Learn about Anchora's mission to revolutionize workplace communication through secure, anonymous reporting. Protecting employees and companies with military-grade encryption.",
+  alternates: {
+    canonical: "https://anchora.com/about",
+  },
+  openGraph: {
+    title: "About Anchora - Anonymous Workplace Reporting Platform",
+    description:
+      "Learn about Anchora's mission to revolutionize workplace communication through secure, anonymous reporting.",
+    url: "https://anchora.com/about",
+  },
+};
 
 export default function AboutPage() {
   const values = [

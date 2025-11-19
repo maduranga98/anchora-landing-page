@@ -3,6 +3,10 @@ const nextConfig = {
   /* config options here */
   output: "export",
 
+  // Performance optimizations
+  compress: true,
+  poweredByHeader: false,
+
   // Disable experimental features that might cause issues
   experimental: {
     // Disable turbo if you encounter issues
