@@ -6,18 +6,23 @@ import Features from "@/components/Features";
 import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { WebVitals } from "./web-vitals";
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full overflow-x-hidden">
-      <Navigation />
-      <Hero />
-      <ProblemStatement />
-      <Features />
-      <Benefits />
-      <Pricing />
-      <Contact />
-      <Footer />
-    </main>
+    <ErrorBoundary>
+      <WebVitals />
+      <main className="min-h-screen w-full overflow-x-hidden">
+        <Navigation />
+        <Hero />
+        <ProblemStatement />
+        <Features />
+        <Benefits />
+        <Pricing />
+        <Contact />
+        <Footer />
+      </main>
+    </ErrorBoundary>
   );
 }
