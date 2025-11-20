@@ -70,16 +70,27 @@ export default function LumoraVentures() {
                 <p className="text-text-secondary">
                   Email:{" "}
                   <a
-                    href="mailto:hello@lumoraventures.com"
+                    href="mailto:info@lumoraventures.com"
                     className="text-primary-teal hover:underline"
                   >
-                    hello@lumoraventures.com
+                    info@lumoraventures.com
                   </a>
                 </p>
                 <p className="text-text-secondary">
-                  Address: 123 Innovation Street, San Francisco, CA 94102
+                  Phone:{" "}
+                  <a
+                    href="tel:+9476620655"
+                    className="text-primary-teal hover:underline"
+                  >
+                    +94 (76) 620-6555
+                  </a>
                 </p>
-                <p className="text-text-secondary">Phone: +1 (234) 567-890</p>
+                <p className="text-text-secondary mt-2">
+                  <strong>UK Office:</strong> Office 4157, 58 Peregrine Road, Hainault, Ilford, Essex, United Kingdom, IG6 3SZ
+                </p>
+                <p className="text-text-secondary mt-1">
+                  <strong>Sri Lanka Office:</strong> Kurunegala Road, Kuliyapitiya, Kurunegala, Sri Lanka
+                </p>
               </div>
             </section>
           </div>

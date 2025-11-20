@@ -2,13 +2,13 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Script from "next/script";
 
-const siteUrl = "https://anchora.com";
+const siteUrl = "https://www.lumoraventures.com";
 
 // Using system fonts for better performance and reliability
 // This avoids external font fetching and provides instant loading
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://anchora.com"),
+  metadataBase: new URL("https://www.lumoraventures.com"),
   title: {
     default: "VoxWel - Where Every Voice Matters | Anonymous Workplace Reporting",
     template: "%s | VoxWel"
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://anchora.com",
+    canonical: "https://www.lumoraventures.com",
   },
 };
 
@@ -133,7 +133,7 @@ export default function RootLayout({
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Support",
-      email: "support@anchora.com",
+      email: "info@lumoraventures.com",
     },
   };
 
@@ -146,13 +146,13 @@ export default function RootLayout({
     description:
       "Anonymous employee reporting platform with military-grade encryption",
     sameAs: [
-      "https://twitter.com/anchora",
-      "https://linkedin.com/company/anchora",
+      "https://www.linkedin.com/company/lumora-ventures-pvt-ltd/",
+      "https://web.facebook.com/profile.php?id=61575034203203&sk=about",
     ],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Support",
-      email: "support@anchora.com",
+      email: "info@lumoraventures.com",
     },
   };
 
