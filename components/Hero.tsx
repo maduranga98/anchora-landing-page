@@ -34,9 +34,8 @@ export default function Hero() {
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 animate-fadeIn leading-tight"
           style={{ animationDelay: "0.1s" }}
         >
-          Your Anchor in <br />
           <span className="text-transparent bg-clip-text bg-linear-to-r from-primary-teal to-accent-coral">
-            Every Storm
+            Where Every Voice Matters
           </span>
         </h1>
 

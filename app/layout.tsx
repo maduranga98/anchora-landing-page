@@ -10,8 +10,8 @@ const siteUrl = "https://anchora.com";
 export const metadata: Metadata = {
   metadataBase: new URL("https://anchora.com"),
   title: {
-    default: "Anchora - Your Anchor in Every Storm | Anonymous Workplace Reporting",
-    template: "%s | Anchora"
+    default: "VoxWel - Where Every Voice Matters | Anonymous Workplace Reporting",
+    template: "%s | VoxWel"
   },
   description:
     "Stop lawsuits, fraud, and workplace disasters before they happen. Anonymous employee reporting platform with military-grade encryption. Protect your company for just $1/employee/month.",
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     "workplace compliance",
     "employee feedback platform",
   ],
-  authors: [{ name: "Anchora", url: siteUrl }],
-  creator: "Anchora",
-  publisher: "Anchora",
+  authors: [{ name: "VoxWel", url: siteUrl }],
+  creator: "VoxWel",
+  publisher: "VoxWel",
   formatDetection: {
     email: false,
     address: false,
@@ -49,22 +49,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    title: "Anchora - Your Anchor in Every Storm",
+    title: "VoxWel - Where Every Voice Matters",
     description:
       "Stop lawsuits, fraud, and workplace disasters before they happen. Anonymous employee reporting platform with military-grade encryption.",
-    siteName: "Anchora",
+    siteName: "VoxWel",
     images: [
       {
         url: `${siteUrl}/logo.png`,
         width: 1200,
         height: 630,
-        alt: "Anchora - Anonymous Workplace Reporting Platform",
+        alt: "VoxWel - Anonymous Workplace Reporting Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Anchora - Your Anchor in Every Storm",
+    title: "VoxWel - Where Every Voice Matters",
     description:
       "Stop lawsuits, fraud, and workplace disasters before they happen. Anonymous employee reporting platform.",
     images: ["/og-image.png"],
@@ -103,7 +103,7 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "Anchora",
+    name: "VoxWel",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     offers: {
@@ -140,7 +140,7 @@ export default function RootLayout({
   const organizationJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Anchora",
+    name: "VoxWel",
     url: siteUrl,
     logo: `${siteUrl}/logo.png`,
     description:

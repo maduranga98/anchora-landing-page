@@ -34,10 +34,10 @@ export default function Footer() {
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <AnchoraLogo size="default" />
-              <span className="text-xl font-bold">Anchora</span>
+              <span className="text-xl font-bold">VoxWel </span>
             </div>
             <p className="text-white/70 text-sm mb-4">
-              Your Anchor in Every Storm. Transforming workplace communication
+              Where Every Voice Matters. Transforming workplace communication
               one company at a time.
             </p>
             <p className="text-white/50 text-xs">
@@ -109,7 +109,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/70 text-sm">
-              © {currentYear} Anchora by Lumora Ventures. All rights reserved.
+              © {currentYear} VoxWel by Lumora Ventures. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-sm text-white/70">
               <Link

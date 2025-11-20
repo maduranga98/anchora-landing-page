@@ -19,8 +19,8 @@ export default function AnchoraLogo({
   return (
     <Link href="/" className={`inline-block ${className}`}>
       <Image
-        src="/logo.svg"
-        alt="Anchora"
+        src="/voxwel.svg"
+        alt="VoxWel"
         width={currentSize.width}
         height={currentSize.height}
         priority

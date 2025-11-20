@@ -91,7 +91,7 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <AnchoraLogo size="default" />
-            <span className="text-xl font-bold text-primary-navy">Anchora</span>
+            <span className="text-xl font-bold text-primary-navy">VoxWel </span>
           </div>
 
           {/* Desktop Navigation */}
