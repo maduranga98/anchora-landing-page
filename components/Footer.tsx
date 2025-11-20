@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import AnchoraLogo from "./AnchoraLogo";
+import { FaLinkedin, FaFacebook } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -40,7 +41,7 @@ export default function Footer() {
               Where Every Voice Matters. Transforming workplace communication
               one company at a time.
             </p>
-            <p className="text-white/50 text-xs">
+            <p className="text-white/50 text-xs mb-4">
               A product of{" "}
               <Link
                 href="/lumora"
@@ -51,6 +52,36 @@ export default function Footer() {
               <br />
               Building innovative workplace solutions
             </p>
+            <div className="flex flex-col gap-2 mb-4">
+              <a
+                href="https://www.lumoraventures.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-primary-teal transition-colors text-sm"
+              >
+                www.lumoraventures.com
+              </a>
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://www.linkedin.com/company/lumora-ventures-pvt-ltd/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-primary-teal transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://web.facebook.com/profile.php?id=61575034203203&sk=about"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-primary-teal transition-colors"
+                  aria-label="Facebook"
+                >
+                  <FaFacebook className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Product Links */}
