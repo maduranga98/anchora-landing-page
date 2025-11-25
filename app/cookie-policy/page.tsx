@@ -486,10 +486,10 @@ export default function CookiePolicy() {
                 <p className="text-text-secondary">
                   Email:{" "}
                   <a
-                    href="mailto:privacy@voxwel.com"
+                    href="mailto:privacy@lumoraventures.com"
                     className="text-primary-teal hover:underline"
                   >
-                    privacy@voxwel.com
+                    privacy@lumoraventures.com
                   </a>
                 </p>
                 <p className="text-text-secondary">

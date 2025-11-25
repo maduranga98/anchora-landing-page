@@ -70,10 +70,10 @@ export default function LumoraVentures() {
                 <p className="text-text-secondary">
                   Email:{" "}
                   <a
-                    href="mailto:info@voxwel.com"
+                    href="mailto:info@lumoraventures.com"
                     className="text-primary-teal hover:underline"
                   >
-                    info@voxwel.com
+                    info@lumoraventures.com
                   </a>
                 </p>
                 <p className="text-text-secondary">

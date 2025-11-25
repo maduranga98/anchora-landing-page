@@ -299,10 +299,10 @@ export default function GDPR() {
                       Email our Data Protection Officer at:
                     </p>
                     <a
-                      href="mailto:dpo@voxwel.com"
+                      href="mailto:dpo@lumoraventures.com"
                       className="text-primary-teal font-semibold hover:underline text-lg"
                     >
-                      dpo@voxwel.com
+                      dpo@lumoraventures.com
                     </a>
                     <p className="text-text-secondary mt-3 text-sm">
                       Include "GDPR Request" in the subject line and specify
@@ -499,10 +499,10 @@ export default function GDPR() {
                 <p className="text-text-secondary">
                   Email:{" "}
                   <a
-                    href="mailto:dpo@voxwel.com"
+                    href="mailto:dpo@lumoraventures.com"
                     className="text-primary-teal hover:underline"
                   >
-                    dpo@voxwel.com
+                    dpo@lumoraventures.com
                   </a>
                 </p>
                 <p className="text-text-secondary">

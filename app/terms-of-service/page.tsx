@@ -372,7 +372,7 @@ export default function TermsOfService() {
               </h3>
               <p className="text-text-secondary mb-4">
                 Before filing a formal dispute, you agree to contact us at
-                legal@voxwel.com to attempt to resolve the issue
+                legal@lumoraventures.com to attempt to resolve the issue
                 informally.
               </p>
 
@@ -461,10 +461,10 @@ export default function TermsOfService() {
                 <p className="text-text-secondary">
                   Email:{" "}
                   <a
-                    href="mailto:legal@voxwel.com"
+                    href="mailto:legal@lumoraventures.com"
                     className="text-primary-teal hover:underline"
                   >
-                    legal@voxwel.com
+                    legal@lumoraventures.com
                   </a>
                 </p>
                 <p className="text-text-secondary">

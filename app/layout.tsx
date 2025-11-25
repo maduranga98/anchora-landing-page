@@ -133,7 +133,7 @@ export default function RootLayout({
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Support",
-      email: "info@voxwel.com",
+      email: "info@lumoraventures.com",
     },
   };
 
@@ -152,7 +152,7 @@ export default function RootLayout({
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Support",
-      email: "info@voxwel.com",
+      email: "info@lumoraventures.com",
     },
   };
 
