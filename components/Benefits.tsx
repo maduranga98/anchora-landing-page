@@ -28,13 +28,13 @@ export default function Benefits() {
       icon: <FiDollarSign className="w-12 h-12" />,
       title: "Stop Fraud & Embezzlement",
       description:
-        "Your employees see suspicious activity every day. Anchora gives them a safe channel to report before thousands disappear.",
+        "Your employees see suspicious activity every day. VoxWel gives them a safe channel to report before thousands disappear.",
       stats: [
         { value: "$50K-$500K", label: "Typical fraud loss per incident" },
         { value: "18 months", label: "Average time before discovery" },
       ],
       testimonial:
-        '"Anonymous tip about expense irregularities led us to a $180K fraud scheme. Without Anchora, we would have never known until the audit."',
+        '"Anonymous tip about expense irregularities led us to a $180K fraud scheme. Without VoxWel, we would have never known until the audit."',
       author: "CFO, Manufacturing Company",
     },
     {
@@ -86,7 +86,7 @@ export default function Benefits() {
         { value: "$0", label: "Additional compliance software needed" },
       ],
       testimonial:
-        '"During an EEOC investigation, we showed our Anchora records proving we addressed every complaint. Case dismissed."',
+        '"During an EEOC investigation, we showed our VoxWel records proving we addressed every complaint. Case dismissed."',
       author: "Legal Counsel, Healthcare",
     },
   ];
@@ -116,7 +116,7 @@ export default function Benefits() {
           </h3>
           <p className="text-base md:text-lg lg:text-xl text-text-secondary max-w-4xl mx-auto mb-8">
             One prevented lawsuit pays for{" "}
-            <span className="font-bold underline">decades</span> of Anchora.
+            <span className="font-bold underline">decades</span> of VoxWel.
             <br />
             One stopped fraud scheme pays for{" "}
             <span className="font-bold underline">centuries</span>.
@@ -204,7 +204,7 @@ export default function Benefits() {
               Incident Worth?
             </h3>
             <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto">
-              Calculate the value of Anchora for your company size
+              Calculate the value of VoxWel for your company size
             </p>
           </div>
 
@@ -218,7 +218,7 @@ export default function Benefits() {
                       Company Size
                     </th>
                     <th className="p-3 sm:p-4 text-left text-sm sm:text-base md:text-lg font-bold">
-                      Anchora Cost/Month
+                      VoxWel Cost/Month
                     </th>
                     <th className="p-3 sm:p-4 text-left text-sm sm:text-base md:text-lg font-bold">
                       ONE Prevented Incident Saves
@@ -260,7 +260,7 @@ export default function Benefits() {
                   </div>
                   <div className="mb-3 pb-3 border-b border-white/20">
                     <div className="text-xs text-white/70 mb-1">
-                      Anchora Cost/Month
+                      VoxWel Cost/Month
                     </div>
                     <div className="text-base text-accent-coral font-bold">
                       {row.cost}
@@ -293,7 +293,7 @@ export default function Benefits() {
         {/* Final CTA */}
         <div className="text-center bg-white rounded-2xl shadow-xl p-12 border-4 border-primary-teal">
           <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-text-primary mb-6">
-            The Question Isn't "Can We Afford Anchora?"
+            The Question Isn't "Can We Afford VoxWel?"
           </h3>
           <p className="text-lg md:text-xl text-text-secondary mb-8">
             The question is:{" "}

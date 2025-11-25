@@ -1,6 +1,6 @@
 {
-  "name": "Anchora - Anonymous Workplace Reporting",
-  "short_name": "Anchora",
+  "name": "VoxWel - Anonymous Workplace Reporting",
+  "short_name": "VoxWel",
   "description": "Stop lawsuits, fraud, and workplace disasters before they happen. Anonymous employee reporting platform with military-grade encryption.",
   "start_url": "/",
   "display": "standalone",

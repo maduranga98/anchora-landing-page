@@ -53,13 +53,13 @@ export async function generateMetadata({
 
   if (!post) {
     return {
-      title: "Blog Post Not Found - Anchora",
+      title: "Blog Post Not Found - VoxWel",
       description: "The requested blog post could not be found.",
     };
   }
 
   return {
-    title: `${post.title} - Anchora Blog`,
+    title: `${post.title} - VoxWel Blog`,
     description: post.excerpt,
     keywords: post.tags.join(", "),
     authors: [{ name: post.author.name }],
@@ -108,17 +108,17 @@ export default async function BlogPost({
     },
     publisher: {
       "@type": "Organization",
-      name: "Anchora",
+      name: "VoxWel",
       logo: {
         "@type": "ImageObject",
-        url: "https://anchora.com/icon.png",
+        url: "https://voxwel.com/icon.png",
       },
     },
     keywords: post.tags.join(", "),
     articleSection: post.category,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://anchora.com/blogs/${post.slug}`,
+      "@id": `https://voxwel.com/blogs/${post.slug}`,
     },
   };
 

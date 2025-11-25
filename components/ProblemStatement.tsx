@@ -236,7 +236,7 @@ export default function ProblemStatement() {
 
           <div className="mt-10 p-6 bg-green-50 rounded-xl border-2 border-green-300">
             <p className="text-base md:text-lg lg:text-xl text-center font-bold text-green-800">
-              Anchora Costs:{" "}
+              VoxWel Costs:{" "}
               <span className="text-2xl md:text-3xl lg:text-4xl text-green-600">
                 $1/employee/month
               </span>
@@ -246,7 +246,7 @@ export default function ProblemStatement() {
             </p>
             <p className="text-center text-green-700 font-semibold mt-3 text-lg">
               ONE prevented problem pays for{" "}
-              <span className="text-2xl">60+ YEARS</span> of Anchora.
+              <span className="text-2xl">60+ YEARS</span> of VoxWel.
             </p>
           </div>
         </div>

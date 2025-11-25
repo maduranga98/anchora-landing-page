@@ -100,7 +100,7 @@ export default function Features() {
     {
       title: "The Silent Whistleblower",
       description:
-        "Your employees ALREADY know about fraud, harassment, and violations. Anchora gives them a safe way to tell you—before lawyers, media, or regulators find out.",
+        "Your employees ALREADY know about fraud, harassment, and violations. VoxWel gives them a safe way to tell you—before lawyers, media, or regulators find out.",
       stat: "67%",
       statLabel:
         "of workplace violations are witnessed by multiple employees but never reported",
@@ -108,7 +108,7 @@ export default function Features() {
     {
       title: "Reputation Insurance",
       description:
-        "Handle scandals internally. One media story about harassment or fraud can destroy years of brand building. Anchora keeps problems contained.",
+        "Handle scandals internally. One media story about harassment or fraud can destroy years of brand building. VoxWel keeps problems contained.",
       stat: "$2.4M",
       statLabel:
         "average cost of a major workplace scandal (lawsuits + reputation damage)",
@@ -116,7 +116,7 @@ export default function Features() {
     {
       title: "Legal Documentation",
       description:
-        "When lawsuits happen, you need proof you took action. Anchora provides timestamped records of every report and response.",
+        "When lawsuits happen, you need proof you took action. VoxWel provides timestamped records of every report and response.",
       stat: "100%",
       statLabel:
         "audit trail coverage for legal defense and regulatory compliance",
@@ -179,7 +179,7 @@ export default function Features() {
               & Compliance
             </h4>
             <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
-              When regulatory investigations or lawsuits arrive, Anchora
+              When regulatory investigations or lawsuits arrive, VoxWel
               provides the documentation trail you need to defend your company.
             </p>
           </div>
@@ -208,7 +208,7 @@ export default function Features() {
         {/* Unique Advantages */}
         <div className="mb-20">
           <h4 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-12">
-            Why Anchora is <span className="text-[#1ABC9C]">Different</span>
+            Why VoxWel is <span className="text-[#1ABC9C]">Different</span>
           </h4>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -243,7 +243,7 @@ export default function Features() {
               Plus Everything Else You Need
             </h4>
             <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto">
-              Beyond risk management, Anchora includes all the tools for a
+              Beyond risk management, VoxWel includes all the tools for a
               complete employee voice platform.
             </p>
           </div>

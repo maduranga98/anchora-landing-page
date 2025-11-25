@@ -24,7 +24,7 @@ export default function PrivacyPolicy() {
               Last updated: {new Date().toLocaleDateString()}
             </p>
             <p className="text-text-tertiary text-sm mt-2">
-              Anchora is a product of Lumora Ventures
+              VoxWel is a product of Lumora Ventures
             </p>
           </div>
 
@@ -35,7 +35,7 @@ export default function PrivacyPolicy() {
                 1. Introduction
               </h2>
               <p className="text-text-secondary mb-4">
-                Welcome to Anchora, a product developed and operated by Lumora
+                Welcome to VoxWel, a product developed and operated by Lumora
                 Ventures ("we," "our," or "us"). We are committed to protecting
                 your personal information and your right to privacy. This
                 Privacy Policy explains how we collect, use, disclose, and
@@ -43,7 +43,7 @@ export default function PrivacyPolicy() {
                 and engagement platform.
               </p>
               <p className="text-text-secondary">
-                By using Anchora, you agree to the collection and use of
+                By using VoxWel, you agree to the collection and use of
                 information in accordance with this policy. If you do not agree
                 with our policies and practices, please do not use our service.
               </p>
@@ -184,7 +184,7 @@ export default function PrivacyPolicy() {
                 5.1 With Your Organization
               </h3>
               <p className="text-text-secondary mb-4">
-                Your employer (the organization that purchased Anchora) will
+                Your employer (the organization that purchased VoxWel) will
                 have access to:
               </p>
               <ul className="list-disc pl-6 text-text-secondary space-y-2 mb-4">
@@ -297,10 +297,10 @@ export default function PrivacyPolicy() {
               <p className="text-text-secondary mt-4">
                 To exercise these rights, contact us at{" "}
                 <a
-                  href="mailto:privacy@anchora.app"
+                  href="mailto:privacy@voxwel.com"
                   className="text-primary-teal hover:underline"
                 >
-                  privacy@anchora.app
+                  privacy@voxwel.com
                 </a>
               </p>
             </section>
@@ -344,7 +344,7 @@ export default function PrivacyPolicy() {
                 10. Children's Privacy
               </h2>
               <p className="text-text-secondary">
-                Anchora is designed for workplace use and is not intended for
+                VoxWel is designed for workplace use and is not intended for
                 individuals under 18 years of age. We do not knowingly collect
                 personal information from children. If we become aware that we
                 have collected information from a child, we will delete it
@@ -360,7 +360,7 @@ export default function PrivacyPolicy() {
                 We may update this Privacy Policy from time to time. We will
                 notify you of any material changes by posting the new policy on
                 this page and updating the "Last updated" date. Your continued
-                use of Anchora after changes become effective constitutes
+                use of VoxWel after changes become effective constitutes
                 acceptance of the revised policy.
               </p>
             </section>
@@ -375,15 +375,15 @@ export default function PrivacyPolicy() {
               </p>
               <div className="bg-background-softGray p-6 rounded-lg">
                 <p className="text-text-primary font-semibold mb-2">
-                  Lumora Ventures - Anchora Privacy Team
+                  Lumora Ventures - VoxWel Privacy Team
                 </p>
                 <p className="text-text-secondary">
                   Email:{" "}
                   <a
-                    href="mailto:privacy@anchora.app"
+                    href="mailto:privacy@voxwel.com"
                     className="text-primary-teal hover:underline"
                   >
-                    privacy@anchora.app
+                    privacy@voxwel.com
                   </a>
                 </p>
                 <p className="text-text-secondary">
@@ -405,10 +405,10 @@ export default function PrivacyPolicy() {
                 <p className="text-text-secondary">
                   Email:{" "}
                   <a
-                    href="mailto:dpo@lumoraventures.com"
+                    href="mailto:dpo@voxwel.com"
                     className="text-primary-teal hover:underline"
                   >
-                    dpo@lumoraventures.com
+                    dpo@voxwel.com
                   </a>
                 </p>
               </div>

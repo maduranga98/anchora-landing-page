@@ -24,7 +24,7 @@ export default function CookiePolicy() {
               Last updated: {new Date().toLocaleDateString()}
             </p>
             <p className="text-text-tertiary text-sm mt-2">
-              Anchora is a product of Lumora Ventures
+              VoxWel is a product of Lumora Ventures
             </p>
           </div>
 
@@ -42,7 +42,7 @@ export default function CookiePolicy() {
               </p>
               <p className="text-text-secondary">
                 Lumora Ventures uses cookies and similar technologies on the
-                Anchora platform to enhance your experience, provide security,
+                VoxWel platform to enhance your experience, provide security,
                 and analyze how our Service is used.
               </p>
             </section>
@@ -77,7 +77,7 @@ export default function CookiePolicy() {
                   <tbody>
                     <tr>
                       <td className="border border-border-light p-3 text-text-secondary">
-                        anchora_session
+                        voxwel_session
                       </td>
                       <td className="border border-border-light p-3 text-text-secondary">
                         Maintains your login session
@@ -229,7 +229,7 @@ export default function CookiePolicy() {
                     </tr>
                     <tr>
                       <td className="border border-border-light p-3 text-text-secondary">
-                        anchora_analytics
+                        voxwel_analytics
                       </td>
                       <td className="border border-border-light p-3 text-text-secondary">
                         Internal analytics - tracks feature usage
@@ -336,7 +336,7 @@ export default function CookiePolicy() {
                 4. Anonymous Posting and Cookies
               </h2>
               <p className="text-text-secondary mb-4">
-                When you use Anchora's anonymous posting feature:
+                When you use VoxWel's anonymous posting feature:
               </p>
               <ul className="list-disc pl-6 text-text-secondary space-y-2">
                 <li>
@@ -364,7 +364,7 @@ export default function CookiePolicy() {
               </h2>
 
               <h3 className="text-xl font-semibold text-text-primary mb-3">
-                5.1 Cookie Settings in Anchora
+                5.1 Cookie Settings in VoxWel
               </h3>
               <p className="text-text-secondary mb-4">
                 You can manage your cookie preferences through our cookie
@@ -439,7 +439,7 @@ export default function CookiePolicy() {
               <div className="bg-status-warning/10 border-l-4 border-status-warning p-4 rounded-r-lg mt-6">
                 <p className="text-text-secondary text-sm">
                   <strong>Note:</strong> Blocking or deleting essential cookies
-                  may prevent you from using certain features of Anchora or
+                  may prevent you from using certain features of VoxWel or
                   cause the Service to function improperly.
                 </p>
               </div>
@@ -453,7 +453,7 @@ export default function CookiePolicy() {
                 Some browsers have a "Do Not Track" feature that signals to
                 websites that you do not want your online activities tracked.
                 Currently, there is no industry standard for how to respond to
-                Do Not Track signals. Anchora does not currently respond to Do
+                Do Not Track signals. VoxWel does not currently respond to Do
                 Not Track signals, but we are committed to providing you with
                 meaningful choices about the information we collect.
               </p>
@@ -481,15 +481,15 @@ export default function CookiePolicy() {
               </p>
               <div className="bg-background-softGray p-6 rounded-lg">
                 <p className="text-text-primary font-semibold mb-2">
-                  Lumora Ventures - Anchora Privacy Team
+                  Lumora Ventures - VoxWel Privacy Team
                 </p>
                 <p className="text-text-secondary">
                   Email:{" "}
                   <a
-                    href="mailto:privacy@anchora.app"
+                    href="mailto:privacy@voxwel.com"
                     className="text-primary-teal hover:underline"
                   >
-                    privacy@anchora.app
+                    privacy@voxwel.com
                   </a>
                 </p>
                 <p className="text-text-secondary">

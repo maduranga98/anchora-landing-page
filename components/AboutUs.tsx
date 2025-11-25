@@ -61,14 +61,14 @@ export default function AboutUs() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-sm font-bold text-primary-teal uppercase tracking-wide mb-4">
-            🏢 About Anchora
+            🏢 About VoxWel
           </h2>
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 leading-tight">
             Your Partner in <span className="text-primary-teal">Workplace Safety</span>
           </h3>
           <p className="text-base md:text-lg lg:text-xl text-text-secondary max-w-4xl mx-auto">
             Born from the reality that employees see problems every day but fear
-            speaking up. We created Anchora to bridge that gap—protecting both
+            speaking up. We created VoxWel to bridge that gap—protecting both
             people and companies.
           </p>
         </div>
@@ -127,7 +127,7 @@ export default function AboutUs() {
         {/* The Story */}
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border-l-4 border-primary-teal">
           <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-text-primary mb-6">
-            Why We Built Anchora
+            Why We Built VoxWel
           </h3>
           <div className="space-y-4 text-base md:text-lg text-text-secondary leading-relaxed">
             <p>
@@ -146,7 +146,7 @@ export default function AboutUs() {
               It doesn't have to be this way.
             </p>
             <p>
-              Anchora creates a secure bridge between employees who see problems
+              VoxWel creates a secure bridge between employees who see problems
               and leaders who can fix them—before those problems explode. With
               military-grade anonymity, smart escalation, and complete audit
               trails, we help companies catch storms before they hit.

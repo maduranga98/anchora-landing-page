@@ -336,10 +336,10 @@ export default function Contact() {
                       Email Us
                     </div>
                     <a
-                      href="mailto:info@lumoraventures.com"
+                      href="mailto:info@voxwel.com"
                       className="text-primary-teal hover:underline"
                     >
-                      info@lumoraventures.com
+                      info@voxwel.com
                     </a>
                   </div>
                 </div>
@@ -419,7 +419,7 @@ export default function Contact() {
             {/* Why Choose Us */}
             <div className="bg-linear-to-br from-primary-teal/5 to-primary-navy/5 rounded-2xl p-8 border-2 border-primary-teal/20">
               <h4 className="text-xl font-bold text-text-primary mb-6">
-                Why Choose Anchora?
+                Why Choose VoxWel?
               </h4>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
