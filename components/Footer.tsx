@@ -54,12 +54,12 @@ export default function Footer() {
             </p>
             <div className="flex flex-col gap-2 mb-4">
               <a
-                href="https://www.lumoraventures.com/"
+                href="https://www.voxwel.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-primary-teal transition-colors text-sm"
               >
-                www.lumoraventures.com
+                www.voxwel.com
               </a>
               <div className="flex items-center gap-3">
                 <a

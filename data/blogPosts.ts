@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
     slug: "anonymous-tip-saved-company-250k",
     title: "How One Anonymous Tip Saved a Company $250K",
     excerpt:
-      "Discover how a manufacturing company caught an expense fraud scheme early through Anchora's anonymous reporting—before it escalated to a police investigation.",
+      "Discover how a manufacturing company caught an expense fraud scheme early through VoxWel's anonymous reporting—before it escalated to a police investigation.",
     category: "Case Study",
     date: "2024-11-10",
     readTime: "5 min read",
@@ -34,17 +34,17 @@ export const blogPosts: BlogPost[] = [
     content: `
 # How One Anonymous Tip Saved a Company $250K
 
-When manufacturing company TechParts Inc. implemented Anchora in early 2024, they never imagined their first anonymous report would uncover a fraud scheme that could have cost them over $250,000.
+When manufacturing company TechParts Inc. implemented VoxWel in early 2024, they never imagined their first anonymous report would uncover a fraud scheme that could have cost them over $250,000.
 
 ## The Anonymous Tip
 
-On a Tuesday morning, an anonymous post appeared in Anchora's Finance department channel:
+On a Tuesday morning, an anonymous post appeared in VoxWel's Finance department channel:
 
 > "I've noticed something concerning with our vendor payments. The same company name appears multiple times with slightly different spellings, and the invoice amounts are consistently just under our review threshold of $10,000."
 
 ## The Investigation
 
-Thanks to Anchora's secure escalation system, the CFO received an immediate alert. Within 24 hours, the internal audit team discovered:
+Thanks to VoxWel's secure escalation system, the CFO received an immediate alert. Within 24 hours, the internal audit team discovered:
 
 - **12 fake vendor accounts** created over 6 months
 - **Invoice amounts deliberately kept at $9,800** to avoid approval workflows
@@ -53,7 +53,7 @@ Thanks to Anchora's secure escalation system, the CFO received an immediate aler
 
 ## Why Traditional Reporting Failed
 
-The employee who submitted the tip later shared (still anonymously) why they chose Anchora:
+The employee who submitted the tip later shared (still anonymously) why they chose VoxWel:
 
 - **Previous attempts ignored**: They had mentioned concerns to their manager, who dismissed them
 - **Fear of retaliation**: The suspected fraudster was a senior finance manager with 15 years at the company
@@ -81,7 +81,7 @@ Traditional reporting structures failed because of power dynamics and fear. Anon
 The employee confirmed they would never have reported through a standard hotline. True anonymity was essential.
 
 ### 4. Fast Escalation is Critical
-Anchora's automated escalation to the CFO meant the issue was investigated within 24 hours, not weeks or months.
+VoxWel's automated escalation to the CFO meant the issue was investigated within 24 hours, not weeks or months.
 
 ## Implementing Your Own Protection
 
@@ -89,15 +89,15 @@ If your company doesn't have a secure anonymous reporting system:
 
 1. **Assess your risk**: Fraud costs companies 5% of annual revenue on average (ACFE)
 2. **Evaluate current channels**: Would your employees trust them enough to report a senior manager?
-3. **Implement anonymous reporting**: Tools like Anchora provide military-grade anonymity
+3. **Implement anonymous reporting**: Tools like VoxWel provide military-grade anonymity
 4. **Create escalation protocols**: Ensure sensitive reports bypass normal chains of command
 5. **Build a speak-up culture**: Anonymous reporting is just one part of the solution
 
 ## The Real Cost of Waiting
 
-Consider this: if TechParts Inc. had waited just 3 more months to implement Anchora, the fraud would have likely crossed $150,000. The anonymous tipster estimated the scheme could have continued for "at least another year" undetected.
+Consider this: if TechParts Inc. had waited just 3 more months to implement VoxWel, the fraud would have likely crossed $150,000. The anonymous tipster estimated the scheme could have continued for "at least another year" undetected.
 
-**The math is simple**: Anchora costs $1/employee/month. For TechParts' 200 employees, that's $2,400/year. The platform paid for itself approximately **48 times over** in the first six months alone.
+**The math is simple**: VoxWel costs $1/employee/month. For TechParts' 200 employees, that's $2,400/year. The platform paid for itself approximately **48 times over** in the first six months alone.
 
 ## Conclusion
 
@@ -107,7 +107,7 @@ Anonymous reporting isn't just about compliance—it's about giving your employe
 
 ---
 
-*Ready to protect your company like TechParts Inc. did? [Get started with Anchora](#contact) and deploy military-grade anonymous reporting in under 15 minutes.*
+*Ready to protect your company like TechParts Inc. did? [Get started with VoxWel](#contact) and deploy military-grade anonymous reporting in under 15 minutes.*
     `,
   },
   {
@@ -213,7 +213,7 @@ Traditional reporting requires victims to:
 
 **Implementation:**
 
-- Deploy platforms like Anchora with military-grade anonymity
+- Deploy platforms like VoxWel with military-grade anonymity
 - Ensure reports bypass normal chains of command
 - Create fast-track investigation protocols
 - Maintain transparent (but confidential) resolution processes
@@ -352,7 +352,7 @@ More importantly, every employee deserves to work in an environment free from ha
 
 ---
 
-*Ready to implement best-in-class harassment prevention? [Contact Anchora](#contact) to deploy anonymous reporting in under 15 minutes.*
+*Ready to implement best-in-class harassment prevention? [Contact VoxWel](#contact) to deploy anonymous reporting in under 15 minutes.*
     `,
   },
   {
@@ -576,7 +576,7 @@ Many companies outsource hotlines to third-party vendors, thinking this solves t
 - **$4.2M lawsuit** from case that was "never reported"
 - **Employee trust in reporting: 18%** (survey)
 
-### After Modern Platform (Anchora)
+### After Modern Platform (VoxWel)
 - **67 reports in first year** (823% increase)
 - **Average resolution time: 23 days** (82% faster)
 - **Zero lawsuits** from issues that were reported
@@ -641,7 +641,7 @@ Every day you operate with a modern platform, you're:
 
 ---
 
-*Ready to move beyond the broken hotline model? [Schedule a demo](#contact) and see how Anchora provides true anonymous reporting in a modern, accessible platform.*
+*Ready to move beyond the broken hotline model? [Schedule a demo](#contact) and see how VoxWel provides true anonymous reporting in a modern, accessible platform.*
     `,
   },
   {
@@ -1114,7 +1114,7 @@ Whistleblower protection isn't optional—it's a legal requirement with serious 
 
 ---
 
-*Need help building a compliant whistleblower program? [Contact Anchora](#contact) for a platform that meets all federal and state anonymous reporting requirements.*
+*Need help building a compliant whistleblower program? [Contact VoxWel](#contact) for a platform that meets all federal and state anonymous reporting requirements.*
 
 **Disclaimer**: This article provides general information and does not constitute legal advice. Consult with employment law counsel for your specific situation.
     `,

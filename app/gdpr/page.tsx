@@ -32,7 +32,7 @@ export default function GDPR() {
               General Data Protection Regulation Compliance Statement
             </p>
             <p className="text-text-tertiary text-sm mt-2">
-              Anchora is a product of Lumora Ventures
+              VoxWel is a product of Lumora Ventures
             </p>
           </div>
 
@@ -58,7 +58,7 @@ export default function GDPR() {
                 1. Our Commitment to GDPR Compliance
               </h2>
               <p className="text-text-secondary mb-4">
-                Lumora Ventures and our product Anchora are fully committed to
+                Lumora Ventures and our product VoxWel are fully committed to
                 compliance with the European Union's General Data Protection
                 Regulation (GDPR). We respect your data privacy rights and have
                 implemented comprehensive measures to ensure your personal data
@@ -84,7 +84,7 @@ export default function GDPR() {
                     Contract Performance
                   </h3>
                   <p className="text-sm text-text-secondary">
-                    Processing necessary to provide the Anchora service to you
+                    Processing necessary to provide the VoxWel service to you
                     and your organization
                   </p>
                 </div>
@@ -399,7 +399,7 @@ export default function GDPR() {
                 6. Data Processing Agreements (DPA)
               </h2>
               <p className="text-text-secondary mb-4">
-                For organizations using Anchora:
+                For organizations using VoxWel:
               </p>
               <ul className="list-disc pl-6 text-text-secondary space-y-2">
                 <li>

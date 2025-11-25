@@ -25,7 +25,7 @@ const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } =
 
 // SEO Metadata for the blogs listing page
 export const metadata: Metadata = {
-  title: "Blog - Workplace Safety & Compliance Insights | Anchora",
+  title: "Blog - Workplace Safety & Compliance Insights | VoxWel",
   description:
     "Expert insights on workplace harassment prevention, fraud detection, whistleblower protection, and anonymous reporting. Learn how to protect your company with proven strategies.",
   keywords: [
@@ -41,20 +41,20 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://anchora.com/blogs",
-    title: "Blog - Workplace Safety & Compliance Insights | Anchora",
+    url: "https://voxwel.com/blogs",
+    title: "Blog - Workplace Safety & Compliance Insights | VoxWel",
     description:
       "Expert insights on workplace harassment prevention, fraud detection, and anonymous reporting.",
-    siteName: "Anchora",
+    siteName: "VoxWel",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog - Workplace Safety & Compliance Insights | Anchora",
+    title: "Blog - Workplace Safety & Compliance Insights | VoxWel",
     description:
       "Expert insights on workplace harassment prevention, fraud detection, and anonymous reporting.",
   },
   alternates: {
-    canonical: "https://anchora.com/blogs",
+    canonical: "https://voxwel.com/blogs",
   },
 };
 
@@ -63,16 +63,16 @@ export default function BlogsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    name: "Anchora Blog",
+    name: "VoxWel Blog",
     description:
       "Expert insights on workplace safety, harassment prevention, fraud detection, and compliance.",
-    url: "https://anchora.com/blogs",
+    url: "https://voxwel.com/blogs",
     publisher: {
       "@type": "Organization",
-      name: "Anchora",
+      name: "VoxWel",
       logo: {
         "@type": "ImageObject",
-        url: "https://anchora.com/icon.png",
+        url: "https://voxwel.com/icon.png",
       },
     },
     blogPost: blogPosts.map((post) => ({
@@ -85,7 +85,7 @@ export default function BlogsPage() {
         name: post.author.name,
         jobTitle: post.author.role,
       },
-      url: `https://anchora.com/blogs/${post.slug}`,
+      url: `https://voxwel.com/blogs/${post.slug}`,
       keywords: post.tags.join(", "),
       articleSection: post.category,
     })),
@@ -232,7 +232,7 @@ export default function BlogsPage() {
                 className="inline-flex items-center gap-2 px-8 py-4 bg-primary-teal text-white rounded-lg font-bold text-base md:text-lg hover:bg-primary-teal/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 <FiShield />
-                Get Started with Anchora
+                Get Started with VoxWel
               </a>
             </div>
           </div>

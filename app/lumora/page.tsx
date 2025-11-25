@@ -40,13 +40,13 @@ export default function LumoraVentures() {
               </h2>
               <div className="bg-background-softGray p-6 rounded-xl">
                 <h3 className="text-xl font-semibold text-text-primary mb-3">
-                  Anchora - Your Anchor in Every Storm
+                  VoxWel - Your Anchor in Every Storm
                 </h3>
                 <p className="text-text-secondary mb-4">
-                  Anchora is our flagship employee feedback and engagement
+                  VoxWel is our flagship employee feedback and engagement
                   platform designed to help companies prevent workplace crises
                   before they happen. With features like anonymous reporting,
-                  comprehensive analytics, and compliance tracking, Anchora
+                  comprehensive analytics, and compliance tracking, VoxWel
                   gives organizations the tools they need to create safer, more
                   transparent workplaces.
                 </p>
@@ -54,7 +54,7 @@ export default function LumoraVentures() {
                   href="/"
                   className="text-primary-teal font-semibold hover:underline"
                 >
-                  Learn more about Anchora →
+                  Learn more about VoxWel →
                 </Link>
               </div>
             </section>

@@ -2,13 +2,13 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Script from "next/script";
 
-const siteUrl = "https://www.lumoraventures.com";
+const siteUrl = "https://voxwel.com";
 
 // Using system fonts for better performance and reliability
 // This avoids external font fetching and provides instant loading
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.lumoraventures.com"),
+  metadataBase: new URL("https://voxwel.com"),
   title: {
     default: "VoxWel - Where Every Voice Matters | Anonymous Workplace Reporting",
     template: "%s | VoxWel"
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://www.lumoraventures.com",
+    canonical: "https://voxwel.com",
   },
 };
 

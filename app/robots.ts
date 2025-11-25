@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: [],
     },
-    sitemap: "https://www.lumoraventures.com/sitemap.xml",
+    sitemap: "https://voxwel.com/sitemap.xml",
   };
 }

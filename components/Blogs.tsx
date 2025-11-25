@@ -18,7 +18,7 @@ export default function Blogs() {
       category: "Case Study",
       title: "How One Anonymous Tip Saved a Company $250K",
       excerpt:
-        "Discover how a manufacturing company caught an expense fraud scheme early through Anchora's anonymous reporting—before it escalated to a police investigation.",
+        "Discover how a manufacturing company caught an expense fraud scheme early through VoxWel's anonymous reporting—before it escalated to a police investigation.",
       date: "Nov 10, 2024",
       readTime: "5 min read",
       color: "from-red-500 to-red-700",
@@ -56,7 +56,7 @@ export default function Blogs() {
     {
       icon: <FiShield className="w-6 h-6" />,
       category: "Security",
-      title: "Military-Grade Anonymity: How Anchora Protects User Identity",
+      title: "Military-Grade Anonymity: How VoxWel Protects User Identity",
       excerpt:
         "An inside look at the encryption, security protocols, and technical architecture that makes true anonymity possible.",
       date: "Oct 28, 2024",
@@ -190,7 +190,7 @@ export default function Blogs() {
             className="inline-flex items-center gap-2 px-8 py-4 bg-primary-teal text-white rounded-lg font-bold text-base md:text-lg hover:bg-primary-teal/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             <FiShield />
-            Get Started with Anchora
+            Get Started with VoxWel
           </a>
         </div>
       </div>

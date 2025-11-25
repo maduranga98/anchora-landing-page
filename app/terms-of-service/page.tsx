@@ -24,7 +24,7 @@ export default function TermsOfService() {
               Last updated: {new Date().toLocaleDateString()}
             </p>
             <p className="text-text-tertiary text-sm mt-2">
-              Anchora is a product of Lumora Ventures
+              VoxWel is a product of Lumora Ventures
             </p>
           </div>
 
@@ -37,7 +37,7 @@ export default function TermsOfService() {
               <p className="text-text-secondary mb-4">
                 These Terms of Service ("Terms") constitute a legally binding
                 agreement between you and Lumora Ventures ("Company," "we,"
-                "us," or "our") concerning your access to and use of the Anchora
+                "us," or "our") concerning your access to and use of the VoxWel
                 platform ("Service").
               </p>
               <p className="text-text-secondary">
@@ -52,7 +52,7 @@ export default function TermsOfService() {
                 2. Description of Service
               </h2>
               <p className="text-text-secondary mb-4">
-                Anchora is an employee feedback and engagement platform that
+                VoxWel is an employee feedback and engagement platform that
                 provides:
               </p>
               <ul className="list-disc pl-6 text-text-secondary space-y-2">
@@ -239,7 +239,7 @@ export default function TermsOfService() {
                 7.1 Pricing
               </h3>
               <p className="text-text-secondary mb-4">
-                Anchora is priced at $1 per employee per month, billed monthly
+                VoxWel is priced at $1 per employee per month, billed monthly
                 to your organization. Pricing is subject to change with 30 days'
                 notice.
               </p>
@@ -456,7 +456,7 @@ export default function TermsOfService() {
               </p>
               <div className="bg-background-softGray p-6 rounded-lg">
                 <p className="text-text-primary font-semibold mb-2">
-                  Lumora Ventures - Anchora Legal Team
+                  Lumora Ventures - VoxWel Legal Team
                 </p>
                 <p className="text-text-secondary">
                   Email:{" "}
