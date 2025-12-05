@@ -2,13 +2,13 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Script from "next/script";
 
-const siteUrl = "https://voxwel.com";
+const siteUrl = "https://www.voxwel.com";
 
 // Using system fonts for better performance and reliability
 // This avoids external font fetching and provides instant loading
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://voxwel.com"),
+  metadataBase: new URL("https://www.voxwel.com"),
   title: {
     default: "VoxWel - Where Every Voice Matters | Anonymous Workplace Reporting",
     template: "%s | VoxWel"
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://voxwel.com",
+    canonical: "https://www.voxwel.com",
   },
 };
 
@@ -193,6 +193,19 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+        {/* RSS Feed for AI and RSS readers */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="VoxWel Blog RSS Feed"
+          href={`${siteUrl}/rss.xml`}
+        />
+
+        {/* AI Discoverability */}
+        <link rel="alternate" type="application/json" href={`${siteUrl}/api/data.json`} title="VoxWel Data API" />
+        <meta name="ai-content-declaration" content="partially-ai-assisted" />
+        <meta name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
         {/* Structured Data */}
         <script

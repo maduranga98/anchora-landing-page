@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "About Lumora Ventures | VoxWel",
     description:
       "Discover Lumora Ventures, the innovative startup behind VoxWel workplace reporting platform.",
-    url: "https://voxwel.com/lumora",
+    url: "https://www.voxwel.com/lumora",
   },
   alternates: {
-    canonical: "https://voxwel.com/lumora",
+    canonical: "https://www.voxwel.com/lumora",
   },
 };
 

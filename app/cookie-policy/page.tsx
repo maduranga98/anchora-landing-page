@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "Cookie Policy | VoxWel",
     description:
       "Understand how VoxWel uses cookies and similar technologies to improve your experience and protect your data.",
-    url: "https://voxwel.com/cookie-policy",
+    url: "https://www.voxwel.com/cookie-policy",
   },
   alternates: {
-    canonical: "https://voxwel.com/cookie-policy",
+    canonical: "https://www.voxwel.com/cookie-policy",
   },
 };
 

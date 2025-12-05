@@ -1,6 +1,6 @@
 /* TEAM */
 Developer: Lumora Ventures Team
-Site: https://voxwel.com
+Site: https://www.voxwel.com
 Contact: info [at] lumoraventures.com
 Location: UK & Sri Lanka
 

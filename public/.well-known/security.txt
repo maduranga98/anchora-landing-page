@@ -1,9 +1,9 @@
 Contact: mailto:security@lumoraventures.com
-Contact: https://voxwel.com/contact
+Contact: https://www.voxwel.com/contact
 Expires: 2026-12-31T23:59:59.000Z
 Preferred-Languages: en
-Canonical: https://voxwel.com/.well-known/security.txt
-Policy: https://voxwel.com/privacy-policy
+Canonical: https://www.voxwel.com/.well-known/security.txt
+Policy: https://www.voxwel.com/privacy-policy
 
 # VoxWel Security Disclosure Policy
 #
