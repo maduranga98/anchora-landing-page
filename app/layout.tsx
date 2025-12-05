@@ -55,10 +55,11 @@ export const metadata: Metadata = {
     siteName: "VoxWel",
     images: [
       {
-        url: `${siteUrl}/logo.png`,
+        url: `${siteUrl}/og-image.svg`,
         width: 1200,
         height: 630,
         alt: "VoxWel - Anonymous Workplace Reporting Platform",
+        type: "image/svg+xml",
       },
     ],
   },
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
     title: "VoxWel - Where Every Voice Matters",
     description:
       "Stop lawsuits, fraud, and workplace disasters before they happen. Anonymous employee reporting platform.",
-    images: ["/og-image.png"],
+    images: [`${siteUrl}/og-image.svg`],
   },
   robots: {
     index: true,
@@ -156,6 +157,31 @@ export default function RootLayout({
     },
   };
 
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "VoxWel",
+    url: siteUrl,
+    description:
+      "Anonymous employee reporting platform with military-grade encryption. Stop lawsuits, fraud, and workplace disasters before they happen.",
+    publisher: {
+      "@type": "Organization",
+      name: "VoxWel",
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteUrl}/logo.png`,
+      },
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${siteUrl}/blogs?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -176,6 +202,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
       <body className="antialiased" suppressHydrationWarning>

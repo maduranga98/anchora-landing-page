@@ -1,6 +1,22 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "VoxWel Privacy Policy - Learn how we collect, use, and protect your personal information. We prioritize your privacy with military-grade encryption and anonymous reporting protection.",
+  openGraph: {
+    title: "Privacy Policy | VoxWel",
+    description:
+      "Learn how VoxWel protects your privacy and handles your personal information with military-grade security.",
+    url: "https://voxwel.com/privacy-policy",
+  },
+  alternates: {
+    canonical: "https://voxwel.com/privacy-policy",
+  },
+};
 
 export default function PrivacyPolicy() {
   return (

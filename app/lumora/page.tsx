@@ -1,6 +1,22 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Lumora Ventures",
+  description:
+    "Lumora Ventures - Building innovative workplace solutions that empower employees and protect organizations. Learn about the company behind VoxWel and our mission for workplace transparency.",
+  openGraph: {
+    title: "About Lumora Ventures | VoxWel",
+    description:
+      "Discover Lumora Ventures, the innovative startup behind VoxWel workplace reporting platform.",
+    url: "https://voxwel.com/lumora",
+  },
+  alternates: {
+    canonical: "https://voxwel.com/lumora",
+  },
+};
 
 export default function LumoraVentures() {
   return (

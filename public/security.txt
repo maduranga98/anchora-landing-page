@@ -1,0 +1,21 @@
+Contact: mailto:security@lumoraventures.com
+Contact: https://voxwel.com/contact
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://voxwel.com/.well-known/security.txt
+Policy: https://voxwel.com/privacy-policy
+
+# VoxWel Security Disclosure Policy
+#
+# If you discover a security vulnerability in VoxWel or any Lumora Ventures
+# product, please report it to us responsibly. We take all security reports
+# seriously and will respond promptly.
+#
+# Please include:
+# - Description of the vulnerability
+# - Steps to reproduce
+# - Potential impact
+# - Any proof of concept (if applicable)
+#
+# We appreciate your efforts to responsibly disclose your findings and will
+# make every effort to acknowledge your contributions.

@@ -122,12 +122,42 @@ export default async function BlogPost({
     },
   };
 
+  // Breadcrumb structured data
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://voxwel.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://voxwel.com/blogs",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `https://voxwel.com/blogs/${post.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <main className="min-h-screen w-full overflow-x-hidden bg-background-white">
