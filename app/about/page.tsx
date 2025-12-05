@@ -16,13 +16,13 @@ export const metadata: Metadata = {
   description:
     "Learn about VoxWel's mission to revolutionize workplace communication through secure, anonymous reporting. Protecting employees and companies with military-grade encryption.",
   alternates: {
-    canonical: "https://voxwel.com/about",
+    canonical: "https://www.voxwel.com/about",
   },
   openGraph: {
     title: "About VoxWel - Anonymous Workplace Reporting Platform",
     description:
       "Learn about VoxWel's mission to revolutionize workplace communication through secure, anonymous reporting.",
-    url: "https://voxwel.com/about",
+    url: "https://www.voxwel.com/about",
   },
 };
 

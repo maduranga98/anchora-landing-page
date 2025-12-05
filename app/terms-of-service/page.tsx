@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "Terms of Service | VoxWel",
     description:
       "Read the VoxWel Terms of Service to understand your rights and responsibilities when using our platform.",
-    url: "https://voxwel.com/terms-of-service",
+    url: "https://www.voxwel.com/terms-of-service",
   },
   alternates: {
-    canonical: "https://voxwel.com/terms-of-service",
+    canonical: "https://www.voxwel.com/terms-of-service",
   },
 };
 

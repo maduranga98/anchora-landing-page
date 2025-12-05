@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "Privacy Policy | VoxWel",
     description:
       "Learn how VoxWel protects your privacy and handles your personal information with military-grade security.",
-    url: "https://voxwel.com/privacy-policy",
+    url: "https://www.voxwel.com/privacy-policy",
   },
   alternates: {
-    canonical: "https://voxwel.com/privacy-policy",
+    canonical: "https://www.voxwel.com/privacy-policy",
   },
 };
 

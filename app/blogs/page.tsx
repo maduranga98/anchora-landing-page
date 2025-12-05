@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://voxwel.com/blogs",
+    url: "https://www.voxwel.com/blogs",
     title: "Blog - Workplace Safety & Compliance Insights | VoxWel",
     description:
       "Expert insights on workplace harassment prevention, fraud detection, and anonymous reporting.",
