@@ -9,6 +9,22 @@ import {
   FiFileText,
   FiMail,
 } from "react-icons/fi";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "GDPR Compliance",
+  description:
+    "VoxWel GDPR Compliance - Learn how we comply with the General Data Protection Regulation to protect your data rights and privacy across the EU and UK.",
+  openGraph: {
+    title: "GDPR Compliance | VoxWel",
+    description:
+      "Discover how VoxWel ensures full GDPR compliance to protect your data rights and privacy.",
+    url: "https://voxwel.com/gdpr",
+  },
+  alternates: {
+    canonical: "https://voxwel.com/gdpr",
+  },
+};
 
 export default function GDPR() {
   return (

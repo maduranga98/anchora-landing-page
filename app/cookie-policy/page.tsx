@@ -1,6 +1,22 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cookie Policy",
+  description:
+    "VoxWel Cookie Policy - Learn about how we use cookies and similar technologies to enhance your experience, provide security, and analyze our service usage.",
+  openGraph: {
+    title: "Cookie Policy | VoxWel",
+    description:
+      "Understand how VoxWel uses cookies and similar technologies to improve your experience and protect your data.",
+    url: "https://voxwel.com/cookie-policy",
+  },
+  alternates: {
+    canonical: "https://voxwel.com/cookie-policy",
+  },
+};
 
 export default function CookiePolicy() {
   return (

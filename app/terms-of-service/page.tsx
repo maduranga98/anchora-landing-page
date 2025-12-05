@@ -1,6 +1,22 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description:
+    "VoxWel Terms of Service - Review the terms and conditions for using our anonymous workplace reporting platform. Understand your rights and responsibilities when using VoxWel.",
+  openGraph: {
+    title: "Terms of Service | VoxWel",
+    description:
+      "Read the VoxWel Terms of Service to understand your rights and responsibilities when using our platform.",
+    url: "https://voxwel.com/terms-of-service",
+  },
+  alternates: {
+    canonical: "https://voxwel.com/terms-of-service",
+  },
+};
 
 export default function TermsOfService() {
   return (

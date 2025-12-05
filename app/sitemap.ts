@@ -15,28 +15,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/blogs`,
       lastModified: new Date(),
       changeFrequency: "daily" as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${baseUrl}/lumora`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
-      priority: 0.7,
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/privacy-policy`,
       lastModified: new Date(),
       changeFrequency: "yearly" as const,
-      priority: 0.3,
+      priority: 0.4,
     },
     {
       url: `${baseUrl}/terms-of-service`,
       lastModified: new Date(),
       changeFrequency: "yearly" as const,
-      priority: 0.3,
+      priority: 0.4,
     },
     {
       url: `${baseUrl}/cookie-policy`,
@@ -48,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/gdpr`,
       lastModified: new Date(),
       changeFrequency: "yearly" as const,
-      priority: 0.3,
+      priority: 0.4,
     },
   ];
 
