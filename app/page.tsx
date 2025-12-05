@@ -8,11 +8,13 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { WebVitals } from "./web-vitals";
+import FAQSchema from "./faq-schema";
 
 export default function Home() {
   return (
     <ErrorBoundary>
       <WebVitals />
+      <FAQSchema />
       <main className="min-h-screen w-full overflow-x-hidden">
         <Navigation />
         <Hero />

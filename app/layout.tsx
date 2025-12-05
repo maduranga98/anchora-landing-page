@@ -194,6 +194,19 @@ export default function RootLayout({
         />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
+        {/* RSS Feed for AI and RSS readers */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="VoxWel Blog RSS Feed"
+          href={`${siteUrl}/rss.xml`}
+        />
+
+        {/* AI Discoverability */}
+        <link rel="alternate" type="application/json" href={`${siteUrl}/api/data.json`} title="VoxWel Data API" />
+        <meta name="ai-content-declaration" content="partially-ai-assisted" />
+        <meta name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
         {/* Structured Data */}
         <script
           type="application/ld+json"
