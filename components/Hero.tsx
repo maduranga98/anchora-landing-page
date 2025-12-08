@@ -1,7 +1,7 @@
 "use client";
 
 import { FiArrowRight, FiAlertTriangle, FiShield } from "react-icons/fi";
-
+import Image from "next/image";
 export default function Hero() {
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
@@ -12,10 +12,26 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-linear-to-br from-primary-navy via-primary-navy to-primary-teal overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/hero.png" // path to your image
+          alt="Hero background"
+          fill // makes Image cover the parent div
+          className="object-cover"
+          priority // optional, loads image faster
+        />
+      </div>
+
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 -z-5 bg-gradient-to-br from-primary-navy via-primary-navy to-primary-teal opacity-70"></div>
+
       {/* Animated background elements - will-change for better performance */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute w-96 h-96 bg-primary-teal/20 rounded-full blur-3xl -top-20 -left-20 animate-pulse" style={{ willChange: "opacity" }}></div>
+        <div
+          className="absolute w-96 h-96 bg-primary-teal/20 rounded-full blur-3xl -top-20 -left-20 animate-pulse"
+          style={{ willChange: "opacity" }}
+        ></div>
         <div
           className="absolute w-96 h-96 bg-accent-coral/20 rounded-full blur-3xl -bottom-20 -right-20 animate-pulse"
           style={{ animationDelay: "1s", willChange: "opacity" }}
@@ -132,11 +148,11 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
           <div className="w-1 h-3 bg-white/50 rounded-full"></div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

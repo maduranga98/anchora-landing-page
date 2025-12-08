@@ -10,6 +10,7 @@ import {
   FiActivity,
   FiTrendingDown,
 } from "react-icons/fi";
+import { Eye, AlertTriangle, Activity, Shield } from "lucide-react";
 
 export default function ProblemStatement() {
   const hiddenProblems = [
@@ -146,48 +147,52 @@ export default function ProblemStatement() {
         </div>
 
         {/* The Pattern Section */}
-        <div className="bg-linear-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-white mb-16">
-          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+        <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-white mb-16">
+          <h3 className="text-2xl md:text-3xl font-bold mb-12 text-center">
             <span className="text-red-400">The Deadly Pattern</span> (Happening
             Right Now in Your Company)
           </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
-                1️⃣
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {/* Step 1 */}
+            <div className="flex flex-col items-center text-center bg-gray-800/50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all">
+              <div className="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center mb-4">
+                <Eye className="w-8 h-8 text-white" />
               </div>
-              <div className="font-bold text-lg mb-2">Employees Notice</div>
+              <h4 className="font-bold text-lg mb-2">Employees Notice</h4>
               <p className="text-sm text-gray-300">
                 They see harassment, fraud, safety issues daily
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
-                2️⃣
+            {/* Step 2 */}
+            <div className="flex flex-col items-center text-center bg-gray-800/50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all">
+              <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mb-4">
+                <AlertTriangle className="w-8 h-8 text-white" />
               </div>
-              <div className="font-bold text-lg mb-2">Fear Takes Over</div>
+              <h4 className="font-bold text-lg mb-2">Fear Takes Over</h4>
               <p className="text-sm text-gray-300">
                 "What if I lose my job? What if nothing changes?"
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
-                3️⃣
+            {/* Step 3 */}
+            <div className="flex flex-col items-center text-center bg-gray-800/50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all">
+              <div className="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center mb-4">
+                <Activity className="w-8 h-8 text-white" />
               </div>
-              <div className="font-bold text-lg mb-2">Problem Escalates</div>
+              <h4 className="font-bold text-lg mb-2">Problem Escalates</h4>
               <p className="text-sm text-gray-300">
                 Silent issues grow into catastrophes
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
-                💀
+            {/* Step 4 */}
+            <div className="flex flex-col items-center text-center bg-gray-800/50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all">
+              <div className="w-20 h-20 bg-red-700 rounded-full flex items-center justify-center mb-4">
+                <Shield className="w-8 h-8 text-white" />
               </div>
-              <div className="font-bold text-lg mb-2">Company Suffers</div>
+              <h4 className="font-bold text-lg mb-2">Company Suffers</h4>
               <p className="text-sm text-gray-300">
                 Lawsuits, scandals, media, bankruptcy
               </p>

@@ -12,8 +12,60 @@ import {
   FiCheckCircle,
   FiAward,
 } from "react-icons/fi";
+import {
+  Palette,
+  MessageCircle,
+  BarChart2,
+  Smartphone,
+  Paperclip,
+  Users,
+  Heart,
+  Lock,
+} from "lucide-react";
 
 export default function Features() {
+  const features = [
+    {
+      icon: <Palette className="mx-auto mb-2 w-8 h-8" />,
+      title: "Creative Wall",
+      desc: "Celebrate wins & ideas",
+    },
+    {
+      icon: <MessageCircle className="mx-auto mb-2 w-8 h-8" />,
+      title: "Team Discussions",
+      desc: "Collaborate easily",
+    },
+    {
+      icon: <BarChart2 className="mx-auto mb-2 w-8 h-8" />,
+      title: "Analytics Dashboard",
+      desc: "Real-time insights",
+    },
+    {
+      icon: <Smartphone className="mx-auto mb-2 w-8 h-8" />,
+      title: "QR Onboarding",
+      desc: "Instant setup",
+    },
+    {
+      icon: <Paperclip className="mx-auto mb-2 w-8 h-8" />,
+      title: "File Attachments",
+      desc: "Photos & documents",
+    },
+    {
+      icon: <Users className="mx-auto mb-2 w-8 h-8" />,
+      title: "Departments",
+      desc: "Organized structure",
+    },
+    {
+      icon: <Heart className="mx-auto mb-2 w-8 h-8" />,
+      title: "Reactions",
+      desc: "Express feedback",
+    },
+    {
+      icon: <Lock className="mx-auto mb-2 w-8 h-8" />,
+      title: "Role-Based Access",
+      desc: "Secure permissions",
+    },
+  ];
   const protectionFeatures = [
     {
       icon: <FiShield className="w-8 h-8" />,
@@ -179,8 +231,8 @@ export default function Features() {
               & Compliance
             </h4>
             <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
-              When regulatory investigations or lawsuits arrive, VoxWel
-              provides the documentation trail you need to defend your company.
+              When regulatory investigations or lawsuits arrive, VoxWel provides
+              the documentation trail you need to defend your company.
             </p>
           </div>
 
@@ -248,46 +300,46 @@ export default function Features() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto relative z-10">
             <div className="text-center">
-              <div className="text-3xl mb-2">🎨</div>
+              <Palette className="mx-auto mb-2 w-8 h-8" />
               <div className="font-semibold">Creative Wall</div>
               <div className="text-sm text-white/80">
                 Celebrate wins & ideas
               </div>
             </div>
             <div className="text-center">
-              <div className="text-3xl mb-2">💬</div>
+              <MessageCircle className="mx-auto mb-2 w-8 h-8" />
               <div className="font-semibold">Team Discussions</div>
               <div className="text-sm text-white/80">Collaborate easily</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl mb-2">📊</div>
+              <BarChart2 className="mx-auto mb-2 w-8 h-8" />
               <div className="font-semibold">Analytics Dashboard</div>
               <div className="text-sm text-white/80">Real-time insights</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl mb-2">📱</div>
+              <Smartphone className="mx-auto mb-2 w-8 h-8" />
               <div className="font-semibold">QR Onboarding</div>
               <div className="text-sm text-white/80">Instant setup</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl mb-2">📎</div>
+              <Paperclip className="mx-auto mb-2 w-8 h-8" />
               <div className="font-semibold">File Attachments</div>
               <div className="text-sm text-white/80">Photos & documents</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl mb-2">🏢</div>
+              <Users className="mx-auto mb-2 w-8 h-8" />
               <div className="font-semibold">Departments</div>
               <div className="text-sm text-white/80">Organized structure</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl mb-2">❤️</div>
+              <Heart className="mx-auto mb-2 w-8 h-8" />
               <div className="font-semibold">Reactions</div>
               <div className="text-sm text-white/80">Express feedback</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl mb-2">🔐</div>
+              <Lock className="mx-auto mb-2 w-8 h-8" />
               <div className="font-semibold">Role-Based Access</div>
               <div className="text-sm text-white/80">Secure permissions</div>
             </div>
