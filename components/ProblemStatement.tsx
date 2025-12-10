@@ -10,7 +10,7 @@ import {
   FiActivity,
   FiTrendingDown,
 } from "react-icons/fi";
-import { Eye, AlertTriangle, Activity, Shield } from "lucide-react";
+import { Eye, AlertTriangle, Activity, Shield, Zap } from "lucide-react";
 
 export default function ProblemStatement() {
   const hiddenProblems = [
@@ -125,8 +125,9 @@ export default function ProblemStatement() {
 
               <div className="p-6">
                 <div className="mb-4">
-                  <div className="text-xs font-semibold text-gray-500 uppercase mb-2">
-                    ⚠️ What Employees See:
+                  <div className="text-xs font-semibold text-gray-500 uppercase mb-2 flex items-center gap-1">
+                    <AlertTriangle className="w-3 h-3" />
+                    What Employees See:
                   </div>
                   <p className="text-sm text-gray-700 italic bg-gray-50 p-3 rounded border-l-4 border-gray-300">
                     {problem.realExample}
@@ -134,8 +135,9 @@ export default function ProblemStatement() {
                 </div>
 
                 <div>
-                  <div className="text-xs font-semibold text-red-600 uppercase mb-2">
-                    💥 What Management Discovers:
+                  <div className="text-xs font-semibold text-red-600 uppercase mb-2 flex items-center gap-1">
+                    <Zap className="w-3 h-3" />
+                    What Management Discovers:
                   </div>
                   <p className="text-sm font-semibold text-red-700 bg-red-50 p-3 rounded border-l-4 border-red-500">
                     {problem.consequence}

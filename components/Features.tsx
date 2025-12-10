@@ -11,6 +11,7 @@ import {
   FiAward,
   FiUsers,
   FiCheckCircle,
+  FiZap,
 } from "react-icons/fi";
 
 export default function Features() {
@@ -102,8 +103,9 @@ export default function Features() {
       <div className="section-container">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-primary-teal uppercase tracking-wide mb-4">
-            ⚡ See VoxWel in Action
+          <h2 className="text-sm font-bold text-primary-teal uppercase tracking-wide mb-4 flex items-center justify-center gap-2">
+            <FiZap className="w-5 h-5" />
+            See VoxWel in Action
           </h2>
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Three Walls. One Platform.
@@ -146,9 +148,9 @@ export default function Features() {
               }`}
             >
               <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-gray-100">
-                <div className="grid md:grid-cols-2 gap-8 p-8 md:p-12">
-                  {/* Left: Details */}
-                  <div className="flex flex-col justify-center">
+                <div className="grid lg:grid-cols-5 gap-8 p-8 md:p-12">
+                  {/* Left: Details - Takes 2 columns */}
+                  <div className="lg:col-span-2 flex flex-col justify-center">
                     <div
                       className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${wall.color} text-white w-fit mb-6`}
                     >
@@ -174,16 +176,17 @@ export default function Features() {
                     </div>
                   </div>
 
-                  {/* Right: Screenshot */}
-                  <div className="relative">
-                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-100">
+                  {/* Right: Screenshot - Takes 3 columns for more prominence */}
+                  <div className="lg:col-span-3 relative">
+                    <div className="relative w-full h-full min-h-[400px] lg:min-h-[500px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 group">
                       <Image
                         src={wall.screenshot}
                         alt={`${wall.title} interface`}
                         fill
-                        className="object-cover object-top"
+                        className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                         priority={activeWall === wall.id}
                       />
+                      <div className="absolute inset-0 ring-1 ring-inset ring-gray-900/10 rounded-2xl pointer-events-none"></div>
                     </div>
                   </div>
                 </div>
@@ -205,14 +208,15 @@ export default function Features() {
                 key={idx}
                 className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 border-gray-100 group"
               >
-                {/* Screenshot Section */}
-                <div className="relative aspect-video bg-gray-50">
+                {/* Screenshot Section - Enhanced for better visibility */}
+                <div className="relative h-64 bg-gradient-to-br from-gray-50 to-gray-100 border-b-2 border-gray-100">
                   <Image
                     src={feature.screenshot}
                     alt={feature.title}
                     fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                   />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-gray-900/5 pointer-events-none"></div>
                 </div>
 
                 {/* Content Section */}
