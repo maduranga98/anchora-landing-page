@@ -21,34 +21,44 @@ export default function Navigation() {
 
   // Scroll detection to update active section with throttling for better performance
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout | null = null;
+    if (!isHomePage) return;
+
     let ticking = false;
 
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const sections = navLinks.map((link) => link.href.substring(1));
-          const scrollPosition = window.scrollY + 100; // Offset for navbar height
+          // Use same navbar height calculation as scrollToSection
+          const navbarHeight = window.innerWidth >= 768 ? 80 : 64;
+          const scrollPosition = window.scrollY + navbarHeight + 100; // Navbar height + buffer
 
           // If we're at the top of the page (near hero section), clear active section
-          if (window.scrollY < 50) {
+          if (window.scrollY < 200) {
             setActiveSection("");
             ticking = false;
             return;
           }
 
           let foundSection = false;
+          // Check sections from bottom to top to find the current one
           for (let i = sections.length - 1; i >= 0; i--) {
             const section = document.getElementById(sections[i]);
-            if (section && section.offsetTop <= scrollPosition) {
-              setActiveSection(`#${sections[i]}`);
-              foundSection = true;
-              break;
+            if (section) {
+              const sectionTop = section.offsetTop;
+              const sectionBottom = sectionTop + section.offsetHeight;
+
+              // Check if we're within this section
+              if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                setActiveSection(`#${sections[i]}`);
+                foundSection = true;
+                break;
+              }
             }
           }
 
           // If no section found and we're not at the top, clear active section
-          if (!foundSection && window.scrollY >= 50) {
+          if (!foundSection && window.scrollY >= 200) {
             setActiveSection("");
           }
 
@@ -62,9 +72,8 @@ export default function Navigation() {
     handleScroll(); // Initial check
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      if (timeoutId) clearTimeout(timeoutId);
     };
-  }, []);
+  }, [isHomePage]);
 
   // Clear active section when navigating away from home page
   useEffect(() => {
@@ -77,7 +86,16 @@ export default function Navigation() {
     if (href.startsWith("#")) {
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        // Get navbar height (64px on mobile, 80px on desktop)
+        const navbarHeight = window.innerWidth >= 768 ? 80 : 64;
+        const offset = 20; // Additional offset for visual spacing
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - navbarHeight - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
         setActiveSection(href);
       }
     }

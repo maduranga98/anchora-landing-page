@@ -192,14 +192,14 @@ export default function FeaturesHeroCarousel() {
     >
       <div className="section-container">
         {/* Header */}
-        <div className="text-center mb-12 max-w-3xl mx-auto">
-          <h2 className="text-sm font-bold text-[#1ABC9C] uppercase tracking-wide mb-3">
+        <div className="text-center mb-10 max-w-3xl mx-auto">
+          <h2 className="text-xs font-semibold text-[#1ABC9C] uppercase tracking-wide mb-3">
             🛡️ Complete Protection System
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             See VoxWel in Action
           </h3>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg text-gray-600">
             Explore all features with full-screen previews
           </p>
         </div>
@@ -207,7 +207,7 @@ export default function FeaturesHeroCarousel() {
         {/* Main Hero Carousel */}
         <div className="relative max-w-[1600px] mx-auto">
           {/* Full-Screen Carousel Card */}
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gray-900 min-h-[700px] md:min-h-[800px]">
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gray-900 min-h-[500px] md:min-h-[600px]">
             {/* Background Image (Full Size) */}
             <div className="absolute inset-0">
               <Image
@@ -223,13 +223,13 @@ export default function FeaturesHeroCarousel() {
             </div>
 
             {/* Content Overlay */}
-            <div className="relative z-10 h-full min-h-[700px] md:min-h-[800px] flex items-center">
-              <div className="w-full px-8 md:px-16 lg:px-24 py-16">
+            <div className="relative z-10 h-full min-h-[500px] md:min-h-[600px] flex items-center">
+              <div className="w-full px-6 md:px-12 lg:px-16 py-12">
                 <div className="max-w-2xl">
                   {/* Icon */}
-                  <div className="mb-6">
+                  <div className="mb-4">
                     <div
-                      className="inline-block p-5 rounded-2xl backdrop-blur-md"
+                      className="inline-block p-3 rounded-xl backdrop-blur-md"
                       style={{ backgroundColor: `${currentFeature.color}30` }}
                     >
                       <div style={{ color: currentFeature.color }}>
@@ -240,7 +240,7 @@ export default function FeaturesHeroCarousel() {
 
                   {/* Category Badge */}
                   <div
-                    className="inline-block px-5 py-2 rounded-full text-sm font-bold mb-4 backdrop-blur-md"
+                    className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-3 backdrop-blur-md"
                     style={{
                       backgroundColor: `${currentFeature.color}40`,
                       color: currentFeature.color,
@@ -250,33 +250,33 @@ export default function FeaturesHeroCarousel() {
                   </div>
 
                   {/* Title */}
-                  <h4 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+                  <h4 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 leading-tight">
                     {currentFeature.title}
                   </h4>
 
                   {/* Tagline */}
-                  <p className="text-2xl md:text-3xl font-semibold text-white/90 mb-6">
+                  <p className="text-lg md:text-xl font-semibold text-white/90 mb-4">
                     {currentFeature.tagline}
                   </p>
 
                   {/* Description */}
-                  <p className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed">
+                  <p className="text-sm md:text-base text-white/80 mb-6 leading-relaxed">
                     {currentFeature.description}
                   </p>
 
                   {/* Benefits Grid */}
-                  <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="grid grid-cols-2 gap-3 mb-6">
                     {currentFeature.benefits.map((benefit, idx) => (
                       <div
                         key={idx}
-                        className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-lg px-4 py-3"
+                        className="flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-lg px-3 py-2"
                       >
                         <div
-                          className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0"
+                          className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
                           style={{ backgroundColor: currentFeature.color }}
                         >
                           <svg
-                            className="w-4 h-4 text-white"
+                            className="w-3 h-3 text-white"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                           >
@@ -287,7 +287,7 @@ export default function FeaturesHeroCarousel() {
                             />
                           </svg>
                         </div>
-                        <span className="text-white font-medium text-sm">
+                        <span className="text-white font-medium text-xs">
                           {benefit}
                         </span>
                       </div>
@@ -295,16 +295,16 @@ export default function FeaturesHeroCarousel() {
                   </div>
 
                   {/* Stats */}
-                  <div className="flex gap-8">
+                  <div className="flex gap-4">
                     {currentFeature.stats.map((stat, idx) => (
                       <div
                         key={idx}
-                        className="bg-white/10 backdrop-blur-md rounded-xl px-6 py-4"
+                        className="bg-white/10 backdrop-blur-md rounded-xl px-4 py-3"
                       >
-                        <div className="text-3xl font-bold text-white mb-1">
+                        <div className="text-2xl font-bold text-white mb-0.5">
                           {stat.value}
                         </div>
-                        <div className="text-sm text-white/70">
+                        <div className="text-xs text-white/70">
                           {stat.label}
                         </div>
                       </div>
@@ -387,11 +387,11 @@ export default function FeaturesHeroCarousel() {
         </div>
 
         {/* Quick Features Grid Below */}
-        <div className="mt-20 max-w-6xl mx-auto">
-          <h4 className="text-3xl font-bold text-center text-gray-900 mb-10">
+        <div className="mt-16 max-w-6xl mx-auto">
+          <h4 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8">
             Plus Everything Else You Need
           </h4>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
               { emoji: "🔒", label: "Military-Grade Encryption" },
               { emoji: "📱", label: "QR Code Onboarding" },
@@ -416,28 +416,28 @@ export default function FeaturesHeroCarousel() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-20 text-center bg-gradient-to-br from-[#1ABC9C] to-[#16A085] rounded-3xl p-12 md:p-16 shadow-2xl text-white max-w-5xl mx-auto">
-          <h4 className="text-3xl md:text-5xl font-bold mb-6">
+        <div className="mt-16 text-center bg-gradient-to-br from-[#1ABC9C] to-[#16A085] rounded-3xl p-8 md:p-12 shadow-2xl text-white max-w-5xl mx-auto">
+          <h4 className="text-2xl md:text-4xl font-bold mb-4">
             Ready to Protect Your Company?
           </h4>
-          <p className="text-xl md:text-2xl mb-10 text-white/90">
+          <p className="text-lg md:text-xl mb-8 text-white/90">
             Start preventing workplace crises today
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#pricing"
-              className="inline-block px-12 py-5 bg-white text-[#1ABC9C] rounded-full font-bold text-xl hover:bg-gray-100 transition-colors shadow-xl"
+              className="inline-block px-8 md:px-10 py-3 md:py-4 bg-white text-[#1ABC9C] rounded-full font-semibold text-base md:text-lg hover:bg-gray-100 transition-colors shadow-xl"
             >
               See Pricing
             </a>
             <a
               href="#contact"
-              className="inline-block px-12 py-5 border-2 border-white text-white rounded-full font-bold text-xl hover:bg-white/10 transition-colors"
+              className="inline-block px-8 md:px-10 py-3 md:py-4 border-2 border-white text-white rounded-full font-semibold text-base md:text-lg hover:bg-white/10 transition-colors"
             >
               Request Demo
             </a>
           </div>
-          <p className="text-sm text-white/70 mt-8">
+          <p className="text-xs md:text-sm text-white/70 mt-6">
             14-day free trial • No credit card required • Setup in 24 hours
           </p>
         </div>
