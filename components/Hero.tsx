@@ -1,46 +1,68 @@
 "use client";
 
 import { FiArrowRight, FiAlertTriangle, FiShield } from "react-icons/fi";
-import Image from "next/image";
+
 export default function Hero() {
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToProblem = () => {
-    document.getElementById("problem")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("problem")?.scrollInsolve({ behavior: "smooth" });
   };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src="/hero.png" // path to your image
-          alt="Hero background"
-          fill // makes Image cover the parent div
-          className="object-cover"
-          priority // optional, loads image faster
-        />
+      {/* SOLUTION 1: Remove the background image entirely or use abstract geometric patterns */}
+      {/* Instead of a mismatched stock image, use CSS gradients and shapes */}
+
+      {/* Primary gradient background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary-navy via-primary-navy/95 to-primary-teal/90"></div>
+
+      {/* Animated geometric shapes - better than stock photo */}
+      <div className="absolute inset-0 overflow-hidden -z-5" aria-hidden="true">
+        {/* Large teal circle - top left */}
+        <div
+          className="absolute w-[500px] h-[500px] bg-primary-teal/20 rounded-full blur-3xl -top-40 -left-40 animate-pulse"
+          style={{ willChange: "opacity", animationDuration: "4s" }}
+        ></div>
+
+        {/* Coral accent - bottom right */}
+        <div
+          className="absolute w-[600px] h-[600px] bg-accent-coral/15 rounded-full blur-3xl -bottom-40 -right-40 animate-pulse"
+          style={{
+            animationDelay: "2s",
+            willChange: "opacity",
+            animationDuration: "6s",
+          }}
+        ></div>
+
+        {/* Additional accent - middle */}
+        <div
+          className="absolute w-[400px] h-[400px] bg-primary-teal/10 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse"
+          style={{
+            animationDelay: "1s",
+            willChange: "opacity",
+            animationDuration: "5s",
+          }}
+        ></div>
+
+        {/* Subtle grid overlay for tech feel */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, #1abc9c 1px, transparent 1px),
+              linear-gradient(to bottom, #1abc9c 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px",
+          }}
+        ></div>
       </div>
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 -z-5 bg-gradient-to-br from-primary-navy via-primary-navy to-primary-teal opacity-70"></div>
-
-      {/* Animated background elements - will-change for better performance */}
-      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div
-          className="absolute w-96 h-96 bg-primary-teal/20 rounded-full blur-3xl -top-20 -left-20 animate-pulse"
-          style={{ willChange: "opacity" }}
-        ></div>
-        <div
-          className="absolute w-96 h-96 bg-accent-coral/20 rounded-full blur-3xl -bottom-20 -right-20 animate-pulse"
-          style={{ animationDelay: "1s", willChange: "opacity" }}
-        ></div>
-      </div>
-
-      <div className="relative section-container py-20 md:py-24 lg:py-32 text-center">
+      <div className="relative section-container py-20 md:py-24 lg:py-32 text-center z-10">
         {/* Urgent Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-coral/20 border border-accent-coral/50 rounded-full text-accent-coral text-sm font-bold mb-8 animate-fadeIn">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-coral/20 border border-accent-coral/50 rounded-full text-accent-coral text-sm font-bold mb-8 animate-fadeIn backdrop-blur-sm">
           <FiAlertTriangle className="animate-pulse" />
           🚨 Early Warning System for Companies
         </div>
@@ -50,7 +72,7 @@ export default function Hero() {
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 animate-fadeIn leading-tight"
           style={{ animationDelay: "0.1s" }}
         >
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-primary-teal to-accent-coral">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-teal via-white to-primary-teal">
             Where Every Voice Matters
           </span>
         </h1>
@@ -61,13 +83,13 @@ export default function Hero() {
           style={{ animationDelay: "0.2s" }}
         >
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-semibold mb-4">
-            The problems your employees see every day-
+            The problems your employees see every day—
           </p>
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-accent-coral font-bold mb-6">
-            but never tell you-are destroying your company from within.
+            but never tell you—are destroying your company from within.
           </p>
 
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 md:p-6 lg:p-8 border border-white/20 max-w-3xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-5 md:p-6 lg:p-8 border border-white/20 max-w-3xl mx-auto shadow-2xl">
             <p className="text-sm md:text-base lg:text-lg text-white/90 mb-3">
               <span className="font-bold">
                 Harassment. Fraud. Safety violations. Corruption.
@@ -92,7 +114,7 @@ export default function Hero() {
         >
           <button
             onClick={scrollToContact}
-            className="group px-6 md:px-8 py-3 md:py-4 bg-accent-coral text-white rounded-lg font-bold text-sm md:text-base hover:bg-accent-coral/90 transition-all duration-300 shadow-large flex items-center gap-2 hover:scale-105"
+            className="group px-6 md:px-8 py-3 md:py-4 bg-accent-coral text-white rounded-lg font-bold text-sm md:text-base hover:bg-accent-coral/90 transition-all duration-300 shadow-2xl flex items-center gap-2 hover:scale-105 hover:shadow-accent-coral/50"
           >
             <FiShield />
             Protect Your Company Now
@@ -100,7 +122,7 @@ export default function Hero() {
           </button>
           <button
             onClick={scrollToProblem}
-            className="px-6 md:px-8 py-3 md:py-4 bg-white text-primary-navy rounded-lg font-bold text-sm md:text-base hover:bg-gray-100 transition-all duration-300 shadow-large hover:scale-105"
+            className="px-6 md:px-8 py-3 md:py-4 bg-white text-primary-navy rounded-lg font-bold text-sm md:text-base hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:scale-105"
           >
             See What You're Missing
           </button>
@@ -111,7 +133,7 @@ export default function Hero() {
           className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto animate-fadeIn"
           style={{ animationDelay: "0.4s" }}
         >
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:border-primary-teal/50 transition-all">
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 md:p-6 border border-white/20 hover:border-primary-teal/50 transition-all hover:bg-white/15 shadow-xl">
             <div className="text-3xl md:text-4xl font-bold text-accent-coral mb-2">
               $1
             </div>
@@ -122,7 +144,7 @@ export default function Hero() {
               vs. $75K-$300K per lawsuit
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:border-primary-teal/50 transition-all">
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 md:p-6 border border-white/20 hover:border-primary-teal/50 transition-all hover:bg-white/15 shadow-xl">
             <div className="text-3xl md:text-4xl font-bold text-primary-teal mb-2">
               100%
             </div>
@@ -133,7 +155,7 @@ export default function Hero() {
               Even admins can't identify users
             </div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:border-primary-teal/50 transition-all">
+          <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 md:p-6 border border-white/20 hover:border-primary-teal/50 transition-all hover:bg-white/15 shadow-xl">
             <div className="text-3xl md:text-4xl font-bold text-primary-teal mb-2">
               24hrs
             </div>
@@ -146,13 +168,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-white/50 rounded-full"></div>
-        </div>
-      </div> */}
     </section>
   );
 }
