@@ -8,7 +8,7 @@ export default function Hero() {
   };
 
   const scrollToProblem = () => {
-    document.getElementById("problem")?.scrollInsolve({ behavior: "smooth" });
+    document.getElementById("problem")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -64,7 +64,7 @@ export default function Hero() {
         {/* Urgent Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-coral/20 border border-accent-coral/50 rounded-full text-accent-coral text-sm font-bold mb-8 animate-fadeIn backdrop-blur-sm">
           <FiAlertTriangle className="animate-pulse" />
-          🚨 Early Warning System for Companies
+          Early Warning System for Companies
         </div>
 
         {/* Main Headline */}
