@@ -25,15 +25,77 @@ export default function Contact() {
     "idle" | "submitting" | "success" | "error"
   >("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({
+    name: "",
+    email: "",
+    company: "",
+    employees: "",
+  });
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    company: false,
+    employees: false,
+  });
+
+  const validateField = (name: string, value: string) => {
+    switch (name) {
+      case "name":
+        if (!value.trim()) return "Name is required";
+        if (value.trim().length < 2) return "Name must be at least 2 characters";
+        return "";
+      case "email":
+        if (!value.trim()) return "Email is required";
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
+          return "Please enter a valid email";
+        return "";
+      case "company":
+        if (!value.trim()) return "Company name is required";
+        return "";
+      case "employees":
+        if (!value) return "Please select employee range";
+        return "";
+      default:
+        return "";
+    }
+  };
 
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
+    });
+
+    // Validate on change if field has been touched
+    if (touched[name as keyof typeof touched]) {
+      const error = validateField(name, value);
+      setFieldErrors({
+        ...fieldErrors,
+        [name]: error,
+      });
+    }
+  };
+
+  const handleBlur = (
+    e: React.FocusEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setTouched({
+      ...touched,
+      [name]: true,
+    });
+
+    const error = validateField(name, value);
+    setFieldErrors({
+      ...fieldErrors,
+      [name]: error,
     });
   };
 
@@ -153,17 +215,35 @@ export default function Contact() {
                   >
                     Full Name *
                   </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border-medium rounded-lg focus:ring-2 focus:ring-primary-teal focus:border-transparent transition-all"
-                    placeholder="John Doe"
-                    disabled={status === "submitting"}
-                  />
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all ${
+                        fieldErrors.name && touched.name
+                          ? "border-red-500 focus:ring-red-500 focus:border-red-500"
+                          : !fieldErrors.name && touched.name && formData.name
+                          ? "border-green-500 focus:ring-green-500 focus:border-green-500"
+                          : "border-border-medium focus:ring-primary-teal focus:border-primary-teal"
+                      }`}
+                      placeholder="John Doe"
+                      disabled={status === "submitting"}
+                    />
+                    {touched.name && !fieldErrors.name && formData.name && (
+                      <FiCheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-green-500" />
+                    )}
+                  </div>
+                  {fieldErrors.name && touched.name && (
+                    <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
+                      <FiAlertCircle className="w-3 h-3" />
+                      {fieldErrors.name}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -173,17 +253,35 @@ export default function Contact() {
                   >
                     Work Email *
                   </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border-medium rounded-lg focus:ring-2 focus:ring-primary-teal focus:border-transparent transition-all"
-                    placeholder="john@company.com"
-                    disabled={status === "submitting"}
-                  />
+                  <div className="relative">
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all ${
+                        fieldErrors.email && touched.email
+                          ? "border-red-500 focus:ring-red-500 focus:border-red-500"
+                          : !fieldErrors.email && touched.email && formData.email
+                          ? "border-green-500 focus:ring-green-500 focus:border-green-500"
+                          : "border-border-medium focus:ring-primary-teal focus:border-primary-teal"
+                      }`}
+                      placeholder="john@company.com"
+                      disabled={status === "submitting"}
+                    />
+                    {touched.email && !fieldErrors.email && formData.email && (
+                      <FiCheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-green-500" />
+                    )}
+                  </div>
+                  {fieldErrors.email && touched.email && (
+                    <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
+                      <FiAlertCircle className="w-3 h-3" />
+                      {fieldErrors.email}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -194,17 +292,35 @@ export default function Contact() {
                 >
                   Company Name *
                 </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  required
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-border-medium rounded-lg focus:ring-2 focus:ring-primary-teal focus:border-transparent transition-all"
-                  placeholder="Your Company Inc."
-                  disabled={status === "submitting"}
-                />
+                <div className="relative">
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    required
+                    value={formData.company}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all ${
+                      fieldErrors.company && touched.company
+                        ? "border-red-500 focus:ring-red-500 focus:border-red-500"
+                        : !fieldErrors.company && touched.company && formData.company
+                        ? "border-green-500 focus:ring-green-500 focus:border-green-500"
+                        : "border-border-medium focus:ring-primary-teal focus:border-primary-teal"
+                    }`}
+                    placeholder="Your Company Inc."
+                    disabled={status === "submitting"}
+                  />
+                  {touched.company && !fieldErrors.company && formData.company && (
+                    <FiCheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-green-500" />
+                  )}
+                </div>
+                {fieldErrors.company && touched.company && (
+                  <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
+                    <FiAlertCircle className="w-3 h-3" />
+                    {fieldErrors.company}
+                  </p>
+                )}
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
@@ -215,23 +331,38 @@ export default function Contact() {
                   >
                     Number of Employees *
                   </label>
-                  <select
-                    id="employees"
-                    name="employees"
-                    required
-                    value={formData.employees}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border-medium rounded-lg focus:ring-2 focus:ring-primary-teal focus:border-transparent transition-all"
-                    disabled={status === "submitting"}
-                  >
-                    <option value="">Select range</option>
-                    <option value="1-50">1-50</option>
-                    <option value="51-100">51-100</option>
-                    <option value="101-250">101-250</option>
-                    <option value="251-500">251-500</option>
-                    <option value="501-1000">501-1000</option>
-                    <option value="1000+">1000+</option>
-                  </select>
+                  <div className="relative">
+                    <select
+                      id="employees"
+                      name="employees"
+                      required
+                      value={formData.employees}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all ${
+                        fieldErrors.employees && touched.employees
+                          ? "border-red-500 focus:ring-red-500 focus:border-red-500"
+                          : !fieldErrors.employees && touched.employees && formData.employees
+                          ? "border-green-500 focus:ring-green-500 focus:border-green-500"
+                          : "border-border-medium focus:ring-primary-teal focus:border-primary-teal"
+                      }`}
+                      disabled={status === "submitting"}
+                    >
+                      <option value="">Select range</option>
+                      <option value="1-50">1-50</option>
+                      <option value="51-100">51-100</option>
+                      <option value="101-250">101-250</option>
+                      <option value="251-500">251-500</option>
+                      <option value="501-1000">501-1000</option>
+                      <option value="1000+">1000+</option>
+                    </select>
+                  </div>
+                  {fieldErrors.employees && touched.employees && (
+                    <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
+                      <FiAlertCircle className="w-3 h-3" />
+                      {fieldErrors.employees}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -247,7 +378,7 @@ export default function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border-medium rounded-lg focus:ring-2 focus:ring-primary-teal focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border border-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-primary-teal focus:border-primary-teal transition-all"
                     placeholder="+1 (555) 123-4567"
                     disabled={status === "submitting"}
                   />
@@ -267,7 +398,7 @@ export default function Contact() {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-border-medium rounded-lg focus:ring-2 focus:ring-primary-teal focus:border-transparent transition-all resize-none"
+                  className="w-full px-4 py-3 border border-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-primary-teal focus:border-primary-teal transition-all resize-none"
                   placeholder="Tell us about your needs..."
                   disabled={status === "submitting"}
                 />
@@ -276,11 +407,14 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="w-full py-4 bg-primary-teal text-white rounded-lg font-semibold text-lg hover:bg-primary-teal/90 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group"
+                className="w-full py-4 bg-primary-teal text-white rounded-lg font-semibold text-lg hover:bg-primary-teal/90 hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed group relative overflow-hidden"
               >
+                {status === "submitting" && (
+                  <div className="absolute inset-0 bg-primary-teal/20 animate-pulse"></div>
+                )}
                 {status === "submitting" ? (
                   <>
-                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                    <svg className="animate-spin h-6 w-6" viewBox="0 0 24 24">
                       <circle
                         className="opacity-25"
                         cx="12"
@@ -296,7 +430,7 @@ export default function Contact() {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       />
                     </svg>
-                    Sending...
+                    <span className="font-bold">Sending your message...</span>
                   </>
                 ) : (
                   <>

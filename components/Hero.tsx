@@ -4,11 +4,33 @@ import { FiArrowRight, FiAlertTriangle, FiShield } from "react-icons/fi";
 
 export default function Hero() {
   const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById("contact");
+    if (element) {
+      const navbarHeight = window.innerWidth >= 768 ? 80 : 64;
+      const offset = 20;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - navbarHeight - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
   };
 
   const scrollToProblem = () => {
-    document.getElementById("problem")?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById("problem");
+    if (element) {
+      const navbarHeight = window.innerWidth >= 768 ? 80 : 64;
+      const offset = 20;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - navbarHeight - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
