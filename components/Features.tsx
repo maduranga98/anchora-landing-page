@@ -1,348 +1,267 @@
+// components/Features.tsx (Updated with your screenshots)
+
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import {
   FiShield,
   FiAlertTriangle,
   FiEye,
-  FiLock,
-  FiFileText,
-  FiUsers,
-  FiTrendingUp,
-  FiActivity,
-  FiCheckCircle,
   FiAward,
+  FiUsers,
+  FiCheckCircle,
 } from "react-icons/fi";
-import {
-  Palette,
-  MessageCircle,
-  BarChart2,
-  Smartphone,
-  Paperclip,
-  Users,
-  Heart,
-  Lock,
-} from "lucide-react";
 
 export default function Features() {
-  const features = [
+  const [activeWall, setActiveWall] = useState("problems");
+
+  const threeWalls = [
     {
-      icon: <Palette className="mx-auto mb-2 w-8 h-8" />,
+      id: "creative",
       title: "Creative Wall",
-      desc: "Celebrate wins & ideas",
-    },
-    {
-      icon: <MessageCircle className="mx-auto mb-2 w-8 h-8" />,
-      title: "Team Discussions",
-      desc: "Collaborate easily",
-    },
-    {
-      icon: <BarChart2 className="mx-auto mb-2 w-8 h-8" />,
-      title: "Analytics Dashboard",
-      desc: "Real-time insights",
-    },
-    {
-      icon: <Smartphone className="mx-auto mb-2 w-8 h-8" />,
-      title: "QR Onboarding",
-      desc: "Instant setup",
-    },
-    {
-      icon: <Paperclip className="mx-auto mb-2 w-8 h-8" />,
-      title: "File Attachments",
-      desc: "Photos & documents",
-    },
-    {
-      icon: <Users className="mx-auto mb-2 w-8 h-8" />,
-      title: "Departments",
-      desc: "Organized structure",
-    },
-    {
-      icon: <Heart className="mx-auto mb-2 w-8 h-8" />,
-      title: "Reactions",
-      desc: "Express feedback",
-    },
-    {
-      icon: <Lock className="mx-auto mb-2 w-8 h-8" />,
-      title: "Role-Based Access",
-      desc: "Secure permissions",
-    },
-  ];
-  const protectionFeatures = [
-    {
-      icon: <FiShield className="w-8 h-8" />,
-      title: "Anonymous Problem Reporting",
+      tagline: "Celebrate Success",
       description:
-        "Employees report harassment, fraud, safety issues without fear. 100% anonymity-even admins can't identify posters.",
-      benefit: "Stop retaliation. Get the truth.",
-      color: "from-green-500 to-green-700",
+        "Team achievements, recognition, and positive workplace highlights. Build culture through public appreciation.",
+      screenshot: "/screenshots/creative-wall.png",
+      color: "from-purple-500 to-pink-600",
+      icon: <FiAward className="w-6 h-6" />,
+      benefits: [
+        "Public team recognition",
+        "Anniversary celebrations",
+        "Achievement milestones",
+        "Positive culture building",
+      ],
     },
     {
-      icon: <FiAlertTriangle className="w-8 h-8" />,
-      title: "Critical Issue Escalation",
+      id: "problems",
+      title: "Problems & Solutions Wall",
+      tagline: "Anonymous Reporting",
       description:
-        "7-state workflow with 4 priority levels. Critical issues auto-escalate to leadership within minutes.",
-      benefit: "Catch crises before they explode.",
-      color: "from-red-500 to-red-700",
+        "100% anonymous, military-grade encrypted reporting. Employees can safely report harassment, fraud, safety violations without fear.",
+      screenshot: "/screenshots/problems-wall.png",
+      color: "from-red-500 to-orange-600",
+      icon: <FiShield className="w-6 h-6" />,
+      benefits: [
+        "Complete anonymity guaranteed",
+        "Military-grade encryption",
+        "7-state workflow tracking",
+        "Priority-based escalation",
+      ],
     },
     {
-      icon: <FiEye className="w-8 h-8" />,
-      title: "Real-Time Risk Dashboard",
+      id: "discussions",
+      title: "Team Discussions Wall",
+      tagline: "Open Communication",
       description:
-        "See patterns across departments. Identify toxic managers, repeated violations, and brewing problems.",
-      benefit: "Spot danger before lawsuits arrive.",
-      color: "from-purple-500 to-purple-700",
-    },
-    {
-      icon: <FiFileText className="w-8 h-8" />,
-      title: "Immutable Audit Trail",
-      description:
-        "Complete documentation of every report, action, and response. Perfect for legal protection and compliance.",
-      benefit: "Defend your company in court.",
-      color: "from-blue-500 to-blue-700",
-    },
-    {
-      icon: <FiUsers className="w-8 h-8" />,
-      title: "Department-Level Privacy",
-      description:
-        "Contains sensitive issues within HR/management. Prevent company-wide panic while handling problems.",
-      benefit: "Resolve internally, avoid media.",
-      color: "from-indigo-500 to-indigo-700",
-    },
-    {
-      icon: <FiTrendingUp className="w-8 h-8" />,
-      title: "Trend Analysis & Predictions",
-      description:
-        "AI identifies emerging patterns: repeated harassment complaints, increasing safety concerns, fraud indicators.",
-      benefit: "Prevent disasters before they start.",
-      color: "from-orange-500 to-orange-700",
+        "General workplace communication, team collaboration, and everyday questions. Like Slack, but integrated with your feedback system.",
+      screenshot: "/screenshots/discussions-wall.png",
+      color: "from-blue-500 to-cyan-600",
+      icon: <FiUsers className="w-6 h-6" />,
+      benefits: [
+        "Real-time team chat",
+        "Department channels",
+        "File sharing support",
+        "Question & answer threads",
+      ],
     },
   ];
 
-  const complianceFeatures = [
+  const keyFeatures = [
     {
-      icon: <FiLock className="w-6 h-6" />,
-      title: "Whistleblower Protection",
+      icon: <FiEye className="w-12 h-12" />,
+      title: "Real-Time Analytics",
+      stat: "Employee Happiness Score",
       description:
-        "Military-grade encryption for anonymous tips. Meets all legal whistleblower protection standards.",
-      badge: "🛡️ Legal Shield",
+        "Track engagement, response times, and sentiment. See which departments need attention before issues escalate.",
+      screenshot: "/screenshots/dashboard-analytics.png",
     },
     {
-      icon: <FiFileText className="w-6 h-6" />,
-      title: "Evidence Collection",
+      icon: <FiAlertTriangle className="w-12 h-12" />,
+      title: "Admin Dashboard",
+      stat: "Crisis Prevention HQ",
       description:
-        "Photos, videos, documents attached to reports. Time-stamped, immutable, admissible as evidence.",
-      badge: "⚖️ Court-Ready",
+        "Centralized view of all issues: critical, open, in-progress. Route problems to the right people instantly.",
+      screenshot: "/screenshots/admin-dashboard.png",
     },
     {
-      icon: <FiCheckCircle className="w-6 h-6" />,
-      title: "Response Tracking",
+      icon: <FiShield className="w-12 h-12" />,
+      title: "Workflow Management",
+      stat: "Open → Resolved",
       description:
-        "Document every action taken. Prove due diligence to regulators, lawyers, and investigators.",
-      badge: "📋 Compliance",
-    },
-    {
-      icon: <FiActivity className="w-6 h-6" />,
-      title: "Moderation System",
-      description:
-        "3-strike policy for misuse. Keeps platform professional while protecting legitimate reporters.",
-      badge: "⚡ Quality Control",
-    },
-  ];
-
-  const uniqueAdvantages = [
-    {
-      title: "The Silent Whistleblower",
-      description:
-        "Your employees ALREADY know about fraud, harassment, and violations. VoxWel gives them a safe way to tell you—before lawyers, media, or regulators find out.",
-      stat: "67%",
-      statLabel:
-        "of workplace violations are witnessed by multiple employees but never reported",
-    },
-    {
-      title: "Reputation Insurance",
-      description:
-        "Handle scandals internally. One media story about harassment or fraud can destroy years of brand building. VoxWel keeps problems contained.",
-      stat: "$2.4M",
-      statLabel:
-        "average cost of a major workplace scandal (lawsuits + reputation damage)",
-    },
-    {
-      title: "Legal Documentation",
-      description:
-        "When lawsuits happen, you need proof you took action. VoxWel provides timestamped records of every report and response.",
-      stat: "100%",
-      statLabel:
-        "audit trail coverage for legal defense and regulatory compliance",
+        "7-state workflow with status tracking, priority assignment, and department routing. Never lose track of an issue.",
+      screenshot: "/screenshots/workflow-management.png",
     },
   ];
 
   return (
     <section
       id="features"
-      className="section-padding bg-linear-to-b from-white to-gray-50"
+      className="section-padding bg-gradient-to-b from-white to-gray-50"
     >
       <div className="section-container">
-        {/* Section Header */}
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-[#1ABC9C] uppercase tracking-wide mb-4">
-            🛡️ Your Company's Defense System
+          <h2 className="text-sm font-bold text-primary-teal uppercase tracking-wide mb-4">
+            ⚡ See VoxWel in Action
           </h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Catch the <span className="text-red-600">Storm</span> Before It Hits
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            Three Walls. One Platform.
           </h3>
-          <p className="text-base md:text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto">
-            Every feature is designed to{" "}
-            <span className="font-bold underline">surface hidden problems</span>{" "}
-            before they become lawsuits, scandals, or criminal investigations.
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            The complete workplace communication system designed to prevent
+            crises before they happen
           </p>
         </div>
 
-        {/* Core Protection Features */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-20">
-          {protectionFeatures.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-200"
-            >
-              <div className={`bg-linear-to-r ${feature.color} p-6`}>
-                <div className="text-white mb-3">{feature.icon}</div>
-                <h4 className="text-xl font-bold text-white mb-2">
-                  {feature.title}
-                </h4>
-              </div>
+        {/* Three-Wall Interactive Display */}
+        <div className="mb-20">
+          {/* Wall Selector Tabs */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {threeWalls.map((wall) => (
+              <button
+                key={wall.id}
+                onClick={() => setActiveWall(wall.id)}
+                className={`px-6 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-3 ${
+                  activeWall === wall.id
+                    ? `bg-gradient-to-r ${wall.color} text-white shadow-2xl scale-105`
+                    : "bg-white text-gray-700 hover:shadow-lg border-2 border-gray-200"
+                }`}
+              >
+                {wall.icon}
+                <div className="text-left">
+                  <div className="text-sm font-bold">{wall.title}</div>
+                  <div className="text-xs opacity-80">{wall.tagline}</div>
+                </div>
+              </button>
+            ))}
+          </div>
 
-              <div className="p-6">
-                <p className="text-gray-700 mb-4 leading-relaxed">
-                  {feature.description}
-                </p>
-                <div className="flex items-center gap-2 text-green-700 font-semibold bg-green-50 px-4 py-2 rounded-lg">
-                  <FiCheckCircle className="shrink-0" />
-                  <span className="text-sm">{feature.benefit}</span>
+          {/* Active Wall Display */}
+          {threeWalls.map((wall) => (
+            <div
+              key={wall.id}
+              className={`transition-all duration-500 ${
+                activeWall === wall.id ? "block" : "hidden"
+              }`}
+            >
+              <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-gray-100">
+                <div className="grid md:grid-cols-2 gap-8 p-8 md:p-12">
+                  {/* Left: Details */}
+                  <div className="flex flex-col justify-center">
+                    <div
+                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${wall.color} text-white w-fit mb-6`}
+                    >
+                      {wall.icon}
+                      <span className="font-bold text-sm">{wall.title}</span>
+                    </div>
+
+                    <h4 className="text-3xl font-bold text-gray-900 mb-4">
+                      {wall.tagline}
+                    </h4>
+
+                    <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                      {wall.description}
+                    </p>
+
+                    <div className="space-y-3">
+                      {wall.benefits.map((benefit, idx) => (
+                        <div key={idx} className="flex items-start gap-3">
+                          <FiCheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                          <span className="text-gray-700">{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Right: Screenshot */}
+                  <div className="relative">
+                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-100">
+                      <Image
+                        src={wall.screenshot}
+                        alt={`${wall.title} interface`}
+                        fill
+                        className="object-cover object-top"
+                        priority={activeWall === wall.id}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Compliance & Legal Section */}
-        <div className="bg-linear-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-white mb-20">
-          <div className="text-center mb-12">
-            <h4 className="text-2xl md:text-3xl font-bold mb-4">
-              Built for <span className="text-[#1ABC9C]">Legal Protection</span>{" "}
-              & Compliance
-            </h4>
-            <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
-              When regulatory investigations or lawsuits arrive, VoxWel provides
-              the documentation trail you need to defend your company.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {complianceFeatures.map((feature, index) => (
-              <div
-                key={index}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-[#1ABC9C]/50 transition-all"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-[#1ABC9C]/20 rounded-lg flex items-center justify-center text-[#1ABC9C]">
-                    {feature.icon}
-                  </div>
-                  <span className="text-xs font-semibold">{feature.badge}</span>
-                </div>
-                <h5 className="text-lg font-bold mb-2">{feature.title}</h5>
-                <p className="text-sm text-gray-300 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Unique Advantages */}
-        <div className="mb-20">
+        {/* Key Features Grid with Screenshots */}
+        <div className="mb-16">
           <h4 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-12">
-            Why VoxWel is <span className="text-[#1ABC9C]">Different</span>
+            Powerful Features for{" "}
+            <span className="text-red-600">Crisis Prevention</span>
           </h4>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {uniqueAdvantages.map((advantage, index) => (
+          <div className="grid md:grid-cols-3 gap-8">
+            {keyFeatures.map((feature, idx) => (
               <div
-                key={index}
-                className="bg-white rounded-2xl shadow-lg p-8 border-t-4 border-[#1ABC9C]"
+                key={idx}
+                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 border-gray-100 group"
               >
-                <div className="mb-6">
-                  <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1ABC9C] mb-2">
-                    {advantage.stat}
-                  </div>
-                  <div className="text-sm text-gray-600">
-                    {advantage.statLabel}
-                  </div>
+                {/* Screenshot Section */}
+                <div className="relative aspect-video bg-gray-50">
+                  <Image
+                    src={feature.screenshot}
+                    alt={feature.title}
+                    fill
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <h5 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-                  {advantage.title}
-                </h5>
-                <p className="text-gray-700 leading-relaxed">
-                  {advantage.description}
-                </p>
+
+                {/* Content Section */}
+                <div className="p-6">
+                  <div className="text-primary-teal mb-3 group-hover:scale-110 transition-transform">
+                    {feature.icon}
+                  </div>
+                  <h5 className="text-xl font-bold text-gray-900 mb-2">
+                    {feature.title}
+                  </h5>
+                  <div className="text-sm font-semibold text-primary-teal mb-3">
+                    {feature.stat}
+                  </div>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Additional Features Section */}
-        <div className="bg-linear-to-r from-[#1ABC9C] to-[#2D3E50] rounded-3xl p-8 md:p-12 text-white">
+        {/* Quick Features Grid */}
+        <div className="bg-gradient-to-r from-primary-teal to-primary-navy rounded-3xl p-8 md:p-12 text-white">
           <div className="text-center mb-10">
             <h4 className="text-2xl md:text-3xl font-bold mb-4">
               Plus Everything Else You Need
             </h4>
-            <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto">
-              Beyond risk management, VoxWel includes all the tools for a
-              complete employee voice platform.
+            <p className="text-white/90 max-w-2xl mx-auto">
+              Complete workplace platform with military-grade security
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto relative z-10">
-            <div className="text-center">
-              <Palette className="mx-auto mb-2 w-8 h-8" />
-              <div className="font-semibold">Creative Wall</div>
-              <div className="text-sm text-white/80">
-                Celebrate wins & ideas
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
+            {[
+              "QR Code Onboarding",
+              "File Attachments",
+              "Department Filters",
+              "Trend Detection",
+              "Role-Based Access",
+              "Audit Trail",
+              "Email Notifications",
+              "Mobile Responsive",
+            ].map((item, idx) => (
+              <div key={idx} className="flex flex-col items-center">
+                <FiCheckCircle className="w-8 h-8 mb-2" />
+                <div className="text-sm font-medium">{item}</div>
               </div>
-            </div>
-            <div className="text-center">
-              <MessageCircle className="mx-auto mb-2 w-8 h-8" />
-              <div className="font-semibold">Team Discussions</div>
-              <div className="text-sm text-white/80">Collaborate easily</div>
-            </div>
-            <div className="text-center">
-              <BarChart2 className="mx-auto mb-2 w-8 h-8" />
-              <div className="font-semibold">Analytics Dashboard</div>
-              <div className="text-sm text-white/80">Real-time insights</div>
-            </div>
-            <div className="text-center">
-              <Smartphone className="mx-auto mb-2 w-8 h-8" />
-              <div className="font-semibold">QR Onboarding</div>
-              <div className="text-sm text-white/80">Instant setup</div>
-            </div>
-            <div className="text-center">
-              <Paperclip className="mx-auto mb-2 w-8 h-8" />
-              <div className="font-semibold">File Attachments</div>
-              <div className="text-sm text-white/80">Photos & documents</div>
-            </div>
-            <div className="text-center">
-              <Users className="mx-auto mb-2 w-8 h-8" />
-              <div className="font-semibold">Departments</div>
-              <div className="text-sm text-white/80">Organized structure</div>
-            </div>
-            <div className="text-center">
-              <Heart className="mx-auto mb-2 w-8 h-8" />
-              <div className="font-semibold">Reactions</div>
-              <div className="text-sm text-white/80">Express feedback</div>
-            </div>
-            <div className="text-center">
-              <Lock className="mx-auto mb-2 w-8 h-8" />
-              <div className="font-semibold">Role-Based Access</div>
-              <div className="text-sm text-white/80">Secure permissions</div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
