@@ -9,6 +9,13 @@ import Footer from "@/components/Footer";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { WebVitals } from "./web-vitals";
 import FAQSchema from "./faq-schema";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.voxwel.com",
+  },
+};
 
 export default function Home() {
   return (
