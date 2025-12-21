@@ -5,16 +5,6 @@
     "trailingSlash": false,
     "public": "out",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "redirects": [
-      {
-        "source": "/:path*",
-        "destination": "https://www.voxwel.com/:path*",
-        "type": 301,
-        "condition": {
-          "hostGlob": "voxwel.com"
-        }
-      }
-    ],
     "headers": [
       {
         "source": "**",
