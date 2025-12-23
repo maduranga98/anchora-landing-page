@@ -84,6 +84,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.voxwel.com",
   },
+  other: {
+    "facebook-domain-verification": "5r911qyz5ps61d6ladab0z8jkjog9q",
+  },
 };
 
 export const viewport: Viewport = {
@@ -185,6 +188,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-L4G3KLH5QV"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-L4G3KLH5QV');
+          `}
+        </Script>
+
         {/* Preconnect to important third-party origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
