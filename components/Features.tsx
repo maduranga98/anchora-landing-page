@@ -29,6 +29,8 @@ export default function Features() {
       description:
         "Team achievements, recognition, and positive workplace highlights. Build culture through public appreciation and milestone celebrations.",
       image: "/screenshots/creative-wall.png",
+      altText:
+        "VoxWel anonymous employee feedback software creative wall interface for team recognition and workplace celebrations",
       color: "#1ABC9C",
       benefits: [
         "Public team recognition",
@@ -44,6 +46,8 @@ export default function Features() {
       description:
         "100% anonymous, military-grade encrypted reporting. Employees can safely report harassment, fraud, safety violations without fear of retaliation.",
       image: "/screenshots/problems-wall.png",
+      altText:
+        "Anonymous workplace harassment reporting tool with military-grade encrypted complaint submission and crisis prevention",
       color: "#EF4444",
       benefits: [
         "Complete anonymity guaranteed",
@@ -59,6 +63,8 @@ export default function Features() {
       description:
         "General workplace communication, team collaboration, and everyday questions. Like Slack, but integrated with your crisis prevention system.",
       image: "/screenshots/discussions-wall.png",
+      altText:
+        "Employee communication platform team discussions wall for workplace collaboration and feedback",
       color: "#3B82F6",
       benefits: [
         "Real-time team chat",
@@ -78,6 +84,8 @@ export default function Features() {
       description:
         "Track engagement, response times, and sentiment analysis across departments. See which departments need attention before issues escalate.",
       image: "/screenshots/dashboard-analytics.png",
+      altText:
+        "Anonymous reporting software analytics dashboard showing employee happiness score and sentiment analysis",
       color: "#8B5CF6",
     },
     {
@@ -87,6 +95,8 @@ export default function Features() {
       description:
         "Centralized view of all issues: critical, open, in-progress. Route problems to the right people instantly with complete oversight.",
       image: "/screenshots/admin-dashboard.png",
+      altText:
+        "Crisis prevention admin dashboard for managing anonymous employee complaints and workplace issues",
       color: "#6366F1",
     },
     {
@@ -96,6 +106,8 @@ export default function Features() {
       description:
         "Full admin controls for every reported issue. Change status (Open → Acknowledged → In Progress → Resolved), set priority levels (Critical/High/Medium/Low), assign to departments, set due dates, and add public admin comments. Pin important posts or archive resolved issues.",
       image: "/screenshots/workflow-management.png",
+      altText:
+        "Anonymous complaint workflow management system with priority escalation and department routing",
       color: "#10B981",
     },
   ];
@@ -119,12 +131,12 @@ export default function Features() {
       <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
-          <h2 className="text-sm font-semibold text-primary-teal uppercase tracking-wide mb-3">
-            See VoxWel in Action
+          <p className="text-sm font-semibold text-primary-teal uppercase tracking-wide mb-3">
+            Complete Anonymous Workplace Reporting Platform
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+            Three-Wall Crisis Prevention System: Anonymous Reporting, Communication & Recognition
           </h2>
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4">
-            Three Walls. One Platform.
-          </h3>
           <p className="text-lg md:text-xl text-text-secondary">
             The complete workplace communication system designed to prevent
             crises before they happen
@@ -162,9 +174,7 @@ export default function Features() {
                 <div className="relative aspect-[16/10]">
                   <Image
                     src={wall.image}
-                    alt={`${
-                      wall.title
-                    } interface showing ${wall.tagline.toLowerCase()}`}
+                    alt={wall.altText}
                     fill
                     className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
@@ -245,7 +255,7 @@ export default function Features() {
                 <div className="relative aspect-square">
                   <Image
                     src={feature.image}
-                    alt={`${feature.title} interface`}
+                    alt={feature.altText}
                     fill
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"

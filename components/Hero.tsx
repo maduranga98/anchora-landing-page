@@ -91,13 +91,19 @@ export default function Hero() {
 
         {/* Main Headline */}
         <h1
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 animate-fadeIn leading-tight"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 animate-fadeIn leading-tight"
           style={{ animationDelay: "0.1s" }}
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-teal via-white to-primary-teal">
-            Where Every Voice Matters
-          </span>
+          Anonymous Workplace Harassment Reporting Software That Prevents Lawsuits
         </h1>
+
+        {/* Brand Tagline */}
+        <p
+          className="text-xl sm:text-2xl md:text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary-teal via-white to-primary-teal mb-6 md:mb-8 animate-fadeIn"
+          style={{ animationDelay: "0.15s" }}
+        >
+          Where Every Voice Matters
+        </p>
 
         {/* Powerful Subheadline */}
         <div

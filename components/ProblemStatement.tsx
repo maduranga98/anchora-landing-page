@@ -83,9 +83,8 @@ export default function ProblemStatement() {
           </div>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            By the Time <span className="text-red-600">YOU</span> Find Out,
-            <br />
-            <span className="text-red-600">It's Already Too Late</span>
+            Why Your Company Needs{" "}
+            <span className="text-red-600">Anonymous Employee Reporting Software</span>
           </h2>
 
           <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-4xl mx-auto mb-8">
