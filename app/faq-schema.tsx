@@ -8,34 +8,50 @@ export default function FAQSchema() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "What is VoxWel?",
+        name: "What is anonymous employee reporting software?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "VoxWel is an anonymous employee reporting platform that helps companies prevent workplace disasters through secure, encrypted reporting of harassment, fraud, safety violations, and compliance issues. It provides military-grade encryption to protect reporter anonymity while giving organizations the tools to address problems before they escalate.",
+          text: "Anonymous employee reporting software allows employees to report workplace harassment, fraud, safety violations, and compliance issues without revealing their identity. VoxWel uses military-grade AES-256 encryption to ensure complete anonymity, protecting reporters from retaliation while giving companies early warning of serious workplace problems before they escalate into lawsuits or regulatory violations.",
         },
       },
       {
         "@type": "Question",
-        name: "How much does VoxWel cost?",
+        name: "Is VoxWel EEOC compliant?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "VoxWel costs just $1 per employee per month. We also offer a 14-day free trial with no credit card required, so you can try the platform risk-free before committing.",
+          text: "Yes, VoxWel is fully EEOC compliant and meets Title VII requirements for workplace harassment reporting. The platform maintains complete audit trails, encrypted evidence packages, and immutable documentation that demonstrates your organization took employee complaints seriously—essential protection during EEOC investigations and legal proceedings.",
         },
       },
       {
         "@type": "Question",
-        name: "Is VoxWel really anonymous?",
+        name: "How much does anonymous workplace reporting software cost?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes, VoxWel provides complete anonymity through military-grade encryption and technical measures that prevent identification. Even system administrators cannot identify anonymous reporters. We strip all identifying metadata, process anonymous posts through separate systems, and maintain an immutable audit trail without user identification.",
+          text: "VoxWel costs $1 per employee per month with no setup fees or hidden costs. For a 100-employee company, that's just $100/month or $1,200/year—significantly less than the $75,000-$300,000 average cost of a single harassment lawsuit. One prevented incident pays for 60+ years of VoxWel.",
         },
       },
       {
         "@type": "Question",
-        name: "Is VoxWel GDPR compliant?",
+        name: "Can administrators identify anonymous reporters in VoxWel?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes, VoxWel is fully GDPR compliant with comprehensive data protection measures for EU and UK users. We implement appropriate technical and organizational measures to protect your information, including end-to-end encryption, access controls, and regular security audits.",
+          text: "No. VoxWel uses military-grade AES-256 encryption and zero-knowledge architecture. Even system administrators cannot identify anonymous reporters. This complete anonymity protection encourages employees to report serious issues without fear of retaliation, creating a true speak-up culture in your organization.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What's the difference between a whistleblower hotline and employee feedback software?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Traditional whistleblower hotlines are single-purpose phone systems for reporting serious violations. VoxWel combines anonymous reporting with employee feedback, team communication, and recognition—all in one platform. This continuous voice approach catches issues earlier than periodic surveys or one-way hotlines, while costing 80% less than traditional ethics hotlines like NAVEX or EthicsPoint.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does VoxWel comply with the EU Whistleblower Directive?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. VoxWel fully complies with EU Whistleblower Directive 2019/1937, which requires all companies with 50+ employees operating in the EU to maintain internal reporting channels. VoxWel provides the mandatory secure reporting channels, case management, and protection against retaliation that the directive requires.",
         },
       },
       {

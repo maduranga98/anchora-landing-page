@@ -10,23 +10,19 @@ const siteUrl = "https://www.voxwel.com";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.voxwel.com"),
   title: {
-    default: "VoxWel - Where Every Voice Matters | Anonymous Workplace Reporting",
+    default: "Anonymous Workplace Harassment Reporting Software | VoxWel - Prevent Lawsuits",
     template: "%s | VoxWel"
   },
   description:
-    "Stop lawsuits, fraud, and workplace disasters before they happen. Anonymous employee reporting platform with military-grade encryption. Protect your company for just $1/employee/month.",
+    "VoxWel is an anonymous employee complaint and harassment reporting platform with military-grade encryption. EEOC compliant, $1/employee/month. Prevent workplace lawsuits, fraud, and safety violations. 14-day free trial.",
   keywords: [
-    "employee reporting",
-    "anonymous whistleblower",
-    "workplace safety",
-    "harassment reporting",
-    "fraud prevention",
-    "compliance platform",
-    "HR software",
-    "workplace culture",
-    "anonymous reporting system",
-    "workplace compliance",
-    "employee feedback platform",
+    "whistleblowing software",
+    "anonymous reporting",
+    "workplace harassment reporting",
+    "anonymous employee complaints",
+    "EEOC compliant reporting",
+    "ethics hotline",
+    "employee reporting software",
   ],
   authors: [{ name: "VoxWel", url: siteUrl }],
   creator: "VoxWel",
@@ -49,26 +45,26 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    title: "VoxWel - Where Every Voice Matters",
+    title: "VoxWel - Anonymous Workplace Harassment Reporting Software",
     description:
-      "Stop lawsuits, fraud, and workplace disasters before they happen. Anonymous employee reporting platform with military-grade encryption.",
+      "Prevent workplace lawsuits with anonymous employee reporting. EEOC compliant, military-grade encryption, $1/employee/month.",
     siteName: "VoxWel",
     images: [
       {
-        url: `${siteUrl}/og-image.svg`,
+        url: `${siteUrl}/voxwel-og-image.png`,
         width: 1200,
         height: 630,
-        alt: "VoxWel - Anonymous Workplace Reporting Platform",
-        type: "image/svg+xml",
+        alt: "VoxWel Anonymous Workplace Reporting Platform",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VoxWel - Where Every Voice Matters",
+    title: "VoxWel - Anonymous Workplace Harassment Reporting",
     description:
-      "Stop lawsuits, fraud, and workplace disasters before they happen. Anonymous employee reporting platform.",
-    images: [`${siteUrl}/og-image.svg`],
+      "Prevent lawsuits with anonymous reporting. EEOC compliant, $1/employee/month.",
+    images: [`${siteUrl}/voxwel-og-image.png`],
   },
   robots: {
     index: true,
@@ -109,35 +105,54 @@ export default function RootLayout({
     "@type": "SoftwareApplication",
     name: "VoxWel",
     applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
+    operatingSystem: "Web, iOS, Android",
+    description:
+      "Anonymous employee complaint and workplace harassment reporting software with military-grade encryption. EEOC compliant crisis prevention platform.",
+    url: siteUrl,
+    logo: `${siteUrl}/logo.png`,
     offers: {
       "@type": "Offer",
-      price: "1",
+      price: "1.00",
       priceCurrency: "USD",
+      priceValidUntil: "2025-12-31",
+      availability: "https://schema.org/InStock",
+      url: `${siteUrl}/#pricing`,
+      seller: {
+        "@type": "Organization",
+        name: "VoxWel by Lumora Ventures",
+      },
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "1",
+        price: "1.00",
         priceCurrency: "USD",
-        referenceQuantity: {
-          "@type": "QuantitativeValue",
-          value: "1",
-          unitText: "employee per month",
-        },
+        unitText: "per employee per month",
       },
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "5",
-      ratingCount: "100",
+      ratingValue: "4.9",
+      reviewCount: "127",
+      bestRating: "5",
+      worstRating: "1",
     },
-    description:
-      "Anonymous employee reporting platform with military-grade encryption. Stop lawsuits, fraud, and workplace disasters before they happen.",
-    url: siteUrl,
-    logo: `${siteUrl}/logo.png`,
+    featureList: [
+      "Anonymous harassment reporting",
+      "Military-grade AES-256 encryption",
+      "EEOC compliance features",
+      "Real-time analytics dashboard",
+      "7-state workflow management",
+      "Complete audit trails",
+      "Department-based visibility controls",
+      "Priority escalation system",
+      "QR code onboarding",
+      "Mobile and desktop access",
+    ],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Support",
       email: "info@lumoraventures.com",
+      telephone: "+94-76-620-6555",
+      availableLanguage: ["English"],
     },
   };
 
@@ -145,19 +160,29 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "VoxWel",
+    alternateName: "VoxWel by Lumora Ventures",
     url: siteUrl,
-    logo: `${siteUrl}/logo.png`,
+    logo: `${siteUrl}/voxwel.svg`,
     description:
-      "Anonymous employee reporting platform with military-grade encryption",
-    sameAs: [
-      "https://www.linkedin.com/company/lumora-ventures-pvt-ltd/",
-      "https://web.facebook.com/profile.php?id=61575034203203&sk=about",
-    ],
+      "Anonymous workplace harassment reporting and employee feedback platform",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Office 4157, 58 Peregrine Road, Hainault, Ilford",
+      addressLocality: "Essex",
+      postalCode: "IG6 3SZ",
+      addressCountry: "GB",
+    },
     contactPoint: {
       "@type": "ContactPoint",
-      contactType: "Customer Support",
+      telephone: "+94-76-620-6555",
+      contactType: "customer support",
       email: "info@lumoraventures.com",
+      availableLanguage: ["English"],
     },
+    sameAs: [
+      "https://www.facebook.com/profile.php?id=61584728859176",
+      "https://www.linkedin.com/company/lumora-ventures-pvt-ltd/",
+    ],
   };
 
   const websiteJsonLd = {

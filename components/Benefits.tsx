@@ -108,12 +108,13 @@ export default function Benefits() {
       <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-primary-teal uppercase tracking-wide mb-4">
+          <p className="text-sm font-bold text-primary-teal uppercase tracking-wide mb-4">
             💼 Built for Company Protection
+          </p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 leading-tight">
+            Anonymous Employee Complaint Software ROI:{" "}
+            <span className="text-primary-teal">Prevent $75K-$300K Lawsuits</span>
           </h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 leading-tight">
-            The ROI is <span className="text-primary-teal">Obvious</span>
-          </h3>
           <p className="text-base md:text-lg lg:text-xl text-text-secondary max-w-4xl mx-auto mb-8">
             One prevented lawsuit pays for{" "}
             <span className="font-bold underline">decades</span> of VoxWel.
