@@ -2,16 +2,17 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Script from "next/script";
 
-const siteUrl = "https://www.voxwel.com";
+const siteUrl = "https://voxwel.com";
 
 // Using system fonts for better performance and reliability
 // This avoids external font fetching and provides instant loading
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.voxwel.com"),
+  metadataBase: new URL("https://voxwel.com"),
   title: {
-    default: "Anonymous Workplace Harassment Reporting Software | VoxWel - Prevent Lawsuits",
-    template: "%s | VoxWel"
+    default:
+      "Anonymous Workplace Harassment Reporting Software | VoxWel - Prevent Lawsuits",
+    template: "%s | VoxWel",
   },
   description:
     "VoxWel is an anonymous employee complaint and harassment reporting platform with military-grade encryption. EEOC compliant, $1/employee/month. Prevent workplace lawsuits, fraud, and safety violations. 14-day free trial.",
@@ -78,10 +79,11 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://www.voxwel.com",
+    canonical: "https://voxwel.com",
   },
   other: {
     "facebook-domain-verification": "5r911qyz5ps61d6ladab0z8jkjog9q",
+    "google-site-verification": "7-SLD-v272DMYNgyeYxSPXMLcSjAI_7hSJvfHOtLbFQ",
   },
 };
 
@@ -245,9 +247,17 @@ export default function RootLayout({
         />
 
         {/* AI Discoverability */}
-        <link rel="alternate" type="application/json" href={`${siteUrl}/api/data.json`} title="VoxWel Data API" />
+        <link
+          rel="alternate"
+          type="application/json"
+          href={`${siteUrl}/api/data.json`}
+          title="VoxWel Data API"
+        />
         <meta name="ai-content-declaration" content="partially-ai-assisted" />
-        <meta name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta
+          name="robots"
+          content="max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
 
         {/* Structured Data */}
         <script
@@ -256,7 +266,9 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
         />
         <script
           type="application/ld+json"
