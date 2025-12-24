@@ -11,6 +11,8 @@ import Footer from "@/components/Footer";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { WebVitals } from "./web-vitals";
 import FAQSchema from "./faq-schema";
+import { FAQSection } from "@/components/FAQSection";
+
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -33,6 +35,7 @@ export default function Home() {
         <Benefits />
         <ComplianceSection />
         <Pricing />
+        <FAQSection />
         <Contact />
         <Footer />
       </main>
