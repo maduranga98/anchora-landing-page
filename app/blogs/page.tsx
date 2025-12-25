@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       "Expert insights on workplace harassment prevention, fraud detection, and anonymous reporting.",
   },
   alternates: {
-    canonical: "https://voxwel.com/blogs",
+    canonical: "https://www.voxwel.com/blogs",
   },
 };
 
@@ -66,13 +66,13 @@ export default function BlogsPage() {
     name: "VoxWel Blog",
     description:
       "Expert insights on workplace safety, harassment prevention, fraud detection, and compliance.",
-    url: "https://voxwel.com/blogs",
+    url: "https://www.voxwel.com/blogs",
     publisher: {
       "@type": "Organization",
       name: "VoxWel",
       logo: {
         "@type": "ImageObject",
-        url: "https://voxwel.com/icon.png",
+        url: "https://www.voxwel.com/icon.png",
       },
     },
     blogPost: blogPosts.map((post) => ({
@@ -85,7 +85,7 @@ export default function BlogsPage() {
         name: post.author.name,
         jobTitle: post.author.role,
       },
-      url: `https://voxwel.com/blogs/${post.slug}`,
+      url: `https://www.voxwel.com/blogs/${post.slug}`,
       keywords: post.tags.join(", "),
       articleSection: post.category,
     })),
