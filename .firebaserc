@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "company-voice-ba26f"
+  },
+  "targets": {
+    "company-voice-ba26f": {
+      "hosting": {
+        "voxwel-web": [
+          "voxwel-web"
+        ]
+      }
+    }
   }
 }
