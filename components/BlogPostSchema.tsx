@@ -18,7 +18,7 @@ export default function BlogPostSchema({ post }: { post: BlogPost }) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
-    image: `https://www.voxwel.com${post.imageUrl}`,
+    image: `https://voxwel.com${post.imageUrl}`,
     datePublished: post.publishedDate,
     dateModified: post.updatedDate || post.publishedDate,
     author: {
@@ -30,12 +30,12 @@ export default function BlogPostSchema({ post }: { post: BlogPost }) {
       name: "VoxWel",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.voxwel.com/voxwel.svg",
+        url: "https://voxwel.com/voxwel.svg",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.voxwel.com/blogs/${post.slug}`,
+      "@id": `https://voxwel.com/blogs/${post.slug}`,
     },
     keywords: post.tags.join(", "),
     articleSection: post.category,

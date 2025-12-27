@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "Cookie Policy | VoxWel",
     description:
       "Understand how VoxWel uses cookies and similar technologies to improve your experience and protect your data.",
-    url: "https://www.voxwel.com/cookie-policy",
+    url: "https://voxwel.com/cookie-policy",
   },
   alternates: {
-    canonical: "https://www.voxwel.com/cookie-policy",
+    canonical: "https://voxwel.com/cookie-policy",
   },
 };
 
@@ -455,8 +455,8 @@ export default function CookiePolicy() {
               <div className="bg-status-warning/10 border-l-4 border-status-warning p-4 rounded-r-lg mt-6">
                 <p className="text-text-secondary text-sm">
                   <strong>Note:</strong> Blocking or deleting essential cookies
-                  may prevent you from using certain features of VoxWel or
-                  cause the Service to function improperly.
+                  may prevent you from using certain features of VoxWel or cause
+                  the Service to function improperly.
                 </p>
               </div>
             </section>

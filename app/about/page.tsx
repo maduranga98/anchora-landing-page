@@ -16,13 +16,13 @@ export const metadata: Metadata = {
   description:
     "Learn about VoxWel's mission to revolutionize workplace communication through secure, anonymous reporting. Protecting employees and companies with military-grade encryption.",
   alternates: {
-    canonical: "https://www.voxwel.com/about",
+    canonical: "https://voxwel.com/about",
   },
   openGraph: {
     title: "About VoxWel - Anonymous Workplace Reporting Platform",
     description:
       "Learn about VoxWel's mission to revolutionize workplace communication through secure, anonymous reporting.",
-    url: "https://www.voxwel.com/about",
+    url: "https://voxwel.com/about",
   },
 };
 
@@ -91,12 +91,13 @@ export default function AboutPage() {
               About VoxWel
             </h2>
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 leading-tight">
-              Your Partner in <span className="text-primary-teal">Workplace Safety</span>
+              Your Partner in{" "}
+              <span className="text-primary-teal">Workplace Safety</span>
             </h3>
             <p className="text-base md:text-lg lg:text-xl text-text-secondary max-w-4xl mx-auto">
-              Born from the reality that employees see problems every day but fear
-              speaking up. We created VoxWel to bridge that gap—protecting both
-              people and companies.
+              Born from the reality that employees see problems every day but
+              fear speaking up. We created VoxWel to bridge that gap—protecting
+              both people and companies.
             </p>
           </div>
 
@@ -158,25 +159,26 @@ export default function AboutPage() {
             </h3>
             <div className="space-y-4 text-base md:text-lg text-text-secondary leading-relaxed">
               <p>
-                We've seen it happen too many times: employees witness harassment,
-                fraud, safety violations, or corruption—but stay silent out of fear.
-                Fear of losing their job. Fear of retaliation. Fear that nothing
-                will change.
+                We've seen it happen too many times: employees witness
+                harassment, fraud, safety violations, or corruption—but stay
+                silent out of fear. Fear of losing their job. Fear of
+                retaliation. Fear that nothing will change.
               </p>
               <p>
-                Meanwhile, company leadership remains in the dark. By the time they
-                find out about the problem, it's already a lawsuit, media scandal,
-                or criminal investigation. Millions of dollars in damages.
-                Reputations destroyed. Lives ruined.
+                Meanwhile, company leadership remains in the dark. By the time
+                they find out about the problem, it's already a lawsuit, media
+                scandal, or criminal investigation. Millions of dollars in
+                damages. Reputations destroyed. Lives ruined.
               </p>
               <p className="font-semibold text-primary-teal">
                 It doesn't have to be this way.
               </p>
               <p>
-                VoxWel creates a secure bridge between employees who see problems
-                and leaders who can fix them—before those problems explode. With
-                military-grade anonymity, smart escalation, and complete audit
-                trails, we help companies catch storms before they hit.
+                VoxWel creates a secure bridge between employees who see
+                problems and leaders who can fix them—before those problems
+                explode. With military-grade anonymity, smart escalation, and
+                complete audit trails, we help companies catch storms before
+                they hit.
               </p>
               <p>
                 Because the best time to solve a problem is before it becomes a

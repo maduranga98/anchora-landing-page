@@ -6,7 +6,7 @@
 name: VoxWel
 tagline: Where Every Voice Matters
 description: Anonymous employee reporting platform with military-grade encryption. Stop lawsuits, fraud, and workplace disasters before they happen.
-url: https://www.voxwel.com
+url: https://voxwel.com
 company: Lumora Ventures
 
 # Product Details
@@ -41,19 +41,19 @@ use_cases:
 
 # Key Pages for AI Understanding
 pages:
-- home: https://www.voxwel.com/
-- about: https://www.voxwel.com/about
-- blog: https://www.voxwel.com/blogs
-- privacy: https://www.voxwel.com/privacy-policy
-- terms: https://www.voxwel.com/terms-of-service
-- gdpr: https://www.voxwel.com/gdpr
-- lumora: https://www.voxwel.com/lumora
+- home: https://voxwel.com/
+- about: https://voxwel.com/about
+- blog: https://voxwel.com/blogs
+- privacy: https://voxwel.com/privacy-policy
+- terms: https://voxwel.com/terms-of-service
+- gdpr: https://voxwel.com/gdpr
+- lumora: https://voxwel.com/lumora
 
 # Important Resources
 resources:
-- sitemap: https://www.voxwel.com/sitemap.xml
-- rss_feed: https://www.voxwel.com/rss.xml
-- api_data: https://www.voxwel.com/api/data.json
+- sitemap: https://voxwel.com/sitemap.xml
+- rss_feed: https://voxwel.com/rss.xml
+- api_data: https://voxwel.com/api/data.json
 
 # Contact Information
 contact_email: info@lumoraventures.com

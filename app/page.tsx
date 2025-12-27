@@ -17,7 +17,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.voxwel.com",
+    canonical: "https://voxwel.com",
   },
 };
 
