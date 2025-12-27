@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "Privacy Policy | VoxWel",
     description:
       "Learn how VoxWel protects your privacy and handles your personal information with military-grade security.",
-    url: "https://www.voxwel.com/privacy-policy",
+    url: "https://voxwel.com/privacy-policy",
   },
   alternates: {
-    canonical: "https://www.voxwel.com/privacy-policy",
+    canonical: "https://voxwel.com/privacy-policy",
   },
 };
 
@@ -200,8 +200,8 @@ export default function PrivacyPolicy() {
                 5.1 With Your Organization
               </h3>
               <p className="text-text-secondary mb-4">
-                Your employer (the organization that purchased VoxWel) will
-                have access to:
+                Your employer (the organization that purchased VoxWel) will have
+                access to:
               </p>
               <ul className="list-disc pl-6 text-text-secondary space-y-2 mb-4">
                 <li>Your non-anonymous posts and activity</li>

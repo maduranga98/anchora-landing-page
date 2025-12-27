@@ -111,14 +111,14 @@ export default async function BlogPost({
       name: "VoxWel",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.voxwel.com/icon.png",
+        url: "https://voxwel.com/icon.png",
       },
     },
     keywords: post.tags.join(", "),
     articleSection: post.category,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.voxwel.com/blogs/${post.slug}`,
+      "@id": `https://voxwel.com/blogs/${post.slug}`,
     },
   };
 
@@ -131,19 +131,19 @@ export default async function BlogPost({
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.voxwel.com",
+        item: "https://voxwel.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://www.voxwel.com/blogs",
+        item: "https://voxwel.com/blogs",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: post.title,
-        item: `https://www.voxwel.com/blogs/${post.slug}`,
+        item: `https://voxwel.com/blogs/${post.slug}`,
       },
     ],
   };

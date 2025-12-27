@@ -2,13 +2,13 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Script from "next/script";
 
-const siteUrl = "https://www.voxwel.com";
+const siteUrl = "https://voxwel.com";
 
 // Using system fonts for better performance and reliability
 // This avoids external font fetching and provides instant loading
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.voxwel.com"),
+  metadataBase: new URL("https://voxwel.com"),
   title: {
     default:
       "Anonymous Workplace Harassment Reporting Software | VoxWel - Prevent Lawsuits",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://www.voxwel.com",
+    canonical: "https://voxwel.com",
   },
   other: {
     "facebook-domain-verification": "5r911qyz5ps61d6ladab0z8jkjog9q",

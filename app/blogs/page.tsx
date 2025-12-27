@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.voxwel.com/blogs",
+    url: "https://voxwel.com/blogs",
     title: "Blog - Workplace Safety & Compliance Insights | VoxWel",
     description:
       "Expert insights on workplace harassment prevention, fraud detection, and anonymous reporting.",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       "Expert insights on workplace harassment prevention, fraud detection, and anonymous reporting.",
   },
   alternates: {
-    canonical: "https://www.voxwel.com/blogs",
+    canonical: "https://voxwel.com/blogs",
   },
 };
 
@@ -66,13 +66,13 @@ export default function BlogsPage() {
     name: "VoxWel Blog",
     description:
       "Expert insights on workplace safety, harassment prevention, fraud detection, and compliance.",
-    url: "https://www.voxwel.com/blogs",
+    url: "https://voxwel.com/blogs",
     publisher: {
       "@type": "Organization",
       name: "VoxWel",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.voxwel.com/icon.png",
+        url: "https://voxwel.com/icon.png",
       },
     },
     blogPost: blogPosts.map((post) => ({
@@ -85,7 +85,7 @@ export default function BlogsPage() {
         name: post.author.name,
         jobTitle: post.author.role,
       },
-      url: `https://www.voxwel.com/blogs/${post.slug}`,
+      url: `https://voxwel.com/blogs/${post.slug}`,
       keywords: post.tags.join(", "),
       articleSection: post.category,
     })),

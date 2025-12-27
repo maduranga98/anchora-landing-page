@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "Terms of Service | VoxWel",
     description:
       "Read the VoxWel Terms of Service to understand your rights and responsibilities when using our platform.",
-    url: "https://www.voxwel.com/terms-of-service",
+    url: "https://voxwel.com/terms-of-service",
   },
   alternates: {
-    canonical: "https://www.voxwel.com/terms-of-service",
+    canonical: "https://voxwel.com/terms-of-service",
   },
 };
 
@@ -255,8 +255,8 @@ export default function TermsOfService() {
                 7.1 Pricing
               </h3>
               <p className="text-text-secondary mb-4">
-                VoxWel is priced at $1 per employee per month, billed monthly
-                to your organization. Pricing is subject to change with 30 days'
+                VoxWel is priced at $1 per employee per month, billed monthly to
+                your organization. Pricing is subject to change with 30 days'
                 notice.
               </p>
 

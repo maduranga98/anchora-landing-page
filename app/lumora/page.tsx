@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "About Lumora Ventures | VoxWel",
     description:
       "Discover Lumora Ventures, the innovative startup behind VoxWel workplace reporting platform.",
-    url: "https://www.voxwel.com/lumora",
+    url: "https://voxwel.com/lumora",
   },
   alternates: {
-    canonical: "https://www.voxwel.com/lumora",
+    canonical: "https://voxwel.com/lumora",
   },
 };
 
@@ -62,8 +62,8 @@ export default function LumoraVentures() {
                   VoxWel is our flagship employee feedback and engagement
                   platform designed to help companies prevent workplace crises
                   before they happen. With features like anonymous reporting,
-                  comprehensive analytics, and compliance tracking, VoxWel
-                  gives organizations the tools they need to create safer, more
+                  comprehensive analytics, and compliance tracking, VoxWel gives
+                  organizations the tools they need to create safer, more
                   transparent workplaces.
                 </p>
                 <Link
@@ -102,10 +102,12 @@ export default function LumoraVentures() {
                   </a>
                 </p>
                 <p className="text-text-secondary mt-2">
-                  <strong>UK Office:</strong> Office 4157, 58 Peregrine Road, Hainault, Ilford, Essex, United Kingdom, IG6 3SZ
+                  <strong>UK Office:</strong> Office 4157, 58 Peregrine Road,
+                  Hainault, Ilford, Essex, United Kingdom, IG6 3SZ
                 </p>
                 <p className="text-text-secondary mt-1">
-                  <strong>Sri Lanka Office:</strong> Kurunegala Road, Kuliyapitiya, Kurunegala, Sri Lanka
+                  <strong>Sri Lanka Office:</strong> Kurunegala Road,
+                  Kuliyapitiya, Kurunegala, Sri Lanka
                 </p>
               </div>
             </section>

@@ -3,7 +3,7 @@ import { blogPosts } from "@/data/blogPosts";
 export const dynamic = "force-static";
 
 export async function GET() {
-  const siteUrl = "https://www.voxwel.com";
+  const siteUrl = "https://voxwel.com";
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
@@ -34,7 +34,9 @@ export async function GET() {
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
       <dc:creator><![CDATA[${post.author.name}]]></dc:creator>
       <category><![CDATA[${post.category}]]></category>
-      ${post.tags.map((tag) => `<category><![CDATA[${tag}]]></category>`).join("\n      ")}
+      ${post.tags
+        .map((tag) => `<category><![CDATA[${tag}]]></category>`)
+        .join("\n      ")}
     </item>`
       )
       .join("")}

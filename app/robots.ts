@@ -32,6 +32,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [],
       },
     ],
-    sitemap: "https://www.voxwel.com/sitemap.xml",
+    sitemap: "https://voxwel.com/sitemap.xml",
   };
 }

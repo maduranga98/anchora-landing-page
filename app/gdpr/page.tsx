@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     title: "GDPR Compliance | VoxWel",
     description:
       "Discover how VoxWel ensures full GDPR compliance to protect your data rights and privacy.",
-    url: "https://www.voxwel.com/gdpr",
+    url: "https://voxwel.com/gdpr",
   },
   alternates: {
-    canonical: "https://www.voxwel.com/gdpr",
+    canonical: "https://voxwel.com/gdpr",
   },
 };
 

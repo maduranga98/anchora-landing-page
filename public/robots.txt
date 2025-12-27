@@ -4,7 +4,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://www.voxwel.com/sitemap.xml
+Sitemap: https://voxwel.com/sitemap.xml
 
 # Disallow admin or sensitive pages (if any)
 # Note: Adjust these paths based on your actual structure
