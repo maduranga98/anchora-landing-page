@@ -58,6 +58,13 @@
         ]
       }
     ],
+    "redirects": [
+      {
+        "source": "https://www.voxwel.com{,/**}",
+        "destination": "https://voxwel.com",
+        "type": 301
+      }
+    ],
     "rewrites": [
       {
         "source": "**",
