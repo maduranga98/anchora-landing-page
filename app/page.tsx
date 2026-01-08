@@ -13,6 +13,12 @@ import { WebVitals } from "./web-vitals";
 import { FAQSection } from "@/components/FAQSection";
 
 import { Metadata } from "next";
+import SilentCrisis from "@/components/SilentCrisis";
+import BrandStory from "@/components/BrandStory";
+import BlogTeaseStrip from "@/components/BlogTeaseStrip";
+import SimplePricing from "@/components/SimplePricing";
+import FeaturesShowcase from "@/components/FeaturesShowcase";
+import FinalCTA from "@/components/FinalCTA";
 
 export const metadata: Metadata = {
   alternates: {
@@ -27,12 +33,18 @@ export default function Home() {
       <main className="min-h-screen w-full overflow-x-hidden">
         <Navigation />
         <Hero />
-        <SEOIntro />
+        <SilentCrisis />
+        <BlogTeaseStrip />
+        <BrandStory />
+        <FeaturesShowcase />
+        <SimplePricing />
+        <FinalCTA />
+        {/* <SEOIntro />
         <ProblemStatement />
         <Features />
         <Benefits />
         <ComplianceSection />
-        <Pricing />
+        <Pricing /> */}
         <FAQSection />
         <Contact />
         <Footer />

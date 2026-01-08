@@ -1,199 +1,163 @@
 "use client";
 
-import { FiArrowRight, FiAlertTriangle, FiShield } from "react-icons/fi";
+import { useState, useEffect } from "react";
+import { FiChevronDown } from "react-icons/fi";
+import Image from "next/image";
 
 export default function Hero() {
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      const navbarHeight = window.innerWidth >= 768 ? 80 : 64;
-      const offset = 20;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - navbarHeight - offset;
+  const [currentProblemIndex, setCurrentProblemIndex] = useState(0);
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
+  // Problem statements that rotate around the CEO
+  const problems = [
+    {
+      text: "Harassment lawsuits brewing...",
+      shortText: "Harassment lawsuits...",
+      color: "text-red-500",
+      position: "top-right",
+    },
+    {
+      text: "$250K fraud scheme...",
+      shortText: "$250K fraud...",
+      color: "text-orange-500",
+      position: "left",
+    },
+    {
+      text: "OSHA violations ignored...",
+      shortText: "OSHA violations...",
+      color: "text-red-600",
+      position: "top-left",
+    },
+    {
+      text: "Toxic culture spreading...",
+      shortText: "Toxic culture...",
+      color: "text-orange-600",
+      position: "right",
+    },
+    {
+      text: "Safety complaints silenced...",
+      shortText: "Safety ignored...",
+      color: "text-red-500",
+      position: "bottom-left",
+    },
+    {
+      text: "Employees planning to quit...",
+      shortText: "Employee exodus...",
+      color: "text-orange-500",
+      position: "bottom-right",
+    },
+  ];
+
+  // Rotate through problems every 2.5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentProblemIndex((prev) => (prev + 1) % problems.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [problems.length]);
+
+  const scrollToNext = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth",
+    });
   };
 
-  const scrollToProblem = () => {
-    const element = document.getElementById("problem");
-    if (element) {
-      const navbarHeight = window.innerWidth >= 768 ? 80 : 64;
-      const offset = 20;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - navbarHeight - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
+  // Position classes for animated text - responsive
+  const getPositionClasses = (position: string) => {
+    const positions: { [key: string]: string } = {
+      // Mobile: stack vertically at top
+      // Tablet: spread to sides
+      // Desktop: full positioning
+      "top-left":
+        "top-20 sm:top-24 md:top-28 lg:top-32 left-4 sm:left-6 md:left-12 lg:left-24 xl:left-32",
+      "top-right":
+        "top-20 sm:top-24 md:top-28 lg:top-32 right-4 sm:right-6 md:right-12 lg:right-24 xl:right-32",
+      left: "top-[35%] sm:top-[38%] md:top-1/3 left-4 sm:left-6 md:left-12 lg:left-24 xl:left-32",
+      right:
+        "top-[35%] sm:top-[38%] md:top-1/3 right-4 sm:right-6 md:right-12 lg:right-24 xl:right-32",
+      "bottom-left":
+        "bottom-40 sm:bottom-44 md:bottom-48 lg:bottom-56 xl:bottom-64 left-4 sm:left-6 md:left-12 lg:left-24 xl:left-32",
+      "bottom-right":
+        "bottom-40 sm:bottom-44 md:bottom-48 lg:bottom-56 xl:bottom-64 right-4 sm:right-6 md:right-12 lg:right-24 xl:right-32",
+    };
+    return positions[position] || "";
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* SOLUTION 1: Remove the background image entirely or use abstract geometric patterns */}
-      {/* Instead of a mismatched stock image, use CSS gradients and shapes */}
-
-      {/* Primary gradient background */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary-navy via-primary-navy/95 to-primary-teal/90"></div>
-
-      {/* Animated geometric shapes - better than stock photo */}
-      <div className="absolute inset-0 overflow-hidden -z-5" aria-hidden="true">
-        {/* Large teal circle - top left */}
-        <div
-          className="absolute w-[500px] h-[500px] bg-primary-teal/20 rounded-full blur-3xl -top-40 -left-40 animate-pulse"
-          style={{ willChange: "opacity", animationDuration: "4s" }}
-        ></div>
-
-        {/* Coral accent - bottom right */}
-        <div
-          className="absolute w-[600px] h-[600px] bg-accent-coral/15 rounded-full blur-3xl -bottom-40 -right-40 animate-pulse"
-          style={{
-            animationDelay: "2s",
-            willChange: "opacity",
-            animationDuration: "6s",
-          }}
-        ></div>
-
-        {/* Additional accent - middle */}
-        <div
-          className="absolute w-[400px] h-[400px] bg-primary-teal/10 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse"
-          style={{
-            animationDelay: "1s",
-            willChange: "opacity",
-            animationDuration: "5s",
-          }}
-        ></div>
-
-        {/* Subtle grid overlay for tech feel */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #1abc9c 1px, transparent 1px),
-              linear-gradient(to bottom, #1abc9c 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-          }}
-        ></div>
+    <section className="relative min-h-screen w-full overflow-hidden">
+      {/* CEO Image as Background - Full Screen */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/hero1.avif"
+          alt="Concerned CEO facing workplace problems"
+          fill
+          priority
+          className="object-cover object-center sm:object-[center_20%] md:object-center"
+          quality={95}
+          sizes="100vw"
+        />
+        {/* Dark overlay for text readability - adjusted for mobile */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900/90 sm:from-slate-900/70 sm:via-slate-900/50 sm:to-slate-900/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-transparent to-slate-900/70 sm:from-slate-900/60 sm:via-transparent sm:to-slate-900/60" />
       </div>
 
-      <div className="relative section-container py-20 md:py-24 lg:py-32 text-center z-10">
-        {/* Urgent Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-coral/20 border border-accent-coral/50 rounded-full text-accent-coral text-sm font-bold mb-8 animate-fadeIn backdrop-blur-sm">
-          <FiAlertTriangle className="animate-pulse" />
-          Early Warning System for Companies
-        </div>
+      {/* Animated Problem Texts - Positioned around screen */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
+        {problems.map((problem, index) => (
+          <div
+            key={index}
+            className={`absolute ${getPositionClasses(
+              problem.position
+            )} transition-all duration-700 ${
+              index === currentProblemIndex
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-95"
+            }`}
+          >
+            <div
+              className={`${problem.color} font-bold text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl drop-shadow-2xl bg-slate-900/95 backdrop-blur-sm px-3 py-2 sm:px-4 sm:py-2.5 md:px-5 md:py-3 lg:px-6 lg:py-3 rounded-lg md:rounded-xl border-2 border-current shadow-2xl max-w-[calc(100vw-2rem)] sm:max-w-xs md:max-w-sm lg:max-w-md`}
+              style={{
+                textShadow: "0 0 20px rgba(0,0,0,0.9)",
+              }}
+            >
+              {/* Show short text on mobile, full text on tablet+ */}
+              <span className="inline sm:hidden">{problem.shortText}</span>
+              <span className="hidden sm:inline">{problem.text}</span>
+            </div>
+          </div>
+        ))}
+      </div>
 
-        {/* Main Headline */}
-        <h1
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 animate-fadeIn leading-tight"
-          style={{ animationDelay: "0.1s" }}
-        >
-          Anonymous Workplace Harassment Reporting Software That Prevents Lawsuits
-        </h1>
-
-        {/* Brand Tagline */}
-        <p
-          className="text-xl sm:text-2xl md:text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary-teal via-white to-primary-teal mb-6 md:mb-8 animate-fadeIn"
-          style={{ animationDelay: "0.15s" }}
-        >
-          Where Every Voice Matters
-        </p>
-
-        {/* Powerful Subheadline */}
-        <div
-          className="max-w-4xl mx-auto mb-10 md:mb-12 lg:mb-14 animate-fadeIn"
-          style={{ animationDelay: "0.2s" }}
-        >
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-semibold mb-4">
-            The problems your employees see every day—
-          </p>
-          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-accent-coral font-bold mb-6">
-            but never tell you—are destroying your company from within.
-          </p>
-
-          <div className="bg-white/10 backdrop-blur-md rounded-xl p-5 md:p-6 lg:p-8 border border-white/20 max-w-3xl mx-auto shadow-2xl">
-            <p className="text-sm md:text-base lg:text-lg text-white/90 mb-3">
-              <span className="font-bold">
-                Harassment. Fraud. Safety violations. Corruption.
+      {/* Bottom Content - Tagline and Scroll */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pb-16 sm:pb-20 md:pb-24 lg:pb-28">
+        <div className="px-4 sm:px-6 md:px-8 text-center">
+          <div className="max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto space-y-3 sm:space-y-4 md:space-y-6">
+            {/* Main Heading - Responsive sizing */}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight drop-shadow-2xl px-2">
+              These problems are happening{" "}
+              <span className="text-teal-400 block sm:inline mt-1 sm:mt-0">
+                right now.
               </span>
-              <br />
-              Your employees know.{" "}
-              <span className="text-accent-coral font-bold">
-                But they're not telling you.
-              </span>
-            </p>
-            <p className="text-sm md:text-base text-white/80">
-              By the time YOU find out, it's already a lawsuit, media scandal,
-              or criminal investigation.
+            </h1>
+
+            {/* Subheading - Responsive sizing */}
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-200 font-medium drop-shadow-2xl px-2">
+              You just don't know it yet.
             </p>
           </div>
-        </div>
 
-        {/* CTA Buttons */}
-        <div
-          className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center animate-fadeIn mb-12 md:mb-16 lg:mb-20"
-          style={{ animationDelay: "0.3s" }}
-        >
+          {/* Scroll Indicator - Adjusted for mobile */}
           <button
-            onClick={scrollToContact}
-            className="group px-6 md:px-8 py-3 md:py-4 bg-accent-coral text-white rounded-lg font-bold text-sm md:text-base hover:bg-accent-coral/90 transition-all duration-300 shadow-2xl flex items-center gap-2 hover:scale-105 hover:shadow-accent-coral/50"
+            onClick={scrollToNext}
+            className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 animate-bounce cursor-pointer group inline-flex flex-col items-center gap-1.5 sm:gap-2"
+            aria-label="Scroll to next section"
           >
-            <FiShield />
-            Protect Your Company Now
-            <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+            <span className="text-xs sm:text-sm md:text-base text-gray-300 group-hover:text-teal-400 transition-colors drop-shadow-lg font-medium">
+              Discover the crisis
+            </span>
+            <FiChevronDown className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-teal-400 drop-shadow-lg" />
           </button>
-          <button
-            onClick={scrollToProblem}
-            className="px-6 md:px-8 py-3 md:py-4 bg-white text-primary-navy rounded-lg font-bold text-sm md:text-base hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:scale-105"
-          >
-            See What You're Missing
-          </button>
-        </div>
-
-        {/* Stats with Impact */}
-        <div
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto animate-fadeIn"
-          style={{ animationDelay: "0.4s" }}
-        >
-          <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 md:p-6 border border-white/20 hover:border-primary-teal/50 transition-all hover:bg-white/15 shadow-xl">
-            <div className="text-3xl md:text-4xl font-bold text-accent-coral mb-2">
-              $1
-            </div>
-            <div className="text-gray-300 font-medium text-sm md:text-base">
-              per employee/month
-            </div>
-            <div className="text-xs md:text-sm text-white/70 mt-2">
-              vs. $75K-$300K per lawsuit
-            </div>
-          </div>
-          <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 md:p-6 border border-white/20 hover:border-primary-teal/50 transition-all hover:bg-white/15 shadow-xl">
-            <div className="text-3xl md:text-4xl font-bold text-primary-teal mb-2">
-              100%
-            </div>
-            <div className="text-gray-300 font-medium text-sm md:text-base">
-              Anonymous Protection
-            </div>
-            <div className="text-xs md:text-sm text-white/70 mt-2">
-              Even admins can't identify users
-            </div>
-          </div>
-          <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 md:p-6 border border-white/20 hover:border-primary-teal/50 transition-all hover:bg-white/15 shadow-xl">
-            <div className="text-3xl md:text-4xl font-bold text-primary-teal mb-2">
-              24hrs
-            </div>
-            <div className="text-gray-300 font-medium text-sm md:text-base">
-              Setup Time
-            </div>
-            <div className="text-xs md:text-sm text-white/70 mt-2">
-              Start protecting immediately
-            </div>
-          </div>
         </div>
       </div>
     </section>
