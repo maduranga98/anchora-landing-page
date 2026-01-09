@@ -19,7 +19,7 @@ export default function AnchoraLogo({
   return (
     <Link href="/" className={`inline-block ${className}`}>
       <Image
-        src="/voxwel.svg"
+        src="/voxwel1.avif"
         alt="VoxWel"
         width={currentSize.width}
         height={currentSize.height}
