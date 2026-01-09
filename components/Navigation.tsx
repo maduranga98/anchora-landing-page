@@ -16,6 +16,7 @@ export default function Navigation() {
     { name: "Features", href: "#features" },
     { name: "Benefits", href: "#benefits" },
     { name: "Pricing", href: "#pricing" },
+    { name: "Blog", href: "/blogs" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -114,8 +115,23 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              isHomePage ? (
+            {navLinks.map((link) => {
+              // Check if it's a page link (starts with /) vs section link (starts with #)
+              const isPageLink = link.href.startsWith('/');
+
+              if (isPageLink) {
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="font-medium transition-all duration-300 relative text-text-primary hover:text-primary-teal"
+                  >
+                    {link.name}
+                  </Link>
+                );
+              }
+
+              return isHomePage ? (
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.href)}
@@ -138,8 +154,8 @@ export default function Navigation() {
                 >
                   {link.name}
                 </Link>
-              )
-            ))}
+              );
+            })}
           </div>
 
           {/* CTA Buttons */}
@@ -180,8 +196,23 @@ export default function Navigation() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-border-light">
           <div className="px-4 py-6 space-y-4">
-            {navLinks.map((link) => (
-              isHomePage ? (
+            {navLinks.map((link) => {
+              const isPageLink = link.href.startsWith('/');
+
+              if (isPageLink) {
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block w-full text-left font-medium py-2 transition-all duration-300 text-text-primary hover:text-primary-teal"
+                  >
+                    {link.name}
+                  </Link>
+                );
+              }
+
+              return isHomePage ? (
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.href)}
@@ -202,8 +233,8 @@ export default function Navigation() {
                 >
                   {link.name}
                 </Link>
-              )
-            ))}
+              );
+            })}
             <div className="pt-4 border-t border-border-light">
               {isHomePage ? (
                 <button

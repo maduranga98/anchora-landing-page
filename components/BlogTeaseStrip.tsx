@@ -1,39 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { FiArrowRight, FiClock } from "react-icons/fi";
+import { FiArrowRight, FiClock, FiCalendar } from "react-icons/fi";
+import { blogPosts } from "@/data/blogPosts";
 
 export default function BlogTeaseStrip() {
-  // Hardcoded featured blog posts (you can replace with actual import later)
-  const featuredBlogs = [
-    {
-      slug: "hidden-cost-harassment-lawsuits",
-      title: "The Hidden Cost of Harassment Lawsuits: Why Prevention Pays",
-      excerpt:
-        "Discover how one harassment lawsuit can cost your company $75K-$300K—and why investing in prevention is the smartest business decision you'll make.",
-      category: "Compliance",
-      readTime: "5 min read",
-      author: { name: "Sarah Mitchell" },
-    },
-    {
-      slug: "why-employees-stay-silent",
-      title: "Why Employees Stay Silent: The $2M Mistake",
-      excerpt:
-        "91% of employees witness serious issues. Only 9% report them. Learn why workplace silence costs millions and how to break the cycle.",
-      category: "HR Best Practices",
-      readTime: "7 min read",
-      author: { name: "Michael Chen" },
-    },
-    {
-      slug: "eeoc-compliance-mistakes",
-      title: "7 EEOC Compliance Mistakes That Lead to Lawsuits",
-      excerpt:
-        "Most companies think they're compliant—until they're not. Avoid these common mistakes that trigger EEOC investigations.",
-      category: "Workplace Safety",
-      readTime: "6 min read",
-      author: { name: "Dr. James Rodriguez" },
-    },
-  ];
+  // Get the 3 most recent blog posts
+  const featuredBlogs = blogPosts.slice(0, 3);
 
   return (
     <section className="py-16 sm:py-20 md:py-24 bg-slate-900">
@@ -66,8 +39,10 @@ export default function BlogTeaseStrip() {
                     className={`px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full ${
                       blog.category === "Compliance"
                         ? "bg-blue-500/20 text-blue-400 border border-blue-500/30"
-                        : blog.category === "HR Best Practices"
+                        : blog.category === "Best Practices"
                         ? "bg-purple-500/20 text-purple-400 border border-purple-500/30"
+                        : blog.category === "Case Study"
+                        ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
                         : "bg-red-500/20 text-red-400 border border-red-500/30"
                     }`}
                   >
@@ -91,13 +66,19 @@ export default function BlogTeaseStrip() {
 
                 {/* Footer */}
                 <div className="flex items-center justify-between pt-4 border-t border-slate-700">
-                  {/* Author */}
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
-                      {blog.author.name.charAt(0)}
+                  {/* Author & Date */}
+                  <div className="flex flex-col gap-1">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                        {blog.author.name.charAt(0)}
+                      </div>
+                      <div className="text-sm text-gray-400">
+                        {blog.author.name}
+                      </div>
                     </div>
-                    <div className="text-sm text-gray-400">
-                      {blog.author.name}
+                    <div className="flex items-center gap-1.5 text-gray-500 text-xs ml-10">
+                      <FiCalendar className="w-3 h-3" />
+                      <span>{new Date(blog.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                     </div>
                   </div>
 

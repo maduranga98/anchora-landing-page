@@ -153,16 +153,22 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-padding bg-background-softGray">
-      <div className="section-container">
+    <section id="contact" className="section-padding bg-gradient-to-b from-background-softGray to-white relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 right-10 w-72 h-72 bg-primary-teal/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="section-container relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-sm font-semibold text-primary-teal uppercase tracking-wide mb-4">
-            Get in Touch
-          </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-text-primary mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-teal/10 border border-primary-teal/30 rounded-full text-primary-teal text-sm font-bold mb-6">
+            📧 Get in Touch
+          </div>
+          <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
             Ready to Transform Your{" "}
-            <span className="text-primary-teal">Workplace?</span>
+            <span className="bg-gradient-to-r from-primary-teal to-blue-500 bg-clip-text text-transparent">Workplace?</span>
           </h3>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
             Schedule a demo or start your free trial today. No credit card
@@ -172,7 +178,7 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Contact Form */}
-          <div className="bg-white rounded-2xl shadow-large p-8 md:p-10">
+          <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-10 border border-gray-100">
             <h4 className="text-2xl font-bold text-text-primary mb-6">
               Request a Demo
             </h4>
@@ -456,7 +462,7 @@ export default function Contact() {
           {/* Contact Info & Benefits */}
           <div className="space-y-8">
             {/* Contact Cards */}
-            <div className="bg-white rounded-2xl shadow-soft p-8">
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
               <h4 className="text-xl font-bold text-text-primary mb-6">
                 Get in Touch
               </h4>
@@ -551,7 +557,7 @@ export default function Contact() {
             </div>
 
             {/* Why Choose Us */}
-            <div className="bg-linear-to-br from-primary-teal/5 to-primary-navy/5 rounded-2xl p-8 border-2 border-primary-teal/20">
+            <div className="bg-gradient-to-br from-primary-teal/10 via-blue-500/5 to-purple-500/10 rounded-2xl p-8 border-2 border-primary-teal/30 shadow-lg">
               <h4 className="text-xl font-bold text-text-primary mb-6">
                 Why Choose VoxWel?
               </h4>
