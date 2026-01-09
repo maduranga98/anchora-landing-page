@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import AnchoraLogo from "./AnchoraLogo";
-import { FaLinkedin, FaFacebook } from "react-icons/fa";
+import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -82,13 +82,22 @@ export default function Footer() {
                   <FaLinkedin className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://web.facebook.com/profile.php?id=61575034203203&sk=about"
+                  href="https://www.facebook.com/profile.php?id=61584728859176"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:text-primary-teal hover:bg-primary-teal/20 transition-all duration-300"
                   aria-label="Facebook"
                 >
                   <FaFacebook className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/vox.wel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white/70 hover:text-primary-teal hover:bg-primary-teal/20 transition-all duration-300"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram className="w-5 h-5" />
                 </a>
               </div>
             </div>
