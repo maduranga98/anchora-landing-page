@@ -171,8 +171,7 @@ export default function Contact() {
             <span className="bg-gradient-to-r from-primary-teal to-blue-500 bg-clip-text text-transparent">Workplace?</span>
           </h3>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            Schedule a demo or start your free trial today. No credit card
-            required.
+            Get instant access - receive your login credentials via email. Start protecting your workplace in minutes.
           </p>
         </div>
 
@@ -180,8 +179,11 @@ export default function Contact() {
           {/* Contact Form */}
           <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-10 border border-gray-100">
             <h4 className="text-2xl font-bold text-text-primary mb-6">
-              Request a Demo
+              Get Instant Access
             </h4>
+            <p className="text-text-secondary mb-6">
+              Submit your details and receive your login credentials via email immediately.
+            </p>
 
             {/* Success Message */}
             {status === "success" && (
@@ -189,11 +191,10 @@ export default function Contact() {
                 <FiCheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                 <div>
                   <p className="text-green-800 font-semibold">
-                    Thank you for contacting us!
+                    Welcome to VoxWel!
                   </p>
                   <p className="text-green-700 text-sm mt-1">
-                    We've received your message and will get back to you within
-                    24 hours.
+                    Check your email for login credentials and setup instructions. You'll be up and running in minutes!
                   </p>
                 </div>
               </div>
@@ -436,11 +437,11 @@ export default function Contact() {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       />
                     </svg>
-                    <span className="font-bold">Sending your message...</span>
+                    <span className="font-bold">Setting up your account...</span>
                   </>
                 ) : (
                   <>
-                    Send Message
+                    Get Access Now
                     <FiSend className="group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
