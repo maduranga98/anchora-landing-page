@@ -104,13 +104,13 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+    <nav className="fixed top-0 w-full bg-gradient-to-r from-slate-900/95 via-primary-navy/95 to-slate-900/95 backdrop-blur-md shadow-lg border-b border-white/10 z-50">
       <div className="section-container">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center gap-2">
             <AnchoraLogo size="default" />
-            <span className="text-xl font-bold text-primary-navy">VoxWel </span>
+            <span className="text-xl font-bold bg-gradient-to-r from-white to-primary-teal bg-clip-text text-transparent">VoxWel</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -124,7 +124,7 @@ export default function Navigation() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="font-medium transition-all duration-300 relative text-text-primary hover:text-primary-teal"
+                    className="font-medium transition-all duration-300 relative text-white/90 hover:text-primary-teal"
                   >
                     {link.name}
                   </Link>
@@ -138,19 +138,19 @@ export default function Navigation() {
                   className={`font-medium transition-all duration-300 relative ${
                     activeSection === link.href
                       ? "text-primary-teal"
-                      : "text-text-primary hover:text-primary-teal"
+                      : "text-white/90 hover:text-primary-teal"
                   }`}
                 >
                   {link.name}
                   {activeSection === link.href && (
-                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary-teal rounded-full"></span>
+                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary-teal rounded-full shadow-lg shadow-primary-teal/50"></span>
                   )}
                 </button>
               ) : (
                 <Link
                   key={link.name}
                   href={`/${link.href}`}
-                  className="font-medium transition-all duration-300 relative text-text-primary hover:text-primary-teal"
+                  className="font-medium transition-all duration-300 relative text-white/90 hover:text-primary-teal"
                 >
                   {link.name}
                 </Link>
@@ -163,16 +163,16 @@ export default function Navigation() {
             {isHomePage ? (
               <button
                 onClick={() => scrollToSection("#contact")}
-                className="px-6 py-2.5 bg-primary-teal text-white rounded-lg font-semibold hover:bg-primary-teal/90 transition-all duration-300"
+                className="px-6 py-2.5 bg-gradient-to-r from-primary-teal to-teal-600 text-white rounded-lg font-semibold hover:from-primary-teal/90 hover:to-teal-600/90 transition-all duration-300 shadow-lg shadow-primary-teal/30 hover:shadow-xl hover:shadow-primary-teal/40"
               >
-                Get Started
+                Get Access Now
               </button>
             ) : (
               <Link
                 href="/#contact"
-                className="px-6 py-2.5 bg-primary-teal text-white rounded-lg font-semibold hover:bg-primary-teal/90 transition-all duration-300"
+                className="px-6 py-2.5 bg-gradient-to-r from-primary-teal to-teal-600 text-white rounded-lg font-semibold hover:from-primary-teal/90 hover:to-teal-600/90 transition-all duration-300 shadow-lg shadow-primary-teal/30 hover:shadow-xl hover:shadow-primary-teal/40"
               >
-                Get Started
+                Get Access Now
               </Link>
             )}
           </div>
@@ -180,7 +180,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-text-primary"
+            className="md:hidden p-2 text-white/90 hover:text-primary-teal transition-colors"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -194,7 +194,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-border-light">
+        <div className="md:hidden bg-gradient-to-b from-slate-900 to-primary-navy border-t border-white/10">
           <div className="px-4 py-6 space-y-4">
             {navLinks.map((link) => {
               const isPageLink = link.href.startsWith('/');
@@ -205,7 +205,7 @@ export default function Navigation() {
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block w-full text-left font-medium py-2 transition-all duration-300 text-text-primary hover:text-primary-teal"
+                    className="block w-full text-left font-medium py-2 transition-all duration-300 text-white/90 hover:text-primary-teal"
                   >
                     {link.name}
                   </Link>
@@ -219,7 +219,7 @@ export default function Navigation() {
                   className={`block w-full text-left font-medium py-2 transition-all duration-300 ${
                     activeSection === link.href
                       ? "text-primary-teal font-bold pl-4 border-l-4 border-primary-teal"
-                      : "text-text-primary hover:text-primary-teal"
+                      : "text-white/90 hover:text-primary-teal"
                   }`}
                 >
                   {link.name}
@@ -229,27 +229,27 @@ export default function Navigation() {
                   key={link.name}
                   href={`/${link.href}`}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full text-left font-medium py-2 transition-all duration-300 text-text-primary hover:text-primary-teal"
+                  className="block w-full text-left font-medium py-2 transition-all duration-300 text-white/90 hover:text-primary-teal"
                 >
                   {link.name}
                 </Link>
               );
             })}
-            <div className="pt-4 border-t border-border-light">
+            <div className="pt-4 border-t border-white/10">
               {isHomePage ? (
                 <button
                   onClick={() => scrollToSection("#contact")}
-                  className="block w-full py-2.5 bg-primary-teal text-white rounded-lg font-semibold"
+                  className="block w-full py-2.5 bg-gradient-to-r from-primary-teal to-teal-600 text-white rounded-lg font-semibold shadow-lg shadow-primary-teal/30"
                 >
-                  Get Started
+                  Get Access Now
                 </button>
               ) : (
                 <Link
                   href="/#contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full py-2.5 bg-primary-teal text-white rounded-lg font-semibold text-center"
+                  className="block w-full py-2.5 bg-gradient-to-r from-primary-teal to-teal-600 text-white rounded-lg font-semibold text-center shadow-lg shadow-primary-teal/30"
                 >
-                  Get Started
+                  Get Access Now
                 </Link>
               )}
             </div>
