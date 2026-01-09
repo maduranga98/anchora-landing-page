@@ -231,35 +231,14 @@ export default function FeaturesShowcase() {
                 className={`relative rounded-2xl overflow-hidden border-4 ${activeWall.borderColor} shadow-2xl bg-white`}
               >
                 <div className="relative aspect-[4/3] w-full">
-                  {/* Placeholder for screenshot - replace with actual images */}
-                  <div
-                    className={`absolute inset-0 ${activeWall.bgColor} flex items-center justify-center`}
-                  >
-                    <div className="text-center p-8">
-                      <div
-                        className={`w-24 h-24 mx-auto mb-4 ${activeWall.bgColor} rounded-full flex items-center justify-center ${activeWall.textColor}`}
-                      >
-                        {activeWall.icon}
-                      </div>
-                      <p
-                        className={`text-xl font-bold ${activeWall.textColor}`}
-                      >
-                        {activeWall.name} Interface
-                      </p>
-                      <p className="text-sm text-gray-600 mt-2">
-                        Screenshot coming soon
-                      </p>
-                    </div>
-                  </div>
-                  {/* Uncomment when you have screenshots:
                   <Image
                     src={activeWall.image}
                     alt={`${activeWall.name} interface`}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    priority={activeTab === 0}
                   />
-                  */}
                 </div>
               </div>
             </div>

@@ -9,16 +9,33 @@ import Link from "next/link";
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [isVisible, setIsVisible] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
 
   const navLinks = [
+    { name: "The Crisis", href: "#silent-crisis" },
+    { name: "Our Story", href: "#brand-story" },
     { name: "Features", href: "#features" },
-    { name: "How It Works", href: "#brand-story" },
     { name: "Pricing", href: "#pricing" },
-    { name: "Blog", href: "/blogs" },
+    // { name: "Blog", href: "/blogs" },
     { name: "Contact", href: "#contact" },
   ];
+
+  // Show/hide navbar on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show navbar after scrolling 100px (adjust this value as needed)
+      const scrollThreshold = 100;
+      setIsVisible(window.scrollY > scrollThreshold);
+    };
+
+    // Initial check
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Scroll detection to update active section with throttling for better performance
   useEffect(() => {
@@ -50,7 +67,10 @@ export default function Navigation() {
               const sectionBottom = sectionTop + section.offsetHeight;
 
               // Check if we're within this section
-              if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+              if (
+                scrollPosition >= sectionTop &&
+                scrollPosition < sectionBottom
+              ) {
                 setActiveSection(`#${sections[i]}`);
                 foundSection = true;
                 break;
@@ -91,7 +111,8 @@ export default function Navigation() {
         const navbarHeight = window.innerWidth >= 768 ? 80 : 64;
         const offset = 20; // Additional offset for visual spacing
         const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.scrollY - navbarHeight - offset;
+        const offsetPosition =
+          elementPosition + window.scrollY - navbarHeight - offset;
 
         window.scrollTo({
           top: offsetPosition,
@@ -104,20 +125,26 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-gradient-to-r from-slate-900/95 via-primary-navy/95 to-slate-900/95 backdrop-blur-md shadow-lg border-b border-white/10 z-50">
+    <nav
+      className={`fixed top-0 w-full bg-gradient-to-r from-slate-900/95 via-primary-navy/95 to-slate-900/95 backdrop-blur-md shadow-lg border-b border-white/10 z-50 transition-transform duration-500 ease-in-out ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="section-container">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center gap-2">
             <AnchoraLogo size="default" />
-            <span className="text-xl font-bold bg-gradient-to-r from-white to-primary-teal bg-clip-text text-transparent">VoxWel</span>
+            <span className="text-xl font-bold bg-gradient-to-r from-white to-primary-teal bg-clip-text text-transparent">
+              VoxWel
+            </span>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
               // Check if it's a page link (starts with /) vs section link (starts with #)
-              const isPageLink = link.href.startsWith('/');
+              const isPageLink = link.href.startsWith("/");
 
               if (isPageLink) {
                 return (
@@ -197,7 +224,7 @@ export default function Navigation() {
         <div className="md:hidden bg-gradient-to-b from-slate-900 to-primary-navy border-t border-white/10">
           <div className="px-4 py-6 space-y-4">
             {navLinks.map((link) => {
-              const isPageLink = link.href.startsWith('/');
+              const isPageLink = link.href.startsWith("/");
 
               if (isPageLink) {
                 return (
