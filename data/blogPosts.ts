@@ -25,8 +25,8 @@ export const blogPosts: BlogPost[] = [
     date: "2025-01-10",
     readTime: "12 min read",
     author: {
-      name: "Dr. Sarah Mitchell",
-      role: "Organizational Psychology Expert",
+      name: "VoxWel Team",
+      role: "Workplace Innovation Specialists",
     },
     tags: [
       "decision making",
@@ -746,8 +746,8 @@ VoxWel's Team Discussions Wall integrates seamlessly with anonymous reporting an
     date: "2024-11-10",
     readTime: "5 min read",
     author: {
-      name: "Sarah Mitchell",
-      role: "Chief Compliance Officer",
+      name: "VoxWel Team",
+      role: "Crisis Prevention Experts",
     },
     tags: ["fraud prevention", "case study", "anonymous reporting", "compliance"],
     icon: "FiAlertTriangle",
@@ -840,8 +840,8 @@ Anonymous reporting isn't just about compliance—it's about giving your employe
     date: "2024-11-08",
     readTime: "7 min read",
     author: {
-      name: "Dr. James Rodriguez",
-      role: "Workplace Safety Consultant",
+      name: "VoxWel Team",
+      role: "Workplace Safety Advocates",
     },
     tags: ["harassment", "workplace safety", "prevention", "HR best practices"],
     icon: "FiShield",
@@ -1085,8 +1085,8 @@ More importantly, every employee deserves to work in an environment free from ha
     date: "2024-11-05",
     readTime: "6 min read",
     author: {
-      name: "Michael Chen",
-      role: "HR Technology Analyst",
+      name: "VoxWel Team",
+      role: "Employee Relations Specialists",
     },
     tags: ["HR technology", "employee reporting", "workplace culture", "innovation"],
     icon: "FiTrendingUp",
@@ -1374,8 +1374,8 @@ Every day you operate with a modern platform, you're:
     date: "2024-11-01",
     readTime: "8 min read",
     author: {
-      name: "Jennifer Patterson, Esq.",
-      role: "Employment Law Attorney",
+      name: "VoxWel Team",
+      role: "Compliance & Legal Advisors",
     },
     tags: ["compliance", "legal", "whistleblower laws", "regulations"],
     icon: "FiFileText",
