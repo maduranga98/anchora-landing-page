@@ -155,27 +155,27 @@ export default function SilentCrisis() {
         />
       </div>
 
-      <div className="relative z-10 section-container py-16 sm:py-20 md:py-24 lg:py-32">
+      <div className="relative z-10 section-container py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
         {/* Section Badge */}
         <div
-          className={`text-center mb-8 md:mb-12 transition-all duration-1000 ${
+          className={`text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/20 border border-red-500/50 rounded-full text-red-400 text-sm md:text-base font-bold mb-6 backdrop-blur-sm">
-            <FiAlertTriangle className="animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-red-500/20 border border-red-500/50 rounded-full text-red-400 text-xs sm:text-sm md:text-base lg:text-lg font-bold mb-4 sm:mb-6 backdrop-blur-sm">
+            <FiAlertTriangle className="animate-pulse w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
             The Crisis Hidden in Plain Sight
           </div>
         </div>
 
-        {/* Main Statistics Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12 md:mb-16">
+        {/* Main Statistics Grid - Optimized for all screens including laptops */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-7 xl:gap-8 mb-10 sm:mb-12 md:mb-14 lg:mb-16">
           {stats.map((stat, index) => (
             <div
               key={index}
               className={`${stat.bgColor} ${
                 stat.borderColor
-              } border-2 rounded-2xl p-6 md:p-8 text-center hover:scale-105 transition-all duration-300 backdrop-blur-sm shadow-2xl ${
+              } border-2 rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-7 xl:p-8 text-center hover:scale-105 transition-all duration-300 backdrop-blur-sm shadow-2xl ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-12"
@@ -185,13 +185,13 @@ export default function SilentCrisis() {
               }}
             >
               {/* Icon */}
-              <div className={`${stat.color} mb-4 flex justify-center`}>
+              <div className={`${stat.color} mb-3 sm:mb-3.5 md:mb-4 flex justify-center`}>
                 {stat.icon}
               </div>
 
               {/* Number */}
               <div
-                className={`${stat.color} text-5xl sm:text-6xl md:text-7xl font-bold mb-3 md:mb-4`}
+                className={`${stat.color} text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold mb-2 sm:mb-2.5 md:mb-3 lg:mb-4`}
               >
                 <AnimatedCounter
                   end={stat.number}
@@ -201,15 +201,15 @@ export default function SilentCrisis() {
               </div>
 
               {/* Label */}
-              <div className="text-gray-300 text-sm md:text-base font-medium leading-tight">
+              <div className="text-gray-300 text-xs sm:text-sm md:text-base lg:text-base xl:text-lg font-medium leading-tight">
                 {stat.label}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Main Message - Split Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center max-w-6xl mx-auto mb-12 md:mb-16">
+        {/* Main Message - Split Layout - Optimized for all screens including laptops */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-center max-w-6xl mx-auto mb-10 sm:mb-12 md:mb-14 lg:mb-16">
           {/* Left Side - The Problem */}
           <div
             className={`transition-all duration-1000 delay-500 ${
@@ -218,11 +218,11 @@ export default function SilentCrisis() {
                 : "opacity-0 -translate-x-12"
             }`}
           >
-            <div className="bg-gradient-to-br from-red-500/20 to-orange-500/20 border-2 border-red-500/30 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-blur-sm">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">
+            <div className="bg-gradient-to-br from-red-500/20 to-orange-500/20 border-2 border-red-500/30 rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-7 lg:p-8 xl:p-10 backdrop-blur-sm">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4 md:mb-5 lg:mb-6 leading-tight">
                 Your employees see the problems
               </h2>
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed">
                 They witness harassment. Fraud. Safety violations.
                 Discrimination. Corruption.
               </p>
@@ -237,11 +237,11 @@ export default function SilentCrisis() {
                 : "opacity-0 translate-x-12"
             }`}
           >
-            <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-2 border-gray-700/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-blur-sm">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-red-400 mb-4 md:mb-6 leading-tight">
+            <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-2 border-gray-700/50 rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-7 lg:p-8 xl:p-10 backdrop-blur-sm">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-red-400 mb-3 sm:mb-4 md:mb-5 lg:mb-6 leading-tight">
                 But they're not telling you
               </h2>
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-400 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 leading-relaxed">
                 Fear of retaliation. Fear of being ignored. Fear of losing their
                 job.
               </p>
@@ -249,17 +249,17 @@ export default function SilentCrisis() {
           </div>
         </div>
 
-        {/* Bottom Statement */}
+        {/* Bottom Statement - Optimized for all screens including laptops */}
         <div
           className={`text-center max-w-4xl mx-auto transition-all duration-1000 delay-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
         >
-          <div className="bg-white/5 backdrop-blur-md border-2 border-white/10 rounded-2xl p-6 md:p-8 lg:p-10 shadow-2xl">
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4 leading-tight">
+          <div className="bg-white/5 backdrop-blur-md border-2 border-white/10 rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-7 lg:p-8 xl:p-10 shadow-2xl">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-2 sm:mb-3 md:mb-4 leading-tight">
               The problems your employees see every day
             </p>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-red-400 font-semibold leading-tight">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-red-400 font-semibold leading-tight">
               are destroying your company from within.
             </p>
           </div>

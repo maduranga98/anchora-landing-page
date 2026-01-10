@@ -165,27 +165,27 @@ export default function FeaturesShowcase() {
         />
       </div>
 
-      <div className="relative z-10 section-container py-16 sm:py-20 md:py-24 lg:py-32">
-        {/* Header */}
+      <div className="relative z-10 section-container py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
+        {/* Header - Fully Responsive */}
         <div
-          className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${
+          className={`text-center mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16 transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/20 border border-teal-500/50 rounded-full text-teal-400 text-sm font-bold mb-6 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-teal-500/20 border border-teal-500/50 rounded-full text-teal-400 text-xs sm:text-sm md:text-base lg:text-lg font-bold mb-4 sm:mb-5 md:mb-6 backdrop-blur-sm">
             🎯 Complete Platform
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-3 sm:mb-4">
             Three Walls. One Platform.
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-4xl mx-auto px-4">
             Complete crisis prevention system for your workplace
           </p>
         </div>
 
-        {/* Tab Navigation */}
+        {/* Tab Navigation - Optimized for all screens including laptops */}
         <div
-          className={`flex flex-col sm:flex-row justify-center gap-4 mb-12 md:mb-16 transition-all duration-1000 delay-300 ${
+          className={`flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16 transition-all duration-1000 delay-300 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -193,7 +193,7 @@ export default function FeaturesShowcase() {
             <button
               key={wall.id}
               onClick={() => setActiveTab(index)}
-              className={`flex items-center gap-3 px-6 py-4 rounded-xl font-bold text-left transition-all ${
+              className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-5 md:px-6 py-3 sm:py-3.5 md:py-4 rounded-lg md:rounded-xl font-bold text-left transition-all ${
                 activeTab === index
                   ? `bg-gradient-to-r ${wall.color} text-white shadow-2xl scale-105`
                   : "bg-slate-800 text-gray-400 hover:bg-slate-700 border-2 border-slate-700"
@@ -205,9 +205,9 @@ export default function FeaturesShowcase() {
                 {wall.icon}
               </div>
               <div>
-                <div className="text-base md:text-lg">{wall.name}</div>
+                <div className="text-sm sm:text-base md:text-lg">{wall.name}</div>
                 <div
-                  className={`text-xs md:text-sm ${
+                  className={`text-xs sm:text-xs md:text-sm ${
                     activeTab === index ? "text-white/80" : "text-gray-500"
                   }`}
                 >
@@ -224,11 +224,11 @@ export default function FeaturesShowcase() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center max-w-7xl mx-auto mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center max-w-7xl mx-auto mb-12 sm:mb-14 md:mb-16">
             {/* Left: Screenshot */}
             <div className="order-2 lg:order-1">
               <div
-                className={`relative rounded-2xl overflow-hidden border-4 ${activeWall.borderColor} shadow-2xl bg-white`}
+                className={`relative rounded-xl md:rounded-2xl overflow-hidden border-3 md:border-4 ${activeWall.borderColor} shadow-2xl bg-white`}
               >
                 <div className="relative aspect-[4/3] w-full">
                   <Image
@@ -243,37 +243,37 @@ export default function FeaturesShowcase() {
               </div>
             </div>
 
-            {/* Right: Details */}
+            {/* Right: Details - Optimized for all screens including laptops */}
             <div className="order-1 lg:order-2">
               <div
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${activeWall.bgColor} ${activeWall.textColor} font-bold text-sm mb-4`}
+                className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full ${activeWall.bgColor} ${activeWall.textColor} font-bold text-xs sm:text-sm mb-3 sm:mb-4`}
               >
                 {activeWall.icon}
                 Wall {activeTab + 1} of 3
               </div>
 
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4">
                 {activeWall.name}
               </h3>
 
-              <p className="text-xl sm:text-2xl text-gray-300 mb-6">
+              <p className="text-lg sm:text-xl md:text-xl lg:text-2xl text-gray-300 mb-4 sm:mb-5 md:mb-6">
                 {activeWall.tagline}
               </p>
 
-              <p className="text-base sm:text-lg text-gray-400 mb-8 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg lg:text-lg text-gray-400 mb-6 sm:mb-7 md:mb-8 leading-relaxed">
                 {activeWall.description}
               </p>
 
               {/* Features List */}
-              <div className="space-y-3">
+              <div className="space-y-2 sm:space-y-2.5 md:space-y-3">
                 {activeWall.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-3">
+                  <div key={idx} className="flex items-center gap-2 sm:gap-3">
                     <div
-                      className={`w-6 h-6 rounded-full bg-gradient-to-r ${activeWall.color} flex items-center justify-center flex-shrink-0`}
+                      className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-r ${activeWall.color} flex items-center justify-center flex-shrink-0`}
                     >
-                      <FiCheckCircle className="w-4 h-4 text-white" />
+                      <FiCheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                     </div>
-                    <span className="text-base sm:text-lg text-gray-300">
+                    <span className="text-sm sm:text-base md:text-lg text-gray-300">
                       {feature}
                     </span>
                   </div>
