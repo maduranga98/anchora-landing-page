@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Script from "next/script";
+import CookieConsent from "@/components/CookieConsent";
 
 const siteUrl = "https://voxwel.com";
 
@@ -270,6 +271,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google Consent Mode */}
+        <Script id="google-consent-mode" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+
+            // Default consent mode - deny until user consents
+            gtag('consent', 'default', {
+              'analytics_storage': 'denied',
+              'ad_storage': 'denied',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied',
+              'wait_for_update': 500
+            });
+          `}
+        </Script>
+
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-L4G3KLH5QV"
@@ -280,7 +298,53 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-L4G3KLH5QV');
+
+            // Enhanced GA4 configuration
+            gtag('config', 'G-L4G3KLH5QV', {
+              'page_title': document.title,
+              'page_location': window.location.href,
+              'send_page_view': true,
+              'anonymize_ip': true,
+              'cookie_flags': 'SameSite=None;Secure'
+            });
+
+            // Track outbound links
+            document.addEventListener('click', function(e) {
+              const target = e.target.closest('a');
+              if (target && target.hostname !== window.location.hostname) {
+                gtag('event', 'click', {
+                  'event_category': 'outbound',
+                  'event_label': target.href,
+                  'transport_type': 'beacon'
+                });
+              }
+            });
+
+            // Track file downloads
+            document.addEventListener('click', function(e) {
+              const target = e.target.closest('a');
+              if (target && target.href.match(/\.(pdf|zip|doc|docx|xls|xlsx|ppt|pptx)$/i)) {
+                gtag('event', 'file_download', {
+                  'event_category': 'downloads',
+                  'event_label': target.href,
+                  'file_extension': target.href.split('.').pop()
+                });
+              }
+            });
+
+            // Track scroll depth
+            let scrollDepth = 0;
+            window.addEventListener('scroll', function() {
+              const currentScroll = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+              if (currentScroll > scrollDepth && currentScroll % 25 === 0) {
+                scrollDepth = currentScroll;
+                gtag('event', 'scroll', {
+                  'event_category': 'engagement',
+                  'event_label': scrollDepth + '%',
+                  'value': scrollDepth
+                });
+              }
+            });
           `}
         </Script>
 
@@ -336,6 +400,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased" suppressHydrationWarning>
         {children}
+        <CookieConsent />
       </body>
     </html>
   );
