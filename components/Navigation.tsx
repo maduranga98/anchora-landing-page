@@ -135,7 +135,7 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <AnchoraLogo size="default" />
-            <span className="text-xl font-bold bg-gradient-to-r from-white to-primary-teal bg-clip-text text-transparent">
+            <span className="text-base sm:text-lg md:text-xl font-bold bg-gradient-to-r from-white to-primary-teal bg-clip-text text-transparent">
               VoxWel
             </span>
           </div>
@@ -190,14 +190,14 @@ export default function Navigation() {
             {isHomePage ? (
               <button
                 onClick={() => scrollToSection("#contact")}
-                className="px-6 py-2.5 bg-gradient-to-r from-primary-teal to-teal-600 text-white rounded-lg font-semibold hover:from-primary-teal/90 hover:to-teal-600/90 transition-all duration-300 shadow-lg shadow-primary-teal/30 hover:shadow-xl hover:shadow-primary-teal/40"
+                className="px-4 md:px-5 lg:px-6 py-2 md:py-2.5 text-sm md:text-base bg-gradient-to-r from-primary-teal to-teal-600 text-white rounded-lg font-semibold hover:from-primary-teal/90 hover:to-teal-600/90 transition-all duration-300 shadow-lg shadow-primary-teal/30 hover:shadow-xl hover:shadow-primary-teal/40"
               >
                 Get Access Now
               </button>
             ) : (
               <Link
                 href="/#contact"
-                className="px-6 py-2.5 bg-gradient-to-r from-primary-teal to-teal-600 text-white rounded-lg font-semibold hover:from-primary-teal/90 hover:to-teal-600/90 transition-all duration-300 shadow-lg shadow-primary-teal/30 hover:shadow-xl hover:shadow-primary-teal/40"
+                className="px-4 md:px-5 lg:px-6 py-2 md:py-2.5 text-sm md:text-base bg-gradient-to-r from-primary-teal to-teal-600 text-white rounded-lg font-semibold hover:from-primary-teal/90 hover:to-teal-600/90 transition-all duration-300 shadow-lg shadow-primary-teal/30 hover:shadow-xl hover:shadow-primary-teal/40"
               >
                 Get Access Now
               </Link>

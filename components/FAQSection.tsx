@@ -67,10 +67,10 @@ export function FAQSection() {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-teal/10 border border-primary-teal/30 rounded-full text-primary-teal text-sm font-bold mb-6">
             💬 Got Questions?
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl mb-4">
+          <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-xl 2xl:text-xl text-gray-600 max-w-2xl mx-auto">
             Everything you need to know about VoxWel's anonymous workplace
             reporting platform
           </p>

@@ -93,10 +93,10 @@ export default function SimplePricing() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-slate-900 mb-4">
             Simple. Transparent. Affordable.
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl text-slate-600 max-w-3xl mx-auto">
             One price. Everything included. No hidden fees.
           </p>
         </div>
@@ -111,17 +111,17 @@ export default function SimplePricing() {
             {/* Price Display */}
             <div className="text-center mb-10">
               <div className="mb-4">
-                <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-slate-900">
+                <span className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-slate-900">
                   $1
                 </span>
-                <span className="text-2xl sm:text-3xl md:text-4xl text-slate-600 ml-2">
+                <span className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-4xl text-slate-600 ml-2">
                   / employee
                 </span>
               </div>
-              <p className="text-xl sm:text-2xl text-slate-600 font-medium">
+              <p className="text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-2xl 2xl:text-2xl text-slate-600 font-medium">
                 per month
               </p>
-              <p className="text-base sm:text-lg text-teal-600 font-semibold mt-2">
+              <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg 2xl:text-lg text-teal-600 font-semibold mt-2">
                 vs. {lawsuitCost} per lawsuit
               </p>
             </div>

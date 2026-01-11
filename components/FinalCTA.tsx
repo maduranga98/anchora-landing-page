@@ -102,14 +102,14 @@ export default function FinalCTA() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 md:mb-8 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-6 md:mb-8 leading-tight">
             Stop Waiting for
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-500 to-red-500">
               the Lawsuit
             </span>
           </h2>
-          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300 font-medium max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-gray-300 font-medium max-w-4xl mx-auto leading-relaxed">
             Your employees see the problems.
             <br />
             <span className="text-teal-400 font-bold">

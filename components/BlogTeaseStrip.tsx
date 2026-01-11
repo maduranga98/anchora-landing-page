@@ -16,10 +16,10 @@ export default function BlogTeaseStrip() {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/20 border border-teal-500/50 rounded-full text-teal-400 text-sm font-bold mb-6 backdrop-blur-sm">
             📚 Workplace Crisis Resources
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl font-bold text-white mb-4">
             Want to dig deeper?
           </h2>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+          <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-xl 2xl:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
             Learn more about the hidden costs of workplace problems
           </p>
         </div>
@@ -55,12 +55,12 @@ export default function BlogTeaseStrip() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-teal-400 transition-colors leading-tight line-clamp-2">
+                <h3 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl font-bold text-white mb-3 group-hover:text-teal-400 transition-colors leading-tight line-clamp-2">
                   {blog.title}
                 </h3>
 
                 {/* Excerpt */}
-                <p className="text-base text-gray-400 mb-6 leading-relaxed line-clamp-3">
+                <p className="text-sm sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-base text-gray-400 mb-6 leading-relaxed line-clamp-3">
                   {blog.excerpt}
                 </p>
 
