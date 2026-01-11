@@ -41,7 +41,7 @@ export default function Footer() {
           <div className="col-span-1 sm:col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <AnchoraLogo size="default" />
-              <span className="text-xl font-bold bg-gradient-to-r from-white to-primary-teal bg-clip-text text-transparent">VoxWel</span>
+              <span className="text-base sm:text-lg md:text-xl font-bold bg-gradient-to-r from-white to-primary-teal bg-clip-text text-transparent">VoxWel</span>
             </div>
             <p className="text-white/80 text-sm mb-4 leading-relaxed">
               Where Every Voice Matters. Transforming workplace communication

@@ -191,7 +191,7 @@ export default function SilentCrisis() {
 
               {/* Number */}
               <div
-                className={`${stat.color} text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold mb-2 sm:mb-2.5 md:mb-3 lg:mb-4`}
+                className={`${stat.color} text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-2 sm:mb-2.5 md:mb-3 lg:mb-4`}
               >
                 <AnimatedCounter
                   end={stat.number}
@@ -201,7 +201,7 @@ export default function SilentCrisis() {
               </div>
 
               {/* Label */}
-              <div className="text-gray-300 text-xs sm:text-sm md:text-base lg:text-base xl:text-lg font-medium leading-tight">
+              <div className="text-gray-300 text-xs sm:text-sm md:text-sm lg:text-base xl:text-base 2xl:text-lg font-medium leading-tight">
                 {stat.label}
               </div>
             </div>
@@ -219,10 +219,10 @@ export default function SilentCrisis() {
             }`}
           >
             <div className="bg-gradient-to-br from-red-500/20 to-orange-500/20 border-2 border-red-500/30 rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-7 lg:p-8 xl:p-10 backdrop-blur-sm">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4 md:mb-5 lg:mb-6 leading-tight">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-white mb-3 sm:mb-4 md:mb-5 lg:mb-6 leading-tight">
                 Your employees see the problems
               </h2>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl text-gray-300 leading-relaxed">
                 They witness harassment. Fraud. Safety violations.
                 Discrimination. Corruption.
               </p>
@@ -238,10 +238,10 @@ export default function SilentCrisis() {
             }`}
           >
             <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 border-2 border-gray-700/50 rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-7 lg:p-8 xl:p-10 backdrop-blur-sm">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-red-400 mb-3 sm:mb-4 md:mb-5 lg:mb-6 leading-tight">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-red-400 mb-3 sm:mb-4 md:mb-5 lg:mb-6 leading-tight">
                 But they're not telling you
               </h2>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl text-gray-400 leading-relaxed">
                 Fear of retaliation. Fear of being ignored. Fear of losing their
                 job.
               </p>
@@ -256,10 +256,10 @@ export default function SilentCrisis() {
           }`}
         >
           <div className="bg-white/5 backdrop-blur-md border-2 border-white/10 rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-7 lg:p-8 xl:p-10 shadow-2xl">
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-2 sm:mb-3 md:mb-4 leading-tight">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold text-white mb-2 sm:mb-3 md:mb-4 leading-tight">
               The problems your employees see every day
             </p>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-red-400 font-semibold leading-tight">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-red-400 font-semibold leading-tight">
               are destroying your company from within.
             </p>
           </div>

@@ -175,10 +175,10 @@ export default function FeaturesShowcase() {
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-teal-500/20 border border-teal-500/50 rounded-full text-teal-400 text-xs sm:text-sm md:text-base lg:text-lg font-bold mb-4 sm:mb-5 md:mb-6 backdrop-blur-sm">
             🎯 Complete Platform
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-3 sm:mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl 2xl:text-5xl font-bold text-white mb-3 sm:mb-4">
             Three Walls. One Platform.
           </h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-4xl mx-auto px-4">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl text-gray-400 max-w-4xl mx-auto px-4">
             Complete crisis prevention system for your workplace
           </p>
         </div>
@@ -252,15 +252,15 @@ export default function FeaturesShowcase() {
                 Wall {activeTab + 1} of 3
               </div>
 
-              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4">
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-white mb-3 sm:mb-4">
                 {activeWall.name}
               </h3>
 
-              <p className="text-lg sm:text-xl md:text-xl lg:text-2xl text-gray-300 mb-4 sm:mb-5 md:mb-6">
+              <p className="text-base sm:text-lg md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl text-gray-300 mb-4 sm:mb-5 md:mb-6">
                 {activeWall.tagline}
               </p>
 
-              <p className="text-sm sm:text-base md:text-lg lg:text-lg text-gray-400 mb-6 sm:mb-7 md:mb-8 leading-relaxed">
+              <p className="text-sm sm:text-sm md:text-base lg:text-base xl:text-lg 2xl:text-lg text-gray-400 mb-6 sm:mb-7 md:mb-8 leading-relaxed">
                 {activeWall.description}
               </p>
 

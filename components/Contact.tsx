@@ -166,11 +166,11 @@ export default function Contact() {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-teal/10 border border-primary-teal/30 rounded-full text-primary-teal text-sm font-bold mb-6">
             📧 Get in Touch
           </div>
-          <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-text-primary mb-6">
             Ready to Transform Your{" "}
             <span className="bg-gradient-to-r from-primary-teal to-blue-500 bg-clip-text text-transparent">Workplace?</span>
           </h3>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-xl 2xl:text-xl text-text-secondary max-w-3xl mx-auto">
             Get instant access - receive your login credentials via email. Start protecting your workplace in minutes.
           </p>
         </div>

@@ -109,7 +109,7 @@ export default function BrandStory() {
                     : "opacity-100 scale-100"
                 }`}
               >
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-slate-900">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-slate-900">
                   VoxWel
                 </h1>
               </div>
@@ -128,7 +128,7 @@ export default function BrandStory() {
                     currentStep >= 2 ? "translate-x-0" : "-translate-x-20"
                   }`}
                 >
-                  <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-primary-teal">
+                  <div className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-primary-teal">
                     VOX
                   </div>
                   {/* Step 3: Show meaning */}
@@ -139,10 +139,10 @@ export default function BrandStory() {
                         : "opacity-0 translate-y-4"
                     }`}
                   >
-                    <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-slate-700">
+                    <div className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-slate-700">
                       Voice
                     </div>
-                    <div className="text-sm sm:text-base md:text-lg text-slate-500 italic">
+                    <div className="text-xs sm:text-sm md:text-base lg:text-base xl:text-lg 2xl:text-lg text-slate-500 italic">
                       (Latin)
                     </div>
                   </div>
@@ -165,7 +165,7 @@ export default function BrandStory() {
                     currentStep >= 2 ? "translate-x-0" : "translate-x-20"
                   }`}
                 >
-                  <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-primary-navy">
+                  <div className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-primary-navy">
                     WEL
                   </div>
                   {/* Step 3: Show meaning */}
@@ -176,10 +176,10 @@ export default function BrandStory() {
                         : "opacity-0 translate-y-4"
                     }`}
                   >
-                    <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-slate-700">
+                    <div className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-slate-700">
                       Well-being
                     </div>
-                    <div className="text-sm sm:text-base md:text-lg text-slate-500 italic">
+                    <div className="text-xs sm:text-sm md:text-base lg:text-base xl:text-lg 2xl:text-lg text-slate-500 italic">
                       (English)
                     </div>
                   </div>
@@ -199,14 +199,14 @@ export default function BrandStory() {
         >
           {/* Statement 1 */}
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 lg:p-10 border-2 border-teal-200 shadow-xl hover:shadow-2xl transition-shadow">
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-slate-800 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-slate-800 leading-relaxed">
               Every voice <span className="text-primary-teal">matters.</span>
             </p>
           </div>
 
           {/* Statement 2 */}
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 lg:p-10 border-2 border-blue-200 shadow-xl hover:shadow-2xl transition-shadow">
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-slate-800 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-slate-800 leading-relaxed">
               Every employee deserves{" "}
               <span className="text-primary-navy">protection.</span>
             </p>
@@ -214,7 +214,7 @@ export default function BrandStory() {
 
           {/* Statement 3 */}
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 lg:p-10 border-2 border-teal-200 shadow-xl hover:shadow-2xl transition-shadow">
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-slate-800 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-slate-800 leading-relaxed">
               Every company deserves{" "}
               <span className="text-primary-teal">prevention.</span>
             </p>
@@ -230,10 +230,10 @@ export default function BrandStory() {
           }`}
         >
           <div className="bg-gradient-to-br from-primary-teal to-primary-navy rounded-3xl p-8 md:p-10 lg:p-12 shadow-2xl">
-            <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">
               That's why VoxWel exists.
             </p>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl text-white/90 leading-relaxed">
               Anonymous reporting. Military encryption.{" "}
               <br className="hidden sm:block" />
               Complete protection. Crisis prevention.
@@ -242,7 +242,7 @@ export default function BrandStory() {
 
           {/* Tagline */}
           <div className="mt-8 md:mt-12">
-            <p className="text-xl sm:text-2xl md:text-3xl font-medium text-slate-600 italic">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl font-medium text-slate-600 italic">
               Where Every Voice Matters
             </p>
           </div>
