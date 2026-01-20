@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import Image from "next/image";
+import HeroCTAVariant from "./HeroCTAVariant";
 
 export default function Hero() {
   const [currentProblemIndex, setCurrentProblemIndex] = useState(0);
@@ -61,6 +62,34 @@ export default function Hero() {
       top: window.innerHeight,
       behavior: "smooth",
     });
+  };
+
+  const openBookingWidget = () => {
+    // Dispatch custom event to open booking widget
+    window.dispatchEvent(new CustomEvent("openBookingWidget"));
+
+    // Track CTA click
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "hero_cta_clicked", {
+        event_category: "engagement",
+        event_label: "Hero Book Demo",
+      });
+    }
+  };
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Track CTA click
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "hero_learn_more_clicked", {
+        event_category: "engagement",
+        event_label: "Hero Learn More",
+      });
+    }
   };
 
   // Position classes for animated text - fully responsive across all screen sizes
@@ -147,6 +176,12 @@ export default function Hero() {
             <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-gray-200 font-medium leading-relaxed drop-shadow-2xl px-2 sm:px-3">
               You just don't know it yet.
             </p>
+
+            {/* CTA Buttons - Enhanced above-fold conversion with A/B testing */}
+            <HeroCTAVariant
+              onBookDemo={openBookingWidget}
+              onLearnMore={scrollToContact}
+            />
           </div>
 
           {/* Scroll Indicator - Responsive sizing and spacing */}

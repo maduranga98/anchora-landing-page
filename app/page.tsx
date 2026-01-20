@@ -19,6 +19,7 @@ import BlogTeaseStrip from "@/components/BlogTeaseStrip";
 import SimplePricing from "@/components/SimplePricing";
 import FeaturesShowcase from "@/components/FeaturesShowcase";
 import FinalCTA from "@/components/FinalCTA";
+import BookingWidget from "@/components/BookingWidget";
 
 export const metadata: Metadata = {
   alternates: {
@@ -48,6 +49,7 @@ export default function Home() {
         <FAQSection />
         <Contact />
         <Footer />
+        <BookingWidget />
       </main>
     </ErrorBoundary>
   );
