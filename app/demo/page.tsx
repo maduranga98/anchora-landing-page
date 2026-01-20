@@ -46,7 +46,8 @@ export default function DemoPage() {
     switch (name) {
       case "name":
         if (!value.trim()) return "Name is required";
-        if (value.trim().length < 2) return "Name must be at least 2 characters";
+        if (value.trim().length < 2)
+          return "Name must be at least 2 characters";
         return "";
       case "email":
         if (!value.trim()) return "Email is required";
@@ -70,7 +71,7 @@ export default function DemoPage() {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData({
@@ -90,7 +91,7 @@ export default function DemoPage() {
   const handleBlur = (
     e: React.FocusEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setTouched({
@@ -124,7 +125,7 @@ export default function DemoPage() {
           reply_to: formData.email,
           subject: "VoxWel Demo Booking Request",
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
       );
 
       console.log("Demo booking sent successfully:", result);
@@ -158,7 +159,7 @@ export default function DemoPage() {
       setStatus("error");
       setErrorMessage(
         error.text ||
-          "Failed to book demo. Please try again or email us directly at info@lumoraventures.com"
+          "Failed to book demo. Please try again or email us directly at info@lumoraventures.com",
       );
 
       setTimeout(() => {
@@ -200,6 +201,9 @@ export default function DemoPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <AnchoraLogo size="default" />
+            <span className="text-base sm:text-lg md:text-xl font-bold bg-gradient-to-r from-white to-primary-teal bg-clip-text text-transparent">
+              VoxWel
+            </span>
           </div>
           <Link
             href="/"
@@ -228,10 +232,14 @@ export default function DemoPage() {
               See VoxWel in Action
             </h1>
             <p className="text-xl sm:text-2xl text-text-secondary mb-8">
-              Book Your <span className="text-primary-teal font-semibold">Free 15-Minute Demo</span>
+              Book Your{" "}
+              <span className="text-primary-teal font-semibold">
+                Free 15-Minute Demo
+              </span>
             </p>
             <p className="text-lg text-text-tertiary max-w-2xl mx-auto">
-              Discover how VoxWel can help you create a safer workplace, prevent lawsuits, and protect your employees—all in just 15 minutes.
+              Discover how VoxWel can help you create a safer workplace, prevent
+              lawsuits, and protect your employees—all in just 15 minutes.
             </p>
           </div>
 
@@ -243,7 +251,9 @@ export default function DemoPage() {
               </div>
               <div>
                 <div className="font-bold text-text-primary">15 Minutes</div>
-                <div className="text-sm text-text-secondary">Quick & focused</div>
+                <div className="text-sm text-text-secondary">
+                  Quick & focused
+                </div>
               </div>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 flex items-center gap-4">
@@ -251,8 +261,12 @@ export default function DemoPage() {
                 <FiShield className="w-6 h-6 text-green-600" />
               </div>
               <div>
-                <div className="font-bold text-text-primary">No Credit Card</div>
-                <div className="text-sm text-text-secondary">Zero commitment</div>
+                <div className="font-bold text-text-primary">
+                  No Credit Card
+                </div>
+                <div className="text-sm text-text-secondary">
+                  Zero commitment
+                </div>
               </div>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 flex items-center gap-4">
@@ -260,8 +274,12 @@ export default function DemoPage() {
                 <FiTrendingUp className="w-6 h-6 text-blue-600" />
               </div>
               <div>
-                <div className="font-bold text-text-primary">Live Dashboard</div>
-                <div className="text-sm text-text-secondary">See it in action</div>
+                <div className="font-bold text-text-primary">
+                  Live Dashboard
+                </div>
+                <div className="text-sm text-text-secondary">
+                  See it in action
+                </div>
               </div>
             </div>
           </div>
@@ -274,7 +292,8 @@ export default function DemoPage() {
                   Book Your Free Demo
                 </h2>
                 <p className="text-text-secondary">
-                  Fill out the form below and we'll get back to you within 24 hours to schedule your personalized demo.
+                  Fill out the form below and we'll get back to you within 24
+                  hours to schedule your personalized demo.
                 </p>
               </div>
 
@@ -287,10 +306,13 @@ export default function DemoPage() {
                       Demo Booked Successfully! 🎉
                     </p>
                     <p className="text-green-700 mb-2">
-                      Thank you for your interest in VoxWel! We've received your demo request.
+                      Thank you for your interest in VoxWel! We've received your
+                      demo request.
                     </p>
                     <p className="text-green-700 text-sm">
-                      Our team will contact you within 24 hours at <strong>{formData.email}</strong> to confirm your demo time and send you the meeting link.
+                      Our team will contact you within 24 hours at{" "}
+                      <strong>{formData.email}</strong> to confirm your demo
+                      time and send you the meeting link.
                     </p>
                   </div>
                 </div>
@@ -331,8 +353,8 @@ export default function DemoPage() {
                         fieldErrors.name && touched.name
                           ? "border-red-500 focus:ring-red-500 focus:border-red-500"
                           : !fieldErrors.name && touched.name && formData.name
-                          ? "border-green-500 focus:ring-green-500 focus:border-green-500"
-                          : "border-gray-300 focus:ring-primary-teal focus:border-primary-teal"
+                            ? "border-green-500 focus:ring-green-500 focus:border-green-500"
+                            : "border-gray-300 focus:ring-primary-teal focus:border-primary-teal"
                       }`}
                       placeholder="John Doe"
                       disabled={status === "submitting"}
@@ -369,9 +391,11 @@ export default function DemoPage() {
                       className={`w-full px-4 py-4 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all text-lg ${
                         fieldErrors.email && touched.email
                           ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-                          : !fieldErrors.email && touched.email && formData.email
-                          ? "border-green-500 focus:ring-green-500 focus:border-green-500"
-                          : "border-gray-300 focus:ring-primary-teal focus:border-primary-teal"
+                          : !fieldErrors.email &&
+                              touched.email &&
+                              formData.email
+                            ? "border-green-500 focus:ring-green-500 focus:border-green-500"
+                            : "border-gray-300 focus:ring-primary-teal focus:border-primary-teal"
                       }`}
                       placeholder="john@company.com"
                       disabled={status === "submitting"}
@@ -408,16 +432,20 @@ export default function DemoPage() {
                       className={`w-full px-4 py-4 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all text-lg ${
                         fieldErrors.company && touched.company
                           ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-                          : !fieldErrors.company && touched.company && formData.company
-                          ? "border-green-500 focus:ring-green-500 focus:border-green-500"
-                          : "border-gray-300 focus:ring-primary-teal focus:border-primary-teal"
+                          : !fieldErrors.company &&
+                              touched.company &&
+                              formData.company
+                            ? "border-green-500 focus:ring-green-500 focus:border-green-500"
+                            : "border-gray-300 focus:ring-primary-teal focus:border-primary-teal"
                       }`}
                       placeholder="Your Company Inc."
                       disabled={status === "submitting"}
                     />
-                    {touched.company && !fieldErrors.company && formData.company && (
-                      <FiCheckCircle className="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 text-green-500" />
-                    )}
+                    {touched.company &&
+                      !fieldErrors.company &&
+                      formData.company && (
+                        <FiCheckCircle className="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 text-green-500" />
+                      )}
                   </div>
                   {fieldErrors.company && touched.company && (
                     <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
@@ -447,9 +475,11 @@ export default function DemoPage() {
                         className={`w-full px-4 py-4 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all text-lg appearance-none bg-white ${
                           fieldErrors.companySize && touched.companySize
                             ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-                            : !fieldErrors.companySize && touched.companySize && formData.companySize
-                            ? "border-green-500 focus:ring-green-500 focus:border-green-500"
-                            : "border-gray-300 focus:ring-primary-teal focus:border-primary-teal"
+                            : !fieldErrors.companySize &&
+                                touched.companySize &&
+                                formData.companySize
+                              ? "border-green-500 focus:ring-green-500 focus:border-green-500"
+                              : "border-gray-300 focus:ring-primary-teal focus:border-primary-teal"
                         }`}
                         disabled={status === "submitting"}
                       >
@@ -488,16 +518,24 @@ export default function DemoPage() {
                         className={`w-full px-4 py-4 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all text-lg appearance-none bg-white ${
                           fieldErrors.preferredTime && touched.preferredTime
                             ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-                            : !fieldErrors.preferredTime && touched.preferredTime && formData.preferredTime
-                            ? "border-green-500 focus:ring-green-500 focus:border-green-500"
-                            : "border-gray-300 focus:ring-primary-teal focus:border-primary-teal"
+                            : !fieldErrors.preferredTime &&
+                                touched.preferredTime &&
+                                formData.preferredTime
+                              ? "border-green-500 focus:ring-green-500 focus:border-green-500"
+                              : "border-gray-300 focus:ring-primary-teal focus:border-primary-teal"
                         }`}
                         disabled={status === "submitting"}
                       >
                         <option value="">Select time</option>
-                        <option value="Morning (9AM-12PM)">Morning (9AM-12PM)</option>
-                        <option value="Afternoon (12PM-3PM)">Afternoon (12PM-3PM)</option>
-                        <option value="Late Afternoon (3PM-6PM)">Late Afternoon (3PM-6PM)</option>
+                        <option value="Morning (9AM-12PM)">
+                          Morning (9AM-12PM)
+                        </option>
+                        <option value="Afternoon (12PM-3PM)">
+                          Afternoon (12PM-3PM)
+                        </option>
+                        <option value="Late Afternoon (3PM-6PM)">
+                          Late Afternoon (3PM-6PM)
+                        </option>
                         <option value="Flexible">Flexible</option>
                       </select>
                     </div>
@@ -575,7 +613,8 @@ export default function DemoPage() {
                   >
                     Privacy Policy
                   </Link>
-                  . We respect your privacy and will never share your information.
+                  . We respect your privacy and will never share your
+                  information.
                 </p>
               </form>
             </div>
@@ -595,7 +634,8 @@ export default function DemoPage() {
                   Anonymous Reporting
                 </h4>
                 <p className="text-text-secondary text-sm">
-                  See how employees can report issues completely anonymously with military-grade encryption.
+                  See how employees can report issues completely anonymously
+                  with military-grade encryption.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
@@ -606,7 +646,8 @@ export default function DemoPage() {
                   Real-Time Dashboard
                 </h4>
                 <p className="text-text-secondary text-sm">
-                  Live analytics showing workplace sentiment, trending issues, and department insights.
+                  Live analytics showing workplace sentiment, trending issues,
+                  and department insights.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
@@ -617,7 +658,8 @@ export default function DemoPage() {
                   15-Minute Setup
                 </h4>
                 <p className="text-text-secondary text-sm">
-                  Walk through the simple setup process and see how quickly you can deploy VoxWel.
+                  Walk through the simple setup process and see how quickly you
+                  can deploy VoxWel.
                 </p>
               </div>
             </div>
@@ -631,15 +673,27 @@ export default function DemoPage() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
               <AnchoraLogo size="small" />
+              <span className="text-base sm:text-lg md:text-xl font-bold bg-gradient-to-r from-white to-primary-teal bg-clip-text text-transparent">
+                VoxWel
+              </span>
             </div>
             <div className="flex items-center gap-6 text-sm">
-              <Link href="/privacy-policy" className="hover:text-primary-teal transition-colors">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-primary-teal transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link href="/terms-of-service" className="hover:text-primary-teal transition-colors">
+              <Link
+                href="/terms-of-service"
+                className="hover:text-primary-teal transition-colors"
+              >
                 Terms of Service
               </Link>
-              <a href="mailto:info@lumoraventures.com" className="hover:text-primary-teal transition-colors">
+              <a
+                href="mailto:info@lumoraventures.com"
+                className="hover:text-primary-teal transition-colors"
+              >
                 info@lumoraventures.com
               </a>
             </div>
