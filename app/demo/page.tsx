@@ -239,7 +239,7 @@ export default function DemoPage() {
             </p>
             <p className="text-lg text-text-tertiary max-w-2xl mx-auto">
               Discover how VoxWel can help you create a safer workplace, prevent
-              lawsuits, and protect your employees—all in just 15 minutes.
+              lawsuits, and protect your employees,all in just 15 minutes.
             </p>
           </div>
 

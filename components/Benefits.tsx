@@ -47,7 +47,7 @@ export default function Benefits() {
         { value: "$2M+", label: "Average serious accident cost" },
       ],
       testimonial:
-        '"Employees reported safety concerns anonymously. We fixed issues immediately. 2 months later, OSHA inspection—perfect score."',
+        '"Employees reported safety concerns anonymously. We fixed issues immediately. 2 months later, OSHA inspection,perfect score."',
       author: "Operations Manager, Construction",
     },
     {
@@ -113,7 +113,9 @@ export default function Benefits() {
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 leading-tight">
             Anonymous Employee Complaint Software ROI:{" "}
-            <span className="text-primary-teal">Prevent $75K-$300K Lawsuits</span>
+            <span className="text-primary-teal">
+              Prevent $75K-$300K Lawsuits
+            </span>
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-text-secondary max-w-4xl mx-auto mb-8">
             One prevented lawsuit pays for{" "}
@@ -187,7 +189,7 @@ export default function Benefits() {
                         {benefit.testimonial}
                       </p>
                       <p className="text-sm font-semibold text-text-tertiary">
-                        — {benefit.author}
+                        , {benefit.author}
                       </p>
                     </div>
                   </div>

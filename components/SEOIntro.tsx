@@ -15,7 +15,7 @@ export default function SEOIntro() {
         <p className="text-lg text-gray-700 leading-relaxed mb-6">
           Unlike traditional <strong>employee feedback tools</strong> and{" "}
           <strong>ethics hotlines</strong>, VoxWel combines anonymous reporting
-          with real-time analytics and workflow management—all at just $1 per
+          with real-time analytics and workflow management,all at just $1 per
           employee per month. EEOC compliant, SOX compliant, and aligned with
           the EU Whistleblower Directive 2019/1937.
         </p>
@@ -54,7 +54,9 @@ export default function SEOIntro() {
               />
             </svg>
             <div>
-              <strong className="text-gray-900">Whistleblower protection</strong>
+              <strong className="text-gray-900">
+                Whistleblower protection
+              </strong>
               <span className="text-gray-600">
                 {" "}
                 through military-grade encryption
@@ -93,7 +95,9 @@ export default function SEOIntro() {
               />
             </svg>
             <div>
-              <strong className="text-gray-900">Crisis prevention system</strong>
+              <strong className="text-gray-900">
+                Crisis prevention system
+              </strong>
               <span className="text-gray-600">
                 {" "}
                 catches issues before lawsuits

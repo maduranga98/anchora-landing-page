@@ -18,7 +18,7 @@ export default function Blogs() {
       category: "Case Study",
       title: "How One Anonymous Tip Saved a Company $250K",
       excerpt:
-        "Discover how a manufacturing company caught an expense fraud scheme early through VoxWel's anonymous reporting—before it escalated to a police investigation.",
+        "Discover how a manufacturing company caught an expense fraud scheme early through VoxWel's anonymous reporting,before it escalated to a police investigation.",
       date: "Nov 10, 2024",
       readTime: "5 min read",
       color: "from-red-500 to-red-700",
@@ -38,7 +38,7 @@ export default function Blogs() {
       category: "Industry Insights",
       title: "Why Traditional HR Hotlines Fail (And What Works Instead)",
       excerpt:
-        "A deep dive into why employees don't trust traditional reporting channels—and how modern anonymous platforms solve the problem.",
+        "A deep dive into why employees don't trust traditional reporting channels,and how modern anonymous platforms solve the problem.",
       date: "Nov 5, 2024",
       readTime: "6 min read",
       color: "from-purple-500 to-purple-700",
@@ -68,7 +68,7 @@ export default function Blogs() {
       category: "Culture",
       title: "Building a Speak-Up Culture: Lessons from Top Companies",
       excerpt:
-        "How industry leaders create environments where employees feel safe reporting issues—before they become crises.",
+        "How industry leaders create environments where employees feel safe reporting issues,before they become crises.",
       date: "Oct 25, 2024",
       readTime: "5 min read",
       color: "from-orange-500 to-orange-700",
@@ -87,11 +87,12 @@ export default function Blogs() {
             📚 Insights & Resources
           </h2>
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 leading-tight">
-            Learn How to <span className="text-primary-teal">Protect</span> Your Company
+            Learn How to <span className="text-primary-teal">Protect</span> Your
+            Company
           </h3>
           <p className="text-base md:text-lg lg:text-xl text-text-secondary max-w-4xl mx-auto">
-            Expert insights, case studies, and best practices for creating safer,
-            more transparent workplaces.
+            Expert insights, case studies, and best practices for creating
+            safer, more transparent workplaces.
           </p>
         </div>
 
@@ -155,8 +156,8 @@ export default function Blogs() {
               Stay Informed About Workplace Safety
             </h3>
             <p className="text-base md:text-lg text-white/90 mb-8">
-              Get the latest insights, case studies, and best practices delivered
-              to your inbox. No spam, just valuable content.
+              Get the latest insights, case studies, and best practices
+              delivered to your inbox. No spam, just valuable content.
             </p>
 
             <form className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
