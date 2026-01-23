@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FiShield, FiLock, FiCheckCircle, FiClock, FiDollarSign, FiZap } from "react-icons/fi";
+import { FiShield, FiLock, FiCheckCircle, FiClock, FiDollarSign, FiZap, FiHeart, FiUsers } from "react-icons/fi";
 
 const faqData = [
   {
@@ -53,6 +53,22 @@ const faqData = [
     icon: FiDollarSign,
     color: "text-emerald-500",
     bgColor: "bg-emerald-500/10",
+  },
+  {
+    question: "Can VoxWel help prevent workplace mental health crises?",
+    answer:
+      "Yes. VoxWel provides employees with a confidential, encrypted safe space to report work-related stress, harassment, or toxic conditions before they escalate into mental health crises. Early detection of workplace issues can prevent burnout, depression, and tragic outcomes.",
+    icon: FiHeart,
+    color: "text-red-500",
+    bgColor: "bg-red-500/10",
+  },
+  {
+    question: "How does anonymous reporting protect employee wellbeing?",
+    answer:
+      "Anonymous reporting removes the fear of retaliation, allowing employees to speak up about serious issues like excessive workload, harassment, or toxic management. This early intervention helps companies address problems before they cause severe mental health damage.",
+    icon: FiUsers,
+    color: "text-pink-500",
+    bgColor: "bg-pink-500/10",
   },
 ];
 

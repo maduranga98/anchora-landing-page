@@ -25,6 +25,14 @@ export const metadata: Metadata = {
     "EEOC compliant reporting",
     "ethics hotline",
     "employee reporting software",
+    "prevent workplace suicide",
+    "employee mental health crisis",
+    "workplace stress prevention",
+    "anonymous mental health reporting",
+    "workplace tragedy prevention",
+    "safe space for employees",
+    "workplace mental health support",
+    "prevent employee burnout crisis",
   ],
   authors: [{ name: "VoxWel", url: siteUrl }],
   creator: "VoxWel",
@@ -263,6 +271,22 @@ export default function RootLayout({
         acceptedAnswer: {
           "@type": "Answer",
           text: "VoxWel is priced affordably to ensure every company can afford crisis prevention. Preventing a single lawsuit ($75K-$300K) justifies decades of VoxWel service.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can VoxWel help prevent workplace mental health crises?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. VoxWel provides employees with a confidential, encrypted safe space to report work-related stress, harassment, or toxic conditions before they escalate into mental health crises. Early detection of workplace issues can prevent burnout, depression, and tragic outcomes.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How does anonymous reporting protect employee wellbeing?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Anonymous reporting removes the fear of retaliation, allowing employees to speak up about serious issues like excessive workload, harassment, or toxic management. This early intervention helps companies address problems before they cause severe mental health damage.",
         },
       },
     ],
