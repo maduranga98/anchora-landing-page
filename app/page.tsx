@@ -20,6 +20,7 @@ import SimplePricing from "@/components/SimplePricing";
 import FeaturesShowcase from "@/components/FeaturesShowcase";
 import FinalCTA from "@/components/FinalCTA";
 import BookingWidget from "@/components/BookingWidget";
+import HumanCost from "@/components/HumanCost";
 
 export const metadata: Metadata = {
   alternates: {
@@ -35,6 +36,7 @@ export default function Home() {
         <Navigation />
         <Hero />
         <SilentCrisis />
+        <HumanCost />
         <BlogTeaseStrip />
         <BrandStory />
         <FeaturesShowcase />
