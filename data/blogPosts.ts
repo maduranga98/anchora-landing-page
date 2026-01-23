@@ -18,7 +18,8 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: "workplace-pressure-mental-health-crisis-prevention",
-    title: "The Deadly Cost of Workplace Pressure: Why Silence Kills and How to Prevent It",
+    title:
+      "The Deadly Cost of Workplace Pressure: Why Silence Kills and How to Prevent It",
     excerpt:
       "Workplace pressure is causing mental health crises that companies ignore until it's too late. Learn how anonymous reporting systems prevent tragedies and protect employees before the breaking point.",
     category: "Crisis Prevention",
@@ -49,13 +50,13 @@ export const blogPosts: BlogPost[] = [
 
 ## When Companies Don't Care, Employees Pay the Ultimate Price
 
-Every year, employees around the world reach breaking points. The cause? Unbearable workplace stress that builds up over months—stress they feel unable to share with anyone.
+Every year, employees around the world reach breaking points. The cause? Unbearable workplace stress that builds up over months,stress they feel unable to share with anyone.
 
 **They have no safe place to speak.**
 
-Colleagues notice the changes: the exhaustion, the anxiety, the withdrawal. But workplace culture silences them. Fear of retaliation, fear of being labeled a complainer, fear of making things worse—all prevent the conversations that could make a difference.
+Colleagues notice the changes: the exhaustion, the anxiety, the withdrawal. But workplace culture silences them. Fear of retaliation, fear of being labeled a complainer, fear of making things worse,all prevent the conversations that could make a difference.
 
-This isn't rare. It's a pattern playing out in workplaces worldwide. And the companies that ignore this reality face devastating consequences—while the ones who act early prevent tragedies before they happen.
+This isn't rare. It's a pattern playing out in workplaces worldwide. And the companies that ignore this reality face devastating consequences,while the ones who act early prevent tragedies before they happen.
 
 ---
 
@@ -722,7 +723,7 @@ Anonymous reporting includes:
     slug: "bottom-up-decision-making-team-discussions",
     title: "Why Your Best Ideas Are Being Ignored (And How to Fix It)",
     excerpt:
-      "Discover how VoxWel's Team Discussions Wall transforms decision-making by tapping into collective intelligence. 73% of employees have valuable ideas management never hears—until now.",
+      "Discover how VoxWel's Team Discussions Wall transforms decision-making by tapping into collective intelligence. 73% of employees have valuable ideas management never hears,until now.",
     category: "Best Practices",
     date: "2025-01-10",
     readTime: "12 min read",
@@ -1443,7 +1444,7 @@ VoxWel's Team Discussions Wall integrates seamlessly with anonymous reporting an
     slug: "anonymous-tip-saved-company-250k",
     title: "How One Anonymous Tip Saved a Company $250K",
     excerpt:
-      "Discover how a manufacturing company caught an expense fraud scheme early through VoxWel's anonymous reporting—before it escalated to a police investigation.",
+      "Discover how a manufacturing company caught an expense fraud scheme early through VoxWel's anonymous reporting,before it escalated to a police investigation.",
     category: "Case Study",
     date: "2024-11-10",
     readTime: "5 min read",
@@ -1451,7 +1452,12 @@ VoxWel's Team Discussions Wall integrates seamlessly with anonymous reporting an
       name: "VoxWel Team",
       role: "Crisis Prevention Experts",
     },
-    tags: ["fraud prevention", "case study", "anonymous reporting", "compliance"],
+    tags: [
+      "fraud prevention",
+      "case study",
+      "anonymous reporting",
+      "compliance",
+    ],
     icon: "FiAlertTriangle",
     color: "from-red-500 to-red-700",
     content: `
@@ -1480,7 +1486,7 @@ The employee who submitted the tip later shared (still anonymously) why they cho
 
 - **Previous attempts ignored**: They had mentioned concerns to their manager, who dismissed them
 - **Fear of retaliation**: The suspected fraudster was a senior finance manager with 15 years at the company
-- **No other safe channel**: The company hotline was answered by HR, who reported directly to the CFO—creating a potential conflict
+- **No other safe channel**: The company hotline was answered by HR, who reported directly to the CFO,creating a potential conflict
 
 ## The Outcome
 
@@ -1524,7 +1530,7 @@ Consider this: if TechParts Inc. had waited just 3 more months to implement VoxW
 
 ## Conclusion
 
-Anonymous reporting isn't just about compliance—it's about giving your employees the safest, most effective way to protect your company from internal threats. When one employee feels safe enough to speak up, everyone wins.
+Anonymous reporting isn't just about compliance,it's about giving your employees the safest, most effective way to protect your company from internal threats. When one employee feels safe enough to speak up, everyone wins.
 
 **Is your company protected?** If an employee saw fraud tomorrow, would they have a safe way to report it?
 
@@ -1551,7 +1557,7 @@ Anonymous reporting isn't just about compliance—it's about giving your employe
     content: `
 # The Real Cost of Workplace Harassment (And How to Prevent It)
 
-Workplace harassment isn't just a moral issue—it's a financial catastrophe waiting to happen. In 2023 alone, companies paid out over $2.7 billion in harassment-related settlements and judgments.
+Workplace harassment isn't just a moral issue,it's a financial catastrophe waiting to happen. In 2023 alone, companies paid out over $2.7 billion in harassment-related settlements and judgments.
 
 ## The True Financial Impact
 
@@ -1761,7 +1767,7 @@ Traditional reporting requires victims to:
 
 Workplace harassment is preventable, but only if companies take proactive steps **before** incidents occur. The financial case is clear: prevention costs thousands, lawsuits cost millions.
 
-More importantly, every employee deserves to work in an environment free from harassment. When companies invest in safety, everyone wins—employees feel valued, productivity increases, and reputation strengthens.
+More importantly, every employee deserves to work in an environment free from harassment. When companies invest in safety, everyone wins,employees feel valued, productivity increases, and reputation strengthens.
 
 ## Take Action Today
 
@@ -1782,7 +1788,7 @@ More importantly, every employee deserves to work in an environment free from ha
     slug: "why-traditional-hr-hotlines-fail",
     title: "Why Traditional HR Hotlines Fail (And What Works Instead)",
     excerpt:
-      "A deep dive into why employees don't trust traditional reporting channels—and how modern anonymous platforms solve the problem.",
+      "A deep dive into why employees don't trust traditional reporting channels,and how modern anonymous platforms solve the problem.",
     category: "Industry Insights",
     date: "2024-11-05",
     readTime: "6 min read",
@@ -1790,7 +1796,12 @@ More importantly, every employee deserves to work in an environment free from ha
       name: "VoxWel Team",
       role: "Employee Relations Specialists",
     },
-    tags: ["HR technology", "employee reporting", "workplace culture", "innovation"],
+    tags: [
+      "HR technology",
+      "employee reporting",
+      "workplace culture",
+      "innovation",
+    ],
     icon: "FiTrendingUp",
     color: "from-purple-500 to-purple-700",
     content: `
@@ -2060,7 +2071,7 @@ Every day you operate with a modern platform, you're:
 - Building trust
 - Creating a speak-up culture
 
-**The question isn't whether to upgrade—it's how fast you can implement.**
+**The question isn't whether to upgrade,it's how fast you can implement.**
 
 ---
 
@@ -2523,7 +2534,7 @@ Most laws presume retaliation if adverse action occurs within:
 
 ## Conclusion
 
-Whistleblower protection isn't optional—it's a legal requirement with serious consequences for non-compliance.
+Whistleblower protection isn't optional,it's a legal requirement with serious consequences for non-compliance.
 
 **Key Takeaways:**
 
@@ -2555,7 +2566,10 @@ export function getAllBlogSlugs(): string[] {
 }
 
 // Helper function to get related posts based on tags
-export function getRelatedPosts(currentSlug: string, limit: number = 3): BlogPost[] {
+export function getRelatedPosts(
+  currentSlug: string,
+  limit: number = 3,
+): BlogPost[] {
   const currentPost = getBlogPostBySlug(currentSlug);
   if (!currentPost) return [];
 
@@ -2564,7 +2578,7 @@ export function getRelatedPosts(currentSlug: string, limit: number = 3): BlogPos
     .map((post) => {
       // Calculate relevance score based on matching tags
       const matchingTags = post.tags.filter((tag) =>
-        currentPost.tags.includes(tag)
+        currentPost.tags.includes(tag),
       ).length;
       return { post, score: matchingTags };
     })

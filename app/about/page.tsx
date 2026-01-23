@@ -64,7 +64,7 @@ export default function AboutPage() {
     {
       role: "Our Vision",
       description:
-        "A future where every company has an early warning system for workplace issues—preventing lawsuits, protecting reputations, and creating safer, more transparent work environments.",
+        "A future where every company has an early warning system for workplace issues,preventing lawsuits, protecting reputations, and creating safer, more transparent work environments.",
       icon: <FiAward className="w-12 h-12" />,
     },
   ];
@@ -96,7 +96,7 @@ export default function AboutPage() {
             </h3>
             <p className="text-base md:text-lg lg:text-xl text-text-secondary max-w-4xl mx-auto">
               Born from the reality that employees see problems every day but
-              fear speaking up. We created VoxWel to bridge that gap—protecting
+              fear speaking up. We created VoxWel to bridge that gap,protecting
               both people and companies.
             </p>
           </div>
@@ -160,7 +160,7 @@ export default function AboutPage() {
             <div className="space-y-4 text-base md:text-lg text-text-secondary leading-relaxed">
               <p>
                 We've seen it happen too many times: employees witness
-                harassment, fraud, safety violations, or corruption—but stay
+                harassment, fraud, safety violations, or corruption,but stay
                 silent out of fear. Fear of losing their job. Fear of
                 retaliation. Fear that nothing will change.
               </p>
@@ -175,7 +175,7 @@ export default function AboutPage() {
               </p>
               <p>
                 VoxWel creates a secure bridge between employees who see
-                problems and leaders who can fix them—before those problems
+                problems and leaders who can fix them,before those problems
                 explode. With military-grade anonymity, smart escalation, and
                 complete audit trails, we help companies catch storms before
                 they hit.
