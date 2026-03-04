@@ -75,10 +75,10 @@ export default function FeaturesSection() {
 
         {/* 3 Main Product Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          {mainCards.map((card) => (
+          {mainCards.map((card, i) => (
             <div
               key={card.title}
-              className="bg-slate-50 rounded-2xl p-8 border border-slate-100 flex flex-col"
+              className={`fade-in-up delay-${(i + 1) * 100} bg-slate-50 rounded-2xl p-8 border border-slate-100 flex flex-col`}
             >
               <div className="text-4xl mb-4">{card.icon}</div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">
@@ -98,10 +98,10 @@ export default function FeaturesSection() {
 
         {/* 6 Feature Tiles — 2×3 grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {featureTiles.map((tile) => (
+          {featureTiles.map((tile, i) => (
             <div
               key={tile.title}
-              className="flex items-start gap-4 p-6 rounded-xl border border-slate-100"
+              className={`fade-in-up delay-${(i + 1) * 100} flex items-start gap-4 p-6 rounded-xl border border-slate-100`}
             >
               <span className="text-2xl shrink-0 mt-0.5">{tile.icon}</span>
               <div>

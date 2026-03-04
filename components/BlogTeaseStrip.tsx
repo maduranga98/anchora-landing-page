@@ -4,87 +4,97 @@ import Link from "next/link";
 import { FiArrowRight, FiClock, FiCalendar } from "react-icons/fi";
 import { blogPosts } from "@/data/blogPosts";
 
+/** Map blog categories to light-mode colored pills */
+function categoryPill(category: string) {
+  switch (category) {
+    case "Best Practices":
+      return "bg-blue-50 text-blue-700 border border-blue-200";
+    case "Case Study":
+      return "bg-emerald-50 text-emerald-700 border border-emerald-200";
+    case "Compliance":
+      return "bg-indigo-50 text-indigo-700 border border-indigo-200";
+    default:
+      // Crisis Prevention and anything else → red
+      return "bg-red-50 text-red-700 border border-red-200";
+  }
+}
+
 export default function BlogTeaseStrip() {
-  // Get the 3 most recent blog posts
   const featuredBlogs = blogPosts.slice(0, 3);
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-slate-900">
-      <div className="section-container">
+    <section className="bg-slate-50 py-20 px-6">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/20 border border-teal-500/50 rounded-full text-teal-400 text-sm font-bold mb-6 backdrop-blur-sm">
-            📚 Workplace Crisis Resources
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl font-bold text-white mb-4">
+        <div className="text-center mb-12">
+          <p className="text-indigo-600 font-semibold text-sm uppercase tracking-wider mb-4">
+            RESOURCES
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
             Want to dig deeper?
           </h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-xl 2xl:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+          <p className="mt-4 text-slate-600 max-w-xl mx-auto">
             Learn more about the hidden costs of workplace problems
           </p>
         </div>
 
-        {/* Blog Cards Grid - 3 columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
+        {/* Blog Cards Grid — 1 col mobile → 3 col lg */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
           {featuredBlogs.map((blog) => (
             <Link
               key={blog.slug}
               href={`/blogs/${blog.slug}`}
-              className="group"
+              className="group flex flex-col bg-white rounded-2xl border border-slate-200 hover:border-indigo-200 hover:shadow-md transition-all duration-300 overflow-hidden"
             >
-              <div className="h-full bg-slate-800 rounded-2xl p-6 md:p-7 border-2 border-slate-700 hover:border-teal-500 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1">
-                {/* Category & Read Time */}
+              {/* Card body */}
+              <div className="flex flex-col flex-1 p-6 md:p-7">
+                {/* Category + read time */}
                 <div className="flex items-center justify-between mb-4">
                   <span
-                    className={`px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full ${
-                      blog.category === "Compliance"
-                        ? "bg-blue-500/20 text-blue-400 border border-blue-500/30"
-                        : blog.category === "Best Practices"
-                        ? "bg-purple-500/20 text-purple-400 border border-purple-500/30"
-                        : blog.category === "Case Study"
-                        ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
-                        : "bg-red-500/20 text-red-400 border border-red-500/30"
-                    }`}
+                    className={`px-3 py-1 text-xs font-semibold rounded-full ${categoryPill(blog.category)}`}
                   >
                     {blog.category}
                   </span>
-                  <div className="flex items-center gap-1.5 text-gray-500 text-sm">
-                    <FiClock className="w-4 h-4" />
+                  <div className="flex items-center gap-1.5 text-slate-400 text-xs">
+                    <FiClock className="w-3 h-3" />
                     <span>{blog.readTime}</span>
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg sm:text-xl md:text-xl lg:text-xl xl:text-2xl 2xl:text-2xl font-bold text-white mb-3 group-hover:text-teal-400 transition-colors leading-tight line-clamp-2">
+                <h3 className="text-base md:text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors leading-snug line-clamp-2 mb-3 flex-1">
                   {blog.title}
                 </h3>
 
                 {/* Excerpt */}
-                <p className="text-sm sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-base text-gray-400 mb-6 leading-relaxed line-clamp-3">
+                <p className="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-5">
                   {blog.excerpt}
                 </p>
 
-                {/* Footer */}
-                <div className="flex items-center justify-between pt-4 border-t border-slate-700">
-                  {/* Author & Date */}
-                  <div className="flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
-                        {blog.author.name.charAt(0)}
-                      </div>
-                      <div className="text-sm text-gray-400">
-                        {blog.author.name}
-                      </div>
+                {/* Footer row */}
+                <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                  <div className="flex items-center gap-2">
+                    <div className="w-7 h-7 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs font-bold">
+                      {blog.author.name.charAt(0)}
                     </div>
-                    <div className="flex items-center gap-1.5 text-gray-500 text-xs ml-10">
-                      <FiCalendar className="w-3 h-3" />
-                      <span>{new Date(blog.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                    <div>
+                      <p className="text-slate-700 text-xs font-medium">
+                        {blog.author.name}
+                      </p>
+                      <div className="flex items-center gap-1 text-slate-400 text-xs">
+                        <FiCalendar className="w-3 h-3" />
+                        <span>
+                          {new Date(blog.date).toLocaleDateString("en-US", {
+                            month: "short",
+                            day: "numeric",
+                            year: "numeric",
+                          })}
+                        </span>
+                      </div>
                     </div>
                   </div>
-
-                  {/* Read More */}
-                  <span className="text-teal-400 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Read
+                  <span className="text-indigo-600 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                    Read article
                     <FiArrowRight className="w-4 h-4" />
                   </span>
                 </div>
@@ -93,14 +103,14 @@ export default function BlogTeaseStrip() {
           ))}
         </div>
 
-        {/* See All Button */}
+        {/* See all */}
         <div className="text-center">
           <Link
             href="/blogs"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-teal-500/10 hover:bg-teal-500/20 border-2 border-teal-500/30 hover:border-teal-500/50 rounded-xl text-teal-400 hover:text-teal-300 font-bold text-lg transition-all group"
+            className="inline-flex items-center gap-2 px-6 py-3 border-2 border-indigo-200 text-indigo-600 hover:bg-indigo-600 hover:text-white hover:border-indigo-600 rounded-xl font-semibold text-sm transition-all group"
           >
             See All Articles
-            <FiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <FiArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>
       </div>

@@ -44,8 +44,8 @@ export default function SecuritySection() {
 
         {/* 2×2 Security Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-          {securityItems.map((item) => (
-            <div key={item.title} className="bg-slate-800 rounded-xl p-6">
+          {securityItems.map((item, i) => (
+            <div key={item.title} className={`fade-in-up delay-${(i + 1) * 100} bg-slate-800 rounded-xl p-6`}>
               <div className="text-3xl mb-4">{item.icon}</div>
               <h3 className="text-lg font-bold text-white mb-2">
                 {item.title}

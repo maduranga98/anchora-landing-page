@@ -232,6 +232,35 @@ img, video, iframe {
   }
 }
 
+/* ── Scroll-triggered fade-in-up animation ─────────────────────────────── */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-up.delay-100 { transition-delay: 0.1s; }
+.fade-in-up.delay-200 { transition-delay: 0.2s; }
+.fade-in-up.delay-300 { transition-delay: 0.3s; }
+.fade-in-up.delay-400 { transition-delay: 0.4s; }
+.fade-in-up.delay-500 { transition-delay: 0.5s; }
+
+/* Price counter pulse */
+@keyframes scalePulse {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.09); }
+  100% { transform: scale(1); }
+}
+
+.price-pulse {
+  animation: scalePulse 0.3s ease-out forwards;
+}
+
 /* Custom Gradients */
 .bg-gradient-primary {
   background: linear-gradient(135deg, var(--color-primary-navy) 0%, var(--color-primary-teal) 100%);
