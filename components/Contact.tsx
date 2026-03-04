@@ -556,7 +556,7 @@ export default function Contact() {
                   <li key={bold} className="flex items-start gap-3">
                     <FiCheckCircle className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
                     <span className="text-slate-700 text-sm">
-                      <strong className="text-slate-900">{bold}</strong> —{" "}
+                      {bold}: 
                       {rest}
                     </span>
                   </li>
