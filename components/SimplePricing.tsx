@@ -28,7 +28,7 @@ const comparisonRows = [
 
 export default function SimplePricing() {
   // ── Preserved calculator logic ─────────────────────────────────────────────
-  const [employeeCount, setEmployeeCount] = useState(100);
+  const [employeeCount, setEmployeeCount] = useState(50);
   const monthlyCost = employeeCount * 1;
   const annualCost = monthlyCost * 12;
 

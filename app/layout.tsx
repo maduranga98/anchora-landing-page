@@ -150,7 +150,7 @@ export default function RootLayout({
       "Military-grade AES-256 encryption",
       "EEOC compliance features",
       "Real-time analytics dashboard",
-      "7-state workflow management",
+      "7-stage workflow management",
       "Complete audit trails",
       "Department-based visibility controls",
       "Priority escalation system",
@@ -253,7 +253,7 @@ export default function RootLayout({
         name: "What is the difference between VoxWel and a traditional hotline?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Traditional hotlines lack anonymity and structure. VoxWel offers military-grade encryption, a 7-state workflow system, and an Early Warning System that prevents issues from escalating.",
+          text: "Traditional hotlines lack anonymity and structure. VoxWel offers military-grade encryption, a 7-stage workflow system, and an Early Warning System that prevents issues from escalating.",
         },
       },
       {

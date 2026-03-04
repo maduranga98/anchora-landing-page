@@ -155,8 +155,31 @@ export default function Contact() {
             Ready to protect your workplace?
           </h2>
           <p className="mt-4 text-slate-600 text-lg max-w-2xl mx-auto">
-            Submit your details and receive your login credentials via email.
-            Start protecting your workplace in minutes.
+            Book a demo or get instant access. Our team responds within 24 hours.
+          </p>
+        </div>
+
+        {/* Demo booking CTA */}
+        <div className="text-center mb-12 pb-12 border-b border-slate-200">
+          <span className="inline-block bg-indigo-50 text-indigo-700 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+            Prefer to talk first?
+          </span>
+          <h3 className="text-2xl font-bold text-slate-900 mb-3">
+            Book a 20-minute demo
+          </h3>
+          <p className="text-slate-500 mb-6 max-w-md mx-auto">
+            See VoxWel live. Get your questions answered. No commitment, no sales pressure.
+          </p>
+          <a
+            href="https://calendly.com/voxwel/demo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
+          >
+            📅 Schedule a Demo →
+          </a>
+          <p className="text-xs text-slate-400 mt-3">
+            Usually responds within 2 hours during business hours
           </p>
         </div>
 
@@ -343,7 +366,8 @@ export default function Contact() {
                     htmlFor="phone"
                     className="block text-sm font-medium text-slate-700 mb-1.5"
                   >
-                    Phone Number
+                    Phone Number{" "}
+                    <span className="text-slate-400 font-normal">(optional)</span>
                   </label>
                   <input
                     type="tel"
@@ -445,10 +469,10 @@ export default function Contact() {
                       Email Us
                     </p>
                     <a
-                      href="mailto:info@lumoraventures.com"
+                      href="mailto:hello@voxwel.com"
                       className="text-indigo-600 hover:underline text-sm"
                     >
-                      info@lumoraventures.com
+                      hello@voxwel.com
                     </a>
                   </div>
                 </div>

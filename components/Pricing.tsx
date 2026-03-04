@@ -12,7 +12,7 @@ export default function Pricing() {
     'Anonymous & named posting',
     'Real-time analytics dashboard',
     'Department management',
-    '7-state workflow system',
+    '7-stage workflow system',
     'Priority escalation',
     'File attachments (images, videos, PDFs)',
     'Content moderation tools',
