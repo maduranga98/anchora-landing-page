@@ -1,148 +1,105 @@
 "use client";
 
 import { useState } from "react";
-import { FiShield, FiLock, FiCheckCircle, FiClock, FiDollarSign, FiZap, FiHeart, FiUsers } from "react-icons/fi";
 
-const faqData = [
+const faqs = [
   {
     question: "How can VoxWel guarantee 100% anonymity for employees?",
     answer:
-      "VoxWel guarantees 100% anonymity through military-grade, end-to-end encryption and a strict, zero-knowledge protocol. Even system administrators cannot decrypt the identity of the user.",
-    icon: FiShield,
-    color: "text-blue-500",
-    bgColor: "bg-blue-500/10",
+      "VoxWel uses AES-256 end-to-end encryption and a zero-knowledge architecture. When an employee submits a report, no identifying metadata is stored — not their IP address, device fingerprint, or session data. Even VoxWel's own administrators cannot identify who submitted a report. Anonymity is architectural, not just a policy.",
   },
   {
-    question: "Can our company's IT department track who submitted a report?",
+    question: "Can our IT department track who submitted a report?",
     answer:
-      "No. VoxWel's platform is architected so that even your own company's administrators cannot access the underlying data to identify a user.",
-    icon: FiLock,
-    color: "text-purple-500",
-    bgColor: "bg-purple-500/10",
+      "No. VoxWel's system is specifically designed to prevent this. Reports are encrypted before they leave the employee's device and are stored in a way that makes source identification technically impossible, even with full database access.",
   },
   {
     question:
       "Is VoxWel compliant with GDPR and the EU Whistleblowing Directive?",
     answer:
-      "Yes. VoxWel is fully compliant with GDPR standards and the EU Whistleblowing Directive. Our complete audit trail provides documented proof.",
-    icon: FiCheckCircle,
-    color: "text-green-500",
-    bgColor: "bg-green-500/10",
+      "Yes. VoxWel is fully GDPR compliant and meets the requirements of EU Directive 2019/1937 (the EU Whistleblowing Directive), which mandates that organizations with 50+ employees provide a secure, confidential internal reporting channel. VoxWel provides this channel along with the documented audit trail required for regulatory compliance.",
   },
   {
     question:
-      "What is the difference between VoxWel and a traditional hotline?",
+      "What is the difference between VoxWel and a traditional whistleblower hotline?",
     answer:
-      "Traditional hotlines lack anonymity and structure. VoxWel offers military-grade encryption, a 7-state workflow system, and an Early Warning System that prevents issues from escalating.",
-    icon: FiZap,
-    color: "text-orange-500",
-    bgColor: "bg-orange-500/10",
+      "Traditional hotlines require employees to call a phone number — which many find intimidating, traceable, or only available during business hours. VoxWel is a fully digital platform available 24/7 via web browser and QR code. There is no phone call, no voice recording, and no way to trace the submission. It is also significantly more affordable: a traditional hotline costs $500–$2,000/month, while VoxWel costs $1/employee/month.",
+  },
+  {
+    question: "What types of issues can employees report through VoxWel?",
+    answer:
+      "Any workplace concern: harassment, sexual harassment, discrimination, fraud, expense abuse, OSHA and safety violations, conflicts of interest, retaliation, toxic management behavior, data privacy violations, ethical concerns, and any other compliance or conduct issue. Employees can also submit named suggestions and positive feedback through the same platform.",
   },
   {
     question: "How long does it take to set up VoxWel?",
     answer:
-      "VoxWel can be set up and operational in under 24 hours. Our QR Onboarding system allows employees to access the platform instantly.",
-    icon: FiClock,
-    color: "text-teal-500",
-    bgColor: "bg-teal-500/10",
+      "24 hours or less. Once you sign up, you receive a company-specific QR code and reporting link that you can distribute to your team immediately. There is no IT project, no app installation, and no employee training required. Most organizations are fully live within the same business day.",
   },
   {
-    question: "Why is VoxWel priced at only $1/employee/month?",
+    question: "Why is VoxWel priced at only $1 per employee per month?",
     answer:
-      "VoxWel is priced affordably to ensure every company can afford crisis prevention. Preventing a single lawsuit ($75K-$300K) justifies decades of VoxWel service.",
-    icon: FiDollarSign,
-    color: "text-emerald-500",
-    bgColor: "bg-emerald-500/10",
+      "We designed VoxWel to be accessible to every company, not just enterprises with six-figure compliance budgets. A 100-person company pays $100/month — the cost of one business lunch. The alternative is a $75,000+ lawsuit that could have been prevented by an early anonymous report. The ROI makes the decision straightforward.",
   },
   {
-    question: "Can VoxWel help prevent workplace mental health crises?",
+    question: "What is the difference between the three reporting walls?",
     answer:
-      "Yes. VoxWel provides employees with a confidential, encrypted safe space to report work-related stress, harassment, or toxic conditions before they escalate into mental health crises. Early detection of workplace issues can prevent burnout, depression, and tragic outcomes.",
-    icon: FiHeart,
-    color: "text-red-500",
-    bgColor: "bg-red-500/10",
-  },
-  {
-    question: "How does anonymous reporting protect employee wellbeing?",
-    answer:
-      "Anonymous reporting removes the fear of retaliation, allowing employees to speak up about serious issues like excessive workload, harassment, or toxic management. This early intervention helps companies address problems before they cause severe mental health damage.",
-    icon: FiUsers,
-    color: "text-pink-500",
-    bgColor: "bg-pink-500/10",
+      "VoxWel has three distinct channels in one platform: Anonymous Reports (fully encrypted, completely anonymous reporting for sensitive issues), Team Pulse (open team discussion and feedback for workplace improvement ideas), and Recognition Feed (public celebration of achievements and team milestones). All three are accessible from one dashboard with role-based access controls.",
   },
 ];
 
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
+
   return (
-    <section id="faq" className="bg-gradient-to-b from-gray-50 to-white py-16 sm:py-24">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="bg-slate-50 py-24 px-6">
+      <div className="max-w-3xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-teal/10 border border-primary-teal/30 rounded-full text-primary-teal text-sm font-bold mb-6">
-            💬 Got Questions?
-          </div>
-          <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl mb-4">
-            Frequently Asked Questions
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+            Frequently asked questions
           </h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-xl 2xl:text-xl text-gray-600 max-w-2xl mx-auto">
-            Everything you need to know about VoxWel's anonymous workplace
-            reporting platform
-          </p>
         </div>
 
-        <div className="space-y-4">
-          {faqData.map((faq, index) => {
-            const IconComponent = faq.icon;
+        {/* Accordion */}
+        <div className="space-y-3">
+          {faqs.map((faq, i) => {
+            const isOpen = openIndex === i;
             return (
               <div
-                key={index}
-                className={`bg-white rounded-2xl shadow-lg overflow-hidden border-2 transition-all duration-300 ${
-                  openIndex === index
-                    ? "border-primary-teal shadow-2xl"
-                    : "border-transparent hover:border-gray-200"
+                key={i}
+                className={`bg-white rounded-xl border transition-shadow ${
+                  isOpen
+                    ? "border-indigo-200 shadow-md"
+                    : "border-slate-200 hover:border-slate-300"
                 }`}
               >
                 <button
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className="w-full px-6 py-5 text-left flex items-start gap-4 hover:bg-gray-50/50 transition-colors"
+                  onClick={() => toggle(i)}
+                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+                  aria-expanded={isOpen}
                 >
-                  {/* Icon */}
-                  <div className={`${faq.bgColor} ${faq.color} p-3 rounded-xl flex-shrink-0 mt-1`}>
-                    <IconComponent className="w-5 h-5" />
-                  </div>
-
-                  {/* Question */}
-                  <div className="flex-1">
-                    <span className="text-lg font-semibold text-gray-900 pr-8 block">
-                      {faq.question}
-                    </span>
-                  </div>
-
-                  {/* Arrow Icon */}
-                  <svg
-                    className={`w-6 h-6 text-primary-teal flex-shrink-0 transform transition-transform mt-1 ${
-                      openIndex === index ? "rotate-180" : ""
+                  <span className="font-semibold text-slate-900 text-sm md:text-base">
+                    {faq.question}
+                  </span>
+                  <span
+                    className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-lg font-bold transition-colors ${
+                      isOpen
+                        ? "bg-indigo-600 text-white"
+                        : "bg-slate-100 text-slate-500"
                     }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
+                    {isOpen ? "×" : "+"}
+                  </span>
                 </button>
 
-                {openIndex === index && (
-                  <div className="px-6 pb-6 pl-[76px] text-gray-700 leading-relaxed animate-fade-in">
-                    <div className="bg-gray-50 rounded-lg p-4 border-l-4 border-primary-teal">
+                {isOpen && (
+                  <div className="px-6 pb-5">
+                    <p className="text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
                       {faq.answer}
-                    </div>
+                    </p>
                   </div>
                 )}
               </div>
@@ -150,25 +107,15 @@ export function FAQSection() {
           })}
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-br from-primary-teal/10 via-primary-navy/5 to-purple-500/10 rounded-2xl p-8 md:p-10 border-2 border-primary-teal/20">
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">
-              Still have questions?
-            </h3>
-            <p className="text-lg text-gray-600 mb-6 max-w-xl mx-auto">
-              Our team is here to help. Schedule a personalized demo and get all your questions answered.
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary-teal text-base font-bold rounded-xl text-white bg-primary-teal hover:bg-primary-teal/90 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
-            >
-              Schedule a Demo
-              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-          </div>
+        {/* Bottom CTA */}
+        <div className="mt-12 text-center">
+          <p className="text-slate-500 mb-4">Still have questions?</p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white text-sm font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
+          >
+            Schedule a Demo →
+          </a>
         </div>
       </div>
     </section>
