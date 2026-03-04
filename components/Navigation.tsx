@@ -50,7 +50,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full bg-white/95 backdrop-blur-sm transition-all duration-300 ${
         scrolled ? "shadow-sm border-b border-slate-100" : "border-b border-transparent"
       }`}
     >
@@ -104,29 +104,14 @@ export default function Navigation() {
             })}
           </div>
 
-          {/* Right CTA Buttons */}
-          <div className="hidden md:flex items-center gap-3 shrink-0">
-            <a
-              href="https://app.voxwel.com/login"
-              className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
+          {/* Right CTA Button */}
+          <div className="hidden md:flex items-center shrink-0">
+            <Link
+              href="/demo"
+              className="bg-indigo-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors shadow-sm"
             >
-              Login
-            </a>
-            {isHomePage ? (
-              <button
-                onClick={() => scrollToSection("#contact")}
-                className="bg-indigo-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors shadow-sm"
-              >
-                Book a Demo →
-              </button>
-            ) : (
-              <Link
-                href="/#contact"
-                className="bg-indigo-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors shadow-sm"
-              >
-                Book a Demo →
-              </Link>
-            )}
+              Book a Demo →
+            </Link>
           </div>
 
           {/* Mobile hamburger */}
@@ -184,29 +169,14 @@ export default function Navigation() {
               );
             })}
 
-            <div className="pt-4 mt-2 border-t border-slate-200 space-y-3">
-              <a
-                href="https://app.voxwel.com/login"
-                className="block w-full py-2.5 text-center text-sm font-semibold text-slate-700 border border-slate-300 rounded-lg hover:border-slate-400 transition-colors"
+            <div className="pt-4 mt-2 border-t border-slate-200">
+              <Link
+                href="/demo"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full py-2.5 text-center text-sm font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors"
               >
-                Login
-              </a>
-              {isHomePage ? (
-                <button
-                  onClick={() => scrollToSection("#contact")}
-                  className="block w-full py-2.5 text-center text-sm font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors"
-                >
-                  Book a Demo →
-                </button>
-              ) : (
-                <Link
-                  href="/#contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full py-2.5 text-center text-sm font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors"
-                >
-                  Book a Demo →
-                </Link>
-              )}
+                Book a Demo →
+              </Link>
             </div>
           </div>
         </div>

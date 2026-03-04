@@ -1,20 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      const navbarHeight = window.innerWidth >= 768 ? 64 : 56;
-      const offset = 20;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + window.scrollY - navbarHeight - offset;
-      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-    }
-  };
-
   const trustItems = [
     "No credit card required",
     "GDPR compliant",
@@ -50,18 +39,18 @@ export default function Hero() {
 
             {/* CTA buttons */}
             <div className="flex flex-wrap gap-4 mb-8">
-              <button
-                onClick={scrollToContact}
+              <Link
+                href="/demo"
                 className="bg-indigo-600 text-white font-semibold px-8 py-4 rounded-xl hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 text-base"
               >
                 Book a Free Demo →
-              </button>
-              <button
-                onClick={scrollToContact}
+              </Link>
+              <Link
+                href="/demo"
                 className="border-2 border-slate-200 text-slate-700 font-semibold px-8 py-4 rounded-xl hover:border-slate-300 transition-all text-base"
               >
                 Start 14-Day Free Trial
-              </button>
+              </Link>
             </div>
 
             {/* Trust micro-copy */}
