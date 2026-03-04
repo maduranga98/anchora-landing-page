@@ -90,7 +90,7 @@ export default function Footer() {
             {/* Social icons */}
             <div className="flex items-center gap-3">
               <a
-                href="https://www.linkedin.com/company/lumora-ventures-pvt-ltd/"
+                href="https://www.linkedin.com/company/voxwel/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
