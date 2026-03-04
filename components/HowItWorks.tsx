@@ -40,10 +40,10 @@ export default function HowItWorks() {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 relative z-10">
-            {steps.map((step) => (
+            {steps.map((step, i) => (
               <div
                 key={step.number}
-                className="flex flex-col items-start md:items-center"
+                className={`fade-in-up delay-${(i + 1) * 100} flex flex-col items-start md:items-center`}
               >
                 {/* Numbered circle */}
                 <div className="w-16 h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center text-2xl font-bold shrink-0 mb-6 shadow-lg">

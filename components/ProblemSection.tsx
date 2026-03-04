@@ -47,10 +47,10 @@ export default function ProblemSection() {
 
         {/* Stats grid — 2×2 on small, 4 cols on md+ */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {stats.map((stat) => (
+          {stats.map((stat, i) => (
             <div
               key={stat.number}
-              className="bg-slate-50 rounded-2xl p-8 text-center"
+              className={`fade-in-up delay-${(i + 1) * 100} bg-slate-50 rounded-2xl p-8 text-center`}
             >
               <div
                 className={`text-5xl font-extrabold ${stat.colorClass}`}

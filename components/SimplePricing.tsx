@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FiCheck } from "react-icons/fi";
 
 // ── Feature list (2-column pairs) ────────────────────────────────────────────
@@ -31,6 +31,14 @@ export default function SimplePricing() {
   const [employeeCount, setEmployeeCount] = useState(100);
   const monthlyCost = employeeCount * 1;
   const annualCost = monthlyCost * 12;
+
+  // Pulse animation whenever the price updates
+  const [priceAnimate, setPriceAnimate] = useState(false);
+  useEffect(() => {
+    setPriceAnimate(true);
+    const t = setTimeout(() => setPriceAnimate(false), 320);
+    return () => clearTimeout(t);
+  }, [employeeCount]);
 
   const scrollToContact = () => {
     const element = document.getElementById("contact");
@@ -110,13 +118,17 @@ export default function SimplePricing() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-4 bg-white rounded-xl border-2 border-indigo-100">
-                  <div className="text-2xl font-bold text-indigo-600">
+                  <div
+                    className={`text-2xl font-bold text-indigo-600${priceAnimate ? " price-pulse" : ""}`}
+                  >
                     ${monthlyCost}
                   </div>
                   <div className="text-xs text-slate-500 mt-1">per month</div>
                 </div>
                 <div className="text-center p-4 bg-white rounded-xl border-2 border-indigo-100">
-                  <div className="text-2xl font-bold text-indigo-600">
+                  <div
+                    className={`text-2xl font-bold text-indigo-600${priceAnimate ? " price-pulse" : ""}`}
+                  >
                     ${annualCost.toLocaleString()}
                   </div>
                   <div className="text-xs text-slate-500 mt-1">per year</div>
