@@ -1,26 +1,17 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import SEOIntro from "@/components/SEOIntro";
-import ProblemStatement from "@/components/ProblemStatement";
-import Benefits from "@/components/Benefits";
-import Features from "@/components/Features";
-import ComplianceSection from "@/components/ComplianceSection";
-import Pricing from "@/components/Pricing";
+import TrustBar from "@/components/TrustBar";
+import ProblemSection from "@/components/ProblemSection";
+import HowItWorks from "@/components/HowItWorks";
+import SimplePricing from "@/components/SimplePricing";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { WebVitals } from "./web-vitals";
 import { FAQSection } from "@/components/FAQSection";
+import BookingWidget from "@/components/BookingWidget";
 
 import { Metadata } from "next";
-import SilentCrisis from "@/components/SilentCrisis";
-import BrandStory from "@/components/BrandStory";
-import BlogTeaseStrip from "@/components/BlogTeaseStrip";
-import SimplePricing from "@/components/SimplePricing";
-import FeaturesShowcase from "@/components/FeaturesShowcase";
-import FinalCTA from "@/components/FinalCTA";
-import BookingWidget from "@/components/BookingWidget";
-import HumanCost from "@/components/HumanCost";
 
 export const metadata: Metadata = {
   alternates: {
@@ -35,19 +26,10 @@ export default function Home() {
       <main className="min-h-screen w-full overflow-x-hidden">
         <Navigation />
         <Hero />
-        <SilentCrisis />
-        <HumanCost />
-        <BlogTeaseStrip />
-        <BrandStory />
-        <FeaturesShowcase />
+        <TrustBar />
+        <ProblemSection />
+        <HowItWorks />
         <SimplePricing />
-        <FinalCTA />
-        {/* <SEOIntro />
-        <ProblemStatement />
-        <Features />
-        <Benefits />
-        <ComplianceSection />
-        <Pricing /> */}
         <FAQSection />
         <Contact />
         <Footer />

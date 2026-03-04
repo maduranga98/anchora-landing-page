@@ -12,12 +12,19 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://voxwel.com"),
   title: {
     default:
-      "Anonymous Workplace Harassment Reporting Software | VoxWel - Prevent Lawsuits",
+      "VoxWel — Anonymous Employee Reporting Software | Whistleblower Platform",
     template: "%s | VoxWel",
   },
   description:
-    "VoxWel is an anonymous employee complaint and harassment reporting platform with military-grade encryption. EEOC compliant, $1/employee/month. Prevent workplace lawsuits, fraud, and safety violations. 14-day free trial.",
+    "VoxWel gives employees a confidential, encrypted channel to report harassment, fraud, and safety violations anonymously. GDPR compliant. Setup in 24 hours. $1/employee/month.",
   keywords: [
+    "anonymous employee reporting software",
+    "whistleblower platform",
+    "anonymous reporting tool HR",
+    "workplace incident reporting",
+    "GDPR whistleblowing software",
+    "employee speak up platform",
+    "whistleblower hotline alternative",
     "whistleblowing software",
     "anonymous reporting",
     "workplace harassment reporting",
@@ -25,14 +32,6 @@ export const metadata: Metadata = {
     "EEOC compliant reporting",
     "ethics hotline",
     "employee reporting software",
-    "prevent workplace suicide",
-    "employee mental health crisis",
-    "workplace stress prevention",
-    "anonymous mental health reporting",
-    "workplace tragedy prevention",
-    "safe space for employees",
-    "workplace mental health support",
-    "prevent employee burnout crisis",
   ],
   authors: [{ name: "VoxWel", url: siteUrl }],
   creator: "VoxWel",
@@ -55,9 +54,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    title: "VoxWel - Anonymous Workplace Harassment Reporting Software",
+    title: "VoxWel — Anonymous Employee Reporting Software",
     description:
-      "Prevent workplace lawsuits with anonymous employee reporting. EEOC compliant, military-grade encryption, $1/employee/month.",
+      "Give every employee a safe voice. Anonymous, encrypted workplace reporting. GDPR compliant. $1/employee/month.",
     siteName: "VoxWel",
     images: [
       {
@@ -71,9 +70,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "VoxWel - Anonymous Workplace Harassment Reporting",
+    title: "VoxWel — Anonymous Employee Reporting Software",
     description:
-      "Prevent lawsuits with anonymous reporting. EEOC compliant, $1/employee/month.",
+      "Give every employee a safe voice. Anonymous, encrypted workplace reporting. GDPR compliant. $1/employee/month.",
     images: [`${siteUrl}/voxwel-og-image.png`],
   },
   robots: {
@@ -378,6 +377,11 @@ export default function RootLayout({
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
+        />
+        {/* Inter font */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
         />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
