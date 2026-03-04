@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import {
   FiMail,
   FiPhone,
@@ -170,14 +171,12 @@ export default function Contact() {
           <p className="text-slate-500 mb-6 max-w-md mx-auto">
             See VoxWel live. Get your questions answered. No commitment, no sales pressure.
           </p>
-          <a
-            href="https://calendly.com/voxwel/demo"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/demo"
             className="inline-flex items-center gap-2 bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
           >
             📅 Schedule a Demo →
-          </a>
+          </Link>
           <p className="text-xs text-slate-400 mt-3">
             Usually responds within 2 hours during business hours
           </p>
