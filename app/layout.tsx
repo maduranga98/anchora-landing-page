@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Script from "next/script";
 import CookieConsent from "@/components/CookieConsent";
+import FloatingDemoCTA from "@/components/FloatingDemoCTA";
 
 const siteUrl = "https://voxwel.com";
 
@@ -429,6 +430,7 @@ export default function RootLayout({
       <body className="antialiased" suppressHydrationWarning>
         {children}
         <CookieConsent />
+        <FloatingDemoCTA />
       </body>
     </html>
   );

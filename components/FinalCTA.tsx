@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 const trustStats = [
   "14-day free trial",
   "No credit card required",
@@ -8,18 +10,6 @@ const trustStats = [
 ];
 
 export default function FinalCTA() {
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      const navbarHeight = window.innerWidth >= 768 ? 64 : 56;
-      const offset = 20;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + window.scrollY - navbarHeight - offset;
-      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-    }
-  };
-
   return (
     <section
       id="final-cta"
@@ -39,18 +29,18 @@ export default function FinalCTA() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-          <button
-            onClick={scrollToContact}
+          <Link
+            href="/demo"
             className="bg-white text-indigo-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-indigo-50 transition-colors w-full sm:w-auto"
           >
             Book a Demo →
-          </button>
-          <button
-            onClick={scrollToContact}
+          </Link>
+          <Link
+            href="/demo"
             className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-indigo-700 transition-colors w-full sm:w-auto"
           >
             Start Free Trial
-          </button>
+          </Link>
         </div>
 
         {/* Trust stats */}

@@ -29,7 +29,7 @@ export default function Home() {
     <ErrorBoundary>
       <WebVitals />
       <ScrollAnimationObserver />
-      <main className="min-h-screen w-full overflow-x-hidden">
+      <main className="min-h-screen w-full overflow-x-hidden pt-16">
         {/* Section 1 — Navbar */}
         <Navigation />
         {/* Section 2 — Hero */}
