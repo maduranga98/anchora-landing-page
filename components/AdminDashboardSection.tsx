@@ -13,9 +13,7 @@ export default function AdminDashboardSection() {
   return (
     <section className="bg-slate-900 py-24 px-6">
       <div className="max-w-6xl mx-auto">
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
           {/* Left — text */}
           <div>
             <p className="text-indigo-400 font-semibold text-sm uppercase tracking-wider mb-4">
@@ -25,9 +23,9 @@ export default function AdminDashboardSection() {
               One dashboard. Complete oversight.
             </h2>
             <p className="text-slate-400 text-lg leading-relaxed mb-8">
-              HR admins see everything. Employees stay anonymous.
-              Every report tracked, assigned, and documented automatically.
-              Your entire workplace compliance operation in one place.
+              HR admins see everything. Employees stay anonymous. Every report
+              tracked, assigned, and documented automatically. Your entire
+              workplace compliance operation in one place.
             </p>
             <div className="grid grid-cols-2 gap-4">
               {adminModules.map((item) => (
@@ -57,15 +55,18 @@ export default function AdminDashboardSection() {
               </span>
             </div>
             <Image
-              src="/screenshots/admin-dashboard.png"
+              src="/screenshots/admin-dashboard.avif "
               alt="VoxWel Admin Dashboard showing moderation, analytics, HR dashboard, and audit log modules"
               width={800}
               height={500}
               className="w-full"
-              style={{ objectFit: "cover", objectPosition: "top", maxHeight: "500px" }}
+              style={{
+                objectFit: "cover",
+                objectPosition: "top",
+                maxHeight: "500px",
+              }}
             />
           </div>
-
         </div>
       </div>
     </section>

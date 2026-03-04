@@ -26,10 +26,8 @@ export default function Hero() {
     <section className="bg-gradient-to-b from-slate-50 to-white">
       <div className="max-w-7xl mx-auto px-6 pt-20 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-
           {/* LEFT — Text (3 cols) */}
           <div className="lg:col-span-3">
-
             {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 border border-indigo-100">
               <span className="w-1.5 h-1.5 bg-indigo-600 rounded-full pulse-ring"></span>
@@ -39,8 +37,8 @@ export default function Hero() {
             {/* H1 */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1] tracking-tight mb-6">
               Give every employee a{" "}
-              <span className="text-indigo-600">safe voice</span>
-              {" "}before problems become lawsuits.
+              <span className="text-indigo-600">safe voice</span> before
+              problems become lawsuits.
             </h1>
 
             {/* Sub-headline */}
@@ -107,7 +105,7 @@ export default function Hero() {
               </div>
               {/* Screenshot */}
               <Image
-                src="/screenshots/problems-wall.png"
+                src="/screenshots/problems-wall.avif"
                 alt="VoxWel anonymous reports dashboard showing employee reports with priority levels and anonymous verification"
                 width={800}
                 height={560}
@@ -121,7 +119,6 @@ export default function Hero() {
               Anonymous Reports Dashboard — visible only to HR admins
             </p>
           </div>
-
         </div>
       </div>
     </section>

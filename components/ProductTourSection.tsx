@@ -1,8 +1,16 @@
 import Image from "next/image";
 
 const CheckIcon = () => (
-  <svg className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+  <svg
+    className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0"
+    fill="currentColor"
+    viewBox="0 0 20 20"
+  >
+    <path
+      fillRule="evenodd"
+      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+      clipRule="evenodd"
+    />
   </svg>
 );
 
@@ -21,7 +29,6 @@ export default function ProductTourSection() {
   return (
     <section className="bg-white py-24 px-6">
       <div className="max-w-6xl mx-auto">
-
         <p className="text-indigo-600 font-semibold text-sm uppercase tracking-wider mb-4">
           The Platform
         </p>
@@ -29,7 +36,8 @@ export default function ProductTourSection() {
           See exactly what your HR team gets
         </h2>
         <p className="text-slate-600 text-lg mb-20 max-w-2xl">
-          Real product. Real screenshots. No wireframes, no demos that don&apos;t exist yet.
+          Real product. Real screenshots. No wireframes, no demos that
+          don&apos;t exist yet.
         </p>
 
         {/* Row 1 — Problems Feed */}
@@ -42,9 +50,10 @@ export default function ProductTourSection() {
               Anonymous reports your team will actually use
             </h3>
             <p className="text-slate-600 leading-relaxed mb-6">
-              Employees submit reports via QR code or web link. No account needed.
-              Fully encrypted. Completely untraceable — even by your IT department.
-              Each report is auto-tagged with category, priority, and status.
+              Employees submit reports via QR code or web link. No account
+              needed. Fully encrypted. Completely untraceable — even by your IT
+              department. Each report is auto-tagged with category, priority,
+              and status.
             </p>
             <ul className="space-y-3">
               {[
@@ -53,7 +62,10 @@ export default function ProductTourSection() {
                 "7-stage workflow from submission to resolution",
                 "File attachments: images, documents, videos",
               ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-slate-700">
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-sm text-slate-700"
+                >
                   <CheckIcon />
                   {item}
                 </li>
@@ -64,12 +76,16 @@ export default function ProductTourSection() {
             <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
               <BrowserChrome url="app.voxwel.com/problems" />
               <Image
-                src="/screenshots/problems-wall.png"
+                src="/screenshots/problems-wall.avif"
                 alt="VoxWel Problems Feed showing anonymous employee reports with priority badges and status tracking"
                 width={800}
                 height={420}
                 className="w-full"
-                style={{ objectFit: "cover", objectPosition: "top", maxHeight: "420px" }}
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "top",
+                  maxHeight: "420px",
+                }}
               />
             </div>
           </div>
@@ -81,12 +97,16 @@ export default function ProductTourSection() {
             <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
               <BrowserChrome url="app.voxwel.com/admin/report" />
               <Image
-                src="/screenshots/workflow-management.png"
+                src="/screenshots/workflow-management.avif"
                 alt="VoxWel admin workflow showing status controls, priority settings, and audit documentation"
                 width={800}
                 height={420}
                 className="w-full"
-                style={{ objectFit: "cover", objectPosition: "top", maxHeight: "420px" }}
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "top",
+                  maxHeight: "420px",
+                }}
               />
             </div>
           </div>
@@ -100,7 +120,8 @@ export default function ProductTourSection() {
             <p className="text-slate-600 leading-relaxed mb-6">
               Assign reports to departments, set priority levels, add due dates,
               and respond confidentially. Every action is timestamped and logged
-              automatically — building your compliance audit trail without extra work.
+              automatically — building your compliance audit trail without extra
+              work.
             </p>
             <ul className="space-y-3">
               {[
@@ -110,7 +131,10 @@ export default function ProductTourSection() {
                 "Admin comments visible to reporter while maintaining anonymity",
                 "Automatic audit log for every action taken",
               ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-slate-700">
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-sm text-slate-700"
+                >
                   <CheckIcon />
                   {item}
                 </li>
@@ -141,7 +165,10 @@ export default function ProductTourSection() {
                 "Posts by type, status, and priority breakdown",
                 "Top contributors and engagement metrics",
               ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-slate-700">
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-sm text-slate-700"
+                >
                   <CheckIcon />
                   {item}
                 </li>
@@ -157,12 +184,15 @@ export default function ProductTourSection() {
                 width={800}
                 height={420}
                 className="w-full"
-                style={{ objectFit: "cover", objectPosition: "top", maxHeight: "420px" }}
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "top",
+                  maxHeight: "420px",
+                }}
               />
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -23,7 +23,7 @@ const tabContent = [
       "Two-way anonymous communication with admin",
     ],
     url: "app.voxwel.com/problems",
-    screenshot: "/screenshots/problems-wall.png",
+    screenshot: "/screenshots/problems-wall.avif",
     alt: "VoxWel Problems Feed showing anonymous employee reports with priority badges and status tracking",
   },
   {
@@ -39,7 +39,7 @@ const tabContent = [
       "Searchable by keyword and category",
     ],
     url: "app.voxwel.com/discussions",
-    screenshot: "/screenshots/discussions-wall.png",
+    screenshot: "/screenshots/discussions-wall.avif",
     alt: "VoxWel Team Pulse showing discussions and team conversations",
   },
   {
@@ -55,7 +55,7 @@ const tabContent = [
       "Admin can pin and highlight top recognitions",
     ],
     url: "app.voxwel.com/creative",
-    screenshot: "/screenshots/creative-wall.png",
+    screenshot: "/screenshots/creative-wall.avif",
     alt: "VoxWel Recognition Feed showing team achievements and celebrations",
   },
 ];
@@ -100,7 +100,6 @@ export default function FeaturesSection() {
   return (
     <section id="features" className="bg-slate-50 py-24 px-6">
       <div className="max-w-6xl mx-auto">
-
         <p className="text-indigo-600 font-semibold text-sm uppercase tracking-wider mb-4">
           Three Channels. One Platform.
         </p>
@@ -108,8 +107,8 @@ export default function FeaturesSection() {
           Everything your HR and compliance team needs
         </h2>
         <p className="text-slate-600 text-lg mb-16 max-w-2xl">
-          Anonymous employee reporting software built for real anonymity,
-          real compliance, and real workplace culture.
+          Anonymous employee reporting software built for real anonymity, real
+          compliance, and real workplace culture.
         </p>
 
         {/* Tab buttons */}
@@ -131,7 +130,6 @@ export default function FeaturesSection() {
 
         {/* Tab content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-
           {/* Left — description */}
           <div className="bg-white rounded-2xl p-8 border border-slate-200">
             <h3 className="text-2xl font-bold text-slate-900 mb-3">
@@ -140,7 +138,10 @@ export default function FeaturesSection() {
             <p className="text-slate-600 mb-6">{content.description}</p>
             <div className="space-y-2">
               {content.features.map((f) => (
-                <div key={f} className="flex items-center gap-2 text-sm text-slate-700">
+                <div
+                  key={f}
+                  className="flex items-center gap-2 text-sm text-slate-700"
+                >
                   <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full shrink-0"></div>
                   {f}
                 </div>
@@ -166,7 +167,11 @@ export default function FeaturesSection() {
               width={800}
               height={480}
               className="w-full transition-opacity duration-300"
-              style={{ objectFit: "cover", objectPosition: "top", maxHeight: "480px" }}
+              style={{
+                objectFit: "cover",
+                objectPosition: "top",
+                maxHeight: "480px",
+              }}
             />
           </div>
         </div>
@@ -180,13 +185,14 @@ export default function FeaturesSection() {
             >
               <span className="text-2xl">{f.icon}</span>
               <div>
-                <h4 className="font-semibold text-slate-900 text-sm mb-1">{f.title}</h4>
+                <h4 className="font-semibold text-slate-900 text-sm mb-1">
+                  {f.title}
+                </h4>
                 <p className="text-slate-500 text-sm">{f.desc}</p>
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
