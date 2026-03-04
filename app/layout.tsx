@@ -160,7 +160,7 @@ export default function RootLayout({
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Support",
-      email: "info@lumoraventures.com",
+      email: "hello@voxwel.com",
       telephone: "+94-76-620-6555",
       availableLanguage: ["English"],
     },
@@ -186,7 +186,7 @@ export default function RootLayout({
       "@type": "ContactPoint",
       telephone: "+94-76-620-6555",
       contactType: "customer support",
-      email: "info@lumoraventures.com",
+      email: "hello@voxwel.com",
       availableLanguage: ["English"],
     },
     sameAs: [
@@ -378,9 +378,9 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* Inter font */}
+        {/* DM Sans font */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap"
           rel="stylesheet"
         />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />

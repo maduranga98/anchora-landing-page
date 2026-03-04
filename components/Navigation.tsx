@@ -13,14 +13,13 @@ export default function Navigation() {
   const isHomePage = pathname === "/";
 
   const navLinks = [
-    { name: "Product", href: "#features" },
+    { name: "Why VoxWel", href: "#problem" },
     { name: "How It Works", href: "#how-it-works" },
-    { name: "Security", href: "#security" },
+    { name: "Product", href: "#features" },
     { name: "Pricing", href: "#pricing" },
     { name: "Blog", href: "/blogs" },
   ];
 
-  // Add shadow when scrolled > 10px
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -51,8 +50,8 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 w-full bg-white transition-shadow duration-300 ${
-        scrolled ? "shadow-sm border-b border-slate-200" : "border-b border-transparent"
+      className={`sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm transition-all duration-300 ${
+        scrolled ? "shadow-sm border-b border-slate-100" : "border-b border-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,7 +67,7 @@ export default function Navigation() {
             </Link>
           </div>
 
-          {/* Desktop Nav Links — center */}
+          {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => {
               const isPageLink = link.href.startsWith("/");
@@ -109,21 +108,21 @@ export default function Navigation() {
           <div className="hidden md:flex items-center gap-3 shrink-0">
             <a
               href="https://app.voxwel.com/login"
-              className="px-4 py-2 text-sm font-semibold text-slate-700 border border-slate-300 rounded-lg hover:border-slate-400 transition-colors"
+              className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
             >
               Login
             </a>
             {isHomePage ? (
               <button
                 onClick={() => scrollToSection("#contact")}
-                className="px-4 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors"
+                className="bg-indigo-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors shadow-sm"
               >
                 Book a Demo →
               </button>
             ) : (
               <Link
                 href="/#contact"
-                className="px-4 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors"
+                className="bg-indigo-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors shadow-sm"
               >
                 Book a Demo →
               </Link>

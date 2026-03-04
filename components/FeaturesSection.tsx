@@ -1,24 +1,62 @@
-const mainCards = [
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+
+const tabs = [
+  { label: "🛡️ Anonymous Reports", color: "red" },
+  { label: "💬 Team Pulse", color: "blue" },
+  { label: "⭐ Recognition Feed", color: "purple" },
+];
+
+const tabContent = [
   {
-    icon: "🛡️",
     title: "Anonymous Reports",
-    body: "A fully encrypted channel where employees report harassment, fraud, and safety violations with complete anonymity. Every submission is end-to-end encrypted. No trace. No fear.",
-    tag: "Core Feature",
-    tagClass: "bg-indigo-50 text-indigo-700",
+    description:
+      "A fully encrypted channel where employees report harassment, fraud, and safety violations with complete anonymity. Every submission is AES-256 encrypted end-to-end. No trace. No fear. No retaliation risk.",
+    features: [
+      "Report workplace harassment, fraud, safety issues",
+      "Completely anonymous — zero metadata stored",
+      "Priority auto-tagging and category selection",
+      "7-stage resolution workflow",
+      "File attachment support",
+      "Two-way anonymous communication with admin",
+    ],
+    url: "app.voxwel.com/problems",
+    screenshot: "/screenshots/problems-wall.png",
+    alt: "VoxWel Problems Feed showing anonymous employee reports with priority badges and status tracking",
   },
   {
-    icon: "📊",
     title: "Team Pulse",
-    body: "Monitor workplace sentiment in real time. Surface morale issues and communication breakdowns before they become formal complaints or resignation letters.",
-    tag: "Engagement",
-    tagClass: "bg-emerald-50 text-emerald-700",
+    description:
+      "An open discussion channel for team-wide conversations, ideas, and questions. Monitor workplace sentiment and surface morale issues before they become formal complaints or resignation letters.",
+    features: [
+      "Open, named team discussions",
+      "Ideas & suggestions, questions, policy clarifications",
+      "Category-based organization",
+      "Upvote/downvote system surfaces popular concerns",
+      "Admin can respond publicly or privately",
+      "Searchable by keyword and category",
+    ],
+    url: "app.voxwel.com/discussions",
+    screenshot: "/screenshots/discussions-wall.png",
+    alt: "VoxWel Team Pulse showing discussions and team conversations",
   },
   {
-    icon: "⭐",
     title: "Recognition Feed",
-    body: "Celebrate team wins, milestones, and achievements publicly. Balance your reporting culture with a culture of genuine appreciation.",
-    tag: "Culture",
-    tagClass: "bg-amber-50 text-amber-700",
+    description:
+      "Celebrate team wins, milestones, and achievements publicly. Balance your reporting culture with a culture of genuine appreciation. Show employees the platform isn't just for problems.",
+    features: [
+      "Team achievements and anniversary celebrations",
+      "Public shout-outs and peer recognition",
+      "Company-wide visibility across departments",
+      "Positive culture building alongside accountability",
+      "React and comment on colleague milestones",
+      "Admin can pin and highlight top recognitions",
+    ],
+    url: "app.voxwel.com/creative",
+    screenshot: "/screenshots/creative-wall.png",
+    alt: "VoxWel Recognition Feed showing team achievements and celebrations",
   },
 ];
 
@@ -26,93 +64,129 @@ const featureTiles = [
   {
     icon: "🔒",
     title: "Military Encryption",
-    desc: "AES-256 end-to-end. No one can trace a report, not even your IT team.",
+    desc: "AES-256 end-to-end on every report. Unreadable in transit and at rest.",
   },
   {
-    icon: "📋",
-    title: "7-Stage Workflow",
-    desc: "Every report moves through a documented process. Your audit trail builds itself.",
-  },
-  {
-    icon: "📱",
-    title: "QR Code Onboarding",
-    desc: "Print. Post. Done. Employees scan and report in 60 seconds, no account needed.",
-  },
-  {
-    icon: "📈",
+    icon: "📊",
     title: "Real-Time Analytics",
-    desc: "See what's happening across departments before it surfaces in an exit interview.",
+    desc: "Resolution rates, trends, engagement scores. Always current.",
   },
   {
     icon: "⚡",
-    title: "Priority Escalation",
-    desc: "Critical reports surface immediately. Never miss an urgent issue.",
+    title: "24hr Setup",
+    desc: "QR code + link. No IT project. Live the same day you sign up.",
+  },
+  {
+    icon: "📋",
+    title: "Audit Trail",
+    desc: "Every action timestamped and logged. Built for compliance reviews.",
+  },
+  {
+    icon: "🔔",
+    title: "Smart Alerts",
+    desc: "Critical reports surface immediately. Never miss urgent issues.",
   },
   {
     icon: "👥",
     title: "Role-Based Access",
-    desc: "Control exactly who sees what. Compliance, HR, and legal have separate views.",
+    desc: "Separate views for HR, Legal, Compliance, and Management.",
   },
 ];
 
 export default function FeaturesSection() {
-  return (
-    <section id="features" className="bg-white py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="mb-16">
-          <p className="text-indigo-600 font-semibold text-sm uppercase tracking-wider mb-4">
-            THE PLATFORM
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 max-w-2xl">
-            Everything your HR and compliance team needs in one platform
-          </h2>
-          <p className="mt-4 text-slate-600 max-w-2xl leading-relaxed">
-            Anonymous employee reporting software built for organizations that
-            need real anonymity, real compliance, and real results.
-          </p>
-        </div>
+  const [activeTab, setActiveTab] = useState(0);
+  const content = tabContent[activeTab];
 
-        {/* 3 Main Product Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          {mainCards.map((card, i) => (
-            <div
-              key={card.title}
-              className={`fade-in-up delay-${(i + 1) * 100} bg-slate-50 rounded-2xl p-8 border border-slate-100 flex flex-col`}
+  return (
+    <section id="features" className="bg-slate-50 py-24 px-6">
+      <div className="max-w-6xl mx-auto">
+
+        <p className="text-indigo-600 font-semibold text-sm uppercase tracking-wider mb-4">
+          Three Channels. One Platform.
+        </p>
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          Everything your HR and compliance team needs
+        </h2>
+        <p className="text-slate-600 text-lg mb-16 max-w-2xl">
+          Anonymous employee reporting software built for real anonymity,
+          real compliance, and real workplace culture.
+        </p>
+
+        {/* Tab buttons */}
+        <div className="flex gap-2 mb-8 flex-wrap">
+          {tabs.map((tab, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveTab(i)}
+              className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                activeTab === i
+                  ? "bg-indigo-600 text-white shadow-md"
+                  : "bg-white text-slate-600 border border-slate-200 hover:border-slate-300"
+              }`}
             >
-              <div className="text-4xl mb-4">{card.icon}</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">
-                {card.title}
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed flex-1 mb-5">
-                {card.body}
-              </p>
-              <span
-                className={`self-start inline-block px-3 py-1 rounded-full text-xs font-semibold ${card.tagClass}`}
-              >
-                {card.tag}
-              </span>
-            </div>
+              {tab.label}
+            </button>
           ))}
         </div>
 
-        {/* 6 Feature Tiles — 2×3 grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {featureTiles.map((tile, i) => (
+        {/* Tab content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+
+          {/* Left — description */}
+          <div className="bg-white rounded-2xl p-8 border border-slate-200">
+            <h3 className="text-2xl font-bold text-slate-900 mb-3">
+              {content.title}
+            </h3>
+            <p className="text-slate-600 mb-6">{content.description}</p>
+            <div className="space-y-2">
+              {content.features.map((f) => (
+                <div key={f} className="flex items-center gap-2 text-sm text-slate-700">
+                  <div className="w-1.5 h-1.5 bg-indigo-600 rounded-full shrink-0"></div>
+                  {f}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right — screenshot */}
+          <div className="rounded-2xl overflow-hidden shadow-xl border border-slate-200">
+            <div className="bg-slate-800 px-4 py-3 flex items-center gap-2">
+              <div className="flex gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+              </div>
+              <span className="text-slate-400 text-xs font-mono ml-2">
+                {content.url}
+              </span>
+            </div>
+            <Image
+              src={content.screenshot}
+              alt={content.alt}
+              width={800}
+              height={480}
+              className="w-full transition-opacity duration-300"
+              style={{ objectFit: "cover", objectPosition: "top", maxHeight: "480px" }}
+            />
+          </div>
+        </div>
+
+        {/* Feature tiles grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
+          {featureTiles.map((f, i) => (
             <div
-              key={tile.title}
-              className={`fade-in-up delay-${(i + 1) * 100} flex items-start gap-4 p-6 rounded-xl border border-slate-100`}
+              key={i}
+              className="bg-white border border-slate-200 rounded-xl p-5 flex items-start gap-4 hover:border-indigo-200 hover:shadow-sm transition-all"
             >
-              <span className="text-2xl shrink-0 mt-0.5">{tile.icon}</span>
+              <span className="text-2xl">{f.icon}</span>
               <div>
-                <h4 className="font-bold text-slate-900 mb-1">{tile.title}</h4>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  {tile.desc}
-                </p>
+                <h4 className="font-semibold text-slate-900 text-sm mb-1">{f.title}</h4>
+                <p className="text-slate-500 text-sm">{f.desc}</p>
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
