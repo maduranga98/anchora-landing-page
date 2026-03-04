@@ -54,7 +54,7 @@ export default function FeaturesShowcase() {
       features: [
         "Complete anonymity guaranteed",
         "Military-grade encryption",
-        "7-state workflow tracking",
+        "7-stage workflow tracking",
         "Priority-based escalation",
       ],
     },

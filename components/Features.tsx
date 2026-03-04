@@ -52,7 +52,7 @@ export default function Features() {
       benefits: [
         "Complete anonymity guaranteed",
         "Military-grade encryption",
-        "7-state workflow tracking",
+        "7-stage workflow tracking",
         "Priority-based escalation",
       ],
     },
@@ -330,8 +330,7 @@ export default function Features() {
             Start preventing workplace crises today
           </h4>
           <p className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-            Join companies protecting their workplace with VoxWel's
-            comprehensive three-wall system
+            Be among the first companies to build a truly speak-up workplace culture with VoxWel.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

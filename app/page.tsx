@@ -43,14 +43,14 @@ export default function Home() {
         <HowItWorks />
         {/* Section 6 — Features */}
         <FeaturesSection />
-        {/* Blog strip — between Features and Security */}
-        <BlogTeaseStrip />
         {/* Section 7 — Security */}
         <SecuritySection />
         {/* Section 8 — Pricing (calculator logic preserved) */}
         <SimplePricing />
         {/* Section 9 — FAQ */}
         <FAQSection />
+        {/* Blog strip — after FAQ, before Final CTA */}
+        <BlogTeaseStrip />
         {/* Section 10 — Final CTA */}
         <FinalCTA />
         {/* Section 11 — Contact (EmailJS form logic preserved) */}
