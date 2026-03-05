@@ -4,13 +4,17 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
+  title: "Privacy Policy | VoxWel Anonymous Employee Reporting",
   description:
-    "VoxWel Privacy Policy - Learn how we collect, use, and protect your personal information. We prioritize your privacy with military-grade encryption and anonymous reporting protection.",
+    "VoxWel's privacy policy. Learn how we protect employee anonymity, handle data, and comply with GDPR and EU Whistleblowing Directive requirements.",
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "Privacy Policy | VoxWel",
     description:
-      "Learn how VoxWel protects your privacy and handles your personal information with military-grade security.",
+      "Learn how VoxWel protects employee anonymity, handles data, and complies with GDPR requirements.",
     url: "https://voxwel.com/privacy-policy",
   },
   alternates: {
