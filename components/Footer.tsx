@@ -3,6 +3,7 @@
 import Link from "next/link";
 import AnchoraLogo from "./AnchoraLogo";
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const productLinks = [
   { name: "Features",     href: "#features" },
@@ -115,6 +116,15 @@ export default function Footer() {
                 className="w-9 h-9 bg-slate-800 rounded-lg flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 transition-all"
               >
                 <FaInstagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://x.com/voxwel36916"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter)"
+                className="w-9 h-9 bg-slate-800 rounded-lg flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 transition-all"
+              >
+                <FaXTwitter className="w-4 h-4" />
               </a>
             </div>
           </div>
