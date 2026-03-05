@@ -1541,9 +1541,9 @@ Anonymous reporting isn't just about compliance,it's about giving your employees
   },
   {
     slug: "real-cost-workplace-harassment",
-    title: "The Real Cost of Workplace Harassment (And How to Prevent It)",
+    title: "The Real Cost of Workplace Harassment: $75,000+ Per Lawsuit [2025 Data]",
     excerpt:
-      "Breaking down the financial and reputational impact of harassment lawsuits, plus proven strategies to create a safer workplace culture.",
+      "One harassment lawsuit costs $75,000–$300,000. Learn how anonymous employee reporting prevents lawsuits before they happen. Free guide with 2025 statistics.",
     category: "Best Practices",
     date: "2024-11-08",
     readTime: "7 min read",

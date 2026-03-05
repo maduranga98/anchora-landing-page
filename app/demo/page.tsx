@@ -699,7 +699,7 @@ export default function DemoPage() {
             </div>
           </div>
           <div className="text-center mt-6 text-sm text-gray-400">
-            © {new Date().getFullYear()} VoxWel. All rights reserved.
+            © 2025 VoxWel. All rights reserved.
           </div>
         </div>
       </footer>
