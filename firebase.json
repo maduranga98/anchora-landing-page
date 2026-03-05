@@ -1,97 +1,105 @@
 {
-  "hosting": {
-    "site": "voxwel-web",
-    "cleanUrls": true,
-    "trailingSlash": false,
-    "public": "out",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "headers": [
-      {
-        "source": "**",
-        "headers": [
-          {
-            "key": "X-DNS-Prefetch-Control",
-            "value": "on"
-          },
-          {
-            "key": "Strict-Transport-Security",
-            "value": "max-age=63072000; includeSubDomains; preload"
-          },
-          {
-            "key": "X-Content-Type-Options",
-            "value": "nosniff"
-          },
-          {
-            "key": "X-Frame-Options",
-            "value": "DENY"
-          },
-          {
-            "key": "X-XSS-Protection",
-            "value": "1; mode=block"
-          },
-          {
-            "key": "Referrer-Policy",
-            "value": "origin-when-cross-origin"
-          },
-          {
-            "key": "Permissions-Policy",
-            "value": "camera=(), microphone=(), geolocation=()"
-          }
-        ]
-      },
-      {
-        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|avif|ico)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=31536000, immutable"
-          }
-        ]
-      },
-      {
-        "source": "**/*.@(js|css)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=31536000, immutable"
-          }
-        ]
-      },
-      {
-        "source": "/sitemap.xml",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=86400"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/xml"
-          }
-        ]
-      },
-      {
-        "source": "/robots.txt",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=86400"
-          }
-        ]
-      }
-    ],
-    "redirects": [
-      {
-        "source": "https://www.voxwel.com{,/**}",
-        "destination": "https://voxwel.com",
-        "type": 301
-      }
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
+  "hosting": [
+    {
+      "site": "voxwel-web",
+      "cleanUrls": true,
+      "trailingSlash": false,
+      "public": "out",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "X-DNS-Prefetch-Control",
+              "value": "on"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains; preload"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "origin-when-cross-origin"
+            },
+            {
+              "key": "Permissions-Policy",
+              "value": "camera=(), microphone=(), geolocation=()"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|avif|ico)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(js|css)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
+        },
+        {
+          "source": "/sitemap.xml",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=86400"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/xml"
+            }
+          ]
+        },
+        {
+          "source": "/robots.txt",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=86400"
+            }
+          ]
+        }
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "site": "voxwel-www",
+      "public": "out",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "redirects": [
+        {
+          "source": "/**",
+          "destination": "https://voxwel.com/:splat",
+          "type": 301,
+          "regex": false
+        }
+      ]
+    }
+  ]
 }
