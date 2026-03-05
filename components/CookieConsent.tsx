@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FiX, FiCheck, FiSettings } from "react-icons/fi";
 
 export default function CookieConsent() {
+  const [mounted, setMounted] = useState(false);
   const [showBanner, setShowBanner] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
   const [preferences, setPreferences] = useState({
@@ -12,6 +13,10 @@ export default function CookieConsent() {
     analytics: false,
     functional: false,
   });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     // Check if user has already made a choice
@@ -99,6 +104,7 @@ export default function CookieConsent() {
     }));
   };
 
+  if (!mounted) return null;
   if (!showBanner) return null;
 
   return (

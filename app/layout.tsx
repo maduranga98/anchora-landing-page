@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | VoxWel",
   },
   description:
-    "VoxWel gives employees a confidential, AES-256 encrypted channel to report workplace harassment, fraud, and safety violations anonymously. GDPR compliant. EU Whistleblowing Directive ready. Setup in 24 hours. $1/employee/month.",
+    "VoxWel gives employees an encrypted, anonymous channel to report harassment, fraud, and safety violations. GDPR compliant. EU Whistleblowing Directive ready. Setup in 24 hours. $1/employee/month.",
   keywords: [
     "anonymous employee reporting software",
     "whistleblower platform",
@@ -223,6 +223,7 @@ export default function RootLayout({
       "https://www.linkedin.com/company/voxwel",
       "https://www.instagram.com/vox.wel",
       "https://www.facebook.com/voxwel",
+      "https://x.com/voxwel36916",
     ],
     parentOrganization: {
       "@type": "Organization",
