@@ -17,24 +17,28 @@ export const metadata: Metadata = {
     template: "%s | VoxWel",
   },
   description:
-    "VoxWel gives employees a confidential, encrypted channel to report harassment, fraud, and safety violations anonymously. GDPR compliant. Setup in 24 hours. $1/employee/month.",
+    "VoxWel gives employees a confidential, AES-256 encrypted channel to report workplace harassment, fraud, and safety violations anonymously. GDPR compliant. EU Whistleblowing Directive ready. Setup in 24 hours. $1/employee/month.",
   keywords: [
     "anonymous employee reporting software",
     "whistleblower platform",
     "anonymous reporting tool HR",
-    "workplace incident reporting",
+    "workplace incident reporting software",
     "GDPR whistleblowing software",
     "employee speak up platform",
     "whistleblower hotline alternative",
+    "anonymous workplace complaint system",
+    "EU whistleblowing directive compliance",
+    "harassment reporting software",
+    "workplace fraud reporting",
+    "anonymous reporting policy",
     "whistleblowing software",
     "anonymous reporting",
     "workplace harassment reporting",
     "anonymous employee complaints",
-    "EEOC compliant reporting",
     "ethics hotline",
     "employee reporting software",
   ],
-  authors: [{ name: "VoxWel", url: siteUrl }],
+  authors: [{ name: "VoxWel by Lumora Ventures", url: siteUrl }],
   creator: "VoxWel",
   publisher: "VoxWel",
   formatDetection: {
@@ -53,7 +57,7 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_GB",
     url: siteUrl,
     title: "VoxWel — Anonymous Employee Reporting Software",
     description:
@@ -61,20 +65,21 @@ export const metadata: Metadata = {
     siteName: "VoxWel",
     images: [
       {
-        url: `${siteUrl}/voxwel-og-image.png`,
+        url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "VoxWel Anonymous Workplace Reporting Platform",
+        alt: "VoxWel anonymous employee reporting platform dashboard",
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
+    site: "@voxwel",
     title: "VoxWel — Anonymous Employee Reporting Software",
     description:
-      "Give every employee a safe voice. Anonymous, encrypted workplace reporting. GDPR compliant. $1/employee/month.",
-    images: [`${siteUrl}/voxwel-og-image.png`],
+      "Give every employee a safe voice. Anonymous encrypted workplace reporting. GDPR compliant. $1/employee/month.",
+    images: [`${siteUrl}/og-image.png`],
   },
   robots: {
     index: true,
@@ -115,19 +120,23 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: "VoxWel",
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web, iOS, Android",
-    description:
-      "Anonymous employee complaint and workplace harassment reporting software with military-grade encryption. EEOC compliant crisis prevention platform.",
     url: siteUrl,
-    logo: `${siteUrl}/logo.png`,
+    description:
+      "VoxWel is an anonymous employee reporting platform designed for HR Directors and Compliance Officers. It gives employees a confidential, AES-256 encrypted channel to report workplace harassment, fraud, safety violations, and discrimination — completely anonymously. The platform includes a 7-stage resolution workflow, real-time analytics, audit trail, QR code onboarding, and role-based admin controls. GDPR compliant and EU Whistleblowing Directive ready.",
+    applicationCategory: "BusinessApplication",
+    applicationSubCategory: "HR Software, Compliance Software, Whistleblower Platform",
+    operatingSystem: "Web Browser, iOS, Android",
+    softwareVersion: "2.0",
+    screenshot: `${siteUrl}/screenshots/problems-wall.avif`,
+    logo: `${siteUrl}/voxwel1.avif`,
     offers: {
       "@type": "Offer",
       price: "1.00",
       priceCurrency: "USD",
-      priceValidUntil: "2025-12-31",
+      priceValidUntil: "2026-12-31",
       availability: "https://schema.org/InStock",
       url: `${siteUrl}/#pricing`,
+      description: "$1 per employee per month. All features included. No hidden fees.",
       seller: {
         "@type": "Organization",
         name: "VoxWel by Lumora Ventures",
@@ -142,27 +151,38 @@ export default function RootLayout({
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
-      reviewCount: "127",
+      ratingCount: "12",
       bestRating: "5",
       worstRating: "1",
     },
     featureList: [
-      "Anonymous harassment reporting",
-      "Military-grade AES-256 encryption",
-      "EEOC compliance features",
-      "Real-time analytics dashboard",
-      "7-stage workflow management",
-      "Complete audit trails",
-      "Department-based visibility controls",
-      "Priority escalation system",
-      "QR code onboarding",
-      "Mobile and desktop access",
+      "100% anonymous employee reporting",
+      "AES-256 military-grade encryption",
+      "GDPR compliant reporting channel",
+      "EU Whistleblowing Directive 2019/1937 compliance",
+      "7-stage resolution workflow",
+      "Real-time analytics and engagement dashboard",
+      "Employee Happiness Indicator scoring",
+      "QR code employee onboarding",
+      "24-hour platform setup",
+      "Role-based admin controls",
+      "Automatic compliance audit trail",
+      "Team discussion channels",
+      "Recognition and appreciation feed",
+      "File attachment support",
+      "Priority escalation alerts",
+      "Department-based assignment",
     ],
+    provider: {
+      "@type": "Organization",
+      name: "Lumora Ventures",
+      url: siteUrl,
+    },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Support",
       email: "hello@voxwel.com",
-      telephone: "+94-76-620-6555",
+      telephone: "+94766206555",
       availableLanguage: ["English"],
     },
   };
@@ -173,27 +193,42 @@ export default function RootLayout({
     name: "VoxWel",
     alternateName: "VoxWel by Lumora Ventures",
     url: siteUrl,
-    logo: `${siteUrl}/voxwel.svg`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/voxwel1.avif`,
+      width: 512,
+      height: 512,
+    },
     description:
-      "Anonymous workplace harassment reporting and employee feedback platform",
+      "VoxWel is an anonymous employee reporting platform that gives employees a confidential, AES-256 encrypted channel to report workplace harassment, fraud, and safety violations. GDPR compliant, EU Whistleblowing Directive ready, live in 24 hours.",
+    email: "hello@voxwel.com",
+    telephone: "+94766206555",
+    foundingDate: "2024",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Office 4157, 58 Peregrine Road, Hainault, Ilford",
-      addressLocality: "Essex",
+      streetAddress: "Office 4157, 58 Peregrine Road, Hainault",
+      addressLocality: "Ilford",
+      addressRegion: "Essex",
       postalCode: "IG6 3SZ",
       addressCountry: "GB",
     },
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+94-76-620-6555",
+      telephone: "+94766206555",
       contactType: "customer support",
       email: "hello@voxwel.com",
       availableLanguage: ["English"],
     },
     sameAs: [
-      "https://www.facebook.com/profile.php?id=61584728859176",
-      "https://www.linkedin.com/company/lumora-ventures-pvt-ltd/",
+      "https://www.linkedin.com/company/voxwel",
+      "https://www.instagram.com/vox.wel",
+      "https://www.facebook.com/voxwel",
     ],
+    parentOrganization: {
+      "@type": "Organization",
+      name: "Lumora Ventures",
+      url: `${siteUrl}/lumora`,
+    },
   };
 
   const websiteJsonLd = {
@@ -230,15 +265,15 @@ export default function RootLayout({
         name: "How can VoxWel guarantee 100% anonymity for employees?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "VoxWel guarantees 100% anonymity through military-grade, end-to-end encryption and a strict, zero-knowledge protocol. Even system administrators cannot decrypt the identity of the user.",
+          text: "VoxWel uses AES-256 end-to-end encryption and a zero-knowledge architecture. When an employee submits a report, no identifying metadata is stored — not their IP address, device fingerprint, or session data. Even VoxWel administrators cannot identify who submitted a report. Anonymity is architectural, not just a policy promise.",
         },
       },
       {
         "@type": "Question",
-        name: "Can our company's IT department track who submitted a report?",
+        name: "Can our IT department track who submitted a report on VoxWel?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. VoxWel's platform is architected so that even your own company's administrators cannot access the underlying data to identify a user.",
+          text: "No. VoxWel is specifically designed to prevent this. Reports are encrypted before they leave the employee's device and stored in a way that makes source identification technically impossible, even with full database access. Your IT team cannot trace any report back to its source.",
         },
       },
       {
@@ -246,31 +281,63 @@ export default function RootLayout({
         name: "Is VoxWel compliant with GDPR and the EU Whistleblowing Directive?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. VoxWel is fully compliant with GDPR standards and the EU Whistleblowing Directive. Our complete audit trail provides documented proof.",
+          text: "Yes. VoxWel is fully GDPR compliant and meets the requirements of EU Directive 2019/1937 (EU Whistleblowing Directive), which mandates that organizations with 50 or more employees provide a secure, confidential internal reporting channel. VoxWel provides this channel along with the documented audit trail required for regulatory compliance.",
         },
       },
       {
         "@type": "Question",
-        name: "What is the difference between VoxWel and a traditional hotline?",
+        name: "What is the difference between VoxWel and a traditional whistleblower hotline?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Traditional hotlines lack anonymity and structure. VoxWel offers military-grade encryption, a 7-stage workflow system, and an Early Warning System that prevents issues from escalating.",
+          text: "Traditional whistleblower hotlines require employees to call a phone number, which many find intimidating and potentially traceable. They are only available during business hours and cost $500–$2,000 per month. VoxWel is fully digital, available 24/7, accessible via web browser or QR code with no phone call required, and costs only $1 per employee per month — a fraction of the price with better anonymity.",
         },
       },
       {
         "@type": "Question",
-        name: "How long does it take to set up VoxWel?",
+        name: "What types of workplace issues can employees report through VoxWel?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "VoxWel can be set up and operational in under 24 hours. Our QR Onboarding system allows employees to access the platform instantly.",
+          text: "Employees can report any workplace concern including: sexual harassment, workplace harassment, discrimination, financial fraud, expense abuse, OSHA and safety violations, conflicts of interest, retaliation, toxic management behavior, data privacy violations, ethical violations, and any other compliance or conduct issues.",
         },
       },
       {
         "@type": "Question",
-        name: "Why is VoxWel priced at only $1/employee/month?",
+        name: "How long does it take to set up VoxWel for a company?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "VoxWel is priced affordably to ensure every company can afford crisis prevention. Preventing a single lawsuit ($75K-$300K) justifies decades of VoxWel service.",
+          text: "Under 24 hours. Once you sign up, you receive a company-specific QR code and reporting link to distribute to your team immediately. No IT project, no app installation, no employee training required. Most organizations are fully live within the same business day.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Why is VoxWel priced at only $1 per employee per month?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "VoxWel is designed to be accessible to every company, not just enterprises with large compliance budgets. A 100-person company pays $100 per month. A single prevented workplace harassment lawsuit costs a minimum of $75,000, meaning one prevented lawsuit covers over 62 years of VoxWel for a 100-person company.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is the difference between Anonymous Reports, Team Pulse, and Recognition Feed in VoxWel?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "VoxWel has three channels: Anonymous Reports is a fully encrypted, completely anonymous channel for sensitive workplace issues like harassment or fraud. Team Pulse is an open discussion channel for team conversations, ideas, and questions. Recognition Feed is a public appreciation channel for celebrating team achievements and milestones. All three are accessible from one admin dashboard.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does VoxWel work for small businesses or only large enterprises?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "VoxWel works for any size organization. The $1 per employee per month pricing makes it affordable for companies with as few as 10 employees. There is no minimum employee count and no enterprise contract required. Small businesses, mid-market companies, and large enterprises all use the same full-featured platform.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What happens after an employee submits an anonymous report on VoxWel?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "After submission, HR admins receive an instant notification. The report enters a 7-stage workflow: Open → Acknowledged → Under Review → In Progress → Resolved → Closed → Archived. Admins can assign the report to departments, set priority levels, add due dates, and respond confidentially to the anonymous reporter. Every action is automatically logged in the compliance audit trail.",
         },
       },
       {
@@ -281,13 +348,18 @@ export default function RootLayout({
           text: "Yes. VoxWel provides employees with a confidential, encrypted safe space to report work-related stress, harassment, or toxic conditions before they escalate into mental health crises. Early detection of workplace issues can prevent burnout, depression, and tragic outcomes.",
         },
       },
+    ],
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
       {
-        "@type": "Question",
-        name: "How does anonymous reporting protect employee wellbeing?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Anonymous reporting removes the fear of retaliation, allowing employees to speak up about serious issues like excessive workload, harassment, or toxic management. This early intervention helps companies address problems before they cause severe mental health damage.",
-        },
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${siteUrl}/`,
       },
     ],
   };
@@ -425,6 +497,18 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        />
+
+        {/* Preload hero image for LCP improvement */}
+        <link
+          rel="preload"
+          as="image"
+          href="/screenshots/problems-wall.avif"
+          type="image/avif"
         />
       </head>
       <body className="antialiased" suppressHydrationWarning>

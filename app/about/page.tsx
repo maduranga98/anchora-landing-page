@@ -12,16 +12,16 @@ import {
 } from "react-icons/fi";
 
 export const metadata: Metadata = {
-  title: "About VoxWel - Anonymous Workplace Reporting Platform",
+  title: "About VoxWel — Anonymous Workplace Reporting Platform | Lumora Ventures",
   description:
-    "Learn about VoxWel's mission to revolutionize workplace communication through secure, anonymous reporting. Protecting employees and companies with military-grade encryption.",
+    "VoxWel was built to bridge the gap between what employees see and what companies know. Learn about our mission to protect every employee voice with military-grade AES-256 encryption.",
   alternates: {
     canonical: "https://voxwel.com/about",
   },
   openGraph: {
-    title: "About VoxWel - Anonymous Workplace Reporting Platform",
+    title: "About VoxWel — Anonymous Workplace Reporting Platform",
     description:
-      "Learn about VoxWel's mission to revolutionize workplace communication through secure, anonymous reporting.",
+      "Built to bridge the gap between what employees see and what companies know. Protecting every employee voice with military-grade encryption.",
     url: "https://voxwel.com/about",
   },
 };

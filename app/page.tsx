@@ -19,8 +19,25 @@ import { WebVitals } from "./web-vitals";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  title: "VoxWel — Anonymous Employee Reporting Software | Whistleblower Platform",
+  description:
+    "VoxWel gives employees a confidential, AES-256 encrypted channel to report workplace harassment, fraud, and safety violations anonymously. GDPR compliant. EU Whistleblowing Directive ready. Setup in 24 hours. $1/employee/month.",
   alternates: {
     canonical: "https://voxwel.com",
+  },
+  openGraph: {
+    url: "https://voxwel.com",
+    title: "VoxWel — Anonymous Employee Reporting Software",
+    description:
+      "Give every employee a safe voice. Anonymous encrypted workplace reporting. GDPR compliant. $1/employee/month.",
+    images: [
+      {
+        url: "https://voxwel.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "VoxWel anonymous employee reporting platform dashboard",
+      },
+    ],
   },
 };
 

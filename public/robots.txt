@@ -1,11 +1,24 @@
-# robots.txt for VoxWel
-
 User-agent: *
 Allow: /
+Allow: /blogs/
+Allow: /about
+Allow: /lumora
+Allow: /privacy-policy
+Allow: /terms-of-service
+Allow: /cookie-policy
+Allow: /gdpr
 
-# Sitemaps
+# Block admin and app routes from indexing
+Disallow: /dashboard
+Disallow: /admin
+Disallow: /login
+Disallow: /register
+Disallow: /signup
+Disallow: /app/
+Disallow: /api/
+
+# Sitemap location
 Sitemap: https://voxwel.com/sitemap.xml
 
-# Disallow admin or sensitive pages (if any)
-# Note: Adjust these paths based on your actual structure
-Disallow: /api/
+# Crawl delay
+Crawl-delay: 1

@@ -12,13 +12,13 @@ import {
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "GDPR Compliance",
+  title: "GDPR Compliance | VoxWel Anonymous Reporting Platform",
   description:
-    "VoxWel GDPR Compliance - Learn how we comply with the General Data Protection Regulation to protect your data rights and privacy across the EU and UK.",
+    "VoxWel is fully GDPR compliant and meets EU Whistleblowing Directive 2019/1937 requirements. Learn how we protect employee data and ensure regulatory compliance.",
   openGraph: {
     title: "GDPR Compliance | VoxWel",
     description:
-      "Discover how VoxWel ensures full GDPR compliance to protect your data rights and privacy.",
+      "VoxWel is fully GDPR compliant and meets EU Whistleblowing Directive 2019/1937 requirements. Learn how we protect employee data.",
     url: "https://voxwel.com/gdpr",
   },
   alternates: {

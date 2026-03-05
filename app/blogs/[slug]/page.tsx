@@ -59,17 +59,29 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${post.title} - VoxWel Blog`,
+    title: `${post.title} | VoxWel Blog`,
     description: post.excerpt,
     keywords: post.tags.join(", "),
     authors: [{ name: post.author.name }],
+    alternates: {
+      canonical: `https://voxwel.com/blogs/${post.slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: "article",
+      url: `https://voxwel.com/blogs/${post.slug}`,
       publishedTime: post.date,
       authors: [post.author.name],
       tags: post.tags,
+      images: [
+        {
+          url: "https://voxwel.com/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -97,23 +109,26 @@ export default async function BlogPost({
   // Create JSON-LD structured data
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": "Article",
     headline: post.title,
     description: post.excerpt,
+    url: `https://voxwel.com/blogs/${post.slug}`,
     datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(),
     author: {
-      "@type": "Person",
-      name: post.author.name,
-      jobTitle: post.author.role,
+      "@type": "Organization",
+      name: "VoxWel Team",
+      url: "https://voxwel.com",
     },
     publisher: {
       "@type": "Organization",
       name: "VoxWel",
       logo: {
         "@type": "ImageObject",
-        url: "https://voxwel.com/icon.png",
+        url: "https://voxwel.com/voxwel1.avif",
       },
     },
+    image: "https://voxwel.com/og-image.png",
     keywords: post.tags.join(", "),
     articleSection: post.category,
     mainEntityOfPage: {

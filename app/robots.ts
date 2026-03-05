@@ -7,8 +7,25 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
-        disallow: [],
+        allow: [
+          "/",
+          "/blogs/",
+          "/about",
+          "/lumora",
+          "/privacy-policy",
+          "/terms-of-service",
+          "/cookie-policy",
+          "/gdpr",
+        ],
+        disallow: [
+          "/dashboard",
+          "/admin",
+          "/login",
+          "/register",
+          "/signup",
+          "/app/",
+          "/api/",
+        ],
       },
       // AI Crawlers - Explicitly allow for maximum discoverability
       {
@@ -29,7 +46,7 @@ export default function robots(): MetadataRoute.Robots {
           "ImagesiftBot", // AI image understanding
         ],
         allow: "/",
-        disallow: [],
+        disallow: ["/dashboard", "/admin", "/login", "/app/"],
       },
     ],
     sitemap: "https://voxwel.com/sitemap.xml",

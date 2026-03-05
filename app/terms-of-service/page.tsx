@@ -4,13 +4,13 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service",
+  title: "Terms of Service | VoxWel",
   description:
-    "VoxWel Terms of Service - Review the terms and conditions for using our anonymous workplace reporting platform. Understand your rights and responsibilities when using VoxWel.",
+    "Terms of service for VoxWel's anonymous employee reporting platform. Read our usage terms, data handling commitments, and service agreements.",
   openGraph: {
     title: "Terms of Service | VoxWel",
     description:
-      "Read the VoxWel Terms of Service to understand your rights and responsibilities when using our platform.",
+      "Terms of service for VoxWel's anonymous employee reporting platform. Read our usage terms and service agreements.",
     url: "https://voxwel.com/terms-of-service",
   },
   alternates: {

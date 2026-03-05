@@ -29,6 +29,11 @@ export default function Hero() {
               <span className="text-indigo-600">safe voice</span> before
               problems become lawsuits.
             </h1>
+            <p className="sr-only">
+              VoxWel anonymous employee reporting software — GDPR compliant
+              whistleblower platform for HR Directors and Compliance Officers.
+              AES-256 encrypted. EU Whistleblowing Directive ready.
+            </p>
 
             {/* Sub-headline */}
             <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">
