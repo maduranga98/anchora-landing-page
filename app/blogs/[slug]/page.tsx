@@ -211,7 +211,6 @@ export default async function BlogPost({
                 <p className="text-xl md:text-2xl text-text-primary font-medium leading-relaxed">
                   {post.excerpt}
                 </p>
-                bg-linear-to-r
               </div>
 
               {/* Meta Information */}
@@ -280,7 +279,6 @@ export default async function BlogPost({
                     prose-td:border prose-td:border-border-light prose-td:p-4 prose-td:text-text-secondary
                     prose-img:rounded-xl prose-img:shadow-xl prose-img:my-10"
                 >
-                  bg-linear-to-r
                   <ReactMarkdown rehypePlugins={[rehypeRaw, rehypeSlug]}>
                     {post.content}
                   </ReactMarkdown>
@@ -384,7 +382,7 @@ export default async function BlogPost({
 
 // Extract headings from markdown for table of contents
 function extractHeadings(
-  markdown: string
+  markdown: string,
 ): Array<{ text: string; id: string; level: number }> {
   const headings: Array<{ text: string; id: string; level: number }> = [];
   const lines = markdown.split("\n");
