@@ -55,7 +55,7 @@ export default function AdminDashboardSection() {
               </span>
             </div>
             <Image
-              src="/screenshots/admin-dashboard.avif "
+              src="/screenshots/admin-dashboard.avif"
               alt="VoxWel Admin Dashboard showing moderation, analytics, HR dashboard, and audit log modules"
               width={800}
               height={500}
