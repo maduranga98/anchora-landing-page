@@ -179,7 +179,7 @@ export default function ProductTourSection() {
             <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
               <BrowserChrome url="app.voxwel.com/analytics" />
               <Image
-                src="/screenshots/dashboard-analytics.png"
+                src="/screenshots/dashboard-analytics.avif"
                 alt="VoxWel analytics dashboard showing post trends, resolution rates, and engagement metrics"
                 width={800}
                 height={420}
