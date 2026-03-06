@@ -6899,5 +6899,18 @@ export function getRelatedPosts(
   limit: number = 3,
 ): BlogPost[] {
   const currentPost = getBlogPostBySlug(currentSlug);
-  if (!currentPost) return [
-];
+  if (!currentPost) return [];
+
+  return blogPosts
+    .filter((post) => post.slug !== currentSlug)
+    .map((post) => {
+      // Calculate relevance score based on matching tags
+      const matchingTags = post.tags.filter((tag) =>
+        currentPost.tags.includes(tag),
+      ).length;
+      return { post, score: matchingTags };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map((item) => item.post);
+}
