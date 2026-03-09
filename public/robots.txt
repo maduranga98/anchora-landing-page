@@ -17,6 +17,9 @@ Disallow: /signup
 Disallow: /app/
 Disallow: /api/
 
+# Preferred canonical host
+Host: https://voxwel.com
+
 # Sitemap location
 Sitemap: https://voxwel.com/sitemap.xml
 

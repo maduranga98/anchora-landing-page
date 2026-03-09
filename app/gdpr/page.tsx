@@ -15,14 +15,14 @@ export const metadata: Metadata = {
   title: "GDPR Compliance | VoxWel Anonymous Reporting Platform",
   description:
     "VoxWel is fully GDPR compliant and meets EU Whistleblowing Directive 2019/1937 requirements. Learn how we protect employee data and ensure regulatory compliance.",
+  alternates: {
+    canonical: "https://voxwel.com/gdpr",
+  },
   openGraph: {
     title: "GDPR Compliance | VoxWel",
     description:
       "VoxWel is fully GDPR compliant and meets EU Whistleblowing Directive 2019/1937 requirements. Learn how we protect employee data.",
     url: "https://voxwel.com/gdpr",
-  },
-  alternates: {
-    canonical: "https://voxwel.com/gdpr",
   },
 };
 

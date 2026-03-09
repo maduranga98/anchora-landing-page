@@ -24,6 +24,7 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 
 // Icon mapping for blog posts
 const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } =
@@ -279,7 +280,7 @@ export default async function BlogPost({
                     prose-td:border prose-td:border-border-light prose-td:p-4 prose-td:text-text-secondary
                     prose-img:rounded-xl prose-img:shadow-xl prose-img:my-10"
                 >
-                  <ReactMarkdown rehypePlugins={[rehypeRaw, rehypeSlug]}>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeSlug]}>
                     {post.content}
                   </ReactMarkdown>
                 </div>
