@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -27,28 +27,11 @@ const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } =
 
 export default function BlogsPage() {
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Intersection Observer for animations
+  // Make content visible immediately — this is the main page content so
+  // it should never be hidden waiting for a scroll event.
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
+    setIsVisible(true);
   }, []);
 
   // Create JSON-LD structured data for the blog listing page
@@ -119,7 +102,7 @@ export default function BlogsPage() {
 
         <Navigation />
 
-        <div className="relative z-10 pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20" ref={sectionRef}>
+        <div className="relative z-10 pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20">
           <div className="section-container">
             {/* Header with back link */}
             <div className="mb-8 sm:mb-10 md:mb-12">
@@ -162,7 +145,7 @@ export default function BlogsPage() {
                           : "opacity-0 translate-y-12"
                       }`}
                       style={{
-                        transitionDelay: `${index * 100}ms`,
+                        transitionDelay: `${Math.min(index * 60, 480)}ms`,
                       }}
                     >
                       {/* Category Badge & Icon */}
