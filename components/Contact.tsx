@@ -468,10 +468,10 @@ export default function Contact() {
                       Email Us
                     </p>
                     <a
-                      href="mailto:hello@voxwel.com"
+                      href="mailto:maduranga@voxwel.com"
                       className="text-indigo-600 hover:underline text-sm"
                     >
-                      hello@voxwel.com
+                      maduranga@voxwel.com
                     </a>
                   </div>
                 </div>

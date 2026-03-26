@@ -181,7 +181,7 @@ export default function RootLayout({
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Support",
-      email: "hello@voxwel.com",
+      email: "maduranga@voxwel.com",
       telephone: "+94766206555",
       availableLanguage: ["English"],
     },
@@ -201,7 +201,7 @@ export default function RootLayout({
     },
     description:
       "VoxWel is an anonymous employee reporting platform that gives employees a confidential, AES-256 encrypted channel to report workplace harassment, fraud, and safety violations. GDPR compliant, EU Whistleblowing Directive ready, live in 24 hours.",
-    email: "hello@voxwel.com",
+    email: "maduranga@voxwel.com",
     telephone: "+94766206555",
     foundingDate: "2024",
     address: {
@@ -216,7 +216,7 @@ export default function RootLayout({
       "@type": "ContactPoint",
       telephone: "+94766206555",
       contactType: "customer support",
-      email: "hello@voxwel.com",
+      email: "maduranga@voxwel.com",
       availableLanguage: ["English"],
     },
     sameAs: [
