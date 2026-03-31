@@ -21,9 +21,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/demo`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/blogs`,
       lastModified: new Date(),
       changeFrequency: "daily" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/de/hinweisgebersoftware-preise`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/fr/logiciel-lancement-alerte`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
       priority: 0.9,
     },
     {
