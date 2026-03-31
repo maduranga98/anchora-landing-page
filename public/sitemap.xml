@@ -22,6 +22,48 @@
 
   <!-- Blog posts -->
   <url>
+    <loc>https://voxwel.com/blogs/whistleblowing-software-pricing-comparison</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://voxwel.com/blogs/best-eu-directive-compliant-whistleblowing-software</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://voxwel.com/blogs/multilingual-whistleblowing-software-eu</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://voxwel.com/blogs/is-navex-anonymous-ethicspoint-privacy</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://voxwel.com/blogs/workplace-discrimination-investigation-guide</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://voxwel.com/blogs/types-employee-fraud-red-flags-detection</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://voxwel.com/blogs/workplace-pressure-mental-health-crisis-prevention</loc>
     <lastmod>2025-01-23</lastmod>
     <changefreq>monthly</changefreq>
