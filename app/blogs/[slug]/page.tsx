@@ -20,6 +20,8 @@ import {
   getAllBlogSlugs,
   getRelatedPosts,
 } from "@/data/blogPosts";
+import { blogFAQs } from "@/data/blogFAQs";
+import FAQSchema from "@/components/FAQSchema";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -59,17 +61,20 @@ export async function generateMetadata({
     };
   }
 
+  const seoTitle = post.metaTitle || post.title;
+  const seoDescription = post.metaDescription || post.excerpt;
+
   return {
-    title: `${post.title} | VoxWel Blog`,
-    description: post.excerpt,
+    title: seoTitle,
+    description: seoDescription,
     keywords: post.tags.join(", "),
     authors: [{ name: post.author.name }],
     alternates: {
       canonical: `https://voxwel.com/blogs/${post.slug}`,
     },
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      title: seoTitle,
+      description: seoDescription,
       type: "article",
       url: `https://voxwel.com/blogs/${post.slug}`,
       publishedTime: post.date,
@@ -80,14 +85,14 @@ export async function generateMetadata({
           url: "https://voxwel.com/og-image.png",
           width: 1200,
           height: 630,
-          alt: post.title,
+          alt: seoTitle,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
+      title: seoTitle,
+      description: seoDescription,
     },
   };
 }
@@ -111,7 +116,7 @@ export default async function BlogPost({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: post.title,
+    headline: post.metaTitle || post.title,
     description: post.excerpt,
     url: `https://voxwel.com/blogs/${post.slug}`,
     datePublished: new Date(post.date).toISOString(),
@@ -175,6 +180,7 @@ export default async function BlogPost({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {blogFAQs[slug] && <FAQSchema faqs={blogFAQs[slug]} />}
 
       <main className="min-h-screen w-full overflow-x-hidden bg-background-white">
         <Navigation />
