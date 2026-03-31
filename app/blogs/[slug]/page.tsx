@@ -20,6 +20,8 @@ import {
   getAllBlogSlugs,
   getRelatedPosts,
 } from "@/data/blogPosts";
+import { blogFAQs } from "@/data/blogFAQs";
+import FAQSchema from "@/components/FAQSchema";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -178,6 +180,7 @@ export default async function BlogPost({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {blogFAQs[slug] && <FAQSchema faqs={blogFAQs[slug]} />}
 
       <main className="min-h-screen w-full overflow-x-hidden bg-background-white">
         <Navigation />
