@@ -152,11 +152,13 @@ export default function FrenchWhistleblowingPage() {
           <div className="max-w-5xl mx-auto px-6 py-3 flex items-start gap-3">
             <span className="text-amber-600 text-lg mt-0.5 shrink-0">⚠️</span>
             <p className="text-sm text-amber-800 leading-relaxed">
-              <strong>Obligation légale en vigueur depuis le 1er décembre 2023 :</strong>{" "}
-              Toute entreprise française d&apos;au moins 50 salariés doit disposer d&apos;un
-              canal de signalement interne sécurisé (Loi du 21 mars 2022 — transposition
-              Directive 2019/1937). Pénalité jusqu&apos;à{" "}
-              <strong>20 000 € d&apos;amende</strong>.
+              <strong>
+                Obligation légale en vigueur depuis le 1er décembre 2023 :
+              </strong>{" "}
+              Toute entreprise française d&apos;au moins 50 salariés doit
+              disposer d&apos;un canal de signalement interne sécurisé (Loi du
+              21 mars 2022 — transposition Directive 2019/1937). Pénalité
+              jusqu&apos;à <strong>20 000 € d&apos;amende</strong>.
             </p>
           </div>
         </div>
@@ -164,7 +166,7 @@ export default function FrenchWhistleblowingPage() {
         {/* ── HERO ── */}
         <section className="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 text-xs font-semibold px-4 py-2 rounded-full mb-6 uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 bg-primary-teal-600/20 border border-primary-teal-500/30 text-primary-teal-300 text-xs font-semibold px-4 py-2 rounded-full mb-6 uppercase tracking-wider">
               🇫🇷 Conforme Directive 2019/1937 · Loi Sapin II · CNIL/RGPD
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6 text-white">
@@ -174,14 +176,17 @@ export default function FrenchWhistleblowingPage() {
             <p className="text-xl text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
               Canal de signalement interne anonyme et sécurisé. Conforme à la
               Directive 2019/1937, la Loi Sapin II et au RGPD. Mise en place
-              en&nbsp;<strong className="text-white">moins de 24 heures</strong>.
-              À partir de{" "}
-              <strong className="text-indigo-300">0,92 €/employé/mois</strong>.
+              en&nbsp;<strong className="text-white">moins de 24 heures</strong>
+              . À partir de{" "}
+              <strong className="text-primary-teal-300">
+                0,92 €/employé/mois
+              </strong>
+              .
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/demo"
-                className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-indigo-500/25 text-lg"
+                className="bg-primary-teal-600 hover:bg-primary-teal-700 text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-primary-teal-500/25 text-lg"
               >
                 📅 Planifier une Démonstration
               </a>
@@ -193,7 +198,8 @@ export default function FrenchWhistleblowingPage() {
               </a>
             </div>
             <p className="mt-4 text-slate-400 text-sm">
-              Mise en place aujourd&apos;hui · Sans frais d&apos;installation · Sans équipe informatique
+              Mise en place aujourd&apos;hui · Sans frais d&apos;installation ·
+              Sans équipe informatique
             </p>
           </div>
         </section>
@@ -209,7 +215,7 @@ export default function FrenchWhistleblowingPage() {
                 { stat: "100 %", label: "Anonymat garanti" },
               ].map((item) => (
                 <div key={item.stat} className="flex flex-col items-center">
-                  <span className="text-2xl font-extrabold text-indigo-600">
+                  <span className="text-2xl font-extrabold text-primary-teal-600">
                     {item.stat}
                   </span>
                   <span className="text-sm text-slate-500 mt-1">
@@ -244,15 +250,13 @@ export default function FrenchWhistleblowingPage() {
                 },
                 {
                   article: "Art. 9(1)(b)",
-                  title:
-                    "Accusé de réception dans les 7 jours calendaires",
+                  title: "Accusé de réception dans les 7 jours calendaires",
                   description:
                     "Accusé de réception automatique envoyé à l'auteur du signalement dès la soumission. Rappels SLA intégrés pour les administrateurs RH.",
                 },
                 {
                   article: "Art. 9(1)(f)",
-                  title:
-                    "Communication bidirectionnelle préservant l'anonymat",
+                  title: "Communication bidirectionnelle préservant l'anonymat",
                   description:
                     "Le responsable RH peut poser des questions à l'auteur du signalement et recevoir des documents sans que ce dernier révèle son identité.",
                 },
@@ -264,8 +268,7 @@ export default function FrenchWhistleblowingPage() {
                 },
                 {
                   article: "Art. 6(3)",
-                  title:
-                    "Journal d'audit immuable — preuve de non-rétorsion",
+                  title: "Journal d'audit immuable — preuve de non-rétorsion",
                   description:
                     "Chaque action est horodatée et enregistrée dans un journal d'audit infalsifiable. Démontre l'impartialité du traitement lors d'un contrôle réglementaire.",
                 },
@@ -297,7 +300,7 @@ export default function FrenchWhistleblowingPage() {
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-xs font-mono text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
+                      <span className="text-xs font-mono text-primary-teal-600 bg-primary-teal-50 px-2 py-0.5 rounded">
                         {req.article}
                       </span>
                       <h3 className="font-semibold text-slate-900 text-sm">
@@ -319,11 +322,13 @@ export default function FrenchWhistleblowingPage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-extrabold text-slate-900 mb-4">
-                Comparatif des Prix — Logiciels d&apos;Alerte Professionnelle 2026
+                Comparatif des Prix — Logiciels d&apos;Alerte Professionnelle
+                2026
               </h2>
               <p className="text-slate-600 text-lg">
-                Le prix moyen d&apos;un logiciel de lancement d&apos;alerte conforme à la
-                directive européenne est de 0,92 € à 15 € par employé et par mois.
+                Le prix moyen d&apos;un logiciel de lancement d&apos;alerte
+                conforme à la directive européenne est de 0,92 € à 15 € par
+                employé et par mois.
               </p>
             </div>
             <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
@@ -402,23 +407,25 @@ export default function FrenchWhistleblowingPage() {
                       key={row.name}
                       className={`border-t border-slate-100 ${
                         row.highlight
-                          ? "bg-indigo-50"
+                          ? "bg-primary-teal-50"
                           : i % 2 === 0
-                          ? "bg-white"
-                          : "bg-slate-50/50"
+                            ? "bg-white"
+                            : "bg-slate-50/50"
                       }`}
                     >
                       <td className="px-5 py-4 font-medium text-slate-900">
                         {row.name}
                         {row.highlight && (
-                          <span className="ml-2 text-xs bg-indigo-600 text-white px-2 py-0.5 rounded-full">
+                          <span className="ml-2 text-xs bg-primary-teal-600 text-white px-2 py-0.5 rounded-full">
                             Recommandé
                           </span>
                         )}
                       </td>
                       <td
                         className={`px-5 py-4 font-semibold ${
-                          row.highlight ? "text-indigo-600" : "text-slate-700"
+                          row.highlight
+                            ? "text-primary-teal-600"
+                            : "text-slate-700"
                         }`}
                       >
                         {row.price}
@@ -488,7 +495,9 @@ export default function FrenchWhistleblowingPage() {
                   className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
                 >
                   <div className="text-3xl mb-3">{feat.icon}</div>
-                  <h3 className="font-bold text-slate-900 mb-2">{feat.title}</h3>
+                  <h3 className="font-bold text-slate-900 mb-2">
+                    {feat.title}
+                  </h3>
                   <p className="text-sm text-slate-600 leading-relaxed">
                     {feat.desc}
                   </p>
@@ -535,7 +544,7 @@ export default function FrenchWhistleblowingPage() {
                 >
                   <summary className="flex items-center justify-between px-6 py-5 cursor-pointer font-semibold text-slate-900 hover:bg-slate-100 transition-colors list-none">
                     <span className="text-sm leading-snug pr-4">{faq.q}</span>
-                    <span className="shrink-0 text-indigo-600 text-xl font-light group-open:rotate-45 transition-transform">
+                    <span className="shrink-0 text-primary-teal-600 text-xl font-light group-open:rotate-45 transition-transform">
                       +
                     </span>
                   </summary>
@@ -551,12 +560,12 @@ export default function FrenchWhistleblowingPage() {
         </section>
 
         {/* ── CTA FINAL ── */}
-        <section className="py-20 bg-gradient-to-r from-indigo-600 to-indigo-800 text-white px-6">
+        <section className="py-20 bg-gradient-to-r from-primary-teal-600 to-primary-teal-800 text-white px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
               Mettez-vous en conformité aujourd&apos;hui
             </h2>
-            <p className="text-xl text-indigo-100 mb-8 leading-relaxed">
+            <p className="text-xl text-primary-teal-100 mb-8 leading-relaxed">
               Rejoignez les PME françaises qui ont choisi VoxWel pour respecter
               leur obligation légale sans se ruiner.{" "}
               <strong className="text-white">
@@ -566,19 +575,20 @@ export default function FrenchWhistleblowingPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/demo"
-                className="bg-white text-indigo-700 font-bold px-8 py-4 rounded-xl hover:bg-indigo-50 transition-colors shadow-lg text-lg"
+                className="bg-white text-primary-teal-700 font-bold px-8 py-4 rounded-xl hover:bg-primary-teal-50 transition-colors shadow-lg text-lg"
               >
                 📅 Planifier une Démonstration Gratuite
               </a>
               <a
                 href="/#pricing"
-                className="bg-indigo-500/40 hover:bg-indigo-500/60 text-white font-semibold px-8 py-4 rounded-xl border border-indigo-400/40 transition-colors text-lg"
+                className="bg-primary-teal-500/40 hover:bg-primary-teal-500/60 text-white font-semibold px-8 py-4 rounded-xl border border-primary-teal-400/40 transition-colors text-lg"
               >
                 Voir les tarifs →
               </a>
             </div>
-            <p className="mt-6 text-indigo-200 text-sm">
-              Sans frais d&apos;installation · Sans engagement · Essai 14 jours gratuit
+            <p className="mt-6 text-primary-teal-200 text-sm">
+              Sans frais d&apos;installation · Sans engagement · Essai 14 jours
+              gratuit
             </p>
           </div>
         </section>

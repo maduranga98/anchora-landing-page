@@ -7,6 +7,8 @@ Allow: /privacy-policy
 Allow: /terms-of-service
 Allow: /cookie-policy
 Allow: /gdpr
+Allow: /de/
+Allow: /fr/
 
 # Block admin and app routes from indexing
 Disallow: /dashboard
