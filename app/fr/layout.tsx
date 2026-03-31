@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://voxwel.com/fr/logiciel-lancement-alerte",
+    // canonical: "https://voxwel.com/fr/logiciel-lancement-alerte",
     languages: {
       fr: "https://voxwel.com/fr/logiciel-lancement-alerte",
       "x-default": "https://voxwel.com/blogs/whistleblower-hotline-cost",
@@ -10,11 +10,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function FrLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function FrLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" suppressHydrationWarning>
       <head>
