@@ -1,6 +1,8 @@
 export interface BlogPost {
   slug: string;
   title: string;
+  metaTitle?: string;
+  metaDescription?: string;
   excerpt: string;
   category: string;
   date: string;
@@ -19,15 +21,17 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "best-navex-alternative",
     title: "Best NAVEX Alternative in 2025: Cheaper, Faster, and Just as Compliant",
+    metaTitle: "4 Best NAVEX Alternatives 2026: Same Compliance, 90% Less Cost",
+    metaDescription: "NAVEX costs $500–$5,000/month. These 4 alternatives deliver EU Directive compliance, anonymous reporting, and audit trails from $1/employee. Compare features and real pricing.",
     excerpt: "If you've been quoted $500\u2013$5,000/month by NAVEX \u2014 or if your NAVEX contract is up for renewal \u2014 this guide covers the best alternatives that deliver the same EU Directive compliance, audit trail, and anonymous reporting at a fraction of the cost.",
     category: "Product Comparison",
-    date: "2025-04-12",
+    date: "2026-03-30",
     readTime: "9 min",
     author: {
       name: "VoxWel Team",
       role: "Workplace Safety Advocates"
     },
-    tags: [],
+    tags: ["NAVEX alternative", "NAVEX EthicsPoint alternative", "whistleblowing software comparison", "compliance hotline alternative", "affordable whistleblowing platform"],
     icon: "FiFileText",
     color: "from-blue-500 to-blue-700",
     content: `
@@ -188,15 +192,17 @@ Start your 14-day free trial at voxwel.com.
   {
     slug: "uk-whistleblowing-law-pida-guide",
     title: "UK Whistleblowing Law: A Complete Employer's Guide to PIDA 1998 [2025]",
+    metaTitle: "UK Whistleblowing Law (PIDA): What Every Employer Must Know in 2026",
+    metaDescription: "PIDA protects whistleblowers from dismissal and detriment. UK tribunal claims are up 34% in 5 years. This guide covers qualifying disclosures, employer duties, and compliance steps.",
     excerpt: "The Public Interest Disclosure Act 1998 (PIDA) is the primary UK law protecting whistleblowers. Employment tribunal claims under PIDA have increased 34% in five years. This is the complete employer guide \u2014 what qualifies as a protected disclosure, what protection employees receive, and what organizations must have in place.",
     category: "Legal & Compliance",
-    date: "2025-04-11",
+    date: "2026-03-30",
     readTime: "12 min",
     author: {
       name: "VoxWel Team",
       role: "Workplace Safety Advocates"
     },
-    tags: [],
+    tags: ["UK whistleblowing law", "PIDA", "Public Interest Disclosure Act", "UK whistleblower protection", "employment tribunal whistleblowing"],
     icon: "FiFileText",
     color: "from-blue-500 to-blue-700",
     content: `
@@ -390,20 +396,22 @@ Start a 14-day free trial at voxwel.com.
   },
   {
     slug: "best-whistleblowing-software-2025",
-    title: "Best Whistleblowing Software 2025: Top 10 Tools Compared for HR Teams",
+    title: "Best Whistleblowing Software 2026: Top 10 Tools Compared for HR Teams",
+    metaTitle: "7 Best Whistleblowing Software 2026: Pricing, Features & EU Compliance Compared",
+    metaDescription: "Side-by-side comparison of the top whistleblowing platforms in 2026. Real pricing from $1/employee, EU Directive compliance check, anonymity architecture breakdown. Updated March 2026.",
     excerpt: "The whistleblowing software market has over 30 vendors. Most look identical from the outside. This guide cuts through the noise \u2014 comparing the 10 most widely used platforms on the dimensions that actually matter: anonymity architecture, EU Directive compliance, pricing transparency, and report volume impact.",
     category: "Product Comparison",
-    date: "2025-04-10",
+    date: "2026-03-30",
     readTime: "14 min",
     author: {
       name: "VoxWel Team",
       role: "Workplace Safety Advocates"
     },
-    tags: [],
+    tags: ["whistleblowing software", "best whistleblowing platform", "EU whistleblowing directive", "anonymous reporting software", "compliance software comparison", "whistleblower hotline software 2026"],
     icon: "FiFileText",
     color: "from-blue-500 to-blue-700",
     content: `
-# Best Whistleblowing Software 2025: Top 10 Tools Compared for HR Teams
+# Best Whistleblowing Software 2026: Top 10 Tools Compared for HR Teams
 
 The whistleblowing software market has grown rapidly since the EU Whistleblowing Directive came into force in 2021. There are now over 30 vendors offering some version of anonymous reporting infrastructure — from full enterprise GRC suites to lightweight digital reporting tools.
 
@@ -999,15 +1007,17 @@ Start a 14-day free trial at voxwel.com.
   {
     slug: "sarbanes-oxley-whistleblower-requirements",
     title: "Sarbanes-Oxley Whistleblower Requirements: What Public Companies Must Have",
+    metaTitle: "Sarbanes-Oxley Whistleblower Protection: Section 806 Requirements for Employers",
+    metaDescription: "SOX Section 806 whistleblower requirements explained for HR and compliance teams. Covers protection scope, reporting channels, retaliation penalties, and what your company must have in place.",
     excerpt: "Sarbanes-Oxley Section 301 created the first federal mandate for anonymous employee reporting in the US. Twenty years on, SOX compliance requirements have expanded significantly \u2014 and the SEC's enforcement posture has changed. This is what public companies need to have in place.",
     category: "Legal & Compliance",
-    date: "2025-04-07",
+    date: "2026-03-30",
     readTime: "8 min",
     author: {
       name: "VoxWel Team",
       role: "Workplace Safety Advocates"
     },
-    tags: [],
+    tags: ["sarbanes oxley whistleblower", "SOX section 806", "whistleblower protection", "SOX compliance", "whistleblower retaliation", "corporate whistleblower requirements"],
     icon: "FiFileText",
     color: "from-blue-500 to-blue-700",
     content: `
@@ -1212,6 +1222,8 @@ Start a 14-day free trial at voxwel.com.
   {
     slug: "voxwel-vs-allvoices",
     title: "VoxWel vs AllVoices: Honest Comparison for HR Teams [2025]",
+    metaTitle: "VoxWel vs AllVoices: Honest Feature & Pricing Comparison (2026)",
+    metaDescription: "Comparing VoxWel and AllVoices side-by-side on anonymity strength, EU compliance, pricing, and setup speed. See which anonymous reporting platform fits your organization.",
     excerpt: "AllVoices and VoxWel both provide anonymous reporting and case management. AllVoices is built for enterprise HR teams managing the full employee relations lifecycle. VoxWel is built for organizations that need compliance-grade anonymous reporting without the enterprise price tag.",
     category: "Product Comparison",
     date: "2025-04-05",
@@ -1220,7 +1232,7 @@ Start a 14-day free trial at voxwel.com.
       name: "VoxWel Team",
       role: "Workplace Safety Advocates"
     },
-    tags: [],
+    tags: ["VoxWel vs AllVoices", "AllVoices alternative", "anonymous reporting comparison", "whistleblowing platform comparison"],
     icon: "FiFileText",
     color: "from-blue-500 to-blue-700",
     content: `
@@ -1295,15 +1307,17 @@ Start a 14-day free trial at voxwel.com.
   {
     slug: "voxwel-vs-navex",
     title: "VoxWel vs NAVEX EthicsPoint: Which Is Right for Your Company?",
+    metaTitle: "VoxWel vs NAVEX: Feature, Pricing & Compliance Comparison (2026)",
+    metaDescription: "VoxWel costs $1/employee/month. NAVEX starts at $500/month. Both are EU Directive compliant. See the full feature, anonymity, and pricing comparison for mid-market organizations.",
     excerpt: "NAVEX EthicsPoint is the enterprise compliance standard. VoxWel is the modern, affordable alternative. This comparison covers features, pricing, setup time, and which organizations each is right for.",
     category: "Product Comparison",
-    date: "2025-04-04",
+    date: "2026-03-30",
     readTime: "8 min",
     author: {
       name: "VoxWel Team",
       role: "Workplace Safety Advocates"
     },
-    tags: [],
+    tags: ["VoxWel vs NAVEX", "NAVEX comparison", "whistleblowing platform comparison", "anonymous reporting comparison"],
     icon: "FiFileText",
     color: "from-blue-500 to-blue-700",
     content: `
@@ -1545,15 +1559,17 @@ Start a 14-day free trial at voxwel.com.
   {
     slug: "what-is-compliance-hotline",
     title: "What Is a Compliance Hotline? (And Why Your Company Needs More Than a Phone Number)",
+    metaTitle: "What Is a Compliance Hotline? How It Works, What It Costs & Why 83% Go Unused",
+    metaDescription: "A compliance hotline is a reporting channel for employees to report misconduct. Learn how modern compliance hotlines work, why phone-only hotlines fail, and what replacements cost in 2026.",
     excerpt: "A compliance hotline lets employees report ethics violations, fraud, harassment, and legal breaches \u2014 and is a regulatory requirement for many organizations. This guide explains what it is, what it must do, and why a phone number alone is no longer sufficient.",
     category: "Best Practices",
-    date: "2025-04-02",
+    date: "2026-03-30",
     readTime: "8 min",
     author: {
       name: "VoxWel Team",
       role: "Workplace Safety Advocates"
     },
-    tags: [],
+    tags: ["compliance hotline", "what is compliance hotline", "ethics hotline", "anonymous compliance reporting", "employee hotline"],
     icon: "FiFileText",
     color: "from-blue-500 to-blue-700",
     content: `
@@ -1800,6 +1816,8 @@ Start a 14-day free trial at voxwel.com.
   {
     slug: "employment-law-cases-2025",
     title: "Top Employment Law Cases of 2024\u20132025: What HR Directors Must Learn",
+    metaTitle: "10 Employment Law Cases That Will Shape HR Policy in 2025–2026",
+    metaDescription: "From Murray v. UBS to Vavřička v. Czech Republic — 10 employment law rulings that change how employers handle whistleblowing, retaliation, remote work, and harassment investigations.",
     excerpt: "Every year, courts and tribunals in the UK, EU, and US deliver decisions that HR Directors need to know. These are the most significant employment law cases of 2024\u20132025 \u2014 what was decided, what it means for your HR policy, and what you should change today.",
     category: "Legal & Compliance",
     date: "2025-03-31",
@@ -1808,7 +1826,7 @@ Start a 14-day free trial at voxwel.com.
       name: "VoxWel Team",
       role: "Workplace Safety Advocates"
     },
-    tags: [],
+    tags: ["employment law cases 2025", "HR legal cases", "whistleblower court cases", "employment tribunal cases", "workplace law rulings"],
     icon: "FiFileText",
     color: "from-blue-500 to-blue-700",
     content: `
@@ -2204,15 +2222,17 @@ Start a 14-day free trial at voxwel.com.
   {
     slug: "whistleblower-hotline-cost",
     title: "Whistleblower Hotline Cost: What Does Anonymous Reporting Software Actually Cost in 2025?",
+    metaTitle: "Whistleblower Hotline Cost in 2026: What Companies Actually Pay ($1–$15/Employee)",
+    metaDescription: "Real pricing data for whistleblower hotlines and reporting platforms. Costs range from $1 to $15 per employee per month. See what you get at each price tier and where you're overpaying.",
     excerpt: "Before calling a vendor, know what things should cost. Whistleblower hotline pricing ranges from free to $25 per employee per month depending on what you're buying. This pricing guide covers every option in the market.",
     category: "Best Practices",
-    date: "2025-03-28",
+    date: "2026-03-30",
     readTime: "8 min",
     author: {
       name: "VoxWel Team",
       role: "Workplace Safety Advocates"
     },
-    tags: [],
+    tags: ["whistleblower hotline cost", "whistleblowing software pricing", "compliance hotline cost", "ethics hotline pricing", "anonymous reporting cost"],
     icon: "FiFileText",
     color: "from-blue-500 to-blue-700",
     content: `
@@ -2763,15 +2783,17 @@ Start a 14-day free trial at voxwel.com.
   {
     slug: "workplace-fraud-detection-reporting",
     title: "Workplace Fraud: How to Detect It Early and What to Do When Employees Report It",
+    metaTitle: "Workplace Fraud Detection & Reporting: The HR Director's Complete Guide",
+    metaDescription: "Employee fraud costs organizations 5% of annual revenue. Learn the red flags, investigation procedures, reporting infrastructure, and how anonymous channels detect fraud 50% faster.",
     excerpt: "The median workplace fraud case goes undetected for 12 months and costs $117,000 before it's caught. The most reliable early detection method is employee reporting \u2014 but only 40% of employees who see fraud actually report it. This guide covers what HR needs to know about workplace fraud detection.",
     category: "Legal & Compliance",
-    date: "2025-03-24",
+    date: "2026-03-30",
     readTime: "10 min",
     author: {
       name: "VoxWel Team",
       role: "Workplace Safety Advocates"
     },
-    tags: [],
+    tags: ["workplace fraud detection", "employee fraud reporting", "fraud prevention HR", "anonymous fraud reporting", "embezzlement detection"],
     icon: "FiFileText",
     color: "from-blue-500 to-blue-700",
     content: `
@@ -3159,20 +3181,22 @@ Start a 14-day free trial at voxwel.com.
   },
   {
     slug: "workplace-harassment-statistics-2025",
-    title: "Workplace Harassment Statistics: 30 Numbers Every HR Director Must Know [2025]",
+    title: "Workplace Harassment Statistics: 30 Numbers Every HR Director Must Know [2026]",
+    metaTitle: "30 Workplace Harassment Statistics Every HR Director Needs (2026 Data)",
+    metaDescription: "83% of workplace harassment goes unreported. $550B annual cost to US employers. 75% of reporters face retaliation. 30 data-backed statistics from EEOC, SHRM, and Gallup — updated 2026.",
     excerpt: "30 workplace harassment statistics every HR Director should know in 2025 \u2014 covering how much goes unreported, what it costs, which industries are worst affected, and what the data says about anonymous reporting.",
     category: "Research & Data",
-    date: "2025-03-22",
+    date: "2026-03-30",
     readTime: "10 min",
     author: {
       name: "VoxWel Team",
       role: "Workplace Safety Advocates"
     },
-    tags: [],
+    tags: ["workplace harassment statistics", "harassment data 2026", "EEOC harassment statistics", "workplace harassment cost", "unreported harassment", "HR statistics"],
     icon: "FiFileText",
     color: "from-blue-500 to-blue-700",
     content: `
-# Workplace Harassment Statistics: 30 Numbers Every HR Director Must Know [2025]
+# Workplace Harassment Statistics: 30 Numbers Every HR Director Must Know [2026]
 
 Numbers put the scale into perspective. Every organization has a sense of its culture. The data shows what most organizations are underestimating.
 
@@ -5375,16 +5399,18 @@ Anonymous reporting isn't just about compliance,it's about giving your employees
   {
     slug: "real-cost-workplace-harassment",
     title: "The Real Cost of Workplace Harassment: $75,000+ Per Lawsuit [2025 Data]",
+    metaTitle: "The Real Cost of Workplace Harassment: $75K–$500K Per Case (2026 Data)",
+    metaDescription: "A single harassment claim costs $75K pre-litigation and $500K+ through trial. US employers paid $1.1B in EEOC charges in FY2023. Here's the full cost breakdown and prevention ROI.",
     excerpt:
       "One harassment lawsuit costs $75,000–$300,000. Learn how anonymous employee reporting prevents lawsuits before they happen. Free guide with 2025 statistics.",
     category: "Best Practices",
-    date: "2024-11-08",
+    date: "2026-03-30",
     readTime: "7 min read",
     author: {
       name: "VoxWel Team",
       role: "Workplace Safety Advocates",
     },
-    tags: ["harassment", "workplace safety", "prevention", "HR best practices"],
+    tags: ["cost of workplace harassment", "harassment litigation cost", "workplace harassment prevention ROI", "EEOC harassment charges", "HR risk management"],
     icon: "FiShield",
     color: "from-blue-500 to-blue-700",
     content: `
@@ -6390,25 +6416,18 @@ Whistleblower protection isn't optional,it's a legal requirement with serious co
     slug: "anonymous-harassment-reporting-tool-hr-guide",
     title:
       "Anonymous Harassment Reporting Tool: What Every HR Director Needs in 2025",
+    metaTitle: "Anonymous Harassment Reporting Tools: HR Buyer's Guide (2026)",
+    metaDescription: "How to choose an anonymous harassment reporting tool. Covers anonymity architecture, GDPR compliance, integration needs, and pricing. Written for HR Directors evaluating platforms.",
     excerpt:
       "83% of employees who witness harassment never report it. The reason isn't culture — it's infrastructure. Here's everything HR Directors need to know about anonymous harassment reporting tools, how they work, and what separates the good ones from the useless ones.",
     category: "Best Practices",
-    date: "2025-03-05",
+    date: "2026-03-30",
     readTime: "12 min read",
     author: {
       name: "VoxWel Team",
       role: "Workplace Safety Advocates",
     },
-    tags: [
-      "anonymous harassment reporting",
-      "harassment reporting tool",
-      "HR best practices",
-      "anonymous reporting",
-      "workplace harassment",
-      "whistleblower platform",
-      "employee reporting",
-      "speak-up culture",
-    ],
+    tags: ["anonymous harassment reporting tool", "harassment reporting software", "anonymous reporting HR", "workplace harassment reporting", "HR compliance tool"],
     icon: "FiShield",
     color: "from-blue-500 to-blue-700",
     content: `
@@ -6628,25 +6647,18 @@ The question is not whether your organization needs an anonymous reporting tool.
     slug: "anonymous-employee-reporting-software-guide",
     title:
       "Anonymous Employee Reporting Software: The Complete Buyer's Guide for HR Teams [2025]",
+    metaTitle: "Anonymous Employee Reporting Software: Complete Buyer's Guide for HR Teams [2026]",
+    metaDescription: "Evaluating anonymous employee reporting software? This buyer's guide covers the 8 features that matter, pricing benchmarks, vendor red flags, and how to build the business case.",
     excerpt:
       "The market for anonymous employee reporting software has exploded since the EU Whistleblowing Directive came into force. This guide cuts through the vendor noise and tells HR teams exactly what to look for, what to avoid, and how to make the right decision for their organization.",
     category: "Buyer's Guide",
-    date: "2025-03-05",
+    date: "2026-03-30",
     readTime: "15 min read",
     author: {
       name: "VoxWel Team",
       role: "HR Compliance Specialists",
     },
-    tags: [
-      "anonymous employee reporting software",
-      "buyer's guide",
-      "HR software",
-      "compliance",
-      "whistleblower platform",
-      "GDPR",
-      "EU Whistleblowing Directive",
-      "anonymous reporting",
-    ],
+    tags: ["anonymous employee reporting software", "HR software buyer's guide", "whistleblower platform comparison", "anonymous reporting tool", "employee reporting software"],
     icon: "FiFileText",
     color: "from-teal-500 to-teal-700",
     content: `
@@ -7435,15 +7447,17 @@ The cultural work takes longer. The infrastructure can be in place today.
   {
     slug: "eu-whistleblowing-directive-compliance-guide",
     title: "EU Whistleblowing Directive 2019/1937: What Every HR Team Must Do to Comply",
+    metaTitle: "EU Whistleblowing Directive Compliance Guide: 6 Requirements Your Company Must Meet",
+    metaDescription: "The EU Whistleblowing Directive requires anonymous reporting channels, 7-day acknowledgment, and 3-month feedback. This guide covers all 6 requirements with implementation steps.",
     excerpt: "EU Directive 2019/1937 requires organizations with 50+ employees in EU member states to establish secure, confidential reporting channels for whistleblowers. This guide covers exactly what you need to have in place, by when, and the penalties for non-compliance.",
     category: "Legal & Compliance",
-    date: "2025-03-17",
+    date: "2026-03-30",
     readTime: "13 min read",
     author: {
       name: "VoxWel Team",
       role: "Workplace Safety Advocates"
     },
-    tags: ["EU whistleblowing directive","GDPR","compliance","anonymous reporting","whistleblower platform","EU Directive 2019/1937","legal"],
+    tags: ["EU whistleblowing directive", "whistleblowing directive compliance", "EU directive 2019/1937", "anonymous reporting EU", "whistleblower protection EU", "compliance reporting channel"],
     icon: "FiFileText",
     color: "from-green-500 to-green-700",
     content: `
