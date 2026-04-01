@@ -1,3 +1,4 @@
+import FAQSchema from "@/components/FAQSchema";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
@@ -44,6 +45,43 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <ErrorBoundary>
+      <FAQSchema
+        faqs={[
+          {
+            question: "How can VoxWel guarantee 100% anonymity for employees?",
+            answer:
+              "VoxWel uses AES-256 end-to-end encryption and a zero-knowledge architecture. When an employee submits a report, no identifying metadata is stored — not their IP address, device fingerprint, or session data. Even VoxWel administrators cannot identify who submitted a report. Anonymity is architectural, not just a policy promise.",
+          },
+          {
+            question:
+              "Can our IT department track who submitted a report on VoxWel?",
+            answer:
+              "No. VoxWel is specifically designed to prevent this. Reports are encrypted before they leave the employee's device and stored in a way that makes source identification technically impossible, even with full database access. Your IT team cannot trace any report back to its source.",
+          },
+          {
+            question:
+              "Is VoxWel compliant with GDPR and the EU Whistleblowing Directive?",
+            answer:
+              "Yes. VoxWel is fully compliant with GDPR, the EU Whistleblowing Directive (2019/1937), and the UK Public Interest Disclosure Act. The platform includes built-in data retention policies, right-to-erasure workflows, and consent management. Compliance is maintained automatically as regulations evolve.",
+          },
+          {
+            question: "How quickly can we deploy VoxWel across our organization?",
+            answer:
+              "24 hours or less. Once you sign up, you receive a company-specific QR code and reporting link that you can distribute to your team immediately. There is no IT project, no app installation, and no employee training required. Most organizations are fully live within the same business day.",
+          },
+          {
+            question: "Why is VoxWel priced at only $1 per employee per month?",
+            answer:
+              "We designed VoxWel to be accessible to every company, not just enterprises with six-figure compliance budgets. A 100-person company pays $100/month — the cost of one business lunch. The alternative is a $75,000+ lawsuit that could have been prevented by an early anonymous report.",
+          },
+          {
+            question:
+              "What is the difference between the three reporting walls?",
+            answer:
+              "VoxWel has three distinct channels: Anonymous Reports (fully encrypted, completely anonymous reporting for sensitive issues), Team Pulse (open team discussion and feedback), and Recognition Feed (public celebration of achievements and milestones). All three are accessible from one dashboard with role-based access controls.",
+          },
+        ]}
+      />
       <WebVitals />
       <ScrollAnimationObserver />
       <main className="min-h-screen w-full overflow-x-hidden pt-16">

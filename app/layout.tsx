@@ -257,101 +257,6 @@ export default function RootLayout({
     },
   };
 
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "How can VoxWel guarantee 100% anonymity for employees?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "VoxWel uses AES-256 end-to-end encryption and a zero-knowledge architecture. When an employee submits a report, no identifying metadata is stored — not their IP address, device fingerprint, or session data. Even VoxWel administrators cannot identify who submitted a report. Anonymity is architectural, not just a policy promise.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can our IT department track who submitted a report on VoxWel?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No. VoxWel is specifically designed to prevent this. Reports are encrypted before they leave the employee's device and stored in a way that makes source identification technically impossible, even with full database access. Your IT team cannot trace any report back to its source.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Is VoxWel compliant with GDPR and the EU Whistleblowing Directive?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. VoxWel is fully GDPR compliant and meets the requirements of EU Directive 2019/1937 (EU Whistleblowing Directive), which mandates that organizations with 50 or more employees provide a secure, confidential internal reporting channel. VoxWel provides this channel along with the documented audit trail required for regulatory compliance.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What is the difference between VoxWel and a traditional whistleblower hotline?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Traditional whistleblower hotlines require employees to call a phone number, which many find intimidating and potentially traceable. They are only available during business hours and cost $500–$2,000 per month. VoxWel is fully digital, available 24/7, accessible via web browser or QR code with no phone call required, and costs only $1 per employee per month — a fraction of the price with better anonymity.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What types of workplace issues can employees report through VoxWel?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Employees can report any workplace concern including: sexual harassment, workplace harassment, discrimination, financial fraud, expense abuse, OSHA and safety violations, conflicts of interest, retaliation, toxic management behavior, data privacy violations, ethical violations, and any other compliance or conduct issues.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How long does it take to set up VoxWel for a company?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Under 24 hours. Once you sign up, you receive a company-specific QR code and reporting link to distribute to your team immediately. No IT project, no app installation, no employee training required. Most organizations are fully live within the same business day.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Why is VoxWel priced at only $1 per employee per month?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "VoxWel is designed to be accessible to every company, not just enterprises with large compliance budgets. A 100-person company pays $100 per month. A single prevented workplace harassment lawsuit costs a minimum of $75,000, meaning one prevented lawsuit covers over 62 years of VoxWel for a 100-person company.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What is the difference between Anonymous Reports, Team Pulse, and Recognition Feed in VoxWel?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "VoxWel has three channels: Anonymous Reports is a fully encrypted, completely anonymous channel for sensitive workplace issues like harassment or fraud. Team Pulse is an open discussion channel for team conversations, ideas, and questions. Recognition Feed is a public appreciation channel for celebrating team achievements and milestones. All three are accessible from one admin dashboard.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does VoxWel work for small businesses or only large enterprises?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "VoxWel works for any size organization. The $1 per employee per month pricing makes it affordable for companies with as few as 10 employees. There is no minimum employee count and no enterprise contract required. Small businesses, mid-market companies, and large enterprises all use the same full-featured platform.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What happens after an employee submits an anonymous report on VoxWel?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "After submission, HR admins receive an instant notification. The report enters a 7-stage workflow: Open → Acknowledged → Under Review → In Progress → Resolved → Closed → Archived. Admins can assign the report to departments, set priority levels, add due dates, and respond confidentially to the anonymous reporter. Every action is automatically logged in the compliance audit trail.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can VoxWel help prevent workplace mental health crises?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. VoxWel provides employees with a confidential, encrypted safe space to report work-related stress, harassment, or toxic conditions before they escalate into mental health crises. Early detection of workplace issues can prevent burnout, depression, and tragic outcomes.",
-        },
-      },
-    ],
-  };
-
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -494,10 +399,6 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
         <script
           type="application/ld+json"
