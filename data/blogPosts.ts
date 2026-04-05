@@ -102,9 +102,9 @@ export const blogPosts: BlogPost[] = [
     title:
       "Multilingual Whistleblowing Software: Choosing a Platform for Multi-Country EU Operations",
     metaTitle:
-      "Multilingual Whistleblowing Software for EU: Language Support Comparison 2026",
+      "Multilingual Whistleblowing Software: 200+ Languages Compared Across 7 EU Platforms",
     metaDescription:
-      "Operating across EU countries? Compare multilingual whistleblowing platforms on language count, translation quality, GDPR hosting, and EU Directive compliance.",
+      "Most platforms support 10–30 languages. One supports 200+. Compare 7 EU whistleblowing vendors on translation quality, GDPR-compliant hosting, and real multi-country deployment.",
     excerpt:
       "The EU Whistleblowing Directive requires reporting channels accessible to all employees. For organizations operating across multiple EU member states, that means multilingual support isn't optional — it's a compliance requirement. This guide compares how platforms handle language.",
     category: "Buyer's Guide",
@@ -128,9 +128,9 @@ export const blogPosts: BlogPost[] = [
     title:
       "Best EU Whistleblowing Directive-Compliant Software: 7 Vendors Compared for 2026",
     metaTitle:
-      "7 Best EU Directive-Compliant Whistleblowing Platforms 2026 (Compliance Matrix)",
+      "7 Best EU Directive-Compliant Whistleblowing Platforms — From $1/Employee (2026)",
     metaDescription:
-      "Which whistleblowing platforms actually meet all 6 EU Directive requirements? Compliance matrix, setup speed, pricing, and implementation guide for EU employers.",
+      "Only 3 of 7 platforms pass all 6 EU Directive requirements out of the box. See the full compliance matrix, real pricing from $1/employee, and setup times. Updated April 2026.",
     excerpt:
       "The EU Whistleblowing Directive has six core requirements. Not every platform meets all of them out of the box. This guide evaluates 7 vendors against each requirement — with a compliance matrix, pricing comparison, and implementation timeline.",
     category: "Product Comparison",
@@ -154,9 +154,9 @@ export const blogPosts: BlogPost[] = [
     title:
       "Whistleblowing Software Pricing in 2026: What Companies Actually Pay",
     metaTitle:
-      "Whistleblowing Software Pricing 2026: $1–$15/Employee Cost Breakdown by Vendor",
+      "Whistleblowing Software Pricing: 8 Vendors Compared — $600 to $15,000/Year (2026)",
     metaDescription:
-      "Real pricing data across 8 whistleblowing platforms. Costs range from $1 to $15/employee/month. Comparison table at 50, 200, 500, and 1,000 employees. Hidden fees exposed.",
+      "The same 500-employee company gets quoted $6,000 by one vendor and $15,000 by another. See real annual costs at 50, 200, 500, and 1,000 employees — plus the hidden fees most vendors won't mention.",
     excerpt:
       "The whistleblowing software market has four pricing models and wildly different price points. This guide compares real costs across 8 platforms at four company sizes — and reveals the hidden fees most vendors don't mention until you've signed.",
     category: "Buyer's Guide",
@@ -577,9 +577,9 @@ Start a 14-day free trial at voxwel.com.
     title:
       "Best Whistleblowing Software 2026: Top 10 Tools Compared for HR Teams",
     metaTitle:
-      "7 Best Whistleblowing Software 2026: Pricing, Features & EU Compliance Compared",
+      "Best Whistleblowing Software 2026: 10 Platforms Ranked by Price, Anonymity & Compliance",
     metaDescription:
-      "Side-by-side comparison of the top whistleblowing platforms in 2026. Real pricing from $1/employee, EU Directive compliance check, anonymity architecture breakdown. Updated March 2026.",
+      "We tested 10 whistleblowing platforms on anonymity strength, EU compliance, and real pricing. 3 failed on anonymity. 4 hide their prices. See which ones actually deliver — updated April 2026.",
     excerpt:
       "The whistleblowing software market has over 30 vendors. Most look identical from the outside. This guide cuts through the noise \u2014 comparing the 10 most widely used platforms on the dimensions that actually matter: anonymity architecture, EU Directive compliance, pricing transparency, and report volume impact.",
     category: "Product Comparison",
@@ -8022,9 +8022,9 @@ Organizations operating in the EU cannot afford to defer this compliance. The tr
     slug: "hinweisgeberschutzgesetz-guide",
     title: "HinSchG Compliance Guide: What German Employers Must Know in 2026",
     metaTitle:
-      "HinSchG Compliance Guide 2026: Whistleblower Software Requirements for German Companies",
+      "HinSchG-Pflichten 2026: 6 Anforderungen, Bußgelder bis €20.000 & Software-Lösung",
     metaDescription:
-      "Complete HinSchG compliance guide for German employers. Who the law applies to, the 6 mandatory requirements, fines up to €20,000, and how whistleblower software satisfies every requirement.",
+      "Seit Dezember 2023 gilt das HinSchG für alle Unternehmen ab 50 Mitarbeitenden. Prüfen Sie die 6 Pflichtanforderungen, vermeiden Sie Bußgelder bis €20.000 und finden Sie die passende Software ab $1/Mitarbeiter/Monat.",
     excerpt:
       "Germany's Hinweisgeberschutzgesetz (HinSchG) has been fully in force since December 2023. This guide explains exactly what it requires, who it applies to, and how purpose-built whistleblower software satisfies every legal requirement — with direct comparisons to the EU Directive 2019/1937.",
     category: "Compliance Guide",
