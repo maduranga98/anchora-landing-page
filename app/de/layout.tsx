@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: {
-    // canonical: "https://voxwel.com/de/hinweisgebersoftware-preise",
+    canonical: "https://voxwel.com/de/hinweisgebersoftware-preise",
     languages: {
       de: "https://voxwel.com/de/hinweisgebersoftware-preise",
       "x-default": "https://voxwel.com/blogs/whistleblower-hotline-cost",
