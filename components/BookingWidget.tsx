@@ -3,14 +3,21 @@
 import React, { useState, useEffect, FormEvent } from "react";
 import { X, Calendar, CheckCircle, Loader2 } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { getFunctions, httpsCallable } from 'firebase/functions';
+import { initializeApp, getApps } from 'firebase/app';
 import { getVariant, trackVariantConversion, EXPERIMENTS } from "@/utils/abTesting";
+
+const firebaseConfig = { projectId: 'company-voice-ba26f' };
+if (!getApps().length) initializeApp(firebaseConfig);
+const functions = getFunctions();
 
 interface FormData {
   name: string;
   email: string;
   company: string;
   companySize: string;
-  preferredTime: string;
+  meetingDate: string;
+  meetingTime: string;
   message: string;
 }
 
@@ -19,7 +26,8 @@ interface FieldErrors {
   email: string;
   company: string;
   companySize: string;
-  preferredTime: string;
+  meetingDate: string;
+  meetingTime: string;
 }
 
 interface TouchedFields {
@@ -27,7 +35,8 @@ interface TouchedFields {
   email: boolean;
   company: boolean;
   companySize: boolean;
-  preferredTime: boolean;
+  meetingDate: boolean;
+  meetingTime: boolean;
 }
 
 export default function BookingWidget() {
@@ -39,7 +48,8 @@ export default function BookingWidget() {
     email: "",
     company: "",
     companySize: "",
-    preferredTime: "",
+    meetingDate: "",
+    meetingTime: "",
     message: "",
   });
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({
@@ -47,14 +57,16 @@ export default function BookingWidget() {
     email: "",
     company: "",
     companySize: "",
-    preferredTime: "",
+    meetingDate: "",
+    meetingTime: "",
   });
   const [touched, setTouched] = useState<TouchedFields>({
     name: false,
     email: false,
     company: false,
     companySize: false,
-    preferredTime: false,
+    meetingDate: false,
+    meetingTime: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
@@ -104,6 +116,43 @@ export default function BookingWidget() {
     };
   }, [isOpen]);
 
+  const generateTimeSlots = () => {
+    const slots = [];
+    for (let h = 9; h <= 17; h++) {
+      for (const m of [0, 30]) {
+        if (h === 17 && m === 30) continue;
+        const hour12 = h > 12 ? h - 12 : h === 0 ? 12 : h;
+        const ampm = h >= 12 ? 'PM' : 'AM';
+        const label = `${hour12}:${m === 0 ? '00' : '30'} ${ampm}`;
+        const value = `${String(h).padStart(2, '0')}:${m === 0 ? '00' : '30'}`;
+        slots.push({ label, value });
+      }
+    }
+    return slots;
+  };
+  const timeSlots = generateTimeSlots();
+  const todayStr = new Date().toISOString().split('T')[0];
+  const maxDate = new Date();
+  maxDate.setDate(maxDate.getDate() + 60);
+  const maxDateStr = maxDate.toISOString().split('T')[0];
+  const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+  const formatDateForEmail = (dateStr: string) => {
+    if (!dateStr) return '';
+    const date = new Date(dateStr + 'T12:00:00');
+    return date.toLocaleDateString('en-GB', {
+      weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
+    });
+  };
+
+  const formatTimeForEmail = (timeStr: string) => {
+    if (!timeStr) return '';
+    const [h, m] = timeStr.split(':').map(Number);
+    const hour12 = h > 12 ? h - 12 : h === 0 ? 12 : h;
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    return `${hour12}:${m === 0 ? '00' : '30'} ${ampm}`;
+  };
+
   const validateField = (name: keyof FieldErrors, value: string): string => {
     switch (name) {
       case "name":
@@ -121,8 +170,16 @@ export default function BookingWidget() {
       case "companySize":
         if (!value) return "Please select company size";
         return "";
-      case "preferredTime":
-        if (!value) return "Please select preferred time";
+      case "meetingDate": {
+        if (!value) return "Please select a date";
+        const sel = new Date(value + "T12:00:00");
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);
+        if (sel < now) return "Please select a future date";
+        return "";
+      }
+      case "meetingTime":
+        if (!value) return "Please select a time";
         return "";
       default:
         return "";
@@ -163,7 +220,8 @@ export default function BookingWidget() {
       email: validateField("email", formData.email),
       company: validateField("company", formData.company),
       companySize: validateField("companySize", formData.companySize),
-      preferredTime: validateField("preferredTime", formData.preferredTime),
+      meetingDate: validateField("meetingDate", formData.meetingDate),
+      meetingTime: validateField("meetingTime", formData.meetingTime),
     };
 
     setFieldErrors(errors);
@@ -172,7 +230,8 @@ export default function BookingWidget() {
       email: true,
       company: true,
       companySize: true,
-      preferredTime: true,
+      meetingDate: true,
+      meetingTime: true,
     });
 
     // Check if there are any errors
@@ -189,74 +248,72 @@ export default function BookingWidget() {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      // Send email via EmailJS
-      const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          company: formData.company,
-          company_size: formData.companySize,
-          preferred_time: formData.preferredTime,
-          message: formData.message || "No additional message",
-          to_name: "Anchora Team",
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-      );
+      const sendDemoBooking = httpsCallable(functions, 'sendDemoBooking');
 
-      if (result.status === 200) {
-        // Track conversion with Google Analytics
-        if (typeof window !== "undefined" && (window as any).gtag) {
-          (window as any).gtag("event", "demo_booking_submitted", {
-            event_category: "engagement",
-            event_label: "Demo Booking Widget",
-            value: formData.companySize,
-          });
-        }
+      await sendDemoBooking({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        companySize: formData.companySize,
+        meetingDate: formatDateForEmail(formData.meetingDate),
+        meetingTime: formatTimeForEmail(formData.meetingTime),
+        timezone: userTimezone,
+        meetLink: process.env.NEXT_PUBLIC_GOOGLE_MEET_LINK!,
+        message: formData.message,
+      });
 
-        // Track conversion with Meta Pixel
-        if (typeof window !== "undefined" && (window as any).fbq) {
-          (window as any).fbq("track", "Lead", {
-            content_name: "Demo Booking Widget",
-            content_category: "Demo Request",
-            value: formData.companySize,
-          });
-        }
-
-        setSubmitStatus({
-          type: "success",
-          message:
-            "Thanks! We'll contact you shortly to schedule your demo.",
+      // Track conversion with Google Analytics
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag("event", "demo_booking_submitted", {
+          event_category: "engagement",
+          event_label: "Demo Booking Widget",
+          value: formData.companySize,
         });
-
-        // Reset form after 3 seconds
-        setTimeout(() => {
-          setFormData({
-            name: "",
-            email: "",
-            company: "",
-            companySize: "",
-            preferredTime: "",
-            message: "",
-          });
-          setFieldErrors({
-            name: "",
-            email: "",
-            company: "",
-            companySize: "",
-            preferredTime: "",
-          });
-          setTouched({
-            name: false,
-            email: false,
-            company: false,
-            companySize: false,
-            preferredTime: false,
-          });
-          setIsOpen(false);
-        }, 3000);
       }
+
+      // Track conversion with Meta Pixel
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "Lead", {
+          content_name: "Demo Booking Widget",
+          content_category: "Demo Request",
+          value: formData.companySize,
+        });
+      }
+
+      setSubmitStatus({
+        type: "success",
+        message: `Confirmed! ✅ A meeting invitation has been sent to ${formData.email}`,
+      });
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          companySize: "",
+          meetingDate: "",
+          meetingTime: "",
+          message: "",
+        });
+        setFieldErrors({
+          name: "",
+          email: "",
+          company: "",
+          companySize: "",
+          meetingDate: "",
+          meetingTime: "",
+        });
+        setTouched({
+          name: false,
+          email: false,
+          company: false,
+          companySize: false,
+          meetingDate: false,
+          meetingTime: false,
+        });
+        setIsOpen(false);
+      }, 3000);
     } catch (error) {
       console.error("Failed to send demo booking:", error);
       setSubmitStatus({
@@ -484,48 +541,63 @@ export default function BookingWidget() {
                 )}
               </div>
 
-              {/* Preferred Time Field */}
+              {/* Meeting Date */}
               <div>
-                <label
-                  htmlFor="preferredTime"
-                  className="block text-sm font-semibold text-text-primary mb-2"
-                >
+                <label htmlFor="meetingDate" className="block text-sm font-semibold text-text-primary mb-2">
+                  Preferred Date <span className="text-accent-coral">*</span>
+                </label>
+                <input
+                  type="date"
+                  id="meetingDate"
+                  name="meetingDate"
+                  value={formData.meetingDate}
+                  min={todayStr}
+                  max={maxDateStr}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2
+                    focus:ring-offset-1 transition-all bg-white ${
+                    fieldErrors.meetingDate && touched.meetingDate
+                      ? 'border-red-500 focus:ring-red-500'
+                      : !fieldErrors.meetingDate && touched.meetingDate && formData.meetingDate
+                      ? 'border-green-500 focus:ring-green-500'
+                      : 'border-border-medium focus:ring-primary-teal focus:border-primary-teal'
+                  }`}
+                />
+                {fieldErrors.meetingDate && touched.meetingDate && (
+                  <p className="text-red-500 text-sm mt-1">{fieldErrors.meetingDate}</p>
+                )}
+              </div>
+
+              {/* Meeting Time */}
+              <div>
+                <label htmlFor="meetingTime" className="block text-sm font-semibold text-text-primary mb-2">
                   Preferred Time <span className="text-accent-coral">*</span>
                 </label>
-                <div className="relative">
-                  <select
-                    id="preferredTime"
-                    name="preferredTime"
-                    value={formData.preferredTime}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all appearance-none bg-white ${
-                      fieldErrors.preferredTime && touched.preferredTime
-                        ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-                        : !fieldErrors.preferredTime &&
-                          touched.preferredTime &&
-                          formData.preferredTime
-                        ? "border-green-500 focus:ring-green-500 focus:border-green-500"
-                        : "border-border-medium focus:ring-primary-teal focus:border-primary-teal"
-                    }`}
-                  >
-                    <option value="">Select preferred time</option>
-                    <option value="Morning (9am-12pm)">Morning (9am-12pm)</option>
-                    <option value="Afternoon (12pm-3pm)">Afternoon (12pm-3pm)</option>
-                    <option value="Late Afternoon (3pm-6pm)">Late Afternoon (3pm-6pm)</option>
-                    <option value="Flexible">Flexible</option>
-                  </select>
-                  {!fieldErrors.preferredTime &&
-                    touched.preferredTime &&
-                    formData.preferredTime && (
-                      <CheckCircle className="absolute right-3 top-3.5 w-5 h-5 text-green-500" />
-                    )}
-                </div>
-                {fieldErrors.preferredTime && touched.preferredTime && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {fieldErrors.preferredTime}
-                  </p>
+                <select
+                  id="meetingTime"
+                  name="meetingTime"
+                  value={formData.meetingTime}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2
+                    focus:ring-offset-1 transition-all bg-white ${
+                    fieldErrors.meetingTime && touched.meetingTime
+                      ? 'border-red-500 focus:ring-red-500'
+                      : !fieldErrors.meetingTime && touched.meetingTime && formData.meetingTime
+                      ? 'border-green-500 focus:ring-green-500'
+                      : 'border-border-medium focus:ring-primary-teal focus:border-primary-teal'
+                  }`}
+                >
+                  <option value="">Select a time</option>
+                  {timeSlots.map(slot => (
+                    <option key={slot.value} value={slot.value}>{slot.label}</option>
+                  ))}
+                </select>
+                {fieldErrors.meetingTime && touched.meetingTime && (
+                  <p className="text-red-500 text-sm mt-1">{fieldErrors.meetingTime}</p>
                 )}
+                <p className="text-xs text-slate-400 mt-1">Your timezone: {userTimezone}</p>
               </div>
 
               {/* Message Field (Optional) */}
