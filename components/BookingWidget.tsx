@@ -314,13 +314,18 @@ export default function BookingWidget() {
   };
 
   const handleCopyLink = async () => {
+    const textToCopy = `VoxWel Demo Details
+📅 Date: ${confirmedDetails.date}
+⏰ Time: ${confirmedDetails.time} (${userTimezone})
+🔗 Meet Link: ${confirmedDetails.meetLink}`;
+
     try {
-      await navigator.clipboard.writeText(confirmedDetails.meetLink);
+      await navigator.clipboard.writeText(textToCopy);
       setLinkCopied(true);
       setTimeout(() => setLinkCopied(false), 3000);
     } catch {
       const el = document.createElement("textarea");
-      el.value = confirmedDetails.meetLink;
+      el.value = textToCopy;
       document.body.appendChild(el);
       el.select();
       document.execCommand("copy");
@@ -455,9 +460,11 @@ export default function BookingWidget() {
                     Google Meet Link
                   </p>
                   <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-4 py-3">
-                    <span className="text-sm text-slate-600 truncate flex-1 font-mono">
-                      {confirmedDetails.meetLink}
-                    </span>
+                    <div className="flex flex-col gap-1 flex-1 text-left">
+                      <span className="text-xs text-slate-500">📅 {confirmedDetails.date}</span>
+                      <span className="text-xs text-slate-500">⏰ {confirmedDetails.time} ({userTimezone})</span>
+                      <span className="text-xs text-slate-600 font-mono truncate">🔗 {confirmedDetails.meetLink}</span>
+                    </div>
                     <button
                       type="button"
                       onClick={handleCopyLink}
@@ -478,7 +485,7 @@ export default function BookingWidget() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                               d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                           </svg>
-                          Copy
+                          Copy Details
                         </>
                       )}
                     </button>
