@@ -11,7 +11,6 @@ import SimplePricing from "@/components/SimplePricing";
 import { FAQSection } from "@/components/FAQSection";
 import BlogTeaseStrip from "@/components/BlogTeaseStrip";
 import FinalCTA from "@/components/FinalCTA";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollAnimationObserver from "@/components/ScrollAnimationObserver";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
@@ -107,10 +106,8 @@ export default function Home() {
         <FAQSection />
         {/* Blog strip — after FAQ, before Final CTA */}
         <BlogTeaseStrip />
-        {/* Section 11 — Final CTA */}
+        {/* Section 11 — Contact + Demo Booking */}
         <FinalCTA />
-        {/* Section 12 — Contact (EmailJS form logic preserved) */}
-        <Contact />
         {/* Section 13 — Footer */}
         <Footer />
       </main>
