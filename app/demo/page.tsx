@@ -9,14 +9,7 @@ import {
   FiTrendingUp,
   FiCalendar,
 } from "react-icons/fi";
-import emailjs from "@emailjs/browser";
-import { getFunctions, httpsCallable } from 'firebase/functions';
-import { initializeApp, getApps } from 'firebase/app';
 import Link from "next/link";
-
-const firebaseConfig = { projectId: 'company-voice-ba26f' };
-if (!getApps().length) initializeApp(firebaseConfig);
-const functions = getFunctions();
 import Script from "next/script";
 import AnchoraLogo from "@/components/AnchoraLogo";
 
@@ -166,19 +159,25 @@ export default function DemoPage() {
     setErrorMessage("");
 
     try {
-      const sendDemoBooking = httpsCallable(functions, 'sendDemoBooking');
-
-      await sendDemoBooking({
-        name: formData.name,
-        email: formData.email,
-        company: formData.company,
-        companySize: formData.companySize,
-        meetingDate: formatDateForEmail(formData.meetingDate),
-        meetingTime: formatTimeForEmail(formData.meetingTime),
-        timezone: userTimezone,
-        meetLink: process.env.NEXT_PUBLIC_GOOGLE_MEET_LINK!,
-        message: formData.message,
-      });
+      const response = await fetch(
+        'https://us-central1-company-voice-ba26f.cloudfunctions.net/sendDemoBooking',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            company: formData.company,
+            companySize: formData.companySize,
+            meetingDate: formatDateForEmail(formData.meetingDate),
+            meetingTime: formatTimeForEmail(formData.meetingTime),
+            timezone: userTimezone,
+            meetLink: process.env.NEXT_PUBLIC_GOOGLE_MEET_LINK!,
+            message: formData.message,
+          }),
+        }
+      );
+      if (!response.ok) throw new Error('Failed to send booking');
 
       setStatus("success");
 
