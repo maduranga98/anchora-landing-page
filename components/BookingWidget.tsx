@@ -67,6 +67,18 @@ export default function BookingWidget() {
     type: "success" | "error" | null;
     message: string;
   }>({ type: null, message: "" });
+  const [todayStr, setTodayStr] = useState("");
+  const [maxDateStr, setMaxDateStr] = useState("");
+  const [userTimezone, setUserTimezone] = useState("");
+
+  useEffect(() => {
+    const today = new Date();
+    setTodayStr(today.toISOString().split("T")[0]);
+    const max = new Date();
+    max.setDate(max.getDate() + 60);
+    setMaxDateStr(max.toISOString().split("T")[0]);
+    setUserTimezone(Intl.DateTimeFormat().resolvedOptions().timeZone);
+  }, []);
 
   // Show button after scrolling down a bit
   useEffect(() => {
@@ -125,11 +137,6 @@ export default function BookingWidget() {
     return slots;
   };
   const timeSlots = generateTimeSlots();
-  const todayStr = new Date().toISOString().split('T')[0];
-  const maxDate = new Date();
-  maxDate.setDate(maxDate.getDate() + 60);
-  const maxDateStr = maxDate.toISOString().split('T')[0];
-  const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   const formatDateForEmail = (dateStr: string) => {
     if (!dateStr) return '';

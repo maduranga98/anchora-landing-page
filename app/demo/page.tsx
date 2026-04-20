@@ -27,6 +27,9 @@ export default function DemoPage() {
     "idle" | "submitting" | "success" | "error"
   >("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [todayStr, setTodayStr] = useState("");
+  const [maxDateStr, setMaxDateStr] = useState("");
+  const [userTimezone, setUserTimezone] = useState("");
   const [fieldErrors, setFieldErrors] = useState({
     name: "",
     email: "",
@@ -43,6 +46,15 @@ export default function DemoPage() {
     meetingDate: false,
     meetingTime: false,
   });
+
+  useEffect(() => {
+    const today = new Date();
+    setTodayStr(today.toISOString().split("T")[0]);
+    const max = new Date();
+    max.setDate(max.getDate() + 60);
+    setMaxDateStr(max.toISOString().split("T")[0]);
+    setUserTimezone(Intl.DateTimeFormat().resolvedOptions().timeZone);
+  }, []);
 
   const validateField = (name: string, value: string) => {
     switch (name) {
@@ -131,11 +143,6 @@ export default function DemoPage() {
     return slots;
   };
   const timeSlots = generateTimeSlots();
-  const todayStr = new Date().toISOString().split('T')[0];
-  const maxDate = new Date();
-  maxDate.setDate(maxDate.getDate() + 60);
-  const maxDateStr = maxDate.toISOString().split('T')[0];
-  const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   const formatDateForEmail = (dateStr: string) => {
     if (!dateStr) return '';
