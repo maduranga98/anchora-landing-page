@@ -10,7 +10,13 @@ import {
   FiCalendar,
 } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
+import { getFunctions, httpsCallable } from 'firebase/functions';
+import { initializeApp, getApps } from 'firebase/app';
 import Link from "next/link";
+
+const firebaseConfig = { projectId: 'company-voice-ba26f' };
+if (!getApps().length) initializeApp(firebaseConfig);
+const functions = getFunctions();
 import Script from "next/script";
 import AnchoraLogo from "@/components/AnchoraLogo";
 
@@ -20,7 +26,8 @@ export default function DemoPage() {
     email: "",
     company: "",
     companySize: "",
-    preferredTime: "",
+    meetingDate: "",
+    meetingTime: "",
     message: "",
   });
   const [status, setStatus] = useState<
@@ -32,14 +39,16 @@ export default function DemoPage() {
     email: "",
     company: "",
     companySize: "",
-    preferredTime: "",
+    meetingDate: "",
+    meetingTime: "",
   });
   const [touched, setTouched] = useState({
     name: false,
     email: false,
     company: false,
     companySize: false,
-    preferredTime: false,
+    meetingDate: false,
+    meetingTime: false,
   });
 
   const validateField = (name: string, value: string) => {
@@ -60,8 +69,16 @@ export default function DemoPage() {
       case "companySize":
         if (!value) return "Please select company size";
         return "";
-      case "preferredTime":
-        if (!value) return "Please select preferred time";
+      case "meetingDate": {
+        if (!value) return "Please select a date";
+        const sel = new Date(value + "T12:00:00");
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);
+        if (sel < now) return "Please select a future date";
+        return "";
+      }
+      case "meetingTime":
+        if (!value) return "Please select a time";
         return "";
       default:
         return "";
@@ -106,29 +123,63 @@ export default function DemoPage() {
     });
   };
 
+  const generateTimeSlots = () => {
+    const slots = [];
+    for (let h = 9; h <= 17; h++) {
+      for (const m of [0, 30]) {
+        if (h === 17 && m === 30) continue;
+        const hour12 = h > 12 ? h - 12 : h === 0 ? 12 : h;
+        const ampm = h >= 12 ? 'PM' : 'AM';
+        const label = `${hour12}:${m === 0 ? '00' : '30'} ${ampm}`;
+        const value = `${String(h).padStart(2, '0')}:${m === 0 ? '00' : '30'}`;
+        slots.push({ label, value });
+      }
+    }
+    return slots;
+  };
+  const timeSlots = generateTimeSlots();
+  const todayStr = new Date().toISOString().split('T')[0];
+  const maxDate = new Date();
+  maxDate.setDate(maxDate.getDate() + 60);
+  const maxDateStr = maxDate.toISOString().split('T')[0];
+  const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+  const formatDateForEmail = (dateStr: string) => {
+    if (!dateStr) return '';
+    const date = new Date(dateStr + 'T12:00:00');
+    return date.toLocaleDateString('en-GB', {
+      weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
+    });
+  };
+
+  const formatTimeForEmail = (timeStr: string) => {
+    if (!timeStr) return '';
+    const [h, m] = timeStr.split(':').map(Number);
+    const hour12 = h > 12 ? h - 12 : h === 0 ? 12 : h;
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    return `${hour12}:${m === 0 ? '00' : '30'} ${ampm}`;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
     setErrorMessage("");
 
     try {
-      const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          company: formData.company,
-          company_size: formData.companySize,
-          preferred_time: formData.preferredTime,
-          message: formData.message || "Demo booking request",
-          reply_to: formData.email,
-          subject: "VoxWel Demo Booking Request",
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
-      );
+      const sendDemoBooking = httpsCallable(functions, 'sendDemoBooking');
 
-      console.log("Demo booking sent successfully:", result);
+      await sendDemoBooking({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        companySize: formData.companySize,
+        meetingDate: formatDateForEmail(formData.meetingDate),
+        meetingTime: formatTimeForEmail(formData.meetingTime),
+        timezone: userTimezone,
+        meetLink: process.env.NEXT_PUBLIC_GOOGLE_MEET_LINK!,
+        message: formData.message,
+      });
+
       setStatus("success");
 
       // Track Meta Pixel Lead conversion event
@@ -144,7 +195,8 @@ export default function DemoPage() {
         email: "",
         company: "",
         companySize: "",
-        preferredTime: "",
+        meetingDate: "",
+        meetingTime: "",
         message: "",
       });
       setTouched({
@@ -152,7 +204,8 @@ export default function DemoPage() {
         email: false,
         company: false,
         companySize: false,
-        preferredTime: false,
+        meetingDate: false,
+        meetingTime: false,
       });
     } catch (error: any) {
       console.error("Error booking demo:", error);
@@ -303,16 +356,14 @@ export default function DemoPage() {
                   <FiCheckCircle className="w-6 h-6 text-green-600 shrink-0 mt-1" />
                   <div>
                     <p className="text-green-800 font-bold text-lg mb-2">
-                      Demo Booked Successfully! 🎉
+                      Demo Confirmed! ✅
                     </p>
                     <p className="text-green-700 mb-2">
-                      Thank you for your interest in VoxWel! We've received your
-                      demo request.
+                      A meeting invitation has been sent to your email.
                     </p>
                     <p className="text-green-700 text-sm">
-                      Our team will contact you within 24 hours at{" "}
-                      <strong>{formData.email}</strong> to confirm your demo
-                      time and send you the meeting link.
+                      Please check your inbox for the Google Meet link and
+                      calendar invite.
                     </p>
                   </div>
                 </div>
@@ -455,97 +506,116 @@ export default function DemoPage() {
                   )}
                 </div>
 
-                {/* Company Size & Preferred Time */}
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      htmlFor="companySize"
-                      className="block text-sm font-semibold text-text-primary mb-2"
+                {/* Company Size */}
+                <div>
+                  <label
+                    htmlFor="companySize"
+                    className="block text-sm font-semibold text-text-primary mb-2"
+                  >
+                    Company Size *
+                  </label>
+                  <div className="relative">
+                    <select
+                      id="companySize"
+                      name="companySize"
+                      required
+                      value={formData.companySize}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={`w-full px-4 py-4 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all text-lg appearance-none bg-white ${
+                        fieldErrors.companySize && touched.companySize
+                          ? "border-red-500 focus:ring-red-500 focus:border-red-500"
+                          : !fieldErrors.companySize &&
+                              touched.companySize &&
+                              formData.companySize
+                            ? "border-green-500 focus:ring-green-500 focus:border-green-500"
+                            : "border-gray-300 focus:ring-primary-teal focus:border-primary-teal"
+                      }`}
+                      disabled={status === "submitting"}
                     >
-                      Company Size *
-                    </label>
-                    <div className="relative">
-                      <select
-                        id="companySize"
-                        name="companySize"
-                        required
-                        value={formData.companySize}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        className={`w-full px-4 py-4 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all text-lg appearance-none bg-white ${
-                          fieldErrors.companySize && touched.companySize
-                            ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-                            : !fieldErrors.companySize &&
-                                touched.companySize &&
-                                formData.companySize
-                              ? "border-green-500 focus:ring-green-500 focus:border-green-500"
-                              : "border-gray-300 focus:ring-primary-teal focus:border-primary-teal"
-                        }`}
-                        disabled={status === "submitting"}
-                      >
-                        <option value="">Select size</option>
-                        <option value="1-50">1-50 employees</option>
-                        <option value="51-100">51-100 employees</option>
-                        <option value="101-250">101-250 employees</option>
-                        <option value="251-500">251-500 employees</option>
-                        <option value="501-1000">501-1,000 employees</option>
-                        <option value="1000+">1,000+ employees</option>
-                      </select>
-                    </div>
-                    {fieldErrors.companySize && touched.companySize && (
-                      <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
-                        <FiAlertCircle className="w-4 h-4" />
-                        {fieldErrors.companySize}
-                      </p>
-                    )}
+                      <option value="">Select size</option>
+                      <option value="1-50">1-50 employees</option>
+                      <option value="51-100">51-100 employees</option>
+                      <option value="101-250">101-250 employees</option>
+                      <option value="251-500">251-500 employees</option>
+                      <option value="501-1000">501-1,000 employees</option>
+                      <option value="1000+">1,000+ employees</option>
+                    </select>
                   </div>
+                  {fieldErrors.companySize && touched.companySize && (
+                    <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
+                      <FiAlertCircle className="w-4 h-4" />
+                      {fieldErrors.companySize}
+                    </p>
+                  )}
+                </div>
 
-                  <div>
-                    <label
-                      htmlFor="preferredTime"
-                      className="block text-sm font-semibold text-text-primary mb-2"
-                    >
-                      Preferred Time *
-                    </label>
-                    <div className="relative">
-                      <select
-                        id="preferredTime"
-                        name="preferredTime"
-                        required
-                        value={formData.preferredTime}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        className={`w-full px-4 py-4 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all text-lg appearance-none bg-white ${
-                          fieldErrors.preferredTime && touched.preferredTime
-                            ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-                            : !fieldErrors.preferredTime &&
-                                touched.preferredTime &&
-                                formData.preferredTime
-                              ? "border-green-500 focus:ring-green-500 focus:border-green-500"
-                              : "border-gray-300 focus:ring-primary-teal focus:border-primary-teal"
-                        }`}
-                        disabled={status === "submitting"}
-                      >
-                        <option value="">Select time</option>
-                        <option value="Morning (9AM-12PM)">
-                          Morning (9AM-12PM)
-                        </option>
-                        <option value="Afternoon (12PM-3PM)">
-                          Afternoon (12PM-3PM)
-                        </option>
-                        <option value="Late Afternoon (3PM-6PM)">
-                          Late Afternoon (3PM-6PM)
-                        </option>
-                        <option value="Flexible">Flexible</option>
-                      </select>
-                    </div>
-                    {fieldErrors.preferredTime && touched.preferredTime && (
-                      <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
-                        <FiAlertCircle className="w-4 h-4" />
-                        {fieldErrors.preferredTime}
-                      </p>
-                    )}
-                  </div>
+                {/* Meeting Date */}
+                <div>
+                  <label htmlFor="meetingDate" className="block text-sm font-semibold text-text-primary mb-2">
+                    Preferred Date <span className="text-accent-coral">*</span>
+                  </label>
+                  <input
+                    type="date"
+                    id="meetingDate"
+                    name="meetingDate"
+                    value={formData.meetingDate}
+                    min={todayStr}
+                    max={maxDateStr}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    disabled={status === "submitting"}
+                    className={`w-full px-4 py-4 border-2 rounded-xl focus:outline-none focus:ring-2
+                      focus:ring-offset-1 transition-all text-lg bg-white ${
+                      fieldErrors.meetingDate && touched.meetingDate
+                        ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
+                        : !fieldErrors.meetingDate && touched.meetingDate && formData.meetingDate
+                        ? 'border-green-500 focus:ring-green-500 focus:border-green-500'
+                        : 'border-gray-300 focus:ring-primary-teal focus:border-primary-teal'
+                    }`}
+                  />
+                  {fieldErrors.meetingDate && touched.meetingDate && (
+                    <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
+                      <FiAlertCircle className="w-4 h-4" />
+                      {fieldErrors.meetingDate}
+                    </p>
+                  )}
+                </div>
+
+                {/* Meeting Time */}
+                <div>
+                  <label htmlFor="meetingTime" className="block text-sm font-semibold text-text-primary mb-2">
+                    Preferred Time <span className="text-accent-coral">*</span>
+                  </label>
+                  <select
+                    id="meetingTime"
+                    name="meetingTime"
+                    required
+                    value={formData.meetingTime}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    disabled={status === "submitting"}
+                    className={`w-full px-4 py-4 border-2 rounded-xl focus:outline-none focus:ring-2
+                      focus:ring-offset-1 transition-all text-lg appearance-none bg-white ${
+                      fieldErrors.meetingTime && touched.meetingTime
+                        ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
+                        : !fieldErrors.meetingTime && touched.meetingTime && formData.meetingTime
+                        ? 'border-green-500 focus:ring-green-500 focus:border-green-500'
+                        : 'border-gray-300 focus:ring-primary-teal focus:border-primary-teal'
+                    }`}
+                  >
+                    <option value="">Select a time</option>
+                    {timeSlots.map(slot => (
+                      <option key={slot.value} value={slot.value}>{slot.label}</option>
+                    ))}
+                  </select>
+                  {fieldErrors.meetingTime && touched.meetingTime && (
+                    <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
+                      <FiAlertCircle className="w-4 h-4" />
+                      {fieldErrors.meetingTime}
+                    </p>
+                  )}
+                  <p className="text-xs text-slate-400 mt-1">Your timezone: {userTimezone}</p>
                 </div>
 
                 {/* Optional Message */}
