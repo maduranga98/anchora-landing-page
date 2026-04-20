@@ -70,6 +70,14 @@ export default function BookingWidget() {
   const [todayStr, setTodayStr] = useState("");
   const [maxDateStr, setMaxDateStr] = useState("");
   const [userTimezone, setUserTimezone] = useState("");
+  const [bookingConfirmed, setBookingConfirmed] = useState(false);
+  const [confirmedDetails, setConfirmedDetails] = useState({
+    date: "",
+    time: "",
+    meetLink: "",
+    email: "",
+  });
+  const [linkCopied, setLinkCopied] = useState(false);
 
   useEffect(() => {
     const today = new Date();
@@ -287,40 +295,13 @@ export default function BookingWidget() {
         });
       }
 
-      setSubmitStatus({
-        type: "success",
-        message: `Confirmed! ✅ A meeting invitation has been sent to ${formData.email}`,
+      setBookingConfirmed(true);
+      setConfirmedDetails({
+        date: formatDateForEmail(formData.meetingDate),
+        time: formatTimeForEmail(formData.meetingTime),
+        meetLink: process.env.NEXT_PUBLIC_GOOGLE_MEET_LINK!,
+        email: formData.email,
       });
-
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setFormData({
-          name: "",
-          email: "",
-          company: "",
-          companySize: "",
-          meetingDate: "",
-          meetingTime: "",
-          message: "",
-        });
-        setFieldErrors({
-          name: "",
-          email: "",
-          company: "",
-          companySize: "",
-          meetingDate: "",
-          meetingTime: "",
-        });
-        setTouched({
-          name: false,
-          email: false,
-          company: false,
-          companySize: false,
-          meetingDate: false,
-          meetingTime: false,
-        });
-        setIsOpen(false);
-      }, 3000);
     } catch (error) {
       console.error("Failed to send demo booking:", error);
       setSubmitStatus({
@@ -329,6 +310,23 @@ export default function BookingWidget() {
       });
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(confirmedDetails.meetLink);
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 3000);
+    } catch {
+      const el = document.createElement("textarea");
+      el.value = confirmedDetails.meetLink;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand("copy");
+      document.body.removeChild(el);
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 3000);
     }
   };
 
@@ -347,6 +345,35 @@ export default function BookingWidget() {
 
   const closeModal = () => {
     setIsOpen(false);
+    setBookingConfirmed(false);
+    setConfirmedDetails({ date: "", time: "", meetLink: "", email: "" });
+    setLinkCopied(false);
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      companySize: "",
+      meetingDate: "",
+      meetingTime: "",
+      message: "",
+    });
+    setFieldErrors({
+      name: "",
+      email: "",
+      company: "",
+      companySize: "",
+      meetingDate: "",
+      meetingTime: "",
+    });
+    setTouched({
+      name: false,
+      email: false,
+      company: false,
+      companySize: false,
+      meetingDate: false,
+      meetingTime: false,
+    });
+    setSubmitStatus({ type: null, message: "" });
   };
 
   return (
@@ -393,7 +420,84 @@ export default function BookingWidget() {
               </button>
             </div>
 
-            {/* Form */}
+            {/* Confirmation Card */}
+            {bookingConfirmed ? (
+              <div className="p-6 flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
+                  <CheckCircle className="w-9 h-9 text-emerald-500" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-1">You&apos;re booked!</h3>
+                <p className="text-slate-500 text-sm mb-6">
+                  A confirmation has been sent to{" "}
+                  <span className="font-semibold text-slate-700">{confirmedDetails.email}</span>
+                </p>
+                <div className="w-full bg-slate-50 border border-slate-200 rounded-xl p-5 mb-5 text-left space-y-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-lg">📅</span>
+                    <div>
+                      <p className="text-xs text-slate-400 uppercase tracking-wide font-medium">Date</p>
+                      <p className="text-slate-800 font-semibold">{confirmedDetails.date}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-lg">⏰</span>
+                    <div>
+                      <p className="text-xs text-slate-400 uppercase tracking-wide font-medium">Time</p>
+                      <p className="text-slate-800 font-semibold">
+                        {confirmedDetails.time}{" "}
+                        <span className="text-slate-400 font-normal text-xs">({userTimezone})</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full mb-5">
+                  <p className="text-xs text-slate-400 uppercase tracking-wide font-medium text-left mb-2">
+                    Google Meet Link
+                  </p>
+                  <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-4 py-3">
+                    <span className="text-sm text-slate-600 truncate flex-1 font-mono">
+                      {confirmedDetails.meetLink}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={handleCopyLink}
+                      className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 ${
+                        linkCopied
+                          ? "bg-emerald-100 text-emerald-700"
+                          : "bg-primary-teal text-white hover:bg-primary-teal/90"
+                      }`}
+                    >
+                      {linkCopied ? (
+                        <>
+                          <CheckCircle className="w-3.5 h-3.5" />
+                          Copied!
+                        </>
+                      ) : (
+                        <>
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                              d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                          </svg>
+                          Copy
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+                <a
+                  href={confirmedDetails.meetLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 bg-primary-teal text-white rounded-xl font-semibold hover:bg-primary-teal/90 transition-colors mb-4"
+                >
+                  🔗 Join Meeting
+                </a>
+                <p className="text-xs text-slate-400">
+                  Check your inbox — a calendar confirmation was also sent to you.
+                </p>
+              </div>
+            ) : (
+            /* Form */
             <form onSubmit={handleSubmit} className="p-6 space-y-5">
               {/* Name Field */}
               <div>
@@ -662,6 +766,7 @@ export default function BookingWidget() {
                 We'll get back to you within 24 hours to confirm your demo
               </p>
             </form>
+            )}
           </div>
         </div>
       )}

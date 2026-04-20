@@ -30,6 +30,14 @@ export default function DemoPage() {
   const [todayStr, setTodayStr] = useState("");
   const [maxDateStr, setMaxDateStr] = useState("");
   const [userTimezone, setUserTimezone] = useState("");
+  const [bookingConfirmed, setBookingConfirmed] = useState(false);
+  const [confirmedDetails, setConfirmedDetails] = useState({
+    date: "",
+    time: "",
+    meetLink: "",
+    email: "",
+  });
+  const [linkCopied, setLinkCopied] = useState(false);
   const [fieldErrors, setFieldErrors] = useState({
     name: "",
     email: "",
@@ -160,6 +168,23 @@ export default function DemoPage() {
     return `${hour12}:${m === 0 ? '00' : '30'} ${ampm}`;
   };
 
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(confirmedDetails.meetLink);
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 3000);
+    } catch {
+      const el = document.createElement("textarea");
+      el.value = confirmedDetails.meetLink;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand("copy");
+      document.body.removeChild(el);
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 3000);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
@@ -186,7 +211,13 @@ export default function DemoPage() {
       );
       if (!response.ok) throw new Error('Failed to send booking');
 
-      setStatus("success");
+      setBookingConfirmed(true);
+      setConfirmedDetails({
+        date: formatDateForEmail(formData.meetingDate),
+        time: formatTimeForEmail(formData.meetingTime),
+        meetLink: process.env.NEXT_PUBLIC_GOOGLE_MEET_LINK!,
+        email: formData.email,
+      });
 
       // Track Meta Pixel Lead conversion event
       if (typeof window !== "undefined" && (window as any).fbq) {
@@ -345,6 +376,82 @@ export default function DemoPage() {
 
           {/* Demo Booking Form */}
           <div className="max-w-2xl mx-auto">
+            {bookingConfirmed ? (
+              <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-8 md:p-10 text-center">
+                <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-5">
+                  <FiCheckCircle className="w-10 h-10 text-emerald-500" />
+                </div>
+                <h2 className="text-2xl font-bold text-slate-900 mb-2">You&apos;re booked! 🎉</h2>
+                <p className="text-slate-500 mb-8">
+                  A confirmation has been sent to{" "}
+                  <span className="font-semibold text-slate-700">{confirmedDetails.email}</span>
+                </p>
+                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 mb-6 text-left space-y-4 max-w-md mx-auto">
+                  <div className="flex items-center gap-4">
+                    <span className="text-2xl">📅</span>
+                    <div>
+                      <p className="text-xs text-slate-400 uppercase tracking-wide font-medium">Date</p>
+                      <p className="text-slate-800 font-bold text-lg">{confirmedDetails.date}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <span className="text-2xl">⏰</span>
+                    <div>
+                      <p className="text-xs text-slate-400 uppercase tracking-wide font-medium">Time</p>
+                      <p className="text-slate-800 font-bold text-lg">
+                        {confirmedDetails.time}{" "}
+                        <span className="text-slate-400 font-normal text-sm">({userTimezone})</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="max-w-md mx-auto mb-6">
+                  <p className="text-xs text-slate-400 uppercase tracking-wide font-medium text-left mb-2">
+                    Your Google Meet Link
+                  </p>
+                  <div className="flex items-center gap-2 bg-white border-2 border-slate-200 rounded-xl px-4 py-3">
+                    <span className="text-sm text-slate-600 truncate flex-1 font-mono">
+                      {confirmedDetails.meetLink}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={handleCopyLink}
+                      className={`shrink-0 flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                        linkCopied
+                          ? "bg-emerald-100 text-emerald-700"
+                          : "bg-primary-teal text-white hover:bg-primary-teal/90"
+                      }`}
+                    >
+                      {linkCopied ? (
+                        <>
+                          <FiCheckCircle className="w-4 h-4" />
+                          Copied!
+                        </>
+                      ) : (
+                        <>
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                              d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                          </svg>
+                          Copy Link
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+                <a
+                  href={confirmedDetails.meetLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-teal text-white rounded-xl font-bold text-lg hover:bg-primary-teal/90 transition-colors mb-4"
+                >
+                  🔗 Join Google Meet
+                </a>
+                <p className="text-sm text-slate-400 mt-4">
+                  Check your inbox — a full confirmation was also emailed to you.
+                </p>
+              </div>
+            ) : (
             <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 border-2 border-primary-teal/20">
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold text-text-primary mb-3">
@@ -355,25 +462,6 @@ export default function DemoPage() {
                   hours to schedule your personalized demo.
                 </p>
               </div>
-
-              {/* Success Message */}
-              {status === "success" && (
-                <div className="mb-8 p-6 bg-green-50 border-2 border-green-500 rounded-xl flex items-start gap-4 animate-fade-in">
-                  <FiCheckCircle className="w-6 h-6 text-green-600 shrink-0 mt-1" />
-                  <div>
-                    <p className="text-green-800 font-bold text-lg mb-2">
-                      Demo Confirmed! ✅
-                    </p>
-                    <p className="text-green-700 mb-2">
-                      A meeting invitation has been sent to your email.
-                    </p>
-                    <p className="text-green-700 text-sm">
-                      Please check your inbox for the Google Meet link and
-                      calendar invite.
-                    </p>
-                  </div>
-                </div>
-              )}
 
               {/* Error Message */}
               {status === "error" && (
@@ -694,6 +782,7 @@ export default function DemoPage() {
                 </p>
               </form>
             </div>
+            )}
           </div>
 
           {/* What You'll See Section */}
