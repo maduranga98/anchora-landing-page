@@ -3,13 +3,7 @@
 import React, { useState, useEffect, FormEvent } from "react";
 import { X, Calendar, CheckCircle, Loader2 } from "lucide-react";
 import emailjs from "@emailjs/browser";
-import { getFunctions, httpsCallable } from 'firebase/functions';
-import { initializeApp, getApps } from 'firebase/app';
 import { getVariant, trackVariantConversion, EXPERIMENTS } from "@/utils/abTesting";
-
-const firebaseConfig = { projectId: 'company-voice-ba26f' };
-if (!getApps().length) initializeApp(firebaseConfig);
-const functions = getFunctions();
 
 interface FormData {
   name: string;
@@ -248,19 +242,25 @@ export default function BookingWidget() {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      const sendDemoBooking = httpsCallable(functions, 'sendDemoBooking');
-
-      await sendDemoBooking({
-        name: formData.name,
-        email: formData.email,
-        company: formData.company,
-        companySize: formData.companySize,
-        meetingDate: formatDateForEmail(formData.meetingDate),
-        meetingTime: formatTimeForEmail(formData.meetingTime),
-        timezone: userTimezone,
-        meetLink: process.env.NEXT_PUBLIC_GOOGLE_MEET_LINK!,
-        message: formData.message,
-      });
+      const response = await fetch(
+        'https://us-central1-company-voice-ba26f.cloudfunctions.net/sendDemoBooking',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            company: formData.company,
+            companySize: formData.companySize,
+            meetingDate: formatDateForEmail(formData.meetingDate),
+            meetingTime: formatTimeForEmail(formData.meetingTime),
+            timezone: userTimezone,
+            meetLink: process.env.NEXT_PUBLIC_GOOGLE_MEET_LINK!,
+            message: formData.message,
+          }),
+        }
+      );
+      if (!response.ok) throw new Error('Failed to send booking');
 
       // Track conversion with Google Analytics
       if (typeof window !== "undefined" && (window as any).gtag) {
