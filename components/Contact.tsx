@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   FiMail,
@@ -13,32 +13,146 @@ import {
 } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
 
+const MADU_TIMEZONE = "Asia/Colombo";
+
+const TIMEZONES = [
+  { label: "Pacific Time (US & Canada)", value: "America/Los_Angeles" },
+  { label: "Mountain Time (US & Canada)", value: "America/Denver" },
+  { label: "Central Time (US & Canada)", value: "America/Chicago" },
+  { label: "Eastern Time (US & Canada)", value: "America/New_York" },
+  { label: "Atlantic Time (Canada)", value: "America/Halifax" },
+  { label: "London (GMT/BST)", value: "Europe/London" },
+  { label: "Central European Time", value: "Europe/Paris" },
+  { label: "Eastern European Time", value: "Europe/Helsinki" },
+  { label: "Moscow Time", value: "Europe/Moscow" },
+  { label: "Gulf Standard Time", value: "Asia/Dubai" },
+  { label: "India Standard Time", value: "Asia/Kolkata" },
+  { label: "Sri Lanka Time", value: "Asia/Colombo" },
+  { label: "Bangladesh Time", value: "Asia/Dhaka" },
+  { label: "Indochina Time", value: "Asia/Bangkok" },
+  { label: "Singapore/Malaysia Time", value: "Asia/Singapore" },
+  { label: "China Standard Time", value: "Asia/Shanghai" },
+  { label: "Japan/Korea Time", value: "Asia/Tokyo" },
+  { label: "Australian Eastern Time", value: "Australia/Sydney" },
+  { label: "New Zealand Time", value: "Pacific/Auckland" },
+];
+
+interface FormData {
+  name: string;
+  email: string;
+  company: string;
+  employees: string;
+  phone: string;
+  message: string;
+  selectedTimezone: string;
+  meetingDate: string;
+  meetingTime: string;
+}
+
+interface FieldErrors {
+  name: string;
+  email: string;
+  company: string;
+  employees: string;
+  selectedTimezone: string;
+  meetingDate: string;
+  meetingTime: string;
+}
+
+interface Touched {
+  name: boolean;
+  email: boolean;
+  company: boolean;
+  employees: boolean;
+  selectedTimezone: boolean;
+  meetingDate: boolean;
+  meetingTime: boolean;
+}
+
+function getTimezoneOffsetMinutes(timezone: string): number {
+  const now = new Date();
+  const utcStr = now.toLocaleString("en-US", { timeZone: "UTC" });
+  const tzStr = now.toLocaleString("en-US", { timeZone: timezone });
+  return (new Date(tzStr).getTime() - new Date(utcStr).getTime()) / 60000;
+}
+
+function generateTimeSlots(
+  userTz: string
+): Array<{ label: string; value: string }> {
+  const slots = [];
+  const maduOffsetMin = getTimezoneOffsetMinutes(MADU_TIMEZONE);
+  const userOffsetMin = getTimezoneOffsetMinutes(userTz);
+  const diffMin = userOffsetMin - maduOffsetMin;
+  for (let h = 9; h <= 17; h++) {
+    for (const m of [0, 30]) {
+      if (h === 17 && m === 30) continue;
+      const userTotalMin = h * 60 + m + diffMin;
+      if (userTotalMin < 0 || userTotalMin >= 24 * 60) continue;
+      const userH = Math.floor(userTotalMin / 60);
+      const userM = userTotalMin % 60;
+      const hour12User = userH > 12 ? userH - 12 : userH === 0 ? 12 : userH;
+      const ampmUser = userH >= 12 ? "PM" : "AM";
+      const hour12Madu = h > 12 ? h - 12 : h === 0 ? 12 : h;
+      const ampmMadu = h >= 12 ? "PM" : "AM";
+      const userLabel = `${hour12User}:${String(userM).padStart(2, "0")} ${ampmUser}`;
+      const maduLabel = `${hour12Madu}:${m === 0 ? "00" : "30"} ${ampmMadu} SL`;
+      const value = `${String(userH).padStart(2, "0")}:${String(userM).padStart(2, "0")}`;
+      slots.push({ label: `${userLabel} (${maduLabel})`, value });
+    }
+  }
+  return slots;
+}
+
 export default function Contact() {
+  const [todayStr, setTodayStr] = useState("");
+  const [maxDateStr, setMaxDateStr] = useState("");
+
   // ── Form state — preserved exactly ───────────────────────────────────────
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     company: "",
     employees: "",
     phone: "",
     message: "",
+    selectedTimezone: "",
+    meetingDate: "",
+    meetingTime: "",
   });
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
   const [errorMessage, setErrorMessage] = useState("");
-  const [fieldErrors, setFieldErrors] = useState({
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({
     name: "",
     email: "",
     company: "",
     employees: "",
+    selectedTimezone: "",
+    meetingDate: "",
+    meetingTime: "",
   });
-  const [touched, setTouched] = useState({
+  const [touched, setTouched] = useState<Touched>({
     name: false,
     email: false,
     company: false,
     employees: false,
+    selectedTimezone: false,
+    meetingDate: false,
+    meetingTime: false,
   });
+
+  useEffect(() => {
+    const today = new Date();
+    setTodayStr(today.toISOString().split("T")[0]);
+    const max = new Date();
+    max.setDate(max.getDate() + 60);
+    setMaxDateStr(max.toISOString().split("T")[0]);
+    setFormData((prev: FormData) => ({
+      ...prev,
+      selectedTimezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    }));
+  }, []);
 
   // ── Validation — preserved exactly ───────────────────────────────────────
   const validateField = (name: string, value: string) => {
@@ -58,9 +172,45 @@ export default function Contact() {
       case "employees":
         if (!value) return "Please select employee range";
         return "";
+      case "selectedTimezone":
+        if (!value) return "Please select a timezone";
+        return "";
+      case "meetingDate": {
+        if (!value) return "";
+        const sel = new Date(value + "T12:00:00");
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);
+        if (sel < now) return "Please select a future date";
+        return "";
+      }
+      case "meetingTime":
+        if (!value && formData.meetingDate) return "Please select a time";
+        return "";
       default:
         return "";
     }
+  };
+
+  const formatTimeForEmail = (timeStr: string, tz: string): string => {
+    if (!timeStr) return "Not specified";
+    const [h, m] = timeStr.split(":").map(Number);
+    const hour12 = h > 12 ? h - 12 : h === 0 ? 12 : h;
+    const ampm = h >= 12 ? "PM" : "AM";
+    const userTime = `${hour12}:${String(m).padStart(2, "0")} ${ampm}`;
+
+    const maduOffsetMin = getTimezoneOffsetMinutes(MADU_TIMEZONE);
+    const userOffsetMin = getTimezoneOffsetMinutes(tz);
+    const diffMin = maduOffsetMin - userOffsetMin;
+    const userTotalMin = h * 60 + m;
+    const maduTotalMin =
+      ((userTotalMin + diffMin) % (24 * 60) + 24 * 60) % (24 * 60);
+    const maduH = Math.floor(maduTotalMin / 60);
+    const maduM = maduTotalMin % 60;
+    const maduHour12 = maduH > 12 ? maduH - 12 : maduH === 0 ? 12 : maduH;
+    const maduAmpm = maduH >= 12 ? "PM" : "AM";
+    const maduTime = `${maduHour12}:${String(maduM).padStart(2, "0")} ${maduAmpm}`;
+
+    return `${userTime} (${tz}) / ${maduTime} (Sri Lanka Time)`;
   };
 
   // ── Handlers — preserved exactly ─────────────────────────────────────────
@@ -71,7 +221,7 @@ export default function Contact() {
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    if (touched[name as keyof typeof touched]) {
+    if (touched[name as keyof Touched]) {
       const error = validateField(name, value);
       setFieldErrors({ ...fieldErrors, [name]: error });
     }
@@ -105,6 +255,22 @@ export default function Contact() {
           phone: formData.phone || "Not provided",
           message: formData.message || "No message provided",
           reply_to: formData.email,
+          timezone: formData.selectedTimezone || "Not specified",
+          meeting_date: formData.meetingDate
+            ? new Date(formData.meetingDate + "T12:00:00").toLocaleDateString(
+                "en-GB",
+                {
+                  weekday: "long",
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                }
+              )
+            : "Not specified",
+          meeting_time: formatTimeForEmail(
+            formData.meetingTime,
+            formData.selectedTimezone
+          ),
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
@@ -118,6 +284,9 @@ export default function Contact() {
         employees: "",
         phone: "",
         message: "",
+        selectedTimezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        meetingDate: "",
+        meetingTime: "",
       });
       setTimeout(() => setStatus("idle"), 5000);
     } catch (error: any) {
@@ -135,14 +304,20 @@ export default function Contact() {
   };
 
   // ── Shared input class helper ─────────────────────────────────────────────
-  const inputClass = (field: keyof typeof fieldErrors) =>
+  const inputClass = (field: keyof FieldErrors) =>
     `w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-1 transition-all text-slate-900 ${
       fieldErrors[field] && touched[field]
         ? "border-red-400 focus:ring-red-400"
-        : !fieldErrors[field] && touched[field] && formData[field]
+        : !fieldErrors[field] &&
+          touched[field] &&
+          formData[field as keyof FormData]
         ? "border-emerald-400 focus:ring-emerald-400"
         : "border-slate-300 focus:ring-indigo-500 focus:border-indigo-500"
     }`;
+
+  const timeSlots = generateTimeSlots(
+    formData.selectedTimezone || MADU_TIMEZONE
+  );
 
   return (
     <section
@@ -381,6 +556,101 @@ export default function Contact() {
                 </div>
               </div>
 
+              {/* Timezone */}
+              <div>
+                <label
+                  htmlFor="selectedTimezone"
+                  className="block text-sm font-medium text-slate-700 mb-1.5"
+                >
+                  Your Timezone
+                </label>
+                <select
+                  id="selectedTimezone"
+                  name="selectedTimezone"
+                  value={formData.selectedTimezone}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={inputClass("selectedTimezone")}
+                  disabled={status === "submitting"}
+                >
+                  <option value="">Select timezone</option>
+                  {TIMEZONES.map((tz) => (
+                    <option key={tz.value} value={tz.value}>
+                      {tz.label}
+                    </option>
+                  ))}
+                </select>
+                {fieldErrors.selectedTimezone && touched.selectedTimezone && (
+                  <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
+                    <FiAlertCircle className="w-3 h-3" />
+                    {fieldErrors.selectedTimezone}
+                  </p>
+                )}
+              </div>
+
+              {/* Preferred Date + Time */}
+              <div className="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label
+                    htmlFor="meetingDate"
+                    className="block text-sm font-medium text-slate-700 mb-1.5"
+                  >
+                    Preferred Date{" "}
+                    <span className="text-slate-400 font-normal">(optional)</span>
+                  </label>
+                  <input
+                    type="date"
+                    id="meetingDate"
+                    name="meetingDate"
+                    value={formData.meetingDate}
+                    min={todayStr}
+                    max={maxDateStr}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`${inputClass("meetingDate")} bg-white`}
+                    disabled={status === "submitting"}
+                  />
+                  {fieldErrors.meetingDate && touched.meetingDate && (
+                    <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
+                      <FiAlertCircle className="w-3 h-3" />
+                      {fieldErrors.meetingDate}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="meetingTime"
+                    className="block text-sm font-medium text-slate-700 mb-1.5"
+                  >
+                    Preferred Time{" "}
+                    <span className="text-slate-400 font-normal">(optional)</span>
+                  </label>
+                  <select
+                    id="meetingTime"
+                    name="meetingTime"
+                    value={formData.meetingTime}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`${inputClass("meetingTime")} appearance-none bg-white`}
+                    disabled={status === "submitting"}
+                  >
+                    <option value="">Select a time</option>
+                    {timeSlots.map((slot) => (
+                      <option key={slot.value} value={slot.value}>
+                        {slot.label}
+                      </option>
+                    ))}
+                  </select>
+                  {fieldErrors.meetingTime && touched.meetingTime && (
+                    <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
+                      <FiAlertCircle className="w-3 h-3" />
+                      {fieldErrors.meetingTime}
+                    </p>
+                  )}
+                </div>
+              </div>
+
               {/* Message */}
               <div>
                 <label
@@ -555,7 +825,7 @@ export default function Contact() {
                   <li key={bold} className="flex items-start gap-3">
                     <FiCheckCircle className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
                     <span className="text-slate-700 text-sm">
-                      {bold}: 
+                      {bold}:
                       {rest}
                     </span>
                   </li>
