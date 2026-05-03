@@ -19,8 +19,17 @@ function categoryPill(category: string) {
   }
 }
 
+// High-traffic posts to feature on homepage (by SEO priority)
+const FEATURED_SLUGS = [
+  "best-eu-directive-compliant-whistleblowing-software",
+  "best-whistleblowing-software",
+  "whistleblowing-software-pricing-comparison",
+];
+
 export default function BlogTeaseStrip() {
-  const featuredBlogs = blogPosts.slice(0, 3);
+  const featuredBlogs = FEATURED_SLUGS.map((slug) =>
+    blogPosts.find((p) => p.slug === slug)
+  ).filter(Boolean);
 
   return (
     <section className="bg-slate-50 py-20 px-6">
@@ -46,33 +55,40 @@ export default function BlogTeaseStrip() {
               href={`/blogs/${blog.slug}`}
               className="group flex flex-col bg-white rounded-2xl border border-slate-200 hover:border-indigo-200 hover:shadow-md transition-all duration-300 overflow-hidden"
             >
-              {/* Card body */}
-              <div className="flex flex-col flex-1 p-6 md:p-7">
-                {/* Category + read time */}
-                <div className="flex items-center justify-between mb-4">
+              {/* Thumbnail Image */}
+              <div className="relative h-44 sm:h-48 overflow-hidden bg-slate-100">
+                <img
+                  src={`/blogs_images/${blog.slug}.png`}
+                  alt={blog.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "/og-image.png";
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
                   <span
-                    className={`px-3 py-1 text-xs font-semibold rounded-full ${categoryPill(blog.category)}`}
+                    className={`px-2.5 py-1 text-xs font-semibold rounded-full backdrop-blur-sm bg-white/80 border border-white/50 text-slate-800`}
                   >
                     {blog.category}
                   </span>
-                  <div className="flex items-center gap-1.5 text-slate-400 text-xs">
-                    <FiClock className="w-3 h-3" />
-                    <span>{blog.readTime}</span>
-                  </div>
                 </div>
+              </div>
 
+              {/* Card body */}
+              <div className="flex flex-col flex-1 p-5 md:p-6">
                 {/* Title */}
-                <h3 className="text-base md:text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors leading-snug line-clamp-2 mb-3 flex-1">
+                <h3 className="text-base md:text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors leading-snug line-clamp-2 mb-2 flex-1">
                   {blog.title}
                 </h3>
 
                 {/* Excerpt */}
-                <p className="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-5">
+                <p className="text-slate-500 text-sm leading-relaxed line-clamp-2 mb-4">
                   {blog.excerpt}
                 </p>
 
                 {/* Footer row */}
-                <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                <div className="flex items-center justify-between pt-3 border-t border-slate-100">
                   <div className="flex items-center gap-2">
                     <div className="w-7 h-7 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 text-xs font-bold">
                       {blog.author.name.charAt(0)}
@@ -94,7 +110,7 @@ export default function BlogTeaseStrip() {
                     </div>
                   </div>
                   <span className="text-indigo-600 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Read article
+                    Read
                     <FiArrowRight className="w-4 h-4" />
                   </span>
                 </div>

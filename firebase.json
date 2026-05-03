@@ -93,12 +93,30 @@
           ]
         }
       ],
-      "rewrites": [
+      "redirects": [
         {
-          "source": "**",
-          "destination": "/index.html"
+          "source": "https://www.voxwel.com/**",
+          "destination": "https://voxwel.com/:splat",
+          "type": 301
+        },
+        {
+          "source": "/blogs/best-whistleblowing-software-2025",
+          "destination": "/blogs/best-whistleblowing-software",
+          "type": 301
+        },
+        {
+          "source": "/blogs/employment-law-cases-2025",
+          "destination": "/blogs/employment-law-cases",
+          "type": 301
+        },
+        {
+          "source": "/blogs/workplace-harassment-statistics-2025",
+          "destination": "/blogs/workplace-harassment-statistics",
+          "type": 301
         }
-      ]
+      ],
+      "rewrites": []
+
     }
   ]
 }

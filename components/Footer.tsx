@@ -6,18 +6,18 @@ import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const productLinks = [
-  { name: "Features",     href: "#features" },
-  { name: "How It Works", href: "#how-it-works" },
-  { name: "Security",     href: "#security" },
-  { name: "Pricing",      href: "#pricing" },
-  { name: "Book a Demo",  href: "#contact" },
+  { name: "Features",     href: "/#features" },
+  { name: "How It Works", href: "/#how-it-works" },
+  { name: "Security",     href: "/#security" },
+  { name: "Pricing",      href: "/#pricing" },
+  { name: "Book a Demo",  href: "/demo" },
 ];
 
 const companyLinks = [
   { name: "About Us",        href: "/about" },
   { name: "Lumora Ventures", href: "/lumora" },
   { name: "Blog",            href: "/blogs" },
-  { name: "Contact",         href: "#contact" },
+  { name: "Contact",         href: "/demo" },
 ];
 
 const legalLinks = [
