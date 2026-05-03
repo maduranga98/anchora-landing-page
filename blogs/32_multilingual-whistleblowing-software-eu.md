@@ -1,7 +1,7 @@
 ---
 slug: "multilingual-whistleblowing-software-eu"
 title: "Multilingual Whistleblowing Software: Choosing a Platform for Multi-Country EU Operations"
-metaTitle: "Multilingual Whistleblowing Software for EU: Language Support Comparison 2026"
+metaTitle: "Multilingual Whistleblowing Software: 7 Platforms Compared | 2026"
 metaDescription: "Operating across EU countries? Compare multilingual whistleblowing platforms on language count, translation quality, GDPR hosting, and EU Directive compliance."
 excerpt: "The EU Whistleblowing Directive requires reporting channels accessible to all employees. For organizations operating across multiple EU member states, that means multilingual support isn't optional — it's a compliance requirement. This guide compares how platforms handle language."
 category: "Buyer's Guide"

@@ -63,6 +63,7 @@ export default function BlogsPage() {
       url: `https://voxwel.com/blogs/${post.slug}`,
       keywords: post.tags.join(", "),
       articleSection: post.category,
+      image: `https://voxwel.com/blogs_images/${post.slug}.png`,
     })),
   };
 
@@ -148,26 +149,37 @@ export default function BlogsPage() {
                         transitionDelay: `${Math.min(index * 60, 480)}ms`,
                       }}
                     >
-                      {/* Category Badge & Icon */}
-                      <div className="p-5 sm:p-6 border-b border-slate-700/50">
-                        <div className="flex items-center justify-between mb-3">
+                      {/* Thumbnail Image */}
+                      <div className="relative h-36 sm:h-40 overflow-hidden bg-slate-700">
+                        <img
+                          src={`/blogs_images/${post.slug}.png`}
+                          alt={post.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = "/og-image.png";
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+                        <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
                           <span
-                            className={`px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full ${
+                            className={`px-2.5 py-1 text-xs font-bold uppercase tracking-wider rounded-full backdrop-blur-sm ${
                               post.category === "Compliance"
-                                ? "bg-blue-500/20 text-blue-400 border border-blue-500/30"
+                                ? "bg-blue-500/30 text-blue-300 border border-blue-400/40"
                                 : post.category === "Best Practices"
-                                ? "bg-purple-500/20 text-purple-400 border border-purple-500/30"
+                                ? "bg-purple-500/30 text-purple-300 border border-purple-400/40"
                                 : post.category === "Case Study"
-                                ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+                                ? "bg-emerald-500/30 text-emerald-300 border border-emerald-400/40"
                                 : post.category === "Industry Insights"
-                                ? "bg-orange-500/20 text-orange-400 border border-orange-500/30"
-                                : "bg-red-500/20 text-red-400 border border-red-500/30"
+                                ? "bg-orange-500/30 text-orange-300 border border-orange-400/40"
+                                : "bg-red-500/30 text-red-300 border border-red-400/40"
                             }`}
                           >
                             {post.category}
                           </span>
-                          <div className="w-9 h-9 sm:w-10 sm:h-10 bg-teal-500/10 rounded-lg flex items-center justify-center text-teal-400 group-hover:bg-teal-500/20 transition-colors">
-                            <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
+                        </div>
+                        <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
+                          <div className="w-8 h-8 sm:w-9 sm:h-9 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center text-white">
+                            <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
                           </div>
                         </div>
                       </div>
@@ -210,7 +222,7 @@ export default function BlogsPage() {
                             </span>
                           </div>
                           <div className="flex items-center gap-1.5 text-teal-400 font-semibold text-sm group-hover:gap-2.5 transition-all">
-                            <span>Read</span>
+                            <span>Read Article</span>
                             <FiArrowRight className="w-4 h-4" />
                           </div>
                         </div>

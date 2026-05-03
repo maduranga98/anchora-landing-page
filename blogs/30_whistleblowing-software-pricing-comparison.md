@@ -1,7 +1,7 @@
 ---
 slug: "whistleblowing-software-pricing-comparison"
 title: "Whistleblowing Software Pricing in 2026: What Companies Actually Pay"
-metaTitle: "Whistleblowing Software Pricing 2026: $1–$15/Employee Cost Breakdown by Vendor"
+metaTitle: "Whistleblowing Software Pricing: 8 Vendors Compared | 2026"
 metaDescription: "Real pricing data across 8 whistleblowing platforms. Costs range from $1 to $15/employee/month. Comparison table at 50, 200, 500, and 1,000 employees. Hidden fees exposed."
 excerpt: "The whistleblowing software market has four pricing models and wildly different price points. This guide compares real costs across 8 platforms at four company sizes — and reveals the hidden fees most vendors don't mention until you've signed."
 category: "Buyer's Guide"

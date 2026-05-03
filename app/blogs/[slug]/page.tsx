@@ -14,6 +14,9 @@ import {
   FiFileText,
   FiBookmark,
   FiShare2,
+  FiHome,
+  FiCheckCircle,
+  FiZap,
 } from "react-icons/fi";
 import {
   getBlogPostBySlug,
@@ -24,6 +27,7 @@ import { blogFAQs } from "@/data/blogFAQs";
 import FAQSchema from "@/components/FAQSchema";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import BlogImage from "@/components/BlogImage";
 import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
@@ -63,6 +67,7 @@ export async function generateMetadata({
 
   const seoTitle = post.metaTitle || post.title;
   const seoDescription = post.metaDescription || post.excerpt;
+  const blogImageUrl = `https://voxwel.com/blogs_images/${slug}.png`;
 
   return {
     title: seoTitle,
@@ -82,7 +87,7 @@ export async function generateMetadata({
       tags: post.tags,
       images: [
         {
-          url: "https://voxwel.com/og-image.png",
+          url: blogImageUrl,
           width: 1200,
           height: 630,
           alt: seoTitle,
@@ -93,6 +98,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: seoTitle,
       description: seoDescription,
+      images: [blogImageUrl],
     },
   };
 }
@@ -120,7 +126,7 @@ export default async function BlogPost({
     description: post.excerpt,
     url: `https://voxwel.com/blogs/${post.slug}`,
     datePublished: new Date(post.date).toISOString(),
-    dateModified: new Date(post.date).toISOString(),
+    dateModified: new Date(post.lastUpdated || post.date).toISOString(),
     author: {
       "@type": "Organization",
       name: "VoxWel Team",
@@ -134,7 +140,7 @@ export default async function BlogPost({
         url: "https://voxwel.com/voxwel1.avif",
       },
     },
-    image: "https://voxwel.com/og-image.png",
+    image: `https://voxwel.com/blogs_images/${slug}.png`,
     keywords: post.tags.join(", "),
     articleSection: post.category,
     mainEntityOfPage: {
@@ -187,6 +193,28 @@ export default async function BlogPost({
 
         <article className="pt-20 sm:pt-24 pb-12 sm:pb-16">
           <div className="section-container max-w-4xl">
+            {/* Breadcrumbs */}
+            <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6">
+              <ol className="flex items-center gap-2 text-sm text-text-tertiary flex-wrap">
+                <li>
+                  <Link href="/" className="hover:text-primary-teal transition-colors inline-flex items-center gap-1">
+                    <FiHome className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">Home</span>
+                  </Link>
+                </li>
+                <li className="text-border-light">/</li>
+                <li>
+                  <Link href="/blogs" className="hover:text-primary-teal transition-colors">
+                    Blog
+                  </Link>
+                </li>
+                <li className="text-border-light">/</li>
+                <li className="text-text-primary font-medium truncate max-w-[200px] sm:max-w-xs" title={post.title}>
+                  {post.title}
+                </li>
+              </ol>
+            </nav>
+
             {/* Back Link */}
             <Link
               href="/blogs"
@@ -239,6 +267,14 @@ export default async function BlogPost({
                   <FiCalendar className="w-4 h-4 sm:w-5 sm:h-5" />
                   <time dateTime={post.date}>{post.date}</time>
                 </div>
+                {post.lastUpdated && (
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    <FiClock className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500" />
+                    <span className="text-emerald-600 font-medium">
+                      Updated {post.lastUpdated}
+                    </span>
+                  </div>
+                )}
                 <div className="flex items-center gap-1.5 sm:gap-2">
                   <FiClock className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>{post.readTime}</span>
@@ -258,6 +294,17 @@ export default async function BlogPost({
               </div>
             </header>
 
+            {/* Hero Image */}
+            <div className="mb-8 sm:mb-10 md:mb-12">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-border-light bg-slate-100 aspect-[2/1] max-h-[360px]">
+                <BlogImage
+                  src={`/blogs_images/${slug}.png`}
+                  alt={post.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
             {/* Article Content Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8 lg:gap-12 mb-12 sm:mb-16">
               {/* Main Content - USING REACTMARKDOWN */}
@@ -270,7 +317,7 @@ export default async function BlogPost({
                     prose-h3:text-lg sm:prose-h3:text-xl md:prose-h3:text-2xl prose-h3:mt-6 md:prose-h3:mt-12 prose-h3:mb-3 md:prose-h3:mb-5 prose-h3:text-primary-navy prose-h3:font-bold prose-h3:leading-snug
                     prose-h4:text-base sm:prose-h4:text-lg md:prose-h4:text-xl prose-h4:mt-5 md:prose-h4:mt-8 prose-h4:mb-3 md:prose-h4:mb-4 prose-h4:text-text-primary prose-h4:font-bold
                     prose-p:text-text-secondary prose-p:leading-[1.8] prose-p:mb-4 md:prose-p:mb-6 prose-p:font-normal
-                    prose-a:text-primary-teal prose-a:no-underline prose-a:font-semibold prose-a:border-b-2 prose-a:border-primary-teal/30 hover:prose-a:border-primary-teal hover:prose-a:bg-primary-teal/5 prose-a:transition-all prose-a:duration-200 prose-a:px-1
+                    prose-a:text-primary-teal prose-a:no-underline prose-a:font-semibold prose-a:border-b-2 prose-a:border-primary-teal/50 hover:prose-a:border-primary-teal hover:prose-a:bg-primary-teal/5 prose-a:transition-all prose-a:duration-200 prose-a:px-1
                     prose-strong:text-text-primary prose-strong:font-bold
                     prose-em:text-text-primary prose-em:italic prose-em:font-medium
                     prose-ul:my-5 md:prose-ul:my-8 prose-ul:space-y-2 md:prose-ul:space-y-4 prose-ul:pl-5 md:prose-ul:pl-6
@@ -278,7 +325,7 @@ export default async function BlogPost({
                     prose-li:text-text-secondary prose-li:leading-[1.7] prose-li:pl-2 md:prose-li:pl-3 prose-li:mb-2 md:prose-li:mb-3
                     prose-li::marker:text-primary-teal prose-li::marker:font-bold
                     prose-blockquote:border-l-4 prose-blockquote:border-primary-teal prose-blockquote:bg-linear-to-r prose-blockquote:from-primary-teal/10 prose-blockquote:to-primary-teal/5 prose-blockquote:pl-4 md:prose-blockquote:pl-8 prose-blockquote:pr-4 md:prose-blockquote:pr-6 prose-blockquote:py-4 md:prose-blockquote:py-8 prose-blockquote:my-6 md:prose-blockquote:my-10 prose-blockquote:italic prose-blockquote:text-text-primary prose-blockquote:rounded-r-xl prose-blockquote:shadow-lg prose-blockquote:font-medium
-                    prose-code:text-primary-teal prose-code:bg-primary-teal/5 prose-code:border prose-code:border-primary-teal/20 prose-code:px-1.5 md:prose-code:px-2 prose-code:py-0.5 md:prose-code:py-1 prose-code:rounded-md prose-code:font-mono prose-code:font-semibold prose-code:before:content-[''] prose-code:after:content-['']
+                    prose-code:text-text-primary prose-code:bg-primary-teal/5 prose-code:border prose-code:border-primary-teal/20 prose-code:px-1.5 md:prose-code:px-2 prose-code:py-0.5 md:prose-code:py-1 prose-code:rounded-md prose-code:font-mono prose-code:font-semibold prose-code:before:content-[''] prose-code:after:content-['']
                     prose-pre:bg-linear-to-br prose-pre:from-gray-900 prose-pre:to-gray-800 prose-pre:text-gray-100 prose-pre:p-4 md:prose-pre:p-8 prose-pre:rounded-xl md:prose-pre:rounded-2xl prose-pre:shadow-2xl prose-pre:my-6 md:prose-pre:my-10 prose-pre:overflow-x-auto prose-pre:border prose-pre:border-gray-700
                     prose-hr:border-border-light prose-hr:my-8 md:prose-hr:my-16 prose-hr:border-2
                     prose-table:w-full prose-table:border-collapse prose-table:my-5 md:prose-table:my-8
@@ -292,28 +339,71 @@ export default async function BlogPost({
                 </div>
               </div>
 
-              {/* Table of Contents - Sticky Sidebar */}
-              <TableOfContents headings={extractHeadings(post.content)} />
-            </div>
+              {/* Sticky Sidebar */}
+              <div className="hidden lg:block">
+                <div className="sticky top-32 space-y-6">
+                  <TableOfContents headings={extractHeadings(post.content)} />
 
-            {/* Share Section */}
-            {/* <div className="border-t-2 border-b-2 border-border-light py-8 mb-16">
-              <div className="flex items-center justify-between">
-                <p className="text-text-primary font-bold text-lg">
-                  Found this helpful? Share it with your network.
-                </p>
-                <div className="flex gap-4">
-                  <button className="px-6 py-3 bg-primary-teal text-white rounded-lg hover:bg-primary-teal/90 transition-colors font-semibold flex items-center gap-2">
-                    <FiShare2 className="w-4 h-4" />
-                    Share
-                  </button>
-                  <button className="px-6 py-3 bg-background-light text-text-primary rounded-lg hover:bg-border-light transition-colors font-semibold flex items-center gap-2 border-2 border-border-light">
-                    <FiBookmark className="w-4 h-4" />
-                    Save
-                  </button>
+                  {/* Sidebar CTA */}
+                  <div className="bg-linear-to-br from-indigo-50 to-white border-2 border-indigo-100 rounded-2xl p-6 shadow-lg">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white">
+                        <FiZap className="w-4 h-4" />
+                      </div>
+                      <h3 className="text-sm font-bold text-indigo-900 uppercase tracking-wide">
+                        Try VoxWel Free
+                      </h3>
+                    </div>
+                    <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+                      Set up your anonymous reporting channel in 24 hours. No credit card required.
+                    </p>
+                    <ul className="space-y-2 mb-5">
+                      {["AES-256 encrypted", "EU Directive compliant", "$1/employee/month"].map((item) => (
+                        <li key={item} className="flex items-center gap-2 text-xs text-slate-600">
+                          <FiCheckCircle className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href="/demo"
+                      className="block w-full text-center bg-indigo-600 text-white text-sm font-semibold px-4 py-3 rounded-xl hover:bg-indigo-700 transition-colors shadow-md"
+                    >
+                      Book a Free Demo →
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div> */}
+            </div>
+
+            {/* Post-Article CTA */}
+            <div className="bg-linear-to-r from-primary-teal/5 to-indigo-50 border-2 border-primary-teal/10 rounded-2xl p-6 sm:p-8 md:p-10 mb-10 sm:mb-14">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold text-text-primary mb-2">
+                    Ready to protect your workplace?
+                  </h3>
+                  <p className="text-sm sm:text-base text-text-secondary max-w-lg">
+                    Join 500+ companies using VoxWel for anonymous reporting. Setup takes 24 hours. No IT project required.
+                  </p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                  <Link
+                    href="/demo"
+                    className="inline-flex items-center justify-center gap-2 bg-indigo-600 text-white text-sm font-semibold px-6 py-3 rounded-xl hover:bg-indigo-700 transition-colors shadow-md"
+                  >
+                    Book a Free Demo
+                    <FiArrowRight className="w-4 h-4" />
+                  </Link>
+                  <Link
+                    href="/"
+                    className="inline-flex items-center justify-center gap-2 bg-white text-indigo-600 text-sm font-semibold px-6 py-3 rounded-xl border-2 border-indigo-200 hover:bg-indigo-50 transition-colors"
+                  >
+                    See Pricing
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Related Posts */}
@@ -334,15 +424,16 @@ export default async function BlogPost({
                         href={`/blogs/${relatedPost.slug}`}
                       >
                         <article className="bg-white border-2 border-border-light rounded-2xl overflow-hidden hover:shadow-2xl hover:border-primary-teal transition-all duration-300 h-full group">
-                          {/* Category Header */}
-                          <div
-                            className={`bg-linear-to-r ${relatedPost.color} p-4`}
-                          >
-                            <div className="flex items-center gap-2">
-                              <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center text-white">
-                                <RelatedIconComponent className="w-4 h-4" />
-                              </div>
-                              <span className="text-xs font-bold text-white uppercase tracking-wide">
+                          {/* Thumbnail Image */}
+                          <div className="relative h-36 sm:h-40 overflow-hidden bg-slate-100">
+                            <BlogImage
+                              src={`/blogs_images/${relatedPost.slug}.png`}
+                              alt={relatedPost.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                            <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
+                              <span className="text-xs font-bold text-white uppercase tracking-wide bg-black/30 backdrop-blur-sm px-2 py-1 rounded-md">
                                 {relatedPost.category}
                               </span>
                             </div>
