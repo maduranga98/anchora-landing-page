@@ -2,6 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 export default function Hero() {
   const trustItems = [
@@ -16,19 +29,30 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-6 pt-20 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
           {/* LEFT — Text (3 cols) */}
-          <div className="lg:col-span-3">
+          <motion.div
+            className="lg:col-span-3"
+            variants={container}
+            initial="hidden"
+            animate="show"
+          >
             {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 border border-indigo-100">
+            <motion.div
+              variants={fadeUp}
+              className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 border border-indigo-100"
+            >
               <span className="w-1.5 h-1.5 bg-indigo-600 rounded-full pulse-ring"></span>
               Anonymous Employee Reporting Platform
-            </div>
+            </motion.div>
 
             {/* H1 */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1] tracking-tight mb-6">
+            <motion.h1
+              variants={fadeUp}
+              className="text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl xl:text-6xl font-extrabold text-slate-900 leading-[1.1] tracking-tight mb-6"
+            >
               Give every employee a{" "}
               <span className="text-indigo-600">safe voice</span> before
               problems become lawsuits.
-            </h1>
+            </motion.h1>
             <p className="sr-only">
               VoxWel anonymous employee reporting software — GDPR compliant
               whistleblower platform for HR Directors and Compliance Officers.
@@ -36,14 +60,17 @@ export default function Hero() {
             </p>
 
             {/* Sub-headline */}
-            <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">
+            <motion.p
+              variants={fadeUp}
+              className="text-base md:text-lg text-slate-600 leading-relaxed mb-8 max-w-xl"
+            >
               VoxWel gives employees a confidential, encrypted channel to report
               harassment, fraud, and safety violations so you can act before it
               escalates into a crisis, a lawsuit, or a headline.
-            </p>
+            </motion.p>
 
             {/* CTA buttons */}
-            <div className="flex flex-wrap gap-4 mb-8">
+            <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mb-8">
               <Link
                 href="/demo"
                 className="bg-indigo-600 text-white font-semibold px-8 py-4 rounded-xl hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 text-base"
@@ -56,13 +83,16 @@ export default function Hero() {
               >
                 Start 14-Day Free Trial
               </Link>
-            </div>
+            </motion.div>
 
             {/* Trust micro-copy */}
-            <div className="flex flex-wrap gap-x-6 gap-y-2">
-              {trustItems.map((item) => (
+            <motion.div
+              variants={fadeUp}
+              className="flex flex-wrap gap-x-6 gap-y-2"
+            >
+              {trustItems.map((trustItem) => (
                 <span
-                  key={item}
+                  key={trustItem}
                   className="text-sm text-slate-500 flex items-center gap-1.5"
                 >
                   <svg
@@ -76,14 +106,19 @@ export default function Hero() {
                       clipRule="evenodd"
                     />
                   </svg>
-                  {item}
+                  {trustItem}
                 </span>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* RIGHT — Product screenshot (2 cols) */}
-          <div className="lg:col-span-2 float">
+          <motion.div
+            className="lg:col-span-2 animate-float"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
+          >
             {/* Browser chrome mockup */}
             <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-white">
               {/* Chrome bar */}
@@ -112,7 +147,7 @@ export default function Hero() {
             <p className="text-center text-xs text-slate-400 mt-3">
               Anonymous Reports Dashboard — visible only to HR admins
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
