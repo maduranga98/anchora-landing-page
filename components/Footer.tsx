@@ -133,13 +133,16 @@ export default function Footer() {
               href="https://saasbrowser.com/en/saas/1458861/voxwel"
               target="_blank"
               rel="noopener"
-              className="mt-5 inline-flex"
+              className="mt-5 inline-block max-w-full"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://static-files.saasbrowser.com/saas-browser-badge-15.svg"
                 alt="VoxWel - SaaS discovery platform"
-                width="200"
+                width={200}
+                height={54}
+                loading="lazy"
+                className="block w-[200px] max-w-full h-auto"
               />
             </a>
           </div>
